@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="Platformer Game"
+run/main_scene="res://test_level.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=255
+window/size/viewport_height=224
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+
 [rendering]
 
-renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0
