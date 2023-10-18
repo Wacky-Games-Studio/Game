@@ -10,6 +10,7 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	print("walk")
 	parent.velocity.y += gravity * delta
 	var dir = Input.get_axis("walk_left", "walk_right")
 	if dir != 0:

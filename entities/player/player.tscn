@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=9 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://c1gkst2tff7if" path="res://entities/player/duck.png" id="2_j3uki"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://entities/player/states/idle.gd" id="4_4ywsu"]
 [ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
 [ext_resource type="Script" path="res://entities/player/states/jump.gd" id="6_kcifk"]
+[ext_resource type="Script" path="res://entities/player/states/fall.gd" id="7_3thvh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8ixo"]
 radius = 11.0
@@ -24,15 +25,22 @@ texture = ExtResource("2_j3uki")
 script = ExtResource("3_5fxeu")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state", "jump_state")]
 script = ExtResource("4_4ywsu")
 walk_state = NodePath("../Walk")
+jump_state = NodePath("../Jump")
 
 [node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("5_m3545")
 idle_state = NodePath("../Idle")
 
-[node name="Jump" type="Node" parent="StateMachine"]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state")]
 script = ExtResource("6_kcifk")
+move_state = NodePath("../Walk")
+idle_state = NodePath("../Idle")
+fall_state = NodePath("../Fall")
 
-[node name="Fall" type="Node" parent="StateMachine"]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state")]
+script = ExtResource("7_3thvh")
+move_state = NodePath("../Walk")
+idle_state = NodePath("../Idle")
