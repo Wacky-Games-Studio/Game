@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bupuxll4x4kal"]
+
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
+[ext_resource type="Texture2D" uid="uid://c1gkst2tff7if" path="res://entities/player/duck.png" id="2_j3uki"]
+[ext_resource type="Script" path="res://entities/player/state_machine.gd" id="3_5fxeu"]
+[ext_resource type="Script" path="res://entities/player/states/idle.gd" id="4_4ywsu"]
+[ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
+[ext_resource type="Script" path="res://entities/player/states/jump.gd" id="6_kcifk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8ixo"]
+radius = 11.0
+height = 22.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_c6iwh")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_q8ixo")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_j3uki")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_5fxeu")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state")]
+script = ExtResource("4_4ywsu")
+walk_state = NodePath("../Walk")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("5_m3545")
+idle_state = NodePath("../Idle")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("6_kcifk")
+
+[node name="Fall" type="Node" parent="StateMachine"]
