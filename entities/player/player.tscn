@@ -41,7 +41,8 @@ move_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state")]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "jump_state")]
 script = ExtResource("7_3thvh")
 move_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
+jump_state = NodePath("../Jump")

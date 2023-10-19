@@ -5,10 +5,16 @@ extends State
 @export var fall_state: State
 
 func enter():
-	parent.velocity.y = jump_speed
+	if parent.is_on_floor():
+		parent.velocity.y = jump_speed
+	elif parent.is_on_wall_only():
+		parent.velocity = Vector2(parent.get_wall_normal().x * wall_jump_pushback, jump_speed)
 
 func process_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
+	
+	if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"):
+		parent.velocity = Vector2(parent.get_wall_normal().x * wall_jump_pushback, jump_speed)
 	
 	if parent.velocity.y >  0:
 		return fall_state
