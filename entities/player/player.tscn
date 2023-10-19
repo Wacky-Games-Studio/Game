@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://entities/player/states/fall.gd" id="7_3thvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uay7"]
-size = Vector2(18, 20)
+size = Vector2(18, 21)
 
 [sub_resource type="Animation" id="Animation_yauny"]
 length = 0.001
@@ -85,8 +85,12 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c6iwh")
+jump_height = 75.0
+jump_time_to_peak = 0.4
+jump_time_to_descent = 0.3
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_5uay7")
 
 [node name="Sprite" type="Sprite2D" parent="."]

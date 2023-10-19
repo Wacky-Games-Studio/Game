@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export_subgroup("Misc")
 @export var speed := 200
 @export_range(0.0, 1.0) var friction := 0.3
+@export_range(0.0, 1.0) var air_friction := 0.1
 @export_range(0.0 , 1.0) var acceleration := 0.4
 @export_subgroup("Jump")
 @export var jump_height: float = 100
@@ -39,7 +40,6 @@ func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
 func get_gravity() -> float:
-	if not Input.is_action_pressed("jump"):
+	if not Input.is_action_pressed("jump") and velocity.y < 0.0:
 		return variable_gravity
-	
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
