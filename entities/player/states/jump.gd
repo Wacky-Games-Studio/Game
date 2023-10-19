@@ -8,7 +8,6 @@ func enter():
 	parent.velocity.y = jump_speed
 
 func process_physics(delta: float) -> State:
-	print("jump")
 	parent.velocity.y += gravity * delta
 	
 	if parent.velocity.y >  0:
@@ -18,6 +17,7 @@ func process_physics(delta: float) -> State:
 	
 	if dir != 0:
 		parent.velocity.x = lerp(parent.velocity.x, dir * speed, acceleration)
+		parent.sprite.flip_h = dir < 0
 	
 	parent.move_and_slide()
 	

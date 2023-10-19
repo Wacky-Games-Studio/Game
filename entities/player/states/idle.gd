@@ -14,9 +14,11 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	print("idle")
 	parent.velocity.y += gravity * delta
 	parent.velocity.x = lerp(parent.velocity.x, 0.0, friction)
+	
+	if parent.velocity.x != 0:
+		parent.sprite.flip_h = parent.velocity.x < 0
 	
 	parent.move_and_slide()
 	

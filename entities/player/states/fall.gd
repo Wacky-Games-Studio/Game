@@ -4,14 +4,13 @@ extends State
 @export var idle_state: State
 
 func process_physics(delta: float) -> State:
-	print("fall")
 	parent.velocity.y += gravity * delta
 	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
 	if dir != 0:
 		parent.velocity.x = lerp(parent.velocity.x, dir * speed, acceleration)
-		#parent.animations.flip_h = dir < 0
+		parent.sprite.flip_h = dir < 0
 	
 	parent.velocity.x =  lerp(parent.velocity.x, dir * speed, acceleration)
 	parent.move_and_slide()

@@ -30,9 +30,10 @@ script = ExtResource("4_4ywsu")
 walk_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state")]
 script = ExtResource("5_m3545")
 idle_state = NodePath("../Idle")
+jump_state = NodePath("../Jump")
 
 [node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state")]
 script = ExtResource("6_kcifk")

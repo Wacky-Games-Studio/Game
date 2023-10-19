@@ -10,11 +10,11 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	print("walk")
 	parent.velocity.y += gravity * delta
 	var dir = Input.get_axis("walk_left", "walk_right")
 	if dir != 0:
 		parent.velocity.x = lerp(parent.velocity.x, dir * speed, acceleration)
+		parent.sprite.flip_h = dir < 0
 	else:
 		return idle_state
 	
@@ -22,5 +22,3 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	return null
-	#if Input.is_action_just_pressed("jump") and is_on_floor():
-	#	velocity.y = jump_speed
