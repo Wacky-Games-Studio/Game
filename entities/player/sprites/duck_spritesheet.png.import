@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1gkst2tff7if"
-path="res://.godot/imported/duck.png-eddec8ff5835e36b9a49406fe94f0755.ctex"
+uid="uid://b2sledxfn5utv"
+path="res://.godot/imported/duck_spritesheet.png-76a12fa2f1ce64ffe4237de873456f47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/duck.png"
-dest_files=["res://.godot/imported/duck.png-eddec8ff5835e36b9a49406fe94f0755.ctex"]
+source_file="res://entities/player/sprites/duck_spritesheet.png"
+dest_files=["res://.godot/imported/duck_spritesheet.png-76a12fa2f1ce64ffe4237de873456f47.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

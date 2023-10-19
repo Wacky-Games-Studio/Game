@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
+@onready var animator: AnimationPlayer = $AnimationPlayer
 
 var jumps_remaining := max_jumps
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=14 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
-[ext_resource type="Texture2D" uid="uid://c1gkst2tff7if" path="res://entities/player/duck.png" id="2_j3uki"]
+[ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
 [ext_resource type="Script" path="res://entities/player/state_machine.gd" id="3_5fxeu"]
 [ext_resource type="Script" path="res://entities/player/states/idle.gd" id="4_4ywsu"]
 [ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
@@ -12,6 +12,78 @@
 radius = 11.0
 height = 22.0
 
+[sub_resource type="Animation" id="Animation_s3e4q"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 4]
+}
+
+[sub_resource type="Animation" id="Animation_p1vw4"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yauny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_nny72"]
+resource_name = "walk"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v581m"]
+_data = {
+"RESET": SubResource("Animation_yauny"),
+"default": SubResource("Animation_p1vw4"),
+"idle": SubResource("Animation_s3e4q"),
+"walk": SubResource("Animation_nny72")
+}
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c6iwh")
 
@@ -19,7 +91,20 @@ script = ExtResource("1_c6iwh")
 shape = SubResource("CapsuleShape2D_q8ixo")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_j3uki")
+texture = ExtResource("2_b23r8")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_v581m")
+}
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.15
+one_shot = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_5fxeu")
@@ -30,12 +115,14 @@ script = ExtResource("4_4ywsu")
 walk_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
+animation_name = "idle"
 
 [node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
 script = ExtResource("5_m3545")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
+animation_name = "walk"
 
 [node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state")]
 script = ExtResource("6_kcifk")
@@ -48,8 +135,3 @@ script = ExtResource("7_3thvh")
 move_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
-
-[node name="CoyoteTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.15
-one_shot = true

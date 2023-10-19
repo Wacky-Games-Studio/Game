@@ -5,6 +5,7 @@ extends State
 @export var fall_state: State
 
 func enter():
+	super()
 	parent.jumps_remaining -= 1
 	
 	if not parent.is_on_wall_only():

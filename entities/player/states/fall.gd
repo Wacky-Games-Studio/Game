@@ -7,6 +7,7 @@ extends State
 @onready var coyote_timer: Timer = %CoyoteTimer
 
 func enter() -> void:
+	super()
 	coyote_timer.start()
 
 func process_input(event: InputEvent) -> State:
