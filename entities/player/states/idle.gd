@@ -15,7 +15,7 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y += parent.gravity * delta
+	parent.velocity.y += parent.get_gravity() * delta
 	parent.velocity.x = lerp(parent.velocity.x, 0.0, parent.friction)
 	
 	if parent.velocity.x != 0:
