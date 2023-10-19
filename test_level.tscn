@@ -21,7 +21,7 @@ polygon = PackedVector2Array(-282, -70, 282, -70, 282, 70, -282, 70)
 shape = SubResource("RectangleShape2D_ukes0")
 
 [node name="wall" type="StaticBody2D" parent="."]
-position = Vector2(38, 380)
+position = Vector2(38, 414)
 rotation = 1.5708
 
 [node name="Polygon2D" type="Polygon2D" parent="wall"]
@@ -32,7 +32,7 @@ polygon = PackedVector2Array(-282, -70, 282, -70, 282, 70, -282, 70)
 shape = SubResource("RectangleShape2D_ukes0")
 
 [node name="wall2" type="StaticBody2D" parent="."]
-position = Vector2(277, 334)
+position = Vector2(277, 324)
 rotation = 1.5708
 
 [node name="Polygon2D" type="Polygon2D" parent="wall2"]
