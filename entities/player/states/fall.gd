@@ -5,7 +5,7 @@ extends State
 @export var jump_state: State
 
 func process_input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("jump") and parent.is_on_wall_only():
+	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_wall_only():
 		return jump_state
 		
 	return null

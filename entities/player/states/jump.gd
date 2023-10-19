@@ -13,7 +13,7 @@ func enter():
 func process_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
 	
-	if parent.is_on_wall_only() and Input.is_action_just_pressed("jump"):
+	if parent.is_on_wall_only() and InputBuffer.is_action_press_buffered("jump"):
 		parent.velocity = Vector2(parent.get_wall_normal().x * wall_jump_pushback, jump_speed)
 	
 	if parent.velocity.y >  0:
