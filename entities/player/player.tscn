@@ -25,15 +25,17 @@ texture = ExtResource("2_j3uki")
 script = ExtResource("3_5fxeu")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state", "jump_state")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state", "jump_state", "fall_state")]
 script = ExtResource("4_4ywsu")
 walk_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
+fall_state = NodePath("../Fall")
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state")]
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
 script = ExtResource("5_m3545")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
+fall_state = NodePath("../Fall")
 
 [node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state")]
 script = ExtResource("6_kcifk")
@@ -46,3 +48,16 @@ script = ExtResource("7_3thvh")
 move_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.15
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+top_level = true
+offset_left = -19.0
+offset_top = -36.0
+offset_right = 138.0
+offset_bottom = 119.0

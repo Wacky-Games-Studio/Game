@@ -5,16 +5,22 @@ extends State
 @export var fall_state: State
 
 func enter():
-	if parent.is_on_floor():
-		parent.velocity.y = jump_speed
-	elif parent.is_on_wall_only():
-		parent.velocity = Vector2(parent.get_wall_normal().x * wall_jump_pushback, jump_speed)
+	#if parent.jumps_remaining == 0:
+	#	parent.jumps_remaining = parent.max_jumps
+	#	return
+	
+	parent.jumps_remaining -= 1
+	
+	if not parent.is_on_wall_only():
+		parent.velocity.y = parent.jump_speed
+	else:
+		parent.velocity = Vector2(parent.get_wall_normal().x * parent.wall_jump_pushback, parent.jump_speed)
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y += gravity * delta
+	parent.velocity.y += parent.gravity * delta
 	
 	if parent.is_on_wall_only() and InputBuffer.is_action_press_buffered("jump"):
-		parent.velocity = Vector2(parent.get_wall_normal().x * wall_jump_pushback, jump_speed)
+		parent.velocity = Vector2(parent.get_wall_normal().x * parent.wall_jump_pushback, parent.jump_speed)
 	
 	if parent.velocity.y >  0:
 		return fall_state
@@ -22,7 +28,7 @@ func process_physics(delta: float) -> State:
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
 	if dir != 0:
-		parent.velocity.x = lerp(parent.velocity.x, dir * speed, acceleration)
+		parent.velocity.x = lerp(parent.velocity.x, dir * parent.speed, parent.acceleration)
 		parent.sprite.flip_h = dir < 0
 	
 	parent.move_and_slide()
