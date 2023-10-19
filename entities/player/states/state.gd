@@ -2,7 +2,6 @@ class_name State
 extends Node
 
 @export var animation_name: String
-@onready var state_machine: StateMachine = $".."
 
 # Hold a reference to the parent so that it can be controlled by the state
 var parent: Player

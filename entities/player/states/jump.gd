@@ -5,10 +5,6 @@ extends State
 @export var fall_state: State
 
 func enter():
-	#if parent.jumps_remaining == 0:
-	#	parent.jumps_remaining = parent.max_jumps
-	#	return
-	
 	parent.jumps_remaining -= 1
 	
 	if not parent.is_on_wall_only():
@@ -39,5 +35,3 @@ func process_physics(delta: float) -> State:
 		return idle_state
 	
 	return null
-	#if Input.is_action_just_pressed("jump") and is_on_floor():
-	#	velocity.y = jump_speed
