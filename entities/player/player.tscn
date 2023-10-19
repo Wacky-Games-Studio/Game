@@ -8,9 +8,8 @@
 [ext_resource type="Script" path="res://entities/player/states/jump.gd" id="6_kcifk"]
 [ext_resource type="Script" path="res://entities/player/states/fall.gd" id="7_3thvh"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8ixo"]
-radius = 11.0
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uay7"]
+size = Vector2(18, 20)
 
 [sub_resource type="Animation" id="Animation_yauny"]
 length = 0.001
@@ -88,7 +87,7 @@ _data = {
 script = ExtResource("1_c6iwh")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_q8ixo")
+shape = SubResource("RectangleShape2D_5uay7")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_b23r8")
