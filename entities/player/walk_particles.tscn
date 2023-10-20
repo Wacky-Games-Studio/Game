@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cisq2juemmo7r"]
+[gd_scene load_steps=3 format=3 uid="uid://cisq2juemmo7r"]
 
 [ext_resource type="Script" path="res://entities/player/walk_particles.gd" id="1_ui3jm"]
 
+[sub_resource type="Curve" id="Curve_laulw"]
+_data = [Vector2(0.010989, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="WalkParticles" type="CPUParticles2D"]
 position = Vector2(0, 9.5)
-amount = 5
+amount = 2
 explosiveness = 1.0
 randomness = 0.4
 lifetime_randomness = 0.2
@@ -19,5 +23,6 @@ angular_velocity_max = 200.0
 linear_accel_min = 9.02
 linear_accel_max = 13.23
 scale_amount_min = 2.0
-scale_amount_max = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_laulw")
 script = ExtResource("1_ui3jm")

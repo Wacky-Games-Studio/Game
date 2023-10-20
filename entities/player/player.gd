@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export_category("Movement")
 @export_subgroup("Misc")
 @export var speed := 200
+@export var dust_acceleration_curve: Curve
 @export_range(0.0, 1.0) var friction := 0.3
 @export_range(0.0, 1.0) var air_friction := 0.1
 @export_range(0.0 , 1.0) var acceleration := 0.4
@@ -52,5 +53,9 @@ func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func spawn_dust():
-	var particle = walk_particles.duplicate().instantiate()
-	$Particles.add_child(particle)
+	var percentage = abs(velocity.x) / speed
+	var curve_sample = dust_acceleration_curve.sample(percentage)
+
+	if randf() < curve_sample:
+		var particle = walk_particles.duplicate().instantiate()
+		$Particles.add_child(particle)
