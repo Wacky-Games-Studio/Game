@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=18 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
 [ext_resource type="Script" path="res://entities/player/state_machine.gd" id="3_5fxeu"]
 [ext_resource type="PackedScene" uid="uid://cisq2juemmo7r" path="res://entities/player/walk_particles.tscn" id="3_lg5ls"]
+[ext_resource type="PackedScene" uid="uid://btenqhawmrqu6" path="res://entities/player/jump_land_particles.tscn" id="3_vqyqi"]
 [ext_resource type="Script" path="res://entities/player/states/idle.gd" id="4_4ywsu"]
 [ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
 [ext_resource type="Script" path="res://entities/player/states/jump.gd" id="6_kcifk"]
@@ -106,7 +107,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"spawn_dust"
+"method": &"spawn_walk_dust"
 }]
 }
 
@@ -125,6 +126,7 @@ dust_acceleration_curve = SubResource("Curve_1327r")
 acceleration = 0.15
 jump_height = 75.0
 walk_particles = ExtResource("3_lg5ls")
+jump_land_particles = ExtResource("3_vqyqi")
 
 [node name="Particles" type="Node2D" parent="."]
 

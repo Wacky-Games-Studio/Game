@@ -19,6 +19,7 @@ extends CharacterBody2D
 
 @export_category("Misc")
 @export var walk_particles: PackedScene
+@export var jump_land_particles: PackedScene
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
@@ -52,10 +53,14 @@ func get_gravity() -> float:
 		return variable_gravity
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
-func spawn_dust():
+func spawn_walk_dust():
 	var percentage = abs(velocity.x) / speed
 	var curve_sample = dust_acceleration_curve.sample(percentage)
 
 	if randf() < curve_sample:
 		var particle = walk_particles.duplicate().instantiate()
 		$Particles.add_child(particle)
+
+func spawn_jump_land_dust():
+	var particle = await jump_land_particles.duplicate().instantiate()
+	$Particles.add_child(particle)
