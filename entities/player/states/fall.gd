@@ -24,7 +24,9 @@ func process_physics(delta: float) -> State:
 	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
-	if parent.is_on_wall_only():
+	if parent.is_on_wall_only() and \
+		(parent.get_wall_normal().x < 0 and Input.is_action_pressed("walk_right")) or \
+		(parent.get_wall_normal().x > 0 and Input.is_action_pressed("walk_left")):
 		parent.velocity.y = min(parent.velocity.y, parent.wall_slide_gravity)
 	
 	if dir != 0:
@@ -37,6 +39,7 @@ func process_physics(delta: float) -> State:
 	
 	if parent.is_on_floor():
 		parent.jumps_remaining = parent.max_jumps
+		parent.spawn_dust()
 		if dir != 0:
 			return move_state
 		return idle_state

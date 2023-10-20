@@ -10,20 +10,15 @@ func enter():
 	
 	if not parent.is_on_wall_only():
 		parent.velocity.y = parent.jump_velocity
-	else:
+	elif (parent.get_wall_normal().x < 0 and Input.is_action_pressed("walk_right")) or \
+		 (parent.get_wall_normal().x > 0 and Input.is_action_pressed("walk_left")):
 		parent.velocity = Vector2(parent.get_wall_normal().x * parent.wall_jump_pushback, parent.jump_velocity)
 
 func process_physics(delta: float) -> State:
 	parent.velocity.y += parent.get_gravity() * delta
 	
-	if parent.is_on_wall_only() and InputBuffer.is_action_press_buffered("jump"):
-		parent.velocity = Vector2(parent.get_wall_normal().x * parent.wall_jump_pushback, parent.jump_velocity)
-	
-	if parent.velocity.y >  0:
+	if parent.velocity.y > 0:
 		return fall_state
-		
-	#if Input.is_action_just_released("jump") and parent.velocity.y < 0:
-	#	parent.velocity.y *= 0.1
 	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	

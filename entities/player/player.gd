@@ -16,6 +16,9 @@ extends CharacterBody2D
 @export var wall_slide_gravity := 100
 @export var max_jumps := 1
 
+@export_category("Misc")
+@export var walk_particles: PackedScene
+
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
 @onready var animator: AnimationPlayer = $AnimationPlayer
@@ -26,6 +29,7 @@ extends CharacterBody2D
 @onready var variable_gravity := (jump_velocity * jump_velocity) / (2 * jump_variable_height)
 
 var jumps_remaining := max_jumps
+var _prev_flip_h := false
 
 func _ready() -> void:
 	state_machine.init(self)
@@ -34,7 +38,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 
 func _physics_process(delta: float) -> void:
+	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
+	
+	#$Particles/WalkParticles.gravity.x *= -1 if _prev_flip_h != sprite.flip_h else 1
 
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
@@ -43,3 +50,7 @@ func get_gravity() -> float:
 	if not Input.is_action_pressed("jump") and velocity.y < 0.0:
 		return variable_gravity
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
+
+func spawn_dust():
+	var particle = walk_particles.duplicate().instantiate()
+	$Particles.add_child(particle)
