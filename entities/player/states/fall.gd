@@ -39,7 +39,7 @@ func process_physics(delta: float) -> State:
 	
 	if parent.is_on_floor():
 		parent.jumps_remaining = parent.max_jumps
-		parent.spawn_jump_land_dust()
+		parent.spawn_land_dust()
 		if dir != 0:
 			return move_state
 		return idle_state

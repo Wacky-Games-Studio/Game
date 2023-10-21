@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=19 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
+[ext_resource type="PackedScene" uid="uid://cisq2juemmo7r" path="res://entities/player/particles/walk_particles.tscn" id="2_xjtd8"]
 [ext_resource type="Script" path="res://entities/player/state_machine.gd" id="3_5fxeu"]
-[ext_resource type="PackedScene" uid="uid://cisq2juemmo7r" path="res://entities/player/walk_particles.tscn" id="3_lg5ls"]
-[ext_resource type="PackedScene" uid="uid://btenqhawmrqu6" path="res://entities/player/jump_land_particles.tscn" id="3_vqyqi"]
+[ext_resource type="PackedScene" uid="uid://btenqhawmrqu6" path="res://entities/player/particles/jump_land_particles.tscn" id="3_46wfw"]
 [ext_resource type="Script" path="res://entities/player/states/idle.gd" id="4_4ywsu"]
 [ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
 [ext_resource type="Script" path="res://entities/player/states/jump.gd" id="6_kcifk"]
 [ext_resource type="Script" path="res://entities/player/states/fall.gd" id="7_3thvh"]
+[ext_resource type="Script" path="res://entities/player/camera.gd" id="10_o48ox"]
 
 [sub_resource type="Curve" id="Curve_1327r"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.989011, 1), 0.0, 0.0, 0, 0]
@@ -125,8 +126,8 @@ script = ExtResource("1_c6iwh")
 dust_acceleration_curve = SubResource("Curve_1327r")
 acceleration = 0.15
 jump_height = 75.0
-walk_particles = ExtResource("3_lg5ls")
-jump_land_particles = ExtResource("3_vqyqi")
+walk_particles = ExtResource("2_xjtd8")
+jump_land_particels = ExtResource("3_46wfw")
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -178,3 +179,13 @@ script = ExtResource("7_3thvh")
 move_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
+
+[node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.19209e-07, 0)
+rect = Rect2(-7.5, -7.5, 15, 15)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
+script = ExtResource("10_o48ox")
+
+[connection signal="screen_exited" from="OnScreenNotifier" to="Camera2D" method="_on_screen_notifier_screen_exited"]

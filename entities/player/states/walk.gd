@@ -6,7 +6,7 @@ extends State
 
 func process_input(event: InputEvent) -> State:
 	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor():
-		parent.spawn_jump_land_dust()
+		parent.spawn_jump_dust()
 		return jump_state
 		
 	return null

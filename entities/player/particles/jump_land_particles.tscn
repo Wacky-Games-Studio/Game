@@ -1,25 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cisq2juemmo7r"]
+[gd_scene load_steps=3 format=3 uid="uid://btenqhawmrqu6"]
 
-[ext_resource type="Script" path="res://entities/player/walk_particles.gd" id="1_ui3jm"]
+[ext_resource type="Script" path="res://entities/player/particles/jump_land_particles.gd" id="1_8f2k3"]
 
 [sub_resource type="Curve" id="Curve_laulw"]
 _data = [Vector2(0.010989, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="WalkParticles" type="CPUParticles2D"]
-position = Vector2(0, 9.5)
+[node name="JumpLandParticles" type="CPUParticles2D"]
+position = Vector2(0, 10)
 emitting = false
-amount = 2
 one_shot = true
 explosiveness = 1.0
 randomness = 0.4
 lifetime_randomness = 0.2
 fixed_fps = 30
 draw_order = 1
-emission_shape = 1
-emission_sphere_radius = 3.0
-direction = Vector2(1, 1)
+emission_shape = 3
+emission_rect_extents = Vector2(6, 1)
+direction = Vector2(0, -1)
 gravity = Vector2(0, -5)
+initial_velocity_max = 50.0
 angular_velocity_min = 100.0
 angular_velocity_max = 200.0
 linear_accel_min = 9.02
@@ -28,4 +28,4 @@ scale_amount_min = 2.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_laulw")
 color = Color(0.92549, 0.870588, 0.690196, 1)
-script = ExtResource("1_ui3jm")
+script = ExtResource("1_8f2k3")

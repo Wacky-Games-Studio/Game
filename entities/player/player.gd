@@ -19,11 +19,12 @@ extends CharacterBody2D
 
 @export_category("Misc")
 @export var walk_particles: PackedScene
-@export var jump_land_particles: PackedScene
+@export var jump_land_particels: PackedScene
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
 @onready var animator: AnimationPlayer = $AnimationPlayer
+@onready var particle_holder: Node2D = $Particles
 
 @onready var jump_velocity := ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity := ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -32,9 +33,13 @@ extends CharacterBody2D
 
 var jumps_remaining := max_jumps
 var _prev_flip_h := false
+var current_jump_paricles: CPUParticles2D
+var current_land_paricles: CPUParticles2D
 
 func _ready() -> void:
 	state_machine.init(self)
+	current_jump_paricles = instantiate_new_jump_land_particle()
+	current_land_paricles = instantiate_new_jump_land_particle()
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -61,6 +66,16 @@ func spawn_walk_dust():
 		var particle = walk_particles.duplicate().instantiate()
 		$Particles.add_child(particle)
 
-func spawn_jump_land_dust():
-	var particle = await jump_land_particles.duplicate().instantiate()
-	$Particles.add_child(particle)
+func instantiate_new_jump_land_particle() -> CPUParticles2D:
+	var particle = jump_land_particels.duplicate().instantiate()
+	particle_holder.add_child(particle)
+	
+	return particle
+
+func spawn_jump_dust():
+	current_jump_paricles.emitting = true
+	current_jump_paricles = instantiate_new_jump_land_particle()
+	
+func spawn_land_dust():
+	current_land_paricles.emitting = true
+	current_land_paricles = instantiate_new_jump_land_particle()
