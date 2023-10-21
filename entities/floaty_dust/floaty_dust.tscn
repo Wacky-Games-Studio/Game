@@ -1,4 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://coaqlsjfnnpd7"]
+[gd_scene load_steps=6 format=3 uid="uid://coaqlsjfnnpd7"]
+
+[sub_resource type="Gradient" id="Gradient_ve37e"]
+offsets = PackedFloat32Array(0, 0.98, 1)
+colors = PackedColorArray(0.92549, 0.870588, 0.690196, 1, 0.8, 0.67451, 0.435294, 1, 0.6, 0.360784, 0.176471, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q01fx"]
+gradient = SubResource("Gradient_ve37e")
 
 [sub_resource type="Gradient" id="Gradient_2f2e1"]
 offsets = PackedFloat32Array(0, 0.25, 0.75, 1)
@@ -16,8 +23,8 @@ gravity = Vector3(0, 0, 0)
 initial_velocity_max = 10.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-color = Color(0.92549, 0.870588, 0.690196, 1)
 color_ramp = SubResource("GradientTexture1D_dr7iu")
+color_initial_ramp = SubResource("GradientTexture1D_q01fx")
 
 [node name="floaty" type="GPUParticles2D"]
 amount = 248

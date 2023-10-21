@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cisq2juemmo7r"]
+[gd_scene load_steps=4 format=3 uid="uid://cisq2juemmo7r"]
 
 [ext_resource type="Script" path="res://entities/player/particles/particle_killer.gd" id="1_fohjm"]
 
 [sub_resource type="Curve" id="Curve_laulw"]
 _data = [Vector2(0.010989, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bbet6"]
+offsets = PackedFloat32Array(0, 0.98, 1)
+colors = PackedColorArray(0.92549, 0.870588, 0.690196, 1, 0.8, 0.67451, 0.435294, 1, 0.6, 0.360784, 0.176471, 1)
 
 [node name="WalkParticles" type="CPUParticles2D"]
 position = Vector2(0, 9.5)
@@ -27,5 +31,5 @@ linear_accel_max = 13.23
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_laulw")
-color = Color(0.92549, 0.870588, 0.690196, 1)
+color_initial_ramp = SubResource("Gradient_bbet6")
 script = ExtResource("1_fohjm")
