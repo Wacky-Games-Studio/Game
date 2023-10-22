@@ -19,7 +19,8 @@ extends CharacterBody2D
 
 @export_category("Misc")
 @export var walk_particles: PackedScene
-@export var jump_land_particels: PackedScene
+@export var jump_particels: PackedScene
+@export var land_particels: PackedScene
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
@@ -33,13 +34,17 @@ extends CharacterBody2D
 
 var jumps_remaining := max_jumps
 var _prev_flip_h := false
-var current_jump_paricles: CPUParticles2D
-var current_land_paricles: CPUParticles2D
+
+var current_walk_particles: CPUParticles2D
+var current_jump_particles: CPUParticles2D
+var current_land_particles: CPUParticles2D
 
 func _ready() -> void:
 	state_machine.init(self)
-	current_jump_paricles = instantiate_new_jump_land_particle()
-	current_land_paricles = instantiate_new_jump_land_particle()
+	
+	current_walk_particles = instantiate_new_particle(walk_particles)
+	current_jump_particles = instantiate_new_particle(jump_particels)
+	current_land_particles = instantiate_new_particle(land_particels)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -63,19 +68,21 @@ func spawn_walk_dust():
 	var curve_sample = dust_acceleration_curve.sample(percentage)
 
 	if randf() < curve_sample:
-		var particle = walk_particles.duplicate().instantiate()
-		$Particles.add_child(particle)
+		current_walk_particles.emitting = true
+		current_walk_particles = instantiate_new_particle(walk_particles)
+		#var particle = walk_particles.duplicate().instantiate()
+		#$Particles.add_child(particle)
 
-func instantiate_new_jump_land_particle() -> CPUParticles2D:
-	var particle = jump_land_particels.duplicate().instantiate()
+func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
+	var particle = particle_to_spawn.duplicate().instantiate()
 	particle_holder.add_child(particle)
 	
 	return particle
 
 func spawn_jump_dust():
-	current_jump_paricles.emitting = true
-	current_jump_paricles = instantiate_new_jump_land_particle()
+	current_jump_particles.emitting = true
+	current_jump_particles = instantiate_new_particle(jump_particels)
 	
 func spawn_land_dust():
-	current_land_paricles.emitting = true
-	current_land_paricles = instantiate_new_jump_land_particle()
+	current_land_particles.emitting = true
+	current_land_particles = instantiate_new_particle(land_particels)

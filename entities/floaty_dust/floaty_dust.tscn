@@ -27,6 +27,7 @@ color_ramp = SubResource("GradientTexture1D_dr7iu")
 color_initial_ramp = SubResource("GradientTexture1D_q01fx")
 
 [node name="floaty" type="GPUParticles2D"]
-amount = 248
+amount = 512
 process_material = SubResource("ParticleProcessMaterial_ylou2")
 lifetime = 3.0
+preprocess = 1.0

@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://csal0ogtp3uj5"]
+[gd_scene load_steps=3 format=3 uid="uid://csal0ogtp3uj5"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_kbp2x"]
-[ext_resource type="PackedScene" uid="uid://coaqlsjfnnpd7" path="res://entities/floaty_dust/floaty_dust.tscn" id="2_dmowh"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="3_d6rtf"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="floaty" parent="." instance=ExtResource("2_dmowh")]
-position = Vector2(154, 80)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_kbp2x")]
 position = Vector2(151, 102)
