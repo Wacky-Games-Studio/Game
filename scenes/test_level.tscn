@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://csal0ogtp3uj5"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_kbp2x"]
-[ext_resource type="PackedScene" uid="uid://bo731lfgdwmy1" path="res://entities/torch/toch.tscn" id="3_aebg3"]
+[ext_resource type="PackedScene" uid="uid://bo731lfgdwmy1" path="res://entities/torch/torch.tscn" id="3_aebg3"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="3_d6rtf"]
 
 [node name="Node2D" type="Node2D"]
@@ -14,3 +14,6 @@ layer_0/tile_data = PackedInt32Array(524288, 131072, 5, 524289, 196608, 5, 52429
 
 [node name="Toch" parent="." instance=ExtResource("3_aebg3")]
 position = Vector2(56, 88)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.356863, 0.356863, 0.356863, 1)
