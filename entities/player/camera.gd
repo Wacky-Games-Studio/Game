@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var move_speed: float = 1
+@export var move_speed: float = .8
 
 @onready var notifier: VisibleOnScreenNotifier2D = $"../OnScreenNotifier"
 @onready var player: CharacterBody2D = $".."
