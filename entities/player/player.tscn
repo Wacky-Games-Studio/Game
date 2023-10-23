@@ -189,7 +189,6 @@ rect = Rect2(-7.5, -7.5, 15, 15)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true
-position_smoothing_enabled = true
 position_smoothing_speed = 2.5
 script = ExtResource("10_o48ox")
 
