@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cv1r8n8a67gk7" path="res://sprites/gecko-gameready.png" id="2_nv0uj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4cpc"]
-size = Vector2(26, 21)
+size = Vector2(26, 19)
 
 [node name="Enemy1" type="CharacterBody2D"]
 script = ExtResource("1_kvs4a")
@@ -13,5 +13,4 @@ script = ExtResource("1_kvs4a")
 texture = ExtResource("2_nv0uj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_h4cpc")
