@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc1t7rdq5kq3p"]
+
+[ext_resource type="Texture2D" uid="uid://0p2s2s2scmd3" path="res://entities/rat/rat.png" id="1_txxpm"]
+[ext_resource type="Script" path="res://entities/rat/rat.gd" id="2_5lw6n"]
+
+[node name="Rat" type="Sprite2D"]
+z_index = -1
+texture = ExtResource("1_txxpm")
+script = ExtResource("2_5lw6n")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(1.25, 0.35)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

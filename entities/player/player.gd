@@ -47,15 +47,27 @@ func _ready() -> void:
 	current_land_particles = instantiate_new_particle(land_particels)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if GlobalState.camera_moving: return
+	
 	state_machine.process_input(event)
 
 func _physics_process(delta: float) -> void:
+	if GlobalState.camera_moving: return	
+	
 	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
 	
 	#$Particles/WalkParticles.gravity.x *= -1 if _prev_flip_h != sprite.flip_h else 1
 
 func _process(delta: float) -> void:
+	if GlobalState.camera_moving: 
+		if animator.is_playing():
+			animator.pause()
+		return
+	
+	if not animator.is_playing():
+		animator.play()
+	
 	state_machine.process_frame(delta)
 
 func get_gravity() -> float:

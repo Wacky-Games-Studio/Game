@@ -21,5 +21,9 @@ func _on_screen_notifier_screen_exited():
 	#global_position.x += viewport_size if global_position < player.position else viewport_size * -1
 	var final_val = global_position.x + (viewport_size if global_position < player.position else viewport_size * -1)
 	
+	GlobalState.pause_process()
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "global_position:x", final_val, move_speed)
+	await tween.finished
+	
+	GlobalState.start_process()
