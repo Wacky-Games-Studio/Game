@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2u8vaa7cs2gc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tm04n"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqcds"]
+
+[node name="Box" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 3
+mass = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_tm04n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uqcds")
