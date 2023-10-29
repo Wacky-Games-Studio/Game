@@ -58,6 +58,11 @@ jump={
 2d_physics/layer_3="Entities"
 2d_physics/layer_4="Pushable"
 
+[physics]
+
+2d/run_on_separate_thread=true
+2d/solver/solver_iterations=32
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

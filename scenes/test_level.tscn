@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_kbp2x"]
 [ext_resource type="PackedScene" uid="uid://bo731lfgdwmy1" path="res://entities/torch/torch.tscn" id="3_aebg3"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="3_d6rtf"]
-[ext_resource type="PackedScene" uid="uid://c2u8vaa7cs2gc" path="res://entities/box/box.tscn" id="4_pj3if"]
+[ext_resource type="PackedScene" uid="uid://c2u8vaa7cs2gc" path="res://entities/pushables/box/box.tscn" id="4_pj3if"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,4 +20,4 @@ position = Vector2(56, 88)
 color = Color(0.65098, 0.65098, 0.65098, 1)
 
 [node name="Box" parent="." instance=ExtResource("4_pj3if")]
-position = Vector2(158, 106)
+position = Vector2(142, 108)

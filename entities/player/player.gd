@@ -22,6 +22,7 @@ extends CharacterBody2D
 @export var jump_particels: PackedScene
 @export var land_particels: PackedScene
 @export var push_force: float = 20
+@export var mass: float = 1
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
@@ -57,11 +58,6 @@ func _physics_process(delta: float) -> void:
 	
 	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
-	
-	for i in get_slide_collision_count():
-		var c = get_slide_collision(i)
-		if c.get_collider() is Pushable:
-			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 func _process(delta: float) -> void:
 	if GlobalState.camera_moving: 
