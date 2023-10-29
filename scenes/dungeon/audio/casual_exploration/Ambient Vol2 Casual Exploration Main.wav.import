@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ca8a2ot5ej1tc"
+path="res://.godot/imported/Ambient Vol2 Casual Exploration Main.wav-e8e559438f427f1aa9582e9707001cd5.sample"
+
+[deps]
+
+source_file="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Main.wav"
+dest_files=["res://.godot/imported/Ambient Vol2 Casual Exploration Main.wav-e8e559438f427f1aa9582e9707001cd5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

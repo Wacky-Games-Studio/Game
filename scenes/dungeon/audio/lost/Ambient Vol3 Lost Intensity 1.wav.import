@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhqhcmup3knla"
+path="res://.godot/imported/Ambient Vol3 Lost Intensity 1.wav-fb0325c3d6b1bc4a5aaccf037d7d5748.sample"
+
+[deps]
+
+source_file="res://scenes/dungeon/audio/lost/Ambient Vol3 Lost Intensity 1.wav"
+dest_files=["res://.godot/imported/Ambient Vol3 Lost Intensity 1.wav-fb0325c3d6b1bc4a5aaccf037d7d5748.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=7 format=3 uid="uid://dw81gtdjclaw3"]
+
+[ext_resource type="AudioStream" uid="uid://xhgaq7join4p" path="res://scenes/dungeon/audio/grime/Unplugged Grime Intensity 1.wav" id="1_o3q6g"]
+[ext_resource type="Script" path="res://ovani_plugin/OvaniSong.gd" id="1_xlpn7"]
+[ext_resource type="AudioStream" uid="uid://dxg81iemd82iu" path="res://scenes/dungeon/audio/grime/Unplugged Grime Intensity 2.wav" id="2_svjga"]
+[ext_resource type="AudioStream" uid="uid://yylwopy3rip0" path="res://scenes/dungeon/audio/grime/Unplugged Grime Main.wav" id="3_d6amu"]
+[ext_resource type="AudioStream" uid="uid://dso0rlhccdpv7" path="res://scenes/dungeon/audio/grime/Unplugged Grime Cut 30.wav" id="4_tja3a"]
+[ext_resource type="AudioStream" uid="uid://dhva8f856r1je" path="res://scenes/dungeon/audio/grime/Unplugged Grime Cut 60.wav" id="5_k84kl"]
+
+[resource]
+script = ExtResource("1_xlpn7")
+Intensity1 = ExtResource("1_o3q6g")
+Intensity2 = ExtResource("2_svjga")
+Intensity3 = ExtResource("3_d6amu")
+Loop30 = ExtResource("4_tja3a")
+Loop60 = ExtResource("5_k84kl")
+ReverbTail = 0.0
+AudioBus = "Music"
+SongMode = 0

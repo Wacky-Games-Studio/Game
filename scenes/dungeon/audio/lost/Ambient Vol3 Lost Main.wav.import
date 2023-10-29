@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ijxljmath78n"
+path="res://.godot/imported/Ambient Vol3 Lost Main.wav-3db4894b38efd5959dfefdfc4146a897.sample"
+
+[deps]
+
+source_file="res://scenes/dungeon/audio/lost/Ambient Vol3 Lost Main.wav"
+dest_files=["res://.godot/imported/Ambient Vol3 Lost Main.wav-3db4894b38efd5959dfefdfc4146a897.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=7 format=3 uid="uid://baliakh2j0644"]
+
+[ext_resource type="AudioStream" uid="uid://cjidmaxmee0gy" path="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Intensity 1.wav" id="1_iayd2"]
+[ext_resource type="AudioStream" uid="uid://cj376k64xmmay" path="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Intensity 2.wav" id="2_56yuu"]
+[ext_resource type="AudioStream" uid="uid://ca8a2ot5ej1tc" path="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Main.wav" id="3_jsub1"]
+[ext_resource type="AudioStream" uid="uid://b028tfa78ndsh" path="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Cut 30.wav" id="4_8nfbb"]
+[ext_resource type="AudioStream" uid="uid://clky451py5ctd" path="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Cut 60.wav" id="5_pr23v"]
+[ext_resource type="Script" path="res://ovani_plugin/OvaniSong.gd" id="6_8qj8m"]
+
+[resource]
+script = ExtResource("6_8qj8m")
+Intensity1 = ExtResource("1_iayd2")
+Intensity2 = ExtResource("2_56yuu")
+Intensity3 = ExtResource("3_jsub1")
+Loop30 = ExtResource("4_8nfbb")
+Loop60 = ExtResource("5_pr23v")
+ReverbTail = 0.0
+AudioBus = "Cave"
+SongMode = 0

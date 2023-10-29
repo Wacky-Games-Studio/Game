@@ -1,0 +1,7 @@
+bryr inte om denna fil, jag skriver skit här
+
+musik:
+ - casual exploration
+ - ethernal
+ - lost
+ - grime

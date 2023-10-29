@@ -1,15 +1,64 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bo5a2gknl6adw"]
+[gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://bo5a2gknl6adw"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cti74"]
 resource_name = "Reverb"
 
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_5iglq"]
+resource_name = "EQ"
+band_db/1000_hz = -16.0
+band_db/3200_hz = -16.0
+band_db/10000_hz = -16.0
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_0gis1"]
+resource_name = "Delay"
+dry = 0.75
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_vkuyo"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_2s4be"]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_dvyso"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_ed27j"]
+resource_name = "EQ"
+band_db/1000_hz = -16.0
+band_db/3200_hz = -16.0
+band_db/10000_hz = -16.0
+
 [resource]
-bus/0/volume_db = -24.9389
+bus/0/volume_db = -17.0211
 bus/1/name = &"Cave"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -8.79367
+bus/1/volume_db = -0.00162125
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectReverb_cti74")
 bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectEQ_5iglq")
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource("AudioEffectDelay_0gis1")
+bus/1/effect/2/enabled = true
+bus/1/effect/3/effect = SubResource("AudioEffectLowPassFilter_vkuyo")
+bus/1/effect/3/enabled = true
+bus/1/effect/4/effect = SubResource("AudioEffectCompressor_2s4be")
+bus/1/effect/4/enabled = true
+bus/2/name = &"Duck"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -5.625
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_dvyso")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectEQ_ed27j")
+bus/2/effect/1/enabled = true
+bus/3/name = &"Music"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -13.5162
+bus/3/send = &"Cave"

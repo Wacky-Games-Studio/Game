@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://clky451py5ctd"
+path="res://.godot/imported/Ambient Vol2 Casual Exploration Cut 60.wav-b1d72220b4a4dcc9b0911719c4d0e24d.sample"
+
+[deps]
+
+source_file="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Cut 60.wav"
+dest_files=["res://.godot/imported/Ambient Vol2 Casual Exploration Cut 60.wav-b1d72220b4a4dcc9b0911719c4d0e24d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

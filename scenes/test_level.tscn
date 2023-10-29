@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://csal0ogtp3uj5"]
+[gd_scene load_steps=8 format=3 uid="uid://csal0ogtp3uj5"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_kbp2x"]
 [ext_resource type="PackedScene" uid="uid://bo731lfgdwmy1" path="res://entities/torch/torch.tscn" id="3_aebg3"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="3_d6rtf"]
 [ext_resource type="PackedScene" uid="uid://c2u8vaa7cs2gc" path="res://entities/pushables/box/box.tscn" id="4_pj3if"]
+[ext_resource type="Script" path="res://ovani_plugin/OvaniPlayer.gd" id="5_noccc"]
+[ext_resource type="Resource" uid="uid://dw81gtdjclaw3" path="res://scenes/dungeon/audio/grime/grime.tres" id="6_asx14"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_28bb2"]
 polygon = PackedVector2Array(16, 80, 48, 80, 48, 128, 112, 128, 112, 176, -20, 176, -20, 129, 16, 129)
@@ -28,3 +30,8 @@ position = Vector2(142, 108)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_28bb2")
+
+[node name="OvaniPlayer" type="Node" parent="."]
+script = ExtResource("5_noccc")
+QueuedSongs = Array[Resource("res://ovani_plugin/OvaniSong.gd")]([ExtResource("6_asx14")])
+Intensity = 1.0

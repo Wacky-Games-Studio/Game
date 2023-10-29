@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhva8f856r1je"
+path="res://.godot/imported/Unplugged Grime Cut 60.wav-e020d03add1bfa6863fd24e0443dfed3.sample"
+
+[deps]
+
+source_file="res://scenes/dungeon/audio/grime/Unplugged Grime Cut 60.wav"
+dest_files=["res://.godot/imported/Unplugged Grime Cut 60.wav-e020d03add1bfa6863fd24e0443dfed3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
