@@ -1,6 +1,7 @@
 extends Camera2D
 
 @export var move_speed: float = .8
+@export var instant_move: bool = false
 
 @onready var notifier: VisibleOnScreenNotifier2D = $"../OnScreenNotifier"
 @onready var player: CharacterBody2D = $".."
@@ -20,6 +21,10 @@ func _on_screen_notifier_screen_exited():
 
 	#global_position.x += viewport_size if global_position < player.position else viewport_size * -1
 	var final_val = global_position.x + (viewport_size if global_position < player.position else viewport_size * -1)
+	
+	if instant_move:
+		global_position.x = final_val
+		return
 	
 	GlobalState.pause_process()
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)

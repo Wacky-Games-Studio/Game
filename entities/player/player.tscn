@@ -234,7 +234,7 @@ rect = Rect2(-7.5, -7.5, 15, 15)
 top_level = true
 position_smoothing_speed = 2.5
 script = ExtResource("10_o48ox")
-move_speed = 0.7
+move_speed = 0.5
 
 [node name="floaty" parent="Camera2D" instance=ExtResource("12_aqobf")]
 show_behind_parent = true

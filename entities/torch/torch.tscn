@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bo731lfgdwmy1"]
 
 [ext_resource type="Texture2D" uid="uid://4ovgxxpi0b4b" path="res://entities/torch/torch.png" id="1_6dmha"]
-[ext_resource type="Texture2D" uid="uid://c5e0tlv1tq3o0" path="res://entities/torch/torch_light.png" id="2_b8nh3"]
+[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/torch_light2.png" id="2_nttrd"]
 
 [sub_resource type="Curve" id="Curve_is2ol"]
 _data = [Vector2(0, 0.989474), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.50941, 0.0, 0, 0]
@@ -37,4 +37,5 @@ color_ramp = SubResource("Gradient_blwg0")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2, -2)
 color = Color(0.909804, 0.25098, 0.0666667, 1)
-texture = ExtResource("2_b8nh3")
+shadow_enabled = true
+texture = ExtResource("2_nttrd")
