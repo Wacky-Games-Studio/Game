@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://be7lro8r8i4l7"
+path="res://.godot/imported/Dash 009.wav-ec085fd6d616d7d6790b8a25237bcff9.sample"
+
+[deps]
+
+source_file="res://entities/player/audio/jump_land/Dash 009.wav"
+dest_files=["res://.godot/imported/Dash 009.wav-ec085fd6d616d7d6790b8a25237bcff9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

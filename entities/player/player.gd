@@ -28,6 +28,7 @@ extends CharacterBody2D
 @onready var state_machine: Node = $StateMachine
 @onready var animator: AnimationPlayer = $AnimationPlayer
 @onready var particle_holder: Node2D = $Particles
+@onready var audio_controller: Node2D = $AudioController
 
 @onready var jump_velocity := ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity := ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -92,9 +93,11 @@ func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	return particle
 
 func spawn_jump_dust():
+	audio_controller.play_jump_land()
 	current_jump_particles.emitting = true
 	current_jump_particles = instantiate_new_particle(jump_particels)
 	
 func spawn_land_dust():
+	audio_controller.play_jump_land()	
 	current_land_particles.emitting = true
 	current_land_particles = instantiate_new_particle(land_particels)

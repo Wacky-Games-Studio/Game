@@ -12,12 +12,13 @@ offsets = PackedFloat32Array(0, 0.0993377, 0.271523, 0.576159, 1)
 colors = PackedColorArray(0.364706, 0, 0.117647, 1, 0.709804, 0, 0, 1, 0.909804, 0.25098, 0.0666667, 1, 1, 0.509804, 0.12549, 1, 1, 0.823529, 0.254902, 1)
 
 [node name="Torch" type="Node2D"]
+z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6dmha")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(3, -2)
+position = Vector2(5, -4)
 amount = 16
 lifetime = 2.0
 emission_shape = 1
