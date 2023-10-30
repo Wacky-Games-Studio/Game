@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2u8vaa7cs2gc"]
+[gd_scene load_steps=6 format=3 uid="uid://c2u8vaa7cs2gc"]
 
 [ext_resource type="Script" path="res://entities/pushables/pushable.gd" id="1_lykmu"]
 [ext_resource type="Texture2D" uid="uid://d2o4kipqsiv1" path="res://entities/pushables/box/box.png" id="2_fm3i8"]
+[ext_resource type="AudioStream" uid="uid://dkp5jofgndky5" path="res://entities/pushables/sliding.wav" id="3_wgv47"]
+
+[sub_resource type="Curve" id="Curve_7kgip"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.8079, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqcds"]
 size = Vector2(32, 32)
@@ -10,9 +15,15 @@ size = Vector2(32, 32)
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_lykmu")
+slide_audio_curve = SubResource("Curve_7kgip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uqcds")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_fm3i8")
+
+[node name="SlideAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wgv47")
+pitch_scale = 0.5
+bus = &"Cave"
