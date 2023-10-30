@@ -252,6 +252,7 @@ bus = &"Duck"
 
 [node name="JumpLand" type="AudioStreamPlayer2D" parent="AudioController"]
 stream = SubResource("AudioStreamRandomizer_ft4wb")
+volume_db = -4.0
 bus = &"Duck"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

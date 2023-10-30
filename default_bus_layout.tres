@@ -1,17 +1,16 @@
-[gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://bo5a2gknl6adw"]
+[gd_resource type="AudioBusLayout" load_steps=9 format=3 uid="uid://bo5a2gknl6adw"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cti74"]
 resource_name = "Reverb"
 
 [sub_resource type="AudioEffectEQ" id="AudioEffectEQ_5iglq"]
 resource_name = "EQ"
-band_db/1000_hz = -16.0
 band_db/3200_hz = -16.0
-band_db/10000_hz = -16.0
+band_db/10000_hz = -32.0
 
 [sub_resource type="AudioEffectDelay" id="AudioEffectDelay_0gis1"]
 resource_name = "Delay"
-dry = 0.75
+dry = 0.53
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_vkuyo"]
 resource_name = "LowPassFilter"
@@ -21,12 +20,17 @@ resource_name = "Compressor"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_dvyso"]
 resource_name = "Reverb"
+room_size = 0.2
+damping = 0.95
 
 [sub_resource type="AudioEffectEQ" id="AudioEffectEQ_ed27j"]
 resource_name = "EQ"
-band_db/1000_hz = -16.0
 band_db/3200_hz = -16.0
-band_db/10000_hz = -16.0
+band_db/10000_hz = -32.0
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_sh57f"]
+resource_name = "Delay"
+dry = 0.99
 
 [resource]
 bus/0/volume_db = -17.0211
@@ -50,15 +54,17 @@ bus/2/name = &"Duck"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -5.625
+bus/2/volume_db = -12.4611
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectReverb_dvyso")
 bus/2/effect/0/enabled = true
 bus/2/effect/1/effect = SubResource("AudioEffectEQ_ed27j")
 bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectDelay_sh57f")
+bus/2/effect/2/enabled = true
 bus/3/name = &"Music"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -13.5162
+bus/3/volume_db = -17.0282
 bus/3/send = &"Cave"
