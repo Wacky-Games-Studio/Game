@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=41 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -194,11 +194,28 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_laukk"]
+resource_name = "fall_slide"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v581m"]
 _data = {
 "RESET": SubResource("Animation_yauny"),
 "default": SubResource("Animation_p1vw4"),
 "fall": SubResource("Animation_objnt"),
+"fall_slide": SubResource("Animation_laukk"),
 "idle": SubResource("Animation_s3e4q"),
 "jump": SubResource("Animation_7vqii"),
 "walk": SubResource("Animation_nny72")
@@ -224,7 +241,7 @@ shape = SubResource("RectangleShape2D_5uay7")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_b23r8")
 hframes = 2
-vframes = 4
+vframes = 5
 
 [node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-1.19209e-07, 0)
@@ -296,6 +313,7 @@ script = ExtResource("7_3thvh")
 move_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
+slide_fall_animation_name = "fall_slide"
 animation_name = "fall"
 
 [node name="Pushing" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state")]
@@ -304,5 +322,6 @@ idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
+animation_name = "walking"
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera2D" method="_on_screen_notifier_screen_exited"]
