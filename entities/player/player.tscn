@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=43 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://entities/player/states/idle.gd" id="4_4ywsu"]
 [ext_resource type="PackedScene" uid="uid://dl4fc42xk81ic" path="res://entities/player/particles/land_particles.tscn" id="4_d6aov"]
 [ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
+[ext_resource type="Texture2D" uid="uid://c5v8xq2wlk6rr" path="res://entities/player/sprites/feather.png" id="5_uwq16"]
 [ext_resource type="Script" path="res://entities/player/states/jump.gd" id="6_kcifk"]
 [ext_resource type="Script" path="res://entities/player/states/fall.gd" id="7_3thvh"]
 [ext_resource type="Script" path="res://entities/player/audio_controller.gd" id="8_nwito"]
@@ -28,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://c3e4ajkufv562" path="res://entities/player/audio/jump_land/Dash 001.wav" id="20_78nl2"]
 [ext_resource type="AudioStream" uid="uid://dtvtmttjkkiax" path="res://entities/player/audio/jump_land/Dash 002.wav" id="21_n73a8"]
 [ext_resource type="AudioStream" uid="uid://be7lro8r8i4l7" path="res://entities/player/audio/jump_land/Dash 009.wav" id="22_u2glm"]
+[ext_resource type="AudioStream" uid="uid://bkxh55skbhc6k" path="res://entities/player/audio/death.wav" id="29_w0ttd"]
 
 [sub_resource type="Curve" id="Curve_1327r"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.989011, 1), 2.72244, 0.0, 0, 0]
@@ -36,9 +38,6 @@ point_count = 2
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_bilqy"]
-colors = PackedColorArray(0.638884, 1.33563e-06, 4.81308e-08, 1, 1, 0.287306, 0.225237, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rswie"]
 streams_count = 11
@@ -239,23 +238,25 @@ land_particels = ExtResource("4_d6aov")
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="Blood" type="CPUParticles2D" parent="Particles"]
-amount = 32
-lifetime = 0.2
+z_index = 10
+emitting = false
+one_shot = true
 explosiveness = 1.0
+texture = ExtResource("5_uwq16")
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 200.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
 angular_velocity_min = -100.0
 angular_velocity_max = 100.0
-scale_amount_min = 2.0
-scale_amount_max = 3.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_l7ej1")
-color_initial_ramp = SubResource("Gradient_bilqy")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-8, 11, 4, 11, 7, 1, 8, -1, 8, -11, 2, -11, -12, 2, -12, 11)
+polygon = PackedVector2Array(-8, 11, 4, 11, 7, 1, 8, -1, 8, -11, 2, -11, -8, 1)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_b23r8")
@@ -343,5 +344,9 @@ walk_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
 animation_name = "walking"
+
+[node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("29_w0ttd")
+bus = &"Duck"
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera2D" method="_on_screen_notifier_screen_exited"]

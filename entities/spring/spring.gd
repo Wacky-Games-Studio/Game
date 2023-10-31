@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var shoot_velocity = -500
+
 var dir = Vector2.UP
 
 func _ready():
@@ -8,4 +10,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is Player:
-		body.die()
+		$AnimationPlayer.play("boing")
+		$Sound.play()
+		body.velocity = shoot_velocity * -dir.normalized()
+		body.spring_jump()

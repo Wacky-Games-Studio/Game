@@ -29,6 +29,8 @@ extends CharacterBody2D
 @onready var animator: AnimationPlayer = $AnimationPlayer
 @onready var particle_holder: Node2D = $Particles
 @onready var audio_controller: Node2D = $AudioController
+@onready var blood_particles: CPUParticles2D = $Particles/Blood
+@onready var death_audio: AudioStreamPlayer2D = $DeathAudio
 
 @onready var jump_velocity := ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity := ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -37,6 +39,7 @@ extends CharacterBody2D
 
 var jumps_remaining := max_jumps
 var _prev_flip_h := false
+var _is_dead := false
 
 var current_walk_particles: CPUParticles2D
 var current_jump_particles: CPUParticles2D
@@ -51,11 +54,13 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if GlobalState.camera_moving: return
+	if _is_dead: return	
 	
 	state_machine.process_input(event)
 
 func _physics_process(delta: float) -> void:
 	if GlobalState.camera_moving: return
+	if _is_dead: return	
 	
 	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
@@ -65,6 +70,8 @@ func _process(delta: float) -> void:
 		if animator.is_playing():
 			animator.pause()
 		return
+	
+	if _is_dead: return
 	
 	if not animator.is_playing():
 		animator.play()
@@ -102,6 +109,19 @@ func spawn_jump_dust():
 	current_jump_particles = instantiate_new_particle(jump_particels)
 	
 func spawn_land_dust():
-	audio_controller.play_jump_land()	
+	audio_controller.play_jump_land()
 	current_land_particles.emitting = true
 	current_land_particles = instantiate_new_particle(land_particels)
+	
+func die():
+	animator.stop()
+	_is_dead = true
+	sprite.visible = false
+	blood_particles.emitting = true
+	death_audio.play()
+	
+	await get_tree().create_timer(blood_particles.lifetime).timeout
+	GlobalState.restart_level()
+	
+func spring_jump():
+	state_machine.change_state($StateMachine/Fall)
