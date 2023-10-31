@@ -33,3 +33,7 @@ func _physics_process(delta: float):
 			slide_audio.play()
 	else:
 		slide_audio.stop()
+		
+	print(velocity)
+	if velocity.x < 3 and velocity.x > -3:
+		slide_audio.stop()

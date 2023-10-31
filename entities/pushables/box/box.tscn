@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dkp5jofgndky5" path="res://entities/pushables/sliding.wav" id="3_wgv47"]
 
 [sub_resource type="Curve" id="Curve_7kgip"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.8079, 0.0, 0, 0]
+_data = [Vector2(0, 0.242105), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.68696, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqcds"]
