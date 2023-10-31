@@ -24,7 +24,9 @@ func _physics_process(delta: float):
 	var velocity_magnitude = velocity.length()
 	var max_velocity = force.length() / mass
 	var audio_level = slide_audio_curve.sample(velocity_magnitude / max_velocity)
-	slide_audio.volume_db = 20 * (log(audio_level) / log(10)) - 10
+	
+	# 2.30259 = log(10) is faster if not calculated each time *shrugs*
+	slide_audio.volume_db = 20 * (log(audio_level) / 2.30259) - 10
 	
 	if velocity.x != 0:
 		if not slide_audio.playing:

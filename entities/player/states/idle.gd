@@ -19,7 +19,7 @@ func process_physics(delta: float) -> State:
 	parent.velocity.x = lerp(parent.velocity.x, 0.0, parent.friction)
 	
 	if parent.velocity.x != 0:
-		parent.sprite.flip_h = parent.velocity.x < 0
+		parent.flip(parent.velocity.x < 0)
 	
 	parent.move_and_slide()
 	

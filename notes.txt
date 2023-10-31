@@ -5,3 +5,9 @@ musik:
  - ethernal
  - lost
  - grime
+
+todo:
+ [ ] box break
+ [ ] player die
+ [ ] spike rotation
+ [ ] player respawn

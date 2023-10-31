@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=40 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -32,9 +32,6 @@
 [sub_resource type="Curve" id="Curve_1327r"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.989011, 1), 2.72244, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uay7"]
-size = Vector2(18, 21)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rswie"]
 streams_count = 11
@@ -234,9 +231,8 @@ land_particels = ExtResource("4_d6aov")
 
 [node name="Particles" type="Node2D" parent="."]
 
-[node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_5uay7")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 11, 4, 11, 7, 1, 8, -1, 8, -11, 2, -11, -12, 2, -12, 11)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_b23r8")

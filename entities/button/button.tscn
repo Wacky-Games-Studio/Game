@@ -11,7 +11,7 @@ size = Vector2(18, 4)
 script = ExtResource("1_mgslv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-15.5, 4.5, -9, -1.5, 9, -1.5, 15.5, 4.5)
+polygon = PackedVector2Array(-12, 4.5, -6, -1.5, 6, -1.5, 12, 4.5)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

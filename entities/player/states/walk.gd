@@ -17,7 +17,7 @@ func process_physics(delta: float) -> State:
 	var dir = Input.get_axis("walk_left", "walk_right")
 	if dir != 0:
 		parent.velocity.x = lerp(parent.velocity.x, dir * parent.speed, parent.acceleration)
-		parent.sprite.flip_h = dir < 0
+		parent.flip(dir < 0)
 	else:
 		return idle_state
 

@@ -86,6 +86,10 @@ func spawn_walk_dust():
 		#var particle = walk_particles.duplicate().instantiate()
 		#$Particles.add_child(particle)
 
+func flip(should_flip: bool):
+	sprite.flip_h = should_flip
+	$CollisionPolygon2D.scale = Vector2(-1 if should_flip else 1, 1)
+
 func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	var particle = particle_to_spawn.duplicate().instantiate()
 	particle_holder.add_child(particle)
