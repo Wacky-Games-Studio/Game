@@ -2,10 +2,12 @@ extends TileMap
 
 @export var spikes: PackedScene
 @export var springs: PackedScene
+@export var sawblade: PackedScene
 
 func _ready():
 	replace_tiles(2, 0, spikes)
 	replace_tiles(3, 0, springs)
+	replace_tiles(4, 0, sawblade)
 
 
 func replace_tiles(atlas: int, layer: int, type: PackedScene):
@@ -20,7 +22,8 @@ func replace_tiles(atlas: int, layer: int, type: PackedScene):
 		var tile_dir: Vector2 = tile.get_custom_data("direction")
 		
 		var instance = type.duplicate().instantiate()
-		instance.dir = tile_dir
+		if tile_dir != null and tile_dir != Vector2.ZERO:
+			instance.dir = tile_dir
 		instance.global_position = to_global(map_to_local(pos))
 		add_child(instance)
 		

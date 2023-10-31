@@ -54,20 +54,20 @@ func _ready() -> void:
 	current_land_particles = instantiate_new_particle(land_particels)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if GlobalState.camera_moving: return
+	if GlobalState.process_paused: return
 	if _is_dead: return
 	
 	state_machine.process_input(event)
 
 func _physics_process(delta: float) -> void:
-	if GlobalState.camera_moving: return
+	if GlobalState.process_paused: return
 	if _is_dead: return
 
 	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
 
 func _process(delta: float) -> void:
-	if GlobalState.camera_moving: 
+	if GlobalState.process_paused: 
 		if animator.is_playing():
 			animator.pause()
 		return
@@ -115,6 +115,7 @@ func spawn_land_dust():
 	current_land_particles = instantiate_new_particle(land_particels)
 	
 func die():
+	if _is_dead: return
 	animator.stop()
 	_is_dead = true
 	sprite.visible = false

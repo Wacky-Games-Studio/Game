@@ -1,12 +1,12 @@
 extends Node
 
-var camera_moving := false
+var process_paused := false
 
 func pause_process():
-	camera_moving = true
+	process_paused = true
 
 func start_process():
-	camera_moving = false
+	process_paused = false
 
 func restart_level():
 	$"../SceneManager".restart_level()

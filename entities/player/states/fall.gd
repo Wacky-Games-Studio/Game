@@ -15,6 +15,7 @@ func enter() -> void:
 
 func process_input(event: InputEvent) -> State:
 	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_wall_only():
+		parent.spawn_jump_dust()
 		return jump_state
 		
 	if Input.is_action_just_pressed("jump") and not coyote_timer.is_stopped() and parent.jumps_remaining > 0 and not touching_spring :
