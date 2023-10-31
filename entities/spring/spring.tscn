@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwrlfw07u8pky"]
+[gd_scene load_steps=12 format=3 uid="uid://dwrlfw07u8pky"]
 
 [ext_resource type="Script" path="res://entities/spring/spring.gd" id="1_4aeig"]
 [ext_resource type="Texture2D" uid="uid://mn3aoftj8m6h" path="res://entities/spring/spring.png" id="1_py70v"]
@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://be7lro8r8i4l7" path="res://entities/player/audio/jump_land/Dash 009.wav" id="5_7wet0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4r3s"]
-size = Vector2(20, 10)
+size = Vector2(20, 6)
 
 [sub_resource type="Animation" id="Animation_dqkc8"]
 length = 0.001
@@ -56,6 +56,9 @@ stream_1/weight = 1.0
 stream_2/stream = ExtResource("5_7wet0")
 stream_2/weight = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8wgw"]
+size = Vector2(16, 6)
+
 [node name="Spring" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
@@ -63,7 +66,7 @@ input_pickable = false
 script = ExtResource("1_4aeig")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_k4r3s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -79,5 +82,11 @@ libraries = {
 stream = SubResource("AudioStreamRandomizer_csilm")
 pitch_scale = 2.0
 bus = &"Duck"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Spring"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_k8wgw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

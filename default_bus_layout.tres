@@ -33,6 +33,7 @@ resource_name = "Delay"
 dry = 0.99
 
 [resource]
+bus/0/mute = true
 bus/0/volume_db = -17.0211
 bus/1/name = &"Cave"
 bus/1/solo = false

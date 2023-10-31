@@ -7,6 +7,8 @@ extends State
 
 @onready var coyote_timer: Timer = %CoyoteTimer
 
+var touching_spring := false
+
 func enter() -> void:
 	super()
 	coyote_timer.start()
@@ -15,7 +17,7 @@ func process_input(event: InputEvent) -> State:
 	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_wall_only():
 		return jump_state
 		
-	if Input.is_action_just_pressed("jump") and not coyote_timer.is_stopped() and parent.jumps_remaining > 0:
+	if Input.is_action_just_pressed("jump") and not coyote_timer.is_stopped() and parent.jumps_remaining > 0 and not touching_spring :
 		return jump_state
 
 	return null
@@ -41,9 +43,17 @@ func process_physics(delta: float) -> State:
 
 	parent.move_and_slide()
 	
-	if parent.is_on_floor():
+	touching_spring = false
+	for i in parent.get_slide_collision_count():
+		var collision: KinematicCollision2D = parent.get_slide_collision(i)
+		if collision.get_collider().is_in_group("Spring"):
+			touching_spring = true
+			coyote_timer.stop()
+	
+	if parent.is_on_floor() and not touching_spring:
 		parent.jumps_remaining = parent.max_jumps
 		parent.spawn_land_dust()
+		parent.is_spring_jump = false
 		if dir != 0:
 			return move_state
 		return idle_state

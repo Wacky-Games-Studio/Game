@@ -38,6 +38,7 @@ extends CharacterBody2D
 @onready var variable_gravity := (jump_velocity * jump_velocity) / (2 * jump_variable_height)
 
 var jumps_remaining := max_jumps
+var is_spring_jump := false
 var _prev_flip_h := false
 var _is_dead := false
 
@@ -54,14 +55,14 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if GlobalState.camera_moving: return
-	if _is_dead: return	
+	if _is_dead: return
 	
 	state_machine.process_input(event)
 
 func _physics_process(delta: float) -> void:
 	if GlobalState.camera_moving: return
-	if _is_dead: return	
-	
+	if _is_dead: return
+
 	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
 
@@ -79,8 +80,8 @@ func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
 func get_gravity() -> float:
-	if not Input.is_action_pressed("jump") and velocity.y < 0.0:
-		return variable_gravity
+	if (not Input.is_action_pressed("jump") and velocity.y < 0.0) or is_spring_jump:
+		return variable_gravity 
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func spawn_walk_dust():
@@ -125,3 +126,4 @@ func die():
 	
 func spring_jump():
 	state_machine.change_state($StateMachine/Fall)
+	is_spring_jump = true
