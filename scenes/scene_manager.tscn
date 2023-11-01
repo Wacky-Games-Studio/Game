@@ -1,15 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2sjj6305hib3"]
 
-[ext_resource type="PackedScene" uid="uid://csal0ogtp3uj5" path="res://scenes/test_level.tscn" id="1_6iy3y"]
 [ext_resource type="Script" path="res://scenes/scene_manager.gd" id="1_kbemt"]
 [ext_resource type="PackedScene" uid="uid://dibebx4shyhjm" path="res://scenes/fade/fade_transition.tscn" id="2_83rjd"]
+[ext_resource type="PackedScene" uid="uid://x7iyj05ceut1" path="res://scenes/game.tscn" id="2_jfjn0"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_kbemt")
-levels = Array[PackedScene]([ExtResource("1_6iy3y")])
+levels = Array[PackedScene]([ExtResource("2_jfjn0")])
 
 [node name="CurrentScene" type="Node2D" parent="."]
-
-[node name="Node2D" parent="CurrentScene" instance=ExtResource("1_6iy3y")]
 
 [node name="TransitionScreen" parent="." instance=ExtResource("2_83rjd")]

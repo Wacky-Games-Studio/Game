@@ -8,6 +8,10 @@ extends Node2D
 
 var level_index := 0
 
+func _ready():
+	var level = levels[level_index].duplicate().instantiate()
+	current_scene.add_child(level)
+
 func restart_level():
 	transition_screen.transition()
 	await transition_screen.transitioned
