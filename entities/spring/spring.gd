@@ -3,9 +3,11 @@ extends Area2D
 
 @export var shoot_velocity = 500
 
-var dir = Vector2.UP
+var custom_data
+var dir := Vector2.UP
 
 func _ready():
+	dir = custom_data
 	var angle_to_rotate = dir.angle_to(Vector2.UP)
 	rotate(angle_to_rotate)
 	

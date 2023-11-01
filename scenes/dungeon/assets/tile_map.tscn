@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://hbvsgnlwp0uu"]
+[gd_scene load_steps=19 format=3 uid="uid://hbvsgnlwp0uu"]
 
 [ext_resource type="Texture2D" uid="uid://d344bjk6yd2uc" path="res://scenes/dungeon/assets/tileset.png" id="1_n3gxp"]
 [ext_resource type="Texture2D" uid="uid://dc78u7d70dht6" path="res://scenes/dungeon/assets/background.png" id="2_34jmp"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bmnx43j37bmkr" path="res://entities/spring/spring_atlas.png" id="4_w31nm"]
 [ext_resource type="PackedScene" uid="uid://8ucq034el8ut" path="res://entities/spikes/spikes.tscn" id="5_deh2o"]
 [ext_resource type="Texture2D" uid="uid://c6o8yorklrrch" path="res://entities/sawblade/sawblade_single.png" id="5_sbung"]
+[ext_resource type="Texture2D" uid="uid://cpoisai5owbf3" path="res://entities/torch/torches.png" id="6_7fikb"]
 [ext_resource type="PackedScene" uid="uid://dwrlfw07u8pky" path="res://entities/spring/spring.tscn" id="7_pfvjm"]
 [ext_resource type="PackedScene" uid="uid://c56lxsq3nloor" path="res://entities/sawblade/saw_blade.tscn" id="9_alovb"]
+[ext_resource type="PackedScene" uid="uid://bo731lfgdwmy1" path="res://entities/torch/normal/torch.tscn" id="11_2guhi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjuri"]
 resource_name = "dugeon"
@@ -541,6 +543,22 @@ texture_region_size = Vector2i(22, 22)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvvki"]
+resource_name = "torches"
+texture = ExtResource("6_7fikb")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/custom_data_0 = Vector2(1, 1)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/custom_data_0 = Vector2(-1, 1)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/custom_data_0 = Vector2(10, 10)
+
 [sub_resource type="TileSet" id="TileSet_dmnu3"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -553,6 +571,7 @@ sources/0 = SubResource("TileSetAtlasSource_jjuri")
 sources/2 = SubResource("TileSetAtlasSource_ip674")
 sources/3 = SubResource("TileSetAtlasSource_bfos8")
 sources/4 = SubResource("TileSetAtlasSource_72b43")
+sources/5 = SubResource("TileSetAtlasSource_wvvki")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_dmnu3")
@@ -569,3 +588,4 @@ script = ExtResource("4_saxxf")
 spikes = ExtResource("5_deh2o")
 springs = ExtResource("7_pfvjm")
 sawblade = ExtResource("9_alovb")
+torches = ExtResource("11_2guhi")

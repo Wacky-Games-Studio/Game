@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo731lfgdwmy1"]
+[gd_scene load_steps=7 format=3 uid="uid://bo731lfgdwmy1"]
 
-[ext_resource type="Texture2D" uid="uid://4ovgxxpi0b4b" path="res://entities/torch/torch.png" id="1_6dmha"]
-[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/torch_light2.png" id="2_nttrd"]
+[ext_resource type="Script" path="res://entities/torch/normal/torch.gd" id="1_aalok"]
+[ext_resource type="Texture2D" uid="uid://4ovgxxpi0b4b" path="res://entities/torch/normal/torch.png" id="1_sbxk4"]
+[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/normal/torch_light2.png" id="2_rxrfi"]
+[ext_resource type="AudioStream" uid="uid://bbswujxcbpj67" path="res://entities/torch/normal/Fire Loop.wav" id="3_frlpy"]
 
 [sub_resource type="Curve" id="Curve_is2ol"]
 _data = [Vector2(0, 0.989474), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.50941, 0.0, 0, 0]
@@ -13,9 +15,10 @@ colors = PackedColorArray(0.364706, 0, 0.117647, 1, 0.709804, 0, 0, 1, 0.909804,
 
 [node name="Torch" type="Node2D"]
 z_index = -1
+script = ExtResource("1_aalok")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6dmha")
+texture = ExtResource("1_sbxk4")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(5, -4)
@@ -38,4 +41,10 @@ color_ramp = SubResource("Gradient_blwg0")
 position = Vector2(2, -2)
 color = Color(0.909804, 0.25098, 0.0666667, 1)
 shadow_enabled = true
-texture = ExtResource("2_nttrd")
+texture = ExtResource("2_rxrfi")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_frlpy")
+volume_db = -25.0
+autoplay = true
+bus = &"Cave"

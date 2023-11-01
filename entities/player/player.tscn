@@ -293,6 +293,9 @@ stream = SubResource("AudioStreamRandomizer_ft4wb")
 volume_db = -4.0
 bus = &"Duck"
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
 libraries = {
