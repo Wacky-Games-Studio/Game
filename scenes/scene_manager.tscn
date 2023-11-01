@@ -11,3 +11,6 @@ levels = Array[PackedScene]([ExtResource("2_jfjn0")])
 [node name="CurrentScene" type="Node2D" parent="."]
 
 [node name="TransitionScreen" parent="." instance=ExtResource("2_83rjd")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.65098, 0.65098, 0.65098, 1)
