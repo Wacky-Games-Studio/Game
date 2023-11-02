@@ -86,6 +86,7 @@ texture = ExtResource("2_rxrfi")
 stream = ExtResource("3_frlpy")
 volume_db = -30.0
 autoplay = true
+max_distance = 320.0
 bus = &"Cave"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
