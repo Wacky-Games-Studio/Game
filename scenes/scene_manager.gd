@@ -26,7 +26,7 @@ func restart_level():
 	current_scene.add_child(level)
 	
 	# spawn the player at checkpoint
-	if GlobalState.checkpoints_passed != -1:
+	if GlobalState.checkpoints_passed != 0:
 		spawn_at_checkpoint(level)
 	
 	transition_screen.remove_transition()
@@ -34,8 +34,7 @@ func restart_level():
 func spawn_at_checkpoint(level: Node2D):
 	var player: Player = level.get_node("Player")
 	var checkpoints_holder: Node2D = level.get_node("Checkpoints")
-	print(GlobalState.checkpoints_passed)
-	var current_checkpoint: Area2D = checkpoints_holder.get_children()[GlobalState.checkpoints_passed]
+	var current_checkpoint: Area2D = checkpoints_holder.get_children()[GlobalState.checkpoints_passed - 1]
 	
 	player.global_position = current_checkpoint.global_position + (current_checkpoint.spawn_pos as Vector2)
 	player.get_node("Camera").update_position()

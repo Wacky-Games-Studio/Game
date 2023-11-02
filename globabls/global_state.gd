@@ -2,7 +2,7 @@ extends Node
 
 var process_paused := false
 var has_died := false
-var checkpoints_passed := -1
+var checkpoints_passed := 0
 var checkpoints_state = []
 
 func pause_process():
