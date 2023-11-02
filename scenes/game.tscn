@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://x7iyj05ceut1"]
+[gd_scene load_steps=9 format=3 uid="uid://x7iyj05ceut1"]
 
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_16x2n"]
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="2_gnmjp"]
@@ -11,6 +11,9 @@ size = Vector2(20, 79)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06j0g"]
 size = Vector2(20, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcg4q"]
+size = Vector2(32, 79)
 
 [node name="Game" type="Node2D"]
 
@@ -54,7 +57,8 @@ position = Vector2(-27, -140)
 position = Vector2(1802, -240)
 
 [node name="CollisionShape2D" parent="Checkpoints/Checkpoint3" index="0"]
-position = Vector2(0, 8)
+position = Vector2(6, 8.5)
+shape = SubResource("RectangleShape2D_tcg4q")
 
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint3" index="1"]
 position = Vector2(-121, -21)
