@@ -7,10 +7,12 @@ extends Camera2D
 @onready var player: CharacterBody2D = $".."
 
 func _ready():
-	var viewport_size = get_viewport_rect().size
-	global_position = viewport_size / 2
+	update_position()
 
-func _on_screen_notifier_screen_exited():
+func update_position():
+	global_position = _calculate_new_pos()
+
+func _calculate_new_pos():
 	var viewport_size := get_viewport_rect().size
 	var player_offset_x := fposmod(player.global_position.x, viewport_size.x)
 	var player_offset_y := fposmod(player.global_position.y, viewport_size.y)
@@ -19,6 +21,11 @@ func _on_screen_notifier_screen_exited():
 	
 	target_pos.x = player.global_position.x - player_offset_x + (viewport_size.x / 2)
 	target_pos.y = player.global_position.y - player_offset_y + (viewport_size.y / 2)
+	
+	return target_pos
+
+func _on_screen_notifier_screen_exited():
+	var target_pos = _calculate_new_pos()
 	
 	if instant_move:
 		global_position = target_pos

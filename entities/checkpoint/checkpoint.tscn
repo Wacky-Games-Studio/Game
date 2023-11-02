@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://evwchr2ib2vo"]
+
+[ext_resource type="Script" path="res://entities/checkpoint/checkpoint.gd" id="1_af7ws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8knss"]
+size = Vector2(20, 100)
+
+[node name="Checkpoint" type="Area2D"]
+script = ExtResource("1_af7ws")
+spawn_pos = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8knss")
+
+[node name="SpawnLoaction" type="Marker2D" parent="."]
+gizmo_extents = 11.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://x7iyj05ceut1"]
+[gd_scene load_steps=4 format=3 uid="uid://x7iyj05ceut1"]
 
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_16x2n"]
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="2_gnmjp"]
+[ext_resource type="PackedScene" uid="uid://evwchr2ib2vo" path="res://entities/checkpoint/checkpoint.tscn" id="3_21hg1"]
 
 [node name="Game" type="Node2D"]
 
@@ -11,3 +12,10 @@ layer_1/tile_data = PackedInt32Array(65541, 65537, 1, 5, 65537, 1, -65531, 65537
 
 [node name="Player" parent="." instance=ExtResource("2_gnmjp")]
 position = Vector2(104, 0)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_21hg1")]
+position = Vector2(352, 80)
+size = Vector2i(20, 100)
+spawn_pos = Vector2i(110, 53)

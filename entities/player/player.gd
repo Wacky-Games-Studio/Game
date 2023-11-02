@@ -30,7 +30,9 @@ extends CharacterBody2D
 @onready var particle_holder: Node2D = $Particles
 @onready var audio_controller: Node2D = $AudioController
 @onready var blood_particles: CPUParticles2D = $Particles/Blood
+@onready var reverse_blood_particles: CPUParticles2D = $Particles/ReverseBlood
 @onready var death_audio: AudioStreamPlayer2D = $DeathAudio
+@onready var death_reverse_audio: AudioStreamPlayer2D = $DeathAudio
 
 @onready var jump_velocity := ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity := ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -48,6 +50,9 @@ var current_land_particles: CPUParticles2D
 
 func _ready() -> void:
 	state_machine.init(self)
+	
+	if GlobalState.has_died:
+		animator.play("respawn")
 	
 	current_walk_particles = instantiate_new_particle(walk_particles)
 	current_jump_particles = instantiate_new_particle(jump_particels)
@@ -68,7 +73,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	if GlobalState.process_paused: 
-		if animator.is_playing():
+		if animator.is_playing() and animator.current_animation != "respawn":
 			animator.pause()
 		return
 	
@@ -91,8 +96,6 @@ func spawn_walk_dust():
 	if randf() < curve_sample:
 		current_walk_particles.emitting = true
 		current_walk_particles = instantiate_new_particle(walk_particles)
-		#var particle = walk_particles.duplicate().instantiate()
-		#$Particles.add_child(particle)
 
 func flip(should_flip: bool):
 	sprite.flip_h = should_flip
@@ -113,7 +116,14 @@ func spawn_land_dust():
 	audio_controller.play_jump_land()
 	current_land_particles.emitting = true
 	current_land_particles = instantiate_new_particle(land_particels)
-	
+
+func respawn(is_start: bool = true):
+	if is_start:
+		_is_dead = true
+	else:
+		_is_dead = false
+		state_machine.current_state.enter()
+
 func die():
 	if _is_dead: return
 	animator.stop()

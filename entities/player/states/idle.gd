@@ -4,7 +4,7 @@ extends State
 @export var jump_state: State
 @export var fall_state: State
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor():
 		parent.spawn_jump_dust()
 		return jump_state

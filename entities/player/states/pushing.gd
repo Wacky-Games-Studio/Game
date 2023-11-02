@@ -6,7 +6,7 @@ extends State
 @export var fall_state: State
 
 var current_pushable: Pushable
-var prev_dir := 0
+var prev_dir := 0.0
 var pushing_dir: int
 
 func enter() -> void:
@@ -21,7 +21,7 @@ func exit() -> void:
 	prev_dir = 0
 	current_pushable.force = Vector2.ZERO
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor():
 		parent.spawn_jump_dust()
 		return jump_state

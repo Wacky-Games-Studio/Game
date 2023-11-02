@@ -13,7 +13,7 @@ func enter() -> void:
 	super()
 	coyote_timer.start()
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_wall_only():
 		parent.spawn_jump_dust()
 		return jump_state
