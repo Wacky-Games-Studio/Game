@@ -27,6 +27,10 @@ func _ready():
 	
 	if already_passed:
 		$Eyes.region_rect = region_on
+		$Eyes/Light.show()
+		$Eyes/Light2.show()
+		$Eyes/Light.energy = 1
+		$Eyes/Light2.energy = 1
 	else:
 		$Eyes.region_rect = region_off
 
