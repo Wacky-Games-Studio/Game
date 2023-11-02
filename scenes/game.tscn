@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://x7iyj05ceut1"]
+[gd_scene load_steps=6 format=3 uid="uid://x7iyj05ceut1"]
 
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_16x2n"]
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="2_gnmjp"]
 [ext_resource type="PackedScene" uid="uid://evwchr2ib2vo" path="res://entities/checkpoint/checkpoint.tscn" id="3_21hg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28rh4"]
+size = Vector2(20, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06j0g"]
+size = Vector2(20, 98)
 
 [node name="Game" type="Node2D"]
 
@@ -19,9 +25,21 @@ position = Vector2(104, 0)
 position = Vector2(376, 80)
 
 [node name="CollisionShape2D" parent="Checkpoints/Checkpoint" index="0"]
-position = Vector2(0, -8)
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_28rh4")
 
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint" index="1"]
 position = Vector2(96, 53)
 
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_21hg1")]
+position = Vector2(844, 84)
+
+[node name="CollisionShape2D" parent="Checkpoints/Checkpoint2" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_06j0g")
+
+[node name="SpawnLoaction" parent="Checkpoints/Checkpoint2" index="1"]
+position = Vector2(73, 49)
+
 [editable path="Checkpoints/Checkpoint"]
+[editable path="Checkpoints/Checkpoint2"]
