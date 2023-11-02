@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://h73antg88tc2" path="res://entities/checkpoint/checkpoint_activated.wav" id="4_cko43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8knss"]
-size = Vector2(20, 96)
+size = Vector2(62, 15.5)
 
 [sub_resource type="Animation" id="Animation_p0kjt"]
 resource_name = "RESET"
