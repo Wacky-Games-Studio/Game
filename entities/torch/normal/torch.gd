@@ -13,3 +13,4 @@ func _ready():
 		return
 	
 	scale = new_scale
+	position.x += -3 if scale.x == 1 else 3

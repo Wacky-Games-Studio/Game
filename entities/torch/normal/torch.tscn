@@ -73,7 +73,7 @@ color_ramp = SubResource("Gradient_4s7ec")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_sbxk4")
-vframes = 2
+hframes = 2
 frame = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
