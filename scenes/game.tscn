@@ -16,6 +16,12 @@ position = Vector2(104, 0)
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_21hg1")]
-position = Vector2(352, 80)
-size = Vector2i(20, 100)
-spawn_pos = Vector2i(110, 53)
+position = Vector2(376, 80)
+
+[node name="CollisionShape2D" parent="Checkpoints/Checkpoint" index="0"]
+position = Vector2(0, -8)
+
+[node name="SpawnLoaction" parent="Checkpoints/Checkpoint" index="1"]
+position = Vector2(96, 53)
+
+[editable path="Checkpoints/Checkpoint"]
