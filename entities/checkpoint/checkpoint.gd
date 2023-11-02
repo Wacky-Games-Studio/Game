@@ -15,7 +15,11 @@ func _ready():
 		if i != self: 
 			continue
 
-		already_passed = GlobalState.checkpoints_state[index] 
+		if GlobalState.checkpoints_state.size() <= index:
+			already_passed = false
+			break
+
+		already_passed = GlobalState.checkpoints_state[index]
 
 func _on_body_entered(body):
 	if body is Player and not already_passed:
