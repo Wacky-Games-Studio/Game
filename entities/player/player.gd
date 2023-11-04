@@ -49,6 +49,9 @@ var current_jump_particles: CPUParticles2D
 var current_land_particles: CPUParticles2D
 
 func _ready() -> void:
+	init()
+
+func init():
 	state_machine.init(self)
 	
 	if GlobalState.has_died:

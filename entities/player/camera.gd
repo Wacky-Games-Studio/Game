@@ -6,6 +6,8 @@ extends Camera2D
 @onready var notifier: VisibleOnScreenNotifier2D = $"../OnScreenNotifier"
 @onready var player: CharacterBody2D = $".."
 
+var _locked := false
+
 func _ready():
 	update_position()
 
@@ -13,6 +15,8 @@ func update_position():
 	global_position = _calculate_new_pos()
 
 func _calculate_new_pos():
+	if _locked: return global_position
+	
 	var viewport_size := get_viewport_rect().size
 	var player_offset_x := fposmod(player.global_position.x, viewport_size.x)
 	var player_offset_y := fposmod(player.global_position.y, viewport_size.y)
@@ -27,6 +31,10 @@ func _calculate_new_pos():
 func _on_screen_notifier_screen_exited():
 	var target_pos = _calculate_new_pos()
 	
+	if target_pos == global_position:
+		var viewport_size := get_viewport_rect().size
+		player.global_position.y -= viewport_size.y
+	
 	if instant_move:
 		global_position = target_pos
 		return
@@ -37,3 +45,9 @@ func _on_screen_notifier_screen_exited():
 	await tween.finished
 	
 	GlobalState.start_process()
+
+func lock():
+	_locked = true
+
+func unlock():
+	_locked = false

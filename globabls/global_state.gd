@@ -16,3 +16,6 @@ func restart_level():
 
 func checkpoint_collected():
 	checkpoints_passed += 1
+
+func finnish_level():
+	$"../SceneManager".finnish_level()
