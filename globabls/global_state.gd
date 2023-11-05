@@ -1,9 +1,9 @@
 extends Node
 
+# FIXME: This entire class is dumb, needs rewrite
+
 var process_paused := false
 var has_died := false
-var checkpoints_passed := 0
-var checkpoints_state = []
 
 func pause_process():
 	process_paused = true
@@ -13,9 +13,6 @@ func start_process():
 
 func restart_level():
 	$"../SceneManager".restart_level()
-
-func checkpoint_collected():
-	checkpoints_passed += 1
 
 func finnish_level():
 	$"../SceneManager".finnish_level()

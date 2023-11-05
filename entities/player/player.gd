@@ -60,6 +60,8 @@ func init():
 	current_walk_particles = instantiate_new_particle(walk_particles)
 	current_jump_particles = instantiate_new_particle(jump_particels)
 	current_land_particles = instantiate_new_particle(land_particels)
+	
+	$Camera.update_position()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if GlobalState.process_paused: return

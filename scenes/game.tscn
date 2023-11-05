@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://x7iyj05ceut1"]
+[gd_scene load_steps=11 format=3 uid="uid://x7iyj05ceut1"]
 
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_16x2n"]
+[ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_lip7v"]
 [ext_resource type="PackedScene" uid="uid://evwchr2ib2vo" path="res://entities/checkpoint/checkpoint.tscn" id="3_21hg1"]
 [ext_resource type="PackedScene" uid="uid://c688q3v05cx2m" path="res://entities/door/door.tscn" id="4_7ib6x"]
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="5_0m21r"]
@@ -19,6 +20,8 @@ size = Vector2(32, 79)
 size = Vector2(64.5, 32.5)
 
 [node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_lip7v")]
 
 [node name="TileMap" parent="." instance=ExtResource("1_16x2n")]
 position = Vector2(1, 0)

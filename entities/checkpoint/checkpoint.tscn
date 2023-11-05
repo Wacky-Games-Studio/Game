@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://evwchr2ib2vo"]
+[gd_scene load_steps=10 format=3 uid="uid://evwchr2ib2vo"]
 
 [ext_resource type="Script" path="res://entities/checkpoint/checkpoint.gd" id="1_af7ws"]
 [ext_resource type="Texture2D" uid="uid://dc78u7d70dht6" path="res://scenes/dungeon/assets/background.png" id="2_xtam7"]
 [ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/normal/torch_light2.png" id="3_55swj"]
 [ext_resource type="AudioStream" uid="uid://h73antg88tc2" path="res://entities/checkpoint/checkpoint_activated.wav" id="4_cko43"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8knss"]
-size = Vector2(62, 15.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em15m"]
 
 [sub_resource type="Animation" id="Animation_p0kjt"]
 resource_name = "RESET"
@@ -57,6 +56,81 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Eyes:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 0, 32, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_mqfac"]
+resource_name = "already_captured"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyes/Light:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Eyes/Light2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Eyes/Light:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eyes/Light2:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Eyes:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(96, 32, 32, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_elvuv"]
@@ -121,10 +195,23 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Eyes:region_rect")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(96, 32, 32, 16)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6p2t"]
 _data = {
 "RESET": SubResource("Animation_p0kjt"),
+"already_captured": SubResource("Animation_mqfac"),
 "captured": SubResource("Animation_elvuv")
 }
 
@@ -132,11 +219,9 @@ _data = {
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_af7ws")
-region_off = Rect2(64, 0, 32, 16)
-region_on = Rect2(96, 32, 32, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_8knss")
+shape = SubResource("RectangleShape2D_em15m")
 
 [node name="SpawnLoaction" type="Marker2D" parent="."]
 gizmo_extents = 11.0

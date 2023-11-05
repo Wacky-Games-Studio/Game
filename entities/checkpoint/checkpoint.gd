@@ -1,55 +1,23 @@
 extends Area2D
 
-@export var region_off: Rect2
-@export var region_on: Rect2
+@onready var spawn_location = $SpawnLoaction
+@onready var animation_player = $AnimationPlayer
 
-var spawn_pos: Vector2i = Vector2i(0, 0)
-var already_passed := false
+var spawn_pos: Vector2 = Vector2(0, 0)
+var has_passed := false
 
 func _ready():
-	spawn_pos = $SpawnLoaction.position
+	spawn_pos = spawn_location.global_position
+	has_passed = CheckpointManager.has_collected(self)
 	
-	if not GlobalState.has_died:
-		return
-	
-	var index = -1	
-	for i in $"..".get_children():
-		index += 1
-		if i != self: 
-			continue
-
-		if GlobalState.checkpoints_state.size() <= index:
-			already_passed = false
-			break
-
-		already_passed = GlobalState.checkpoints_state[index]
-		
-	
-	if already_passed:
-		$Eyes.region_rect = region_on
-		$Eyes/Light.show()
-		$Eyes/Light2.show()
-		$Eyes/Light.energy = 1
-		$Eyes/Light2.energy = 1
+	if has_passed:
+		animation_player.play("already_captured")
 	else:
-		$Eyes.region_rect = region_off
+		animation_player.play("RESET")
 
 func _on_body_entered(body):
-	if body is Player and not already_passed:
-		already_passed = true
-		GlobalState.checkpoint_collected()
-		$Eyes.region_rect = region_on
-		$AnimationPlayer.play("captured")
+	if body is Player and not has_passed:
+		animation_player.play("captured")
 		
-		var index = -1
-		for i in $"..".get_children():
-			index += 1
-			if i != self: 
-				continue
-			
-			if GlobalState.checkpoints_state.size() <= index:
-				for j in range(index + 1):
-					GlobalState.checkpoints_state.push_back(false)
-			
-			print("index: ", index)
-			GlobalState.checkpoints_state[index] = already_passed
+		has_passed = true
+		CheckpointManager.collect_checkpoint(self)

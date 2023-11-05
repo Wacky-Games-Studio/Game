@@ -14,7 +14,8 @@ func _ready():
 	spawn_player(level)
 
 func spawn_player(level: Node2D):
-	var player: Player = get_node("Player")
+	# HACK: player and camera code should be handled by the player, sure move the player. But make the player move the camera
+	var player: Player = level.get_node("Player")
 	player.global_position = level.get_node("PlayerSpawn").global_position
 	var camera: Camera2D = player.get_node("Camera")
 	camera.unlock()
@@ -34,25 +35,14 @@ func restart_level():
 	current_scene.add_child(level)
 	
 	# spawn the player at checkpoint
-	if GlobalState.checkpoints_passed != 0:
-		spawn_at_checkpoint(level)
+	CheckpointManager.spawn_at_checkpoint(level)
 	
 	transition_screen.remove_transition()
 
-func spawn_at_checkpoint(level: Node2D):
-	var player: Player = get_node("Player")
-	var checkpoints_holder: Node2D = level.get_node("Checkpoints")
-	var current_checkpoint: Area2D = checkpoints_holder.get_children()[GlobalState.checkpoints_passed - 1]
-	
-	player.global_position = current_checkpoint.global_position + (current_checkpoint.spawn_pos as Vector2)
-	player.init()
-	player.get_node("Camera").update_position()
-
 func finnish_level():
 	# reset state
-	GlobalState.checkpoints_passed = 0
 	GlobalState.has_died = false
-	GlobalState.checkpoints_state = []
+	CheckpointManager.reset()
 	
 	current_scene.get_child(0).hide()
 	

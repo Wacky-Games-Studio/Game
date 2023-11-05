@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2sjj6305hib3"]
+[gd_scene load_steps=6 format=3 uid="uid://b2sjj6305hib3"]
 
 [ext_resource type="Script" path="res://scenes/scene_manager.gd" id="1_kbemt"]
 [ext_resource type="PackedScene" uid="uid://dibebx4shyhjm" path="res://scenes/fade/fade_transition.tscn" id="2_83rjd"]
 [ext_resource type="PackedScene" uid="uid://x7iyj05ceut1" path="res://scenes/game.tscn" id="2_jfjn0"]
 [ext_resource type="PackedScene" uid="uid://csal0ogtp3uj5" path="res://scenes/test_level.tscn" id="3_uap2h"]
-[ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="4_umd5j"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="5_yoilj"]
 
 [node name="SceneManager" type="Node2D"]
@@ -17,8 +16,6 @@ levels = Array[PackedScene]([ExtResource("2_jfjn0"), ExtResource("3_uap2h")])
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.65098, 0.65098, 0.65098, 1)
-
-[node name="Player" parent="." instance=ExtResource("4_umd5j")]
 
 [node name="TileMap" parent="." instance=ExtResource("5_yoilj")]
 layer_0/tile_data = PackedInt32Array(-1, 327680, 4, -2, 196608, 4, -65538, 196608, 3, -65537, 327680, 3, -131073, 327680, 3, -131074, 196608, 3, -196610, 196608, 3, -196609, 327680, 3, -262145, 327680, 3, -327681, 327680, 3, -327682, 196608, 3, -262146, 196608, 3, -393217, 327680, 3, -393218, 196608, 3, -458754, 196608, 3, -524290, 196608, 3, -589826, 196608, 3, -524289, 327680, 3, -458753, 327680, 3, -589825, 327680, 3, -720898, 196608, 2, -655362, 196608, 3, -655361, 327680, 3, -720897, 327680, 2, -20, 196608, 4, -19, 327680, 4, -65555, 327680, 3, -65556, 196608, 3, -131092, 196608, 3, -131091, 327680, 3, -196627, 327680, 3, -196628, 196608, 3, -262164, 196608, 3, -327700, 196608, 3, -327699, 327680, 3, -262163, 327680, 3, -393235, 327680, 3, -458771, 327680, 3, -458772, 196608, 3, -524308, 196608, 3, -524307, 327680, 3, -589843, 327680, 3, -655379, 327680, 3, -720915, 327680, 2, -720916, 196608, 2, -655380, 196608, 3, -589844, 196608, 3, -393236, 196608, 3, -327695, 131077, 0, -327686, 131077, 0)
