@@ -53,7 +53,7 @@ func process_physics(delta: float) -> State:
 	
 	if parent.is_on_floor() and not touching_spring:
 		parent.jumps_remaining = parent.max_jumps
-		parent.spawn_land_dust()
+		parent.spawn_dust(Player.ParticlesType.Land)
 		parent.is_spring_jump = false
 		if dir != 0:
 			return move_state

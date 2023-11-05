@@ -12,6 +12,8 @@ func spawn_at_checkpoint(level: Node2D):
 	var player: Player = level.get_node("Player")
 	var checkpoints_holder: Node2D = level.get_node("Checkpoints")
 	var collected_checkpoints := _checkpoints_passed.size()
+	
+	# HACK: could be better by using the names but eh. It works
 	var current_checkpoint: Area2D = checkpoints_holder.get_children()[collected_checkpoints - 1]
 	
 	player.global_position = current_checkpoint.spawn_pos

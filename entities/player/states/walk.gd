@@ -7,7 +7,7 @@ extends State
 
 func process_input(_event: InputEvent) -> State:
 	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor():
-		parent.spawn_jump_dust()
+		parent.spawn_dust(Player.ParticlesType.Jump)
 		return jump_state
 		
 	return null

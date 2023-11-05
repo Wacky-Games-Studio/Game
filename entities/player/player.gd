@@ -44,9 +44,9 @@ var is_spring_jump := false
 var _prev_flip_h := false
 var _is_dead := false
 
-var current_walk_particles: CPUParticles2D
-var current_jump_particles: CPUParticles2D
-var current_land_particles: CPUParticles2D
+var _current_walk_particles: CPUParticles2D
+var _current_jump_particles: CPUParticles2D
+var _current_land_particles: CPUParticles2D
 
 func _ready() -> void:
 	init()
@@ -57,9 +57,9 @@ func init():
 	if GlobalState.has_died:
 		animator.play("respawn")
 	
-	current_walk_particles = instantiate_new_particle(walk_particles)
-	current_jump_particles = instantiate_new_particle(jump_particels)
-	current_land_particles = instantiate_new_particle(land_particels)
+	_current_walk_particles = instantiate_new_particle(walk_particles)
+	_current_jump_particles = instantiate_new_particle(jump_particels)
+	_current_land_particles = instantiate_new_particle(land_particels)
 	
 	$Camera.update_position()
 
@@ -94,50 +94,56 @@ func get_gravity() -> float:
 		return variable_gravity 
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
-func spawn_walk_dust():
-	var percentage = abs(velocity.x) / speed
-	var curve_sample = dust_acceleration_curve.sample(percentage)
+func spawn_dust(type: ParticlesType = ParticlesType.Walk):
+	match type:
+		ParticlesType.Walk:
+			var percentage = abs(velocity.x) / speed
+			var curve_sample = dust_acceleration_curve.sample(percentage)
+			
+			if randf() < curve_sample:
+				_current_walk_particles.emitting = true
+				_current_walk_particles = instantiate_new_particle(walk_particles)
+		
+		ParticlesType.Jump:
+			audio_controller.play_jump_land()
+			_current_jump_particles.emitting = true
+			_current_jump_particles = instantiate_new_particle(jump_particels)
+		
+		ParticlesType.Land:
+			audio_controller.play_jump_land()
+			_current_land_particles.emitting = true
+			_current_land_particles = instantiate_new_particle(land_particels)
 
-	if randf() < curve_sample:
-		current_walk_particles.emitting = true
-		current_walk_particles = instantiate_new_particle(walk_particles)
+enum ParticlesType {
+	Walk = 0,
+	Jump = 1,
+	Land = 2
+}
 
 func flip(should_flip: bool):
 	sprite.flip_h = should_flip
 	$CollisionPolygon2D.scale = Vector2(-1 if should_flip else 1, 1)
 
 func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
-	var particle = particle_to_spawn.duplicate().instantiate()
+	var particle = particle_to_spawn.instantiate()
 	particle_holder.add_child(particle)
 	
 	return particle
 
-func spawn_jump_dust():
-	audio_controller.play_jump_land()
-	current_jump_particles.emitting = true
-	current_jump_particles = instantiate_new_particle(jump_particels)
-	
-func spawn_land_dust():
-	audio_controller.play_jump_land()
-	current_land_particles.emitting = true
-	current_land_particles = instantiate_new_particle(land_particels)
 
-func respawn(is_start: bool = true):
-	if is_start:
-		_is_dead = true
-	else:
-		_is_dead = false
+func respawn(is_start_of_animation: bool = true):
+	_is_dead = is_start_of_animation
+	
+	if not is_start_of_animation:
 		state_machine.current_state.enter()
 
 func die():
 	if _is_dead: return
-	animator.stop()
 	_is_dead = true
-	sprite.visible = false
-	blood_particles.emitting = true
-	death_audio.play()
 	
-	await get_tree().create_timer(blood_particles.lifetime).timeout
+	animator.play("die")
+	
+	await animator.animation_finished
 	GlobalState.restart_level()
 	
 func spring_jump():
