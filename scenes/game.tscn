@@ -120,9 +120,6 @@ shape = SubResource("RectangleShape2D_i820s")
 [node name="Marker2D" parent="Teleporter" index="1"]
 position = Vector2(4, -331)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.65098, 0.65098, 0.65098, 1)
-
 [editable path="Checkpoints/Checkpoint"]
 [editable path="Checkpoints/Checkpoint2"]
 [editable path="Checkpoints/Checkpoint3"]
