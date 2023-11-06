@@ -518,4 +518,7 @@ bus = &"Duck"
 stream = ExtResource("31_dr1i5")
 bus = &"Duck"
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.65098, 0.65098, 0.65098, 1)
+
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]

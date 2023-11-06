@@ -1,4 +1,4 @@
-class_name Entity
+class_name PausableEntity
 extends CharacterBody2D
 
 func _unhandled_input(event: InputEvent) -> void:

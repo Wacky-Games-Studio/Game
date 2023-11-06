@@ -1,5 +1,5 @@
 class_name Player
-extends Entity
+extends PausableEntity
 
 @export_category("Movement")
 @export_subgroup("Misc")
