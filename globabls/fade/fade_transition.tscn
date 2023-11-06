@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dibebx4shyhjm"]
+[gd_scene load_steps=10 format=3 uid="uid://dibebx4shyhjm"]
 
 [ext_resource type="Script" path="res://globabls/fade/fade.gd" id="1_wtqru"]
-[ext_resource type="Texture2D" uid="uid://c7rybnayqiunt" path="res://globabls/fade/fade_to_black.png" id="2_173jh"]
-[ext_resource type="Texture2D" uid="uid://u3vbu286svc3" path="res://globabls/fade/fade_to_normal.png" id="3_t5ris"]
+[ext_resource type="Texture2D" uid="uid://c7rybnayqiunt" path="res://globabls/fade/transitions/arrow/fade_to_black.png" id="2_l0jg1"]
+[ext_resource type="Texture2D" uid="uid://u3vbu286svc3" path="res://globabls/fade/transitions/arrow/fade_to_normal.png" id="3_fr7os"]
+[ext_resource type="Texture2D" uid="uid://c8xpmmeshejn7" path="res://globabls/fade/transitions/feathers/feather_in.png" id="3_oejiw"]
+[ext_resource type="Texture2D" uid="uid://sxe4i8kda72m" path="res://globabls/fade/transitions/feathers/feather_out.png" id="5_cy6lm"]
 
 [sub_resource type="Animation" id="Animation_3krpk"]
 length = 0.001
@@ -17,18 +19,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 176)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_173jh")]
 }
 
 [sub_resource type="Animation" id="Animation_gag5l"]
@@ -46,17 +36,19 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 176), Vector2(0, -176)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:texture")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_173jh")]
+"values": [{
+"args": [true],
+"method": &"change_sprite"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_p6m6l"]
@@ -73,17 +65,19 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -352)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:texture")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_t5ris")]
+"values": [{
+"args": [false],
+"method": &"change_sprite"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pejql"]
@@ -95,6 +89,8 @@ _data = {
 
 [node name="TransitionScreen" type="CanvasLayer"]
 script = ExtResource("1_wtqru")
+transitions_in = Array[Texture2D]([ExtResource("2_l0jg1"), ExtResource("3_oejiw")])
+transitions_out = Array[Texture2D]([ExtResource("3_fr7os"), ExtResource("5_cy6lm")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -105,8 +101,9 @@ libraries = {
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+offset_left = -160.0
 offset_top = 176.0
-offset_right = 320.0
+offset_right = 160.0
 offset_bottom = 528.0
 grow_horizontal = 2
-texture = ExtResource("2_173jh")
+texture = ExtResource("3_fr7os")

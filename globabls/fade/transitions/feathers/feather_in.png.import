@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u3vbu286svc3"
-path="res://.godot/imported/fade_to_normal.png-9854fc185f9df472c6db99bfd91b919d.ctex"
+uid="uid://c8xpmmeshejn7"
+path="res://.godot/imported/feather_in.png-290327f145c1343bdd0046d04395321c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://globabls/fade/fade_to_normal.png"
-dest_files=["res://.godot/imported/fade_to_normal.png-9854fc185f9df472c6db99bfd91b919d.ctex"]
+source_file="res://globabls/fade/transitions/feathers/feather_in.png"
+dest_files=["res://.godot/imported/feather_in.png-290327f145c1343bdd0046d04395321c.ctex"]
 
 [params]
 

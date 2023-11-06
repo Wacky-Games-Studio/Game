@@ -51,8 +51,7 @@ func get_latest_checkpoint_data() -> CheckpointData:
 	var checkpoints_holder: Node2D = level.get_node("Checkpoints")
 	var collected_checkpoints := _checkpoints_passed.size()
 	
-	# HACK: could be better by using the names but eh. It works
-	var current_checkpoint: Area2D = checkpoints_holder.get_children()[collected_checkpoints - 1]
+	var current_checkpoint: Area2D = checkpoints_holder.get_node(_checkpoints_passed.back())
 	
 	return _checkpoint_data[current_checkpoint.name]
 
