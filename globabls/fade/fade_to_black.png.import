@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u3vbu286svc3"
-path="res://.godot/imported/fade_to_normal.png-8a186df241e6e0f60fd32a115d51932d.ctex"
+uid="uid://c7rybnayqiunt"
+path="res://.godot/imported/fade_to_black.png-9b8f1054f7914237650ff631ee28b653.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/fade/fade_to_normal.png"
-dest_files=["res://.godot/imported/fade_to_normal.png-8a186df241e6e0f60fd32a115d51932d.ctex"]
+source_file="res://globabls/fade/fade_to_black.png"
+dest_files=["res://.godot/imported/fade_to_black.png-9b8f1054f7914237650ff631ee28b653.ctex"]
 
 [params]
 

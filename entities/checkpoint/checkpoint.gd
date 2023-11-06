@@ -1,4 +1,7 @@
+class_name Checkpoint
 extends Area2D
+
+@export var should_face_left_on_spawn: bool = false
 
 @onready var spawn_location = $SpawnLoaction
 @onready var animation_player = $AnimationPlayer
@@ -20,4 +23,10 @@ func _on_body_entered(body):
 		animation_player.play("captured")
 		
 		has_passed = true
-		CheckpointManager.collect_checkpoint(self)
+		
+		var data := CheckpointManager.CheckpointData.new()
+		data.checkpoint = self
+		data.position = spawn_pos
+		data.facing_left = should_face_left_on_spawn
+		
+		CheckpointManager.collect_checkpoint(data)

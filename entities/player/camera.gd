@@ -39,12 +39,12 @@ func _on_screen_notifier_screen_exited():
 		global_position = target_pos
 		return
 	
-	GlobalState.pause_process()
+	#GlobalState.pause_process()
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "global_position", target_pos, move_speed)
 	await tween.finished
 	
-	GlobalState.start_process()
+	#GlobalState.start_process()
 
 func lock():
 	_locked = true

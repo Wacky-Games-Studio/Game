@@ -1,5 +1,5 @@
 class_name Player
-extends CharacterBody2D
+extends Entity
 
 @export_category("Movement")
 @export_subgroup("Misc")
@@ -16,6 +16,7 @@ extends CharacterBody2D
 @export var wall_jump_pushback := -225
 @export var wall_slide_gravity := 100
 @export var max_jumps := 1
+@export var terminal_fall_velocity: float = 1000
 
 @export_category("Misc")
 @export var walk_particles: PackedScene
@@ -54,38 +55,32 @@ func _ready() -> void:
 func init():
 	state_machine.init(self)
 	
-	if GlobalState.has_died:
-		animator.play("respawn")
-	
 	_current_walk_particles = instantiate_new_particle(walk_particles)
 	_current_jump_particles = instantiate_new_particle(jump_particels)
 	_current_land_particles = instantiate_new_particle(land_particels)
 	
+	if CheckpointManager.has_collected_any():
+		animator.play("respawn")
+	
+	var data = CheckpointManager.get_latest_checkpoint_data()
+	global_position = data.position
+	flip(data.facing_left)
+	
 	$Camera.update_position()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if GlobalState.process_paused: return
+func unhandled_input(event: InputEvent) -> void:
 	if _is_dead: return
 	
 	state_machine.process_input(event)
 
-func _physics_process(delta: float) -> void:
-	if GlobalState.process_paused: return
+func physics_process(delta: float) -> void:
 	if _is_dead: return
 
 	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
 
-func _process(delta: float) -> void:
-	if GlobalState.process_paused: 
-		if animator.is_playing() and animator.current_animation != "respawn":
-			animator.pause()
-		return
-	
+func process(delta: float) -> void:
 	if _is_dead: return
-	
-	if not animator.is_playing():
-		animator.play()
 	
 	state_machine.process_frame(delta)
 
@@ -130,7 +125,7 @@ func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	
 	return particle
 
-
+# only call in animator
 func respawn(is_start_of_animation: bool = true):
 	_is_dead = is_start_of_animation
 	
@@ -144,7 +139,7 @@ func die():
 	animator.play("die")
 	
 	await animator.animation_finished
-	GlobalState.restart_level()
+	SceneManager.restart_level()
 	
 func spring_jump():
 	state_machine.change_state($StateMachine/Fall)
