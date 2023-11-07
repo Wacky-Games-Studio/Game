@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=50 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -42,6 +42,9 @@ point_count = 2
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l8bc1"]
+light_mode = 1
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rswie"]
 streams_count = 11
@@ -422,6 +425,7 @@ z_index = -1
 position = Vector2(154, 80)
 
 [node name="Guide" type="Node2D" parent="Camera"]
+material = SubResource("CanvasItemMaterial_l8bc1")
 script = ExtResource("9_2jw38")
 size = -1
 
