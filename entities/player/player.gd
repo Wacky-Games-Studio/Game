@@ -24,7 +24,6 @@ extends PausableEntity
 @export var land_particels: PackedScene
 @export var push_force: float = 20
 @export var mass: float = 1
-@export var movement_locked := false
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
@@ -44,7 +43,6 @@ extends PausableEntity
 var jumps_remaining := max_jumps
 var is_spring_jump := false
 var _prev_flip_h := false
-var _is_dead := false
 
 var _current_walk_particles: CPUParticles2D
 var _current_jump_particles: CPUParticles2D
@@ -57,8 +55,7 @@ func init():
 	state_machine.init(self)
 	
 	if CheckpointManager.has_collected_any():
-		movement_locked = true
-		animator.play("respawn")
+		state_machine.change_state($StateMachine/Respawn)
 	
 	var data = CheckpointManager.get_latest_checkpoint_data()
 	global_position = data.position
@@ -71,24 +68,18 @@ func init():
 	_current_land_particles = instantiate_new_particle(land_particels)
 
 func unhandled_input(event: InputEvent) -> void:
-	if _is_dead or movement_locked: return
-	
 	state_machine.process_input(event)
 
 func physics_process(delta: float) -> void:
-	if _is_dead or movement_locked: return
-
 	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
 
 func process(delta: float) -> void:
-	if _is_dead or movement_locked: return
-	
 	state_machine.process_frame(delta)
 
 func get_gravity() -> float:
 	if (not Input.is_action_pressed("jump") and velocity.y < 0.0) or is_spring_jump:
-		return variable_gravity 
+		return variable_gravity
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func spawn_dust(type: ParticlesType = ParticlesType.Walk):
@@ -127,21 +118,11 @@ func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	
 	return particle
 
-# only call in animator
-func respawn(is_start_of_animation: bool = true):
-	_is_dead = is_start_of_animation
-	
-	if not is_start_of_animation:
-		state_machine.current_state.enter()
-
 func die():
-	if _is_dead: return
-	_is_dead = true
+	if state_machine.current_state == $StateMachine/Dead: 
+		return
 	
-	animator.play("die")
-	
-	await animator.animation_finished
-	SceneManager.restart_level()
+	state_machine.change_state($StateMachine/Dead)
 	
 func spring_jump():
 	state_machine.change_state($StateMachine/Fall)
