@@ -49,7 +49,6 @@ func get_latest_checkpoint_data() -> CheckpointData:
 	
 	var level := get_tree().current_scene
 	var checkpoints_holder: Node2D = level.get_node("Checkpoints")
-	var collected_checkpoints := _checkpoints_passed.size()
 	
 	var current_checkpoint: Area2D = checkpoints_holder.get_node(_checkpoints_passed.back())
 	

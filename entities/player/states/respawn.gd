@@ -10,5 +10,5 @@ func enter():
 	await parent.animator.animation_finished
 	_return_var = idle
 
-func process_frame(delta: float) -> State:
+func process_frame(_delta: float) -> State:
 	return _return_var
