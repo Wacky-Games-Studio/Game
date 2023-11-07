@@ -8,13 +8,13 @@ extends Camera2D
 
 var _locked := false
 
-func _ready():
+func _ready() -> void:
 	update_position()
 
-func update_position():
+func update_position() -> void:
 	global_position = _calculate_new_pos()
 
-func _calculate_new_pos():
+func _calculate_new_pos() -> void:
 	if _locked: return global_position
 	
 	var viewport_size := get_viewport_rect().size
@@ -28,7 +28,7 @@ func _calculate_new_pos():
 	
 	return target_pos
 
-func _on_screen_notifier_screen_exited():
+func _on_screen_notifier_screen_exited() -> void:
 	var target_pos = _calculate_new_pos()
 	
 	if target_pos == global_position:
@@ -46,8 +46,8 @@ func _on_screen_notifier_screen_exited():
 	
 	#GlobalState.start_process()
 
-func lock():
+func lock() -> void:
 	_locked = true
 
-func unlock():
+func unlock() -> void:
 	_locked = false

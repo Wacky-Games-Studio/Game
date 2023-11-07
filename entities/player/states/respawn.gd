@@ -4,7 +4,7 @@ extends State
 
 var _return_var: State = null
 
-func enter():
+func enter() -> void:
 	super()
 	
 	await parent.animator.animation_finished

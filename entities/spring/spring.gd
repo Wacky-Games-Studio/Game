@@ -6,14 +6,14 @@ extends Area2D
 var custom_data
 var dir := Vector2.UP
 
-func _ready():
+func _ready() -> void:
 	dir = custom_data
 	var angle_to_rotate = dir.angle_to(Vector2.UP)
 	rotate(angle_to_rotate)
 	
 	if dir.x != 0: shoot_velocity *= -1
 
-func _on_body_entered(body):
+func _on_body_entered(body) -> void:
 	if body is Player:
 		$AnimationPlayer.play("boing")
 		$Sound.play()

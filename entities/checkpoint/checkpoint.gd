@@ -9,7 +9,7 @@ extends Area2D
 var spawn_pos: Vector2 = Vector2(0, 0)
 var has_passed := false
 
-func _ready():
+func _ready() -> void:
 	spawn_pos = spawn_location.global_position
 	has_passed = CheckpointManager.has_collected(self)
 	
@@ -18,7 +18,7 @@ func _ready():
 	else:
 		animation_player.play("RESET")
 
-func _on_body_entered(body):
+func _on_body_entered(body: Node2D) -> void:
 	if body is Player and not has_passed:
 		animation_player.play("captured")
 		

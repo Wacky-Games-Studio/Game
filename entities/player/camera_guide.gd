@@ -6,11 +6,11 @@ extends Node2D
 @export var color: Color = Color.PURPLE
 @export var size: int = 1
 
-func _ready():
+func _ready() -> void:
 	if not Engine.is_editor_hint():
 		queue_free()
 
-func _draw():
+func _draw() -> void:
 	if not Engine.is_editor_hint(): return
 	
 	var x_bound: float = bound * screen_size.x

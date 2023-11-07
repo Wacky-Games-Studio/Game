@@ -16,7 +16,7 @@ func change_sprite(transition_in: bool = true) -> void:
 		$TextureRect.texture = transitions_out[current_random]
 	
 
-func transition():
+func transition() -> void:
 	SceneManager.scene_paused = true
 	
 	$AnimationPlayer.play("fade_to_black")
@@ -26,7 +26,7 @@ func transition():
 	SceneManager.scene_paused = false
 	
 
-func remove_transition():
+func remove_transition() -> void:
 	SceneManager.scene_paused = true
 	$AnimationPlayer.play("fade_to_normal")
 	

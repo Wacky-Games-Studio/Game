@@ -51,7 +51,7 @@ var _current_land_particles: CPUParticles2D
 func _ready() -> void:
 	init()
 
-func init():
+func init() -> void:
 	state_machine.init(self)
 	
 	if CheckpointManager.has_collected_any():
@@ -82,7 +82,7 @@ func get_gravity() -> float:
 		return variable_gravity
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
-func spawn_dust(type: ParticlesType = ParticlesType.Walk):
+func spawn_dust(type: ParticlesType = ParticlesType.Walk) -> void:
 	match type:
 		ParticlesType.Walk:
 			var percentage = abs(velocity.x) / speed
@@ -108,7 +108,7 @@ enum ParticlesType {
 	Land = 2
 }
 
-func flip(should_flip: bool):
+func flip(should_flip: bool) -> void:
 	sprite.flip_h = should_flip
 	$CollisionPolygon2D.scale = Vector2(-1 if should_flip else 1, 1)
 
@@ -118,12 +118,12 @@ func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	
 	return particle
 
-func die():
+func die() -> void:
 	if state_machine.current_state == $StateMachine/Dead: 
 		return
 	
 	state_machine.change_state($StateMachine/Dead)
 	
-func spring_jump():
+func spring_jump() -> void:
 	state_machine.change_state($StateMachine/Fall)
 	is_spring_jump = true

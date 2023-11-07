@@ -2,7 +2,7 @@ extends Node2D
 
 var custom_data
 var new_scale := Vector2.UP
-func _ready():
+func _ready() -> void:
 	new_scale = custom_data
 	
 	if new_scale == Vector2(10, 10):

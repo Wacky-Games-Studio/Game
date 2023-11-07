@@ -7,9 +7,9 @@ func _ready():
 	flip_h = move_left
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if GlobalState.camera_moving:
-		return
+func _process(delta) -> void:
+	#if GlobalState.camera_moving:
+	#	return
 	
 	position.x += move_speed * delta * (-1 if move_left else 1)
 

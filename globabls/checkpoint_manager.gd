@@ -8,17 +8,17 @@ class CheckpointData:
 var _checkpoints_passed: Array[String]
 var _checkpoint_data: Dictionary
 
-func collect_checkpoint(data: CheckpointData):
+func collect_checkpoint(data: CheckpointData) -> void:
 	_checkpoints_passed.push_back(data.checkpoint.name)
 	_checkpoint_data[data.checkpoint.name] = data
 
-func has_collected(checkpoint: Checkpoint):
+func has_collected(checkpoint: Checkpoint) -> bool:
 	return checkpoint.name in _checkpoints_passed
 
-func has_collected_any():
+func has_collected_any() -> bool:
 	return _checkpoints_passed.size() > 0
 
-func spawn_at_checkpoint():
+func spawn_at_checkpoint() -> void:
 	var level := get_tree().current_scene
 	var player: Player = level.get_node("Player")
 	var checkpoints_holder: Node2D = level.get_node("Checkpoints")
@@ -55,6 +55,6 @@ func get_latest_checkpoint_data() -> CheckpointData:
 	return _checkpoint_data[current_checkpoint.name]
 
 
-func reset():
+func reset() -> void:
 	_checkpoints_passed.clear()
 	_checkpoint_data.clear()

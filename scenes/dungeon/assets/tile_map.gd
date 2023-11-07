@@ -5,14 +5,14 @@ extends TileMap
 @export var sawblade: PackedScene
 @export var torches: PackedScene
 
-func _ready():
+func _ready() -> void:
 	replace_tiles(2, 0, spikes, "direction")
 	replace_tiles(3, 0, springs, "direction")
 	replace_tiles(4, 0, sawblade)
 	replace_tiles(5, 0, torches, "direction")
 
 
-func replace_tiles(atlas: int, layer: int, type: PackedScene, custom_data: String = ""):
+func replace_tiles(atlas: int, layer: int, type: PackedScene, custom_data: String = "") -> void:
 	var positions = get_used_cells(layer)
 	for pos in positions:
 		var tile := get_cell_tile_data(layer, pos)

@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 var force := Vector2.ZERO
 
-func _physics_process(delta: float):
+func _physics_process(delta: float) -> void:
 	velocity.y += gravity
 	
 	var friction := -velocity.normalized() * friction_coefficient

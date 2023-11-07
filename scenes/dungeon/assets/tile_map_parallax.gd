@@ -4,5 +4,5 @@ extends TileMap
 
 @onready var player = $"../Player"
 
-func _process(delta):
+func _process(_delta) -> void:
 	global_position.x = player.global_position.x * parallax_scale

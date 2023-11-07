@@ -4,7 +4,7 @@ extends State
 @export var idle_state: State
 @export var fall_state: State
 
-func enter():
+func enter() -> void:
 	super()
 	parent.jumps_remaining -= 1
 	
