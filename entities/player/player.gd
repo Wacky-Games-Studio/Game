@@ -24,6 +24,7 @@ extends PausableEntity
 @export var land_particels: PackedScene
 @export var push_force: float = 20
 @export var mass: float = 1
+@export var movement_locked := false
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
@@ -55,11 +56,8 @@ func _ready() -> void:
 func init():
 	state_machine.init(self)
 	
-	_current_walk_particles = instantiate_new_particle(walk_particles)
-	_current_jump_particles = instantiate_new_particle(jump_particels)
-	_current_land_particles = instantiate_new_particle(land_particels)
-	
 	if CheckpointManager.has_collected_any():
+		movement_locked = true
 		animator.play("respawn")
 	
 	var data = CheckpointManager.get_latest_checkpoint_data()
@@ -67,20 +65,24 @@ func init():
 	flip(data.facing_left)
 	
 	$Camera.update_position()
+	
+	_current_walk_particles = instantiate_new_particle(walk_particles)
+	_current_jump_particles = instantiate_new_particle(jump_particels)
+	_current_land_particles = instantiate_new_particle(land_particels)
 
 func unhandled_input(event: InputEvent) -> void:
-	if _is_dead: return
+	if _is_dead or movement_locked: return
 	
 	state_machine.process_input(event)
 
 func physics_process(delta: float) -> void:
-	if _is_dead: return
+	if _is_dead or movement_locked: return
 
 	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
 
 func process(delta: float) -> void:
-	if _is_dead: return
+	if _is_dead or movement_locked: return
 	
 	state_machine.process_frame(delta)
 
