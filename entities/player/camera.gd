@@ -14,7 +14,7 @@ func _ready() -> void:
 func update_position() -> void:
 	global_position = _calculate_new_pos()
 
-func _calculate_new_pos() -> void:
+func _calculate_new_pos() -> Vector2:
 	if _locked: return global_position
 	
 	var viewport_size := get_viewport_rect().size
