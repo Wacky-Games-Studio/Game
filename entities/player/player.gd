@@ -24,6 +24,7 @@ extends PausableEntity
 @export var land_particels: PackedScene
 @export var push_force: float = 20
 @export var mass: float = 1
+@export var ceiling_raycast_push_offset: float = 5.0
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
@@ -34,6 +35,7 @@ extends PausableEntity
 @onready var reverse_blood_particles: CPUParticles2D = $Particles/ReverseBlood
 @onready var death_audio: AudioStreamPlayer2D = $DeathAudio
 @onready var death_reverse_audio: AudioStreamPlayer2D = $DeathAudio
+@onready var ceiling_raycasts: CeilingRaycasts = $CeilingRaycasts
 
 @onready var jump_velocity := ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity := ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0

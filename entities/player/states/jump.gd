@@ -20,6 +20,16 @@ func process_physics(delta: float) -> State:
 	if parent.velocity.y > 0:
 		return fall_state
 	
+	if parent.ceiling_raycasts.right_outer and not parent.ceiling_raycasts.right_inner and \
+	   not parent.ceiling_raycasts.left_inner and not parent.ceiling_raycasts.left_outer:
+		parent.global_position.x -= parent.ceiling_raycast_push_offset
+		print("aaaaa")
+	elif parent.ceiling_raycasts.left_outer and not parent.ceiling_raycasts.left_inner and \
+	   not parent.ceiling_raycasts.right_inner and not parent.ceiling_raycasts.right_outer:
+		parent.global_position.x += parent.ceiling_raycast_push_offset
+		print("bbbbbb")
+		
+	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
 	if dir != 0:
