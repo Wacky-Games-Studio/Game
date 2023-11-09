@@ -13,7 +13,7 @@ extends PausableEntity
 @export var jump_time_to_peak: float = .5
 @export var jump_time_to_descent: float = .4
 @export var jump_variable_height: float = 25
-@export var wall_jump_pushback := -225
+@export var wall_jump_pushback := 225
 @export var wall_slide_gravity := 100
 @export var max_jumps := 1
 @export var terminal_fall_velocity: float = 1000
