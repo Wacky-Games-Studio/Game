@@ -8,11 +8,7 @@ func enter() -> void:
 	super()
 	parent.jumps_remaining -= 1
 	
-	if not parent.is_on_wall_only():
-		parent.velocity.y = parent.jump_velocity
-	elif (parent.get_wall_normal().x < 0 and Input.is_action_pressed("walk_right")) or \
-		 (parent.get_wall_normal().x > 0 and Input.is_action_pressed("walk_left")):
-		parent.velocity = Vector2(parent.get_wall_normal().x * parent.wall_jump_pushback, parent.jump_velocity)
+	parent.velocity.y = parent.jump_velocity
 
 func process_physics(delta: float) -> State:
 	parent.velocity.y += parent.get_gravity() * delta
@@ -23,11 +19,9 @@ func process_physics(delta: float) -> State:
 	if parent.ceiling_raycasts.right_outer and not parent.ceiling_raycasts.right_inner and \
 	   not parent.ceiling_raycasts.left_inner and not parent.ceiling_raycasts.left_outer:
 		parent.global_position.x -= parent.ceiling_raycast_push_offset
-		print("aaaaa")
 	elif parent.ceiling_raycasts.left_outer and not parent.ceiling_raycasts.left_inner and \
 	   not parent.ceiling_raycasts.right_inner and not parent.ceiling_raycasts.right_outer:
 		parent.global_position.x += parent.ceiling_raycast_push_offset
-		print("bbbbbb")
 		
 	
 	var dir = Input.get_axis("walk_left", "walk_right")

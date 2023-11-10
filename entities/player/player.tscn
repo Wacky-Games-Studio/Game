@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=54 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -35,6 +35,9 @@
 [ext_resource type="AudioStream" uid="uid://d132w40bvji3k" path="res://entities/player/audio/death_reverse.wav" id="31_dr1i5"]
 [ext_resource type="Script" path="res://entities/player/states/respawn.gd" id="31_jwcju"]
 [ext_resource type="Script" path="res://entities/player/states/dead.gd" id="32_t32kq"]
+[ext_resource type="Script" path="res://entities/player/states/wall_slide.gd" id="34_jq1sn"]
+[ext_resource type="Script" path="res://entities/player/states/wall_jump.gd" id="35_lvytc"]
+[ext_resource type="Script" path="res://entities/player/states/spring_jump.gd" id="36_q8ydd"]
 
 [sub_resource type="Curve" id="Curve_1327r"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.989011, 1), 2.72244, 0.0, 0, 0]
@@ -504,12 +507,12 @@ idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 animation_name = "jump"
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "jump_state")]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "jump_state", "wall_slide_state")]
 script = ExtResource("7_3thvh")
 move_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
-slide_fall_animation_name = "fall_slide"
+wall_slide_state = NodePath("../WallSlide")
 animation_name = "fall"
 
 [node name="Pushing" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state")]
@@ -529,6 +532,23 @@ animation_name = "respawn"
 script = ExtResource("32_t32kq")
 animation_name = "die"
 
+[node name="WallSlide" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "wall_jump_state")]
+script = ExtResource("34_jq1sn")
+idle_state = NodePath("../Idle")
+jump_state = NodePath("../Jump")
+fall_state = NodePath("../Fall")
+wall_jump_state = NodePath("../WallJump")
+animation_name = "fall_slide"
+
+[node name="WallJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state")]
+script = ExtResource("35_lvytc")
+idle_state = NodePath("../Idle")
+fall_state = NodePath("../Fall")
+animation_name = "jump"
+
+[node name="SpringJump" type="Node" parent="StateMachine"]
+script = ExtResource("36_q8ydd")
+
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("29_w0ttd")
 bus = &"Duck"
@@ -539,5 +559,10 @@ bus = &"Duck"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.65098, 0.65098, 0.65098, 1)
+
+[node name="Label" type="Label" parent="."]
+top_level = true
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]

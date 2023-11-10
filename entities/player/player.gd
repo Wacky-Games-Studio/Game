@@ -13,7 +13,8 @@ extends PausableEntity
 @export var jump_time_to_peak: float = .5
 @export var jump_time_to_descent: float = .4
 @export var jump_variable_height: float = 25
-@export var wall_jump_pushback := 225
+@export var jump_wall_height: float = 50
+@export var wall_jump_pushback := 200
 @export var wall_slide_gravity := 100
 @export var max_jumps := 1
 @export var terminal_fall_velocity: float = 1000
@@ -37,10 +38,11 @@ extends PausableEntity
 @onready var death_reverse_audio: AudioStreamPlayer2D = $DeathAudio
 @onready var ceiling_raycasts: CeilingRaycasts = $CeilingRaycasts
 
-@onready var jump_velocity := ((2.0 * jump_height) / jump_time_to_peak) * -1.0
-@onready var jump_gravity := ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
-@onready var fall_gravity := ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
-@onready var variable_gravity := (jump_velocity * jump_velocity) / (2 * jump_variable_height)
+@onready var jump_velocity     := (( 2.0 * jump_height) / jump_time_to_peak)    * -1.0
+@onready var jump_gravity      := ((-2.0 * jump_height) / (jump_time_to_peak    * jump_time_to_peak   )) * -1.0
+@onready var fall_gravity      := ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+@onready var variable_gravity  := (jump_velocity * jump_velocity) / (2 * jump_variable_height)
+@onready var wall_jump_gravity := (jump_velocity * jump_velocity) / (2 * jump_wall_height)
 
 var jumps_remaining := max_jumps
 var is_spring_jump := false
@@ -80,9 +82,14 @@ func process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
 func get_gravity() -> float:
+	var return_value: float
+	
 	if (not Input.is_action_pressed("jump") and velocity.y < 0.0) or is_spring_jump:
-		return variable_gravity
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
+		return_value = variable_gravity
+	else:
+		return_value = jump_gravity if velocity.y < 0.0 else fall_gravity
+	
+	return return_value
 
 func spawn_dust(type: ParticlesType = ParticlesType.Walk) -> void:
 	match type:

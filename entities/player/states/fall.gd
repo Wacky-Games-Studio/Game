@@ -3,7 +3,7 @@ extends State
 @export var move_state: State
 @export var idle_state: State
 @export var jump_state: State
-@export var slide_fall_animation_name: String
+@export var wall_slide_state: State
 
 @onready var coyote_timer: Timer = %CoyoteTimer
 
@@ -14,10 +14,8 @@ func enter() -> void:
 	coyote_timer.start()
 
 func process_input(_event: InputEvent) -> State:
-	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_wall_only():
-		parent.spawn_dust(Player.ParticlesType.Jump)
-		return jump_state
-		
+	
+	# coyote timer
 	if Input.is_action_just_pressed("jump") and not coyote_timer.is_stopped() and parent.jumps_remaining > 0 and not touching_spring :
 		return jump_state
 
@@ -31,10 +29,7 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_wall_only() and \
 		((parent.get_wall_normal().x < 0 and Input.is_action_pressed("walk_right")) or \
 		(parent.get_wall_normal().x > 0 and Input.is_action_pressed("walk_left"))):
-		parent.animator.play(slide_fall_animation_name)
-		parent.velocity.y = min(parent.velocity.y, parent.wall_slide_gravity)
-	elif parent.animator.current_animation != animation_name:
-		parent.animator.play(animation_name)
+		return wall_slide_state
 	
 	if dir != 0:
 		parent.velocity.x = lerp(parent.velocity.x, dir * parent.speed, parent.acceleration)
@@ -50,6 +45,7 @@ func process_physics(delta: float) -> State:
 		if collision.get_collider().is_in_group("Spring"):
 			touching_spring = true
 			coyote_timer.stop()
+			
 	
 	if parent.is_on_floor() and not touching_spring:
 		parent.jumps_remaining = parent.max_jumps
