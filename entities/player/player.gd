@@ -37,6 +37,8 @@ extends PausableEntity
 @onready var death_audio: AudioStreamPlayer2D = $DeathAudio
 @onready var death_reverse_audio: AudioStreamPlayer2D = $DeathAudio
 @onready var ceiling_raycasts: CeilingRaycasts = $CeilingRaycasts
+@onready var wall_raycasts: WallRaycasts = $WallRaycasts
+@onready var floor_raycasts: FloorRaycasts = $FloorRayCasts
 
 @onready var jump_velocity     := (( 2.0 * jump_height) / jump_time_to_peak)    * -1.0
 @onready var jump_gravity      := ((-2.0 * jump_height) / (jump_time_to_peak    * jump_time_to_peak   )) * -1.0
@@ -136,3 +138,17 @@ func die() -> void:
 func spring_jump() -> void:
 	state_machine.change_state($StateMachine/Fall)
 	is_spring_jump = true
+
+func is_on_wall_only_raycast() -> bool:
+	var dir := Input.get_axis("walk_left", "walk_right")
+	var holding_left_and_colliding_left := dir == 1 and wall_raycasts.right
+	var holding_right_and_colliding_right := dir == -1 and wall_raycasts.left
+	
+	var is_not_on_floor := not is_on_floor() or not (floor_raycasts.left and floor_raycasts.right)
+	
+	return ((holding_left_and_colliding_left or holding_right_and_colliding_right) or is_on_wall_only()) and is_not_on_floor
+
+
+
+
+

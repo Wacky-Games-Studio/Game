@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=56 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -12,9 +12,11 @@
 [ext_resource type="Script" path="res://entities/player/states/jump.gd" id="6_kcifk"]
 [ext_resource type="Script" path="res://entities/player/states/fall.gd" id="7_3thvh"]
 [ext_resource type="Script" path="res://entities/player/ceiling_raycasts.gd" id="7_hpg4t"]
+[ext_resource type="Script" path="res://entities/player/wall_raycasts.gd" id="8_bb1lo"]
 [ext_resource type="Script" path="res://entities/player/audio_controller.gd" id="8_nwito"]
 [ext_resource type="Script" path="res://entities/player/camera_guide.gd" id="9_2jw38"]
 [ext_resource type="AudioStream" uid="uid://g23x3b6yiktl" path="res://entities/player/audio/walking/Mid Footsteps 001.wav" id="9_cn5sw"]
+[ext_resource type="Script" path="res://entities/player/floor_raycasts.gd" id="9_y28hp"]
 [ext_resource type="AudioStream" uid="uid://wtuqln2762ui" path="res://entities/player/audio/walking/Mid Footsteps 002.wav" id="10_18fxg"]
 [ext_resource type="Script" path="res://entities/player/camera.gd" id="10_o48ox"]
 [ext_resource type="AudioStream" uid="uid://ce8bym0xw6uht" path="res://entities/player/audio/walking/Mid Footsteps 003.wav" id="11_7w3xo"]
@@ -435,6 +437,26 @@ target_position = Vector2(0, -10)
 [node name="right_outer" type="RayCast2D" parent="CeilingRaycasts"]
 position = Vector2(8, 0)
 target_position = Vector2(0, -10)
+
+[node name="WallRaycasts" type="Node2D" parent="."]
+script = ExtResource("8_bb1lo")
+
+[node name="right" type="RayCast2D" parent="WallRaycasts"]
+target_position = Vector2(16, 0)
+
+[node name="left" type="RayCast2D" parent="WallRaycasts"]
+target_position = Vector2(-15, 0)
+
+[node name="FloorRayCasts" type="Node2D" parent="."]
+script = ExtResource("9_y28hp")
+
+[node name="right" type="RayCast2D" parent="FloorRayCasts"]
+position = Vector2(-5, 0)
+target_position = Vector2(0, 14)
+
+[node name="left" type="RayCast2D" parent="FloorRayCasts"]
+position = Vector2(2, 0)
+target_position = Vector2(0, 14)
 
 [node name="Camera" type="Camera2D" parent="."]
 top_level = true

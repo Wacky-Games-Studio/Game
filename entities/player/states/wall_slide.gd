@@ -6,7 +6,7 @@ extends State
 @export var wall_jump_state: State
 
 func process_input(_event: InputEvent) -> State:
-	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_wall_only():
+	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_wall_only_raycast():
 		parent.spawn_dust(Player.ParticlesType.Jump)
 		parent.flip(not parent.sprite.flip_h)
 		return wall_jump_state
@@ -21,7 +21,7 @@ func process_physics(delta: float) -> State:
 	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
-	if parent.is_on_wall_only() and \
+	if parent.is_on_wall_only_raycast() and \
 	   ((parent.get_wall_normal().x < 0 and Input.is_action_pressed("walk_right")) or \
 	   (parent.get_wall_normal().x > 0 and Input.is_action_pressed("walk_left"))):
 		return null
