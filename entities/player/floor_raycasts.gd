@@ -1,4 +1,4 @@
-class_name WallRaycasts
+class_name FloorRaycasts
 extends Node2D
 
 @export var right: bool
