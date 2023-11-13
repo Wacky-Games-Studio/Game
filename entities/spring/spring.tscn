@@ -64,7 +64,6 @@ collision_layer = 4
 collision_mask = 2
 input_pickable = false
 script = ExtResource("1_4aeig")
-shoot_velocity = 750
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
