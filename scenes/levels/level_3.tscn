@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://drcmhuvmc6j3i"]
+[gd_scene load_steps=5 format=3 uid="uid://ta80rbpbctwl"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_u6dfb"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="2_6lrpk"]
