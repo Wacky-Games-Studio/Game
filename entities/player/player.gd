@@ -8,6 +8,7 @@ extends PausableEntity
 @export_range(0.0, 1.0) var friction := 0.3
 @export_range(0.0, 1.0) var air_friction := 0.1
 @export_range(0.0 , 1.0) var acceleration := 0.4
+@export_range(0.0 , 1.0) var air_acceleration := 0.1
 @export_subgroup("Jump")
 @export var jump_height: float = 100
 @export var jump_time_to_peak: float = .5
@@ -140,15 +141,13 @@ func spring_jump() -> void:
 	is_spring_jump = true
 
 func is_on_wall_only_raycast() -> bool:
-	var dir := Input.get_axis("walk_left", "walk_right")
-	var holding_left_and_colliding_left := dir == 1 and wall_raycasts.right
-	var holding_right_and_colliding_right := dir == -1 and wall_raycasts.left
-	
 	var is_not_on_floor := not is_on_floor() or not (floor_raycasts.left and floor_raycasts.right)
-	
-	return ((holding_left_and_colliding_left or holding_right_and_colliding_right) or is_on_wall_only()) and is_not_on_floor
+	return ((wall_raycasts.right or wall_raycasts.left) or is_on_wall_only()) and is_not_on_floor
 
-
+func is_moving_away_from_wall() -> bool:
+	var dir := Input.get_axis("walk_left", "walk_right")	
+	return (wall_raycasts.left and dir == 1) or \
+		(wall_raycasts.right and dir == -1)
 
 
 
