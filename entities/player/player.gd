@@ -141,13 +141,8 @@ func spring_jump() -> void:
 	is_spring_jump = true
 
 func is_on_wall_only_raycast() -> bool:
-	var dir := Input.get_axis("walk_left", "walk_right")
-	var holding_left_and_colliding_left := dir == 1 and wall_raycasts.right
-	var holding_right_and_colliding_right := dir == -1 and wall_raycasts.left
-	
 	var is_not_on_floor := not is_on_floor() or not (floor_raycasts.left and floor_raycasts.right)
-	
-	return ((holding_left_and_colliding_left or holding_right_and_colliding_right) or is_on_wall_only()) and is_not_on_floor
+	return ((wall_raycasts.right or wall_raycasts.left) or is_on_wall_only()) and is_not_on_floor
 
 func is_moving_away_from_wall() -> bool:
 	var dir := Input.get_axis("walk_left", "walk_right")	
