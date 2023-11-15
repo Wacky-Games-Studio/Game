@@ -36,7 +36,7 @@ position = Vector2(2, 100)
 shape = SubResource("RectangleShape2D_uofiy")
 
 [node name="Door" parent="." instance=ExtResource("4_ppa1t")]
-position = Vector2(632, 88)
+position = Vector2(632, 152)
 
 [node name="Button" parent="." node_paths=PackedStringArray("door") instance=ExtResource("5_jb5r2")]
 position = Vector2(611, -53)
