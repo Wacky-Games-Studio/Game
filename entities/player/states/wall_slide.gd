@@ -19,14 +19,14 @@ func process_physics(delta: float) -> State:
 	
 	parent.move_and_slide()
 	
-	var dir = Input.get_axis("walk_left", "walk_right")
+	var dir = Input.get_axis("walk_left", "walk_right") * -1
+	if dir != parent.get_wall_normal().x and dir != 0:
+		return fall_state
 	
-	if parent.is_on_wall_only_raycast() and \
-	   ((parent.get_wall_normal().x < 0 and Input.is_action_pressed("walk_right")) or \
-	   (parent.get_wall_normal().x > 0 and Input.is_action_pressed("walk_left"))):
+	if parent.is_on_wall_only_raycast():
 		return null
 	
 	if parent.is_on_floor():
 		return idle_state
-
+	
 	return fall_state
