@@ -26,7 +26,7 @@ func process_physics(delta: float) -> State:
 	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
-	if parent.is_on_wall_only():
+	if parent.is_on_wall_only() and not parent.is_moving_away_from_wall():
 		return wall_slide_state
 	
 	if dir != 0:

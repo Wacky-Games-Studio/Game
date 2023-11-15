@@ -149,7 +149,10 @@ func is_on_wall_only_raycast() -> bool:
 	
 	return ((holding_left_and_colliding_left or holding_right_and_colliding_right) or is_on_wall_only()) and is_not_on_floor
 
-
+func is_moving_away_from_wall() -> bool:
+	var dir := Input.get_axis("walk_left", "walk_right")	
+	return (wall_raycasts.left and dir == 1) or \
+		(wall_raycasts.right and dir == -1)
 
 
 

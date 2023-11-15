@@ -35,7 +35,7 @@ func process_physics(delta: float) -> State:
 	
 	parent.move_and_slide()
 	
-	if parent.is_on_wall_only_raycast():
+	if parent.is_on_wall_only() and not parent.is_moving_away_from_wall():
 		return wall_slide_state
 	
 	if parent.is_on_floor():
