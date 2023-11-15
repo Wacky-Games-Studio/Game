@@ -3,6 +3,7 @@ extends State
 @export var move_state: State
 @export var idle_state: State
 @export var fall_state: State
+@export var wall_slide_state: State
 
 func enter() -> void:
 	super()
@@ -33,6 +34,9 @@ func process_physics(delta: float) -> State:
 		parent.velocity.x = lerp(parent.velocity.x, 0.0, parent.air_friction)
 	
 	parent.move_and_slide()
+	
+	if parent.is_on_wall_only_raycast():
+		return wall_slide_state
 	
 	if parent.is_on_floor():
 		if dir != 0:

@@ -522,11 +522,12 @@ fall_state = NodePath("../Fall")
 push_state = NodePath("../Pushing")
 animation_name = "walk"
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state")]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state", "wall_slide_state")]
 script = ExtResource("6_kcifk")
 move_state = NodePath("../Walk")
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
+wall_slide_state = NodePath("../WallSlide")
 animation_name = "jump"
 
 [node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "jump_state", "wall_slide_state")]

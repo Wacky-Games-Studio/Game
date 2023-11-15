@@ -8,6 +8,7 @@ extends PausableEntity
 @export_range(0.0, 1.0) var friction := 0.3
 @export_range(0.0, 1.0) var air_friction := 0.1
 @export_range(0.0 , 1.0) var acceleration := 0.4
+@export_range(0.0 , 1.0) var air_acceleration := 0.1
 @export_subgroup("Jump")
 @export var jump_height: float = 100
 @export var jump_time_to_peak: float = .5

@@ -26,13 +26,11 @@ func process_physics(delta: float) -> State:
 	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
-	if parent.is_on_wall_only() and \
-		((parent.get_wall_normal().x < 0 and Input.is_action_pressed("walk_right")) or \
-		(parent.get_wall_normal().x > 0 and Input.is_action_pressed("walk_left"))):
+	if parent.is_on_wall_only():
 		return wall_slide_state
 	
 	if dir != 0:
-		parent.velocity.x = lerp(parent.velocity.x, dir * parent.speed, parent.acceleration)
+		parent.velocity.x = lerp(parent.velocity.x, dir * parent.speed, parent.air_acceleration)
 		parent.flip(dir < 0)
 	else:
 		parent.velocity.x = lerp(parent.velocity.x, 0.0, parent.air_friction)
