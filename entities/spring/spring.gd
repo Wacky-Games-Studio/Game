@@ -4,7 +4,7 @@ extends Area2D
 @export var jump_height: float = 100
 @export var jump_time_to_peak: float = .5
 
-@onready var jump_velocity := (( 2.0 * jump_height) / jump_time_to_peak) * -1.0
+@onready var jump_velocity := (( 2.0 * jump_height) / jump_time_to_peak)
 
 var custom_data
 var dir := Vector2.UP
