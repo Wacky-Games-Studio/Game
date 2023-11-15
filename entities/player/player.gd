@@ -87,7 +87,7 @@ func process(delta: float) -> void:
 func get_gravity() -> float:
 	var return_value: float
 	
-	if (not Input.is_action_pressed("jump") and velocity.y < 0.0) or is_spring_jump:
+	if (not Input.is_action_pressed("jump") and velocity.y < 0.0) and not is_spring_jump:
 		return_value = variable_gravity
 	else:
 		return_value = jump_gravity if velocity.y < 0.0 else fall_gravity
