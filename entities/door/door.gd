@@ -1,6 +1,12 @@
 class_name Door
 extends StaticBody2D
 
+@export var already_open: bool = false
+
+func _ready():
+	if already_open:
+		open()
+
 func open() -> void:
 	$AnimationPlayer.play("open")
 	

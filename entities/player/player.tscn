@@ -50,7 +50,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0b3u"]
-size = Vector2(16, 19)
+size = Vector2(15.5, 15.5)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l8bc1"]
 light_mode = 1
@@ -412,7 +412,7 @@ polygon = PackedVector2Array(-8, 11, 4, 11, 7, 1, 8, -1, 8, -11, 2, -11, -8, 1)
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_q0b3u")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -481,7 +481,6 @@ position = Vector2(154, 80)
 [node name="Guide" type="Node2D" parent="Camera"]
 material = SubResource("CanvasItemMaterial_l8bc1")
 script = ExtResource("9_2jw38")
-size = -1
 
 [node name="AudioController" type="Node2D" parent="." node_paths=PackedStringArray("walk_sounds", "jump_land_sounds")]
 script = ExtResource("8_nwito")
