@@ -20,7 +20,7 @@ layer_1/tile_data = PackedInt32Array(786449, 131073, 0, 786450, 196609, 0, 85198
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(408, -58)
+position = Vector2(104, -9)
 
 [node name="Win" parent="." instance=ExtResource("6_3m0ge")]
 position = Vector2(1664, 452)
