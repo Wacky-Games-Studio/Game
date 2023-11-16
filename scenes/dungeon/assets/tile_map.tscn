@@ -552,6 +552,15 @@ texture = ExtResource("2_34jmp")
 15:2/0 = 0
 15:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:2/0/physics_layer_0/angular_velocity = 0.0
+16:1/0 = 0
+16:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+16:1/0/physics_layer_0/angular_velocity = 0.0
+16:0/0 = 0
+16:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+16:0/0/physics_layer_0/angular_velocity = 0.0
+16:2/0 = 0
+16:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+16:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ip674"]
 resource_name = "spikes"
