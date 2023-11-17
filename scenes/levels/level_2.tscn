@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvnm5ey0tjit5"]
+[gd_scene load_steps=5 format=3 uid="uid://dcjouoekusqui"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_cnf5k"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="2_251ar"]
 [ext_resource type="PackedScene" uid="uid://c688q3v05cx2m" path="res://entities/door/door.tscn" id="4_ppa1t"]
 [ext_resource type="PackedScene" uid="uid://cjkjnj62rv8i6" path="res://entities/button/button.tscn" id="5_jb5r2"]
 
-[node name="Level2" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_cnf5k")]
 
