@@ -56,7 +56,7 @@ z_index = -1
 script = ExtResource("1_aalok")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -5)
 lifetime = 2.0
 emission_shape = 1
 emission_sphere_radius = 4.0
@@ -72,17 +72,19 @@ scale_amount_curve = SubResource("Curve_868ib")
 color_ramp = SubResource("Gradient_4s7ec")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
 texture = ExtResource("1_sbxk4")
 hframes = 2
 frame = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(2, -2)
+position = Vector2(0, -2)
 color = Color(0.909804, 0.25098, 0.0666667, 1)
 shadow_enabled = true
 texture = ExtResource("2_rxrfi")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -5)
 stream = ExtResource("3_frlpy")
 volume_db = -30.0
 autoplay = true
