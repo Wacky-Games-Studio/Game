@@ -91,7 +91,7 @@ position = Vector2(888, 56)
 rotation = 1.5708
 
 [node name="Button" parent="." node_paths=PackedStringArray("door") instance=ExtResource("5_lh6at")]
-position = Vector2(1040, 312)
+position = Vector2(1040, 315)
 door = NodePath("../Door")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
