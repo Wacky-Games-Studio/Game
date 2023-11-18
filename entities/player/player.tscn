@@ -360,9 +360,13 @@ _data = {
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_c6iwh")
+speed = 150
 dust_acceleration_curve = SubResource("Curve_1327r")
 acceleration = 0.15
-jump_height = 75.0
+jump_height = 52.0
+jump_time_to_peak = 0.347
+jump_variable_height = 17.325
+wall_jump_pushback = 139
 walk_particles = ExtResource("2_xjtd8")
 jump_particels = ExtResource("3_3oi85")
 land_particels = ExtResource("4_d6aov")
@@ -570,10 +574,11 @@ fall_state = NodePath("../Fall")
 wall_jump_state = NodePath("../WallJump")
 animation_name = "fall_slide"
 
-[node name="WallJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state")]
+[node name="WallJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "wall_slide_state")]
 script = ExtResource("35_lvytc")
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
+wall_slide_state = NodePath("../WallSlide")
 animation_name = "jump"
 
 [node name="SpringJump" type="Node" parent="StateMachine"]
