@@ -21,7 +21,7 @@ size = Vector2(32, 80)
 size = Vector2(63, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uofiy"]
-size = Vector2(64, 24)
+size = Vector2(64, 16)
 
 [node name="Level1" type="Node2D"]
 
@@ -94,7 +94,7 @@ position = Vector2(104, 16)
 position = Vector2(1663, 444)
 
 [node name="CollisionShape2D" parent="Win" index="0"]
-position = Vector2(321, 616)
+position = Vector2(321, 620)
 shape = SubResource("RectangleShape2D_uofiy")
 
 [node name="Doors" type="Node2D" parent="."]
