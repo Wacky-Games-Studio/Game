@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=58 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -40,6 +40,7 @@
 [ext_resource type="Script" path="res://entities/player/states/wall_slide.gd" id="34_jq1sn"]
 [ext_resource type="Script" path="res://entities/player/states/wall_jump.gd" id="35_lvytc"]
 [ext_resource type="Script" path="res://entities/player/states/spring_jump.gd" id="36_q8ydd"]
+[ext_resource type="Script" path="res://entities/player/states/horizontal_spring_jump.gd" id="39_xdc2l"]
 
 [sub_resource type="Curve" id="Curve_1327r"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.989011, 1), 2.72244, 0.0, 0, 0]
@@ -482,6 +483,19 @@ show_behind_parent = true
 z_index = -1
 position = Vector2(154, 80)
 
+[node name="Label" type="Label" parent="Camera"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Guide" type="Node2D" parent="Camera"]
 material = SubResource("CanvasItemMaterial_l8bc1")
 script = ExtResource("9_2jw38")
@@ -581,8 +595,20 @@ fall_state = NodePath("../Fall")
 wall_slide_state = NodePath("../WallSlide")
 animation_name = "jump"
 
-[node name="SpringJump" type="Node" parent="StateMachine"]
+[node name="SpringJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state", "wall_slide_state")]
 script = ExtResource("36_q8ydd")
+move_state = NodePath("../Walk")
+idle_state = NodePath("../Idle")
+fall_state = NodePath("../Fall")
+wall_slide_state = NodePath("../WallSlide")
+animation_name = "fall"
+
+[node name="HorizontalSpringJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state", "wall_slide_state")]
+script = ExtResource("39_xdc2l")
+move_state = NodePath("../Walk")
+idle_state = NodePath("../Idle")
+fall_state = NodePath("../Fall")
+wall_slide_state = NodePath("../WallSlide")
 
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("29_w0ttd")
@@ -594,10 +620,5 @@ bus = &"Duck"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.65098, 0.65098, 0.65098, 1)
-
-[node name="Label" type="Label" parent="."]
-top_level = true
-offset_right = 40.0
-offset_bottom = 23.0
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]

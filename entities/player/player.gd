@@ -49,6 +49,7 @@ extends PausableEntity
 
 var jumps_remaining := max_jumps
 var is_spring_jump := false
+var is_horizontal_spring := false
 var _prev_flip_h := false
 
 var _current_walk_particles: CPUParticles2D
@@ -136,10 +137,13 @@ func die() -> void:
 	
 	state_machine.change_state($StateMachine/Dead)
 	
-func spring_jump() -> void:
-	state_machine.change_state($StateMachine/Fall)
+func spring_jump(horizontal: bool) -> void:
 	is_spring_jump = true
-
+	if horizontal:
+		state_machine.change_state($StateMachine/HorizontalSpringJump)
+	else:
+		state_machine.change_state($StateMachine/SpringJump)
+		
 func is_on_wall_only_raycast() -> bool:
 	var is_not_on_floor := not is_on_floor() or not (floor_raycasts.left and floor_raycasts.right)
 	return ((wall_raycasts.right or wall_raycasts.left) or is_on_wall_only()) and is_not_on_floor
