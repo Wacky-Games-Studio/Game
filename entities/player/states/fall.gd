@@ -10,7 +10,6 @@ extends State
 
 func enter() -> void:
 	super()
-	coyote_timer.start()
 
 func process_input(_event: InputEvent) -> State:
 	

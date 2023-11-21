@@ -5,6 +5,8 @@ extends State
 @export var jump_state: State
 @export var fall_state: State
 
+@onready var coyote_timer: Timer = %CoyoteTimer
+
 var current_pushable: Pushable
 var prev_dir := 0.0
 var pushing_dir: int
@@ -46,6 +48,7 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	if not parent.is_on_floor():
+		coyote_timer.start()
 		return fall_state
 		
 	prev_dir = dir

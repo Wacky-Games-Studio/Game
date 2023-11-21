@@ -5,6 +5,8 @@ extends State
 @export var fall_state: State
 @export var push_state: State
 
+@onready var coyote_timer: Timer = %CoyoteTimer
+
 func process_input(_event: InputEvent) -> State:
 	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor():
 		parent.spawn_dust(Player.ParticlesType.Jump)
@@ -24,6 +26,7 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	if not parent.is_on_floor():
+		coyote_timer.start()
 		return fall_state
 	
 	for i in parent.get_slide_collision_count():
