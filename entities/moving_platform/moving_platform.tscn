@@ -20,3 +20,4 @@ texture = ExtResource("1_k8l22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_kga6t")
+one_way_collision = true
