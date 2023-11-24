@@ -18,6 +18,7 @@ shape = SubResource("RectangleShape2D_dim5q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2dgiv")
-hframes = 4
+hframes = 6
+vframes = 3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
