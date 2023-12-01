@@ -9,5 +9,5 @@ extends Node2D
 func _physics_process(delta: float) -> void:
 	left_outer = $left_outer.is_colliding()
 	left_inner = $left_inner.is_colliding()
-	right_outer = $left_outer.is_colliding()
-	right_inner = $left_inner.is_colliding()
+	right_outer = $right_outer.is_colliding()
+	right_inner = $right_inner.is_colliding()

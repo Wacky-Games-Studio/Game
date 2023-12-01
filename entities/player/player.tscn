@@ -436,19 +436,19 @@ position = Vector2(0, -7)
 script = ExtResource("7_hpg4t")
 
 [node name="left_outer" type="RayCast2D" parent="CeilingRaycasts"]
-position = Vector2(-7, 0)
+position = Vector2(-7, 4)
 target_position = Vector2(0, -10)
 
 [node name="left_inner" type="RayCast2D" parent="CeilingRaycasts"]
-position = Vector2(-2, 0)
+position = Vector2(-2, 4)
 target_position = Vector2(0, -10)
 
 [node name="right_inner" type="RayCast2D" parent="CeilingRaycasts"]
-position = Vector2(3, 0)
+position = Vector2(3, 4)
 target_position = Vector2(0, -10)
 
 [node name="right_outer" type="RayCast2D" parent="CeilingRaycasts"]
-position = Vector2(8, 0)
+position = Vector2(8, 4)
 target_position = Vector2(0, -10)
 
 [node name="WallRaycasts" type="Node2D" parent="."]
