@@ -360,6 +360,7 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 13
+platform_floor_layers = 1
 script = ExtResource("1_c6iwh")
 speed = 150
 dust_acceleration_curve = SubResource("Curve_1327r")
@@ -413,6 +414,7 @@ scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_l7ej1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-8, 11, 4, 11, 7, 1, 8, -1, 8, -11, 2, -11, -8, 1)
 disabled = true
 
@@ -622,4 +624,13 @@ bus = &"Duck"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.65098, 0.65098, 0.65098, 1)
 
+[node name="SpikeDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetector"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_q0b3u")
+
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]
+[connection signal="body_entered" from="SpikeDetector" to="." method="_on_spike_detector_entered"]

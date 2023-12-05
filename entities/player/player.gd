@@ -153,5 +153,5 @@ func is_moving_away_from_wall() -> bool:
 	return (wall_raycasts.left and dir == 1) or \
 		(wall_raycasts.right and dir == -1)
 
-
-
+func _on_spike_detector_entered(body):
+	die()
