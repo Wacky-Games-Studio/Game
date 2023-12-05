@@ -8,7 +8,7 @@ extends Area2D
 @onready var jump_velocity := (( 2.0 * jump_height) / jump_time_to_peak)
 @onready var side_spring_jump_velocity := (( 2.0 * side_spring_jump_height) / jump_time_to_peak)
 
-var custom_data
+var custom_data := Vector2.UP
 var dir := Vector2.UP
 
 func _ready() -> void:
