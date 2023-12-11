@@ -14,11 +14,14 @@ extends PausableEntity
 @export var jump_time_to_peak: float = .5
 @export var jump_time_to_descent: float = .4
 @export var jump_variable_height: float = 25
-@export var jump_wall_height: float = 50
-@export var wall_jump_pushback := 200
-@export var wall_slide_gravity := 100
 @export var max_jumps := 1
 @export var terminal_fall_velocity: float = 1000
+
+@export_subgroup("Wall jump")
+@export var wall_jump_height: float = 100
+@export var wall_jump_time_to_peak: float = .5
+@export var wall_jump_time_to_descent: float = .4
+@export var wall_jump_pushback_length: float = 32
 
 @export_category("Misc")
 @export var walk_particles: PackedScene
@@ -41,11 +44,17 @@ extends PausableEntity
 @onready var wall_raycasts: WallRaycasts = $WallRaycasts
 @onready var floor_raycasts: FloorRaycasts = $FloorRayCasts
 
-@onready var jump_velocity     := (( 2.0 * jump_height) / jump_time_to_peak)    * -1.0
-@onready var jump_gravity      := ((-2.0 * jump_height) / (jump_time_to_peak    * jump_time_to_peak   )) * -1.0
-@onready var fall_gravity      := ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
-@onready var variable_gravity  := (jump_velocity * jump_velocity) / (2 * jump_variable_height)
-@onready var wall_jump_gravity := (jump_velocity * jump_velocity) / (2 * jump_wall_height)
+@onready var jump_velocity      := (( 2.0 * jump_height) /  jump_time_to_peak)    * -1.0
+@onready var jump_gravity       := ((-2.0 * jump_height) / (jump_time_to_peak    * jump_time_to_peak   )) * -1.0
+@onready var fall_gravity       := ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+
+@onready var variable_gravity   := (jump_velocity * jump_velocity) / (2 * jump_variable_height)
+
+@onready var wall_jump_velocity := (( 2.0 * wall_jump_height) / wall_jump_time_to_peak)    * -1.0
+@onready var wall_jump_gravity  := ((-2.0 * wall_jump_height) / (wall_jump_time_to_peak    * wall_jump_time_to_peak  )) * -1.0
+@onready var wall_slide_gravity := ((-2.0 * wall_jump_height) / (wall_jump_time_to_descent * wall_jump_time_to_descent)) * -1.0
+@onready var wall_jump_pushback          := (( 2.0 * wall_jump_pushback_length) / wall_jump_time_to_peak)
+@onready var wall_jump_pushback_friction := ((-2.0 * wall_jump_pushback_length) / (wall_jump_time_to_peak * wall_jump_time_to_peak  ))
 
 var jumps_remaining := max_jumps
 var is_spring_jump := false
@@ -94,6 +103,12 @@ func get_gravity() -> float:
 		return_value = jump_gravity if velocity.y < 0.0 else fall_gravity
 	
 	return return_value
+
+func get_wall_gravity() -> float:
+	return wall_jump_gravity if velocity.y < 0.0 else wall_slide_gravity
+
+func get_wall_jump_friction(wall_dir: int) -> float:
+	return wall_jump_pushback_friction if velocity.x > 0.1 * wall_dir else 0.0
 
 func spawn_dust(type: ParticlesType = ParticlesType.Walk) -> void:
 	match type:

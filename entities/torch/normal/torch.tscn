@@ -92,7 +92,7 @@ max_distance = 200.0
 bus = &"Cave"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "fire"
 libraries = {
 "": SubResource("AnimationLibrary_d5oxy")
 }
+autoplay = "fire"
