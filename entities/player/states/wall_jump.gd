@@ -13,8 +13,10 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	# TODO wall jump fall state.
+	var dir = Input.get_axis("walk_left", "walk_right")
+	
 	parent.velocity.y += parent.get_wall_gravity() * delta
-	parent.velocity.x += parent.get_wall_jump_friction(wall_dir) * delta
+	parent.velocity.x += parent.get_wall_jump_friction(wall_dir) * delta if dir == 0 else 0
 	
 	if parent.velocity.y > 0:
 		return fall_state
