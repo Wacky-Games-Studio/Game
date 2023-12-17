@@ -8,5 +8,9 @@ class_name PlayerData
 @export var convserve_momentum: bool = true
 
 @export_category("Jump/Fall")
-@export var gravity: float = 16
+#@export var gravity: float = 16
+@export var max_jump_height: float
+@export var min_jump_height: float
+@export var jump_time_to_peak: float
+@export var jump_time_to_descent: float
 @export var terminal_velocity: float = 600

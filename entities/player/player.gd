@@ -21,6 +21,12 @@ extends PausableEntity
 @onready var wall_raycasts: WallRaycasts = $WallRaycasts
 @onready var floor_raycasts: FloorRaycasts = $FloorRayCasts
 
+# jump / gravity vars
+@onready var jump_velocity: float = ((2.0 * data.max_jump_height) / data.jump_time_to_peak) * -1.0
+@onready var jump_gravity: float = ((-2.0 * data.max_jump_height) / (data.jump_time_to_peak * data.jump_time_to_peak)) * -1.0
+@onready var fall_gravity: float = ((-2.0 * data.max_jump_height) / (data.jump_time_to_descent * data.jump_time_to_descent)) * -1.0
+@onready var variable_gravity: float = (jump_velocity * jump_velocity) / (2 * data.min_jump_height)
+
 var _current_walk_particles: CPUParticles2D
 var _current_jump_particles: CPUParticles2D
 var _current_land_particles: CPUParticles2D
@@ -34,9 +40,9 @@ func init() -> void:
 	if CheckpointManager.has_collected_any():
 		state_machine.change_state($StateMachine/Respawn)
 	
-	var data = CheckpointManager.get_latest_checkpoint_data()
-	global_position = data.position
-	flip_bool(data.facing_left)
+	var cp_data = CheckpointManager.get_latest_checkpoint_data()
+	global_position = cp_data.position
+	flip_bool(cp_data.facing_left)
 	
 	$Camera.update_position()
 	
@@ -77,7 +83,7 @@ enum ParticlesType {
 
 func flip_bool(should_flip: bool) -> void:
 	sprite.flip_h = should_flip
-	$CollisionPolygon2D.scale = Vector2(-1 if should_flip else 1, 1)
+	#$CollisionPolygon2D.scale = Vector2(-1 if should_flip else 1, 1)
 
 func flip(dir: float) -> void:
 	sprite.flip_h = dir < 0
@@ -88,12 +94,22 @@ func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	
 	return particle
 
-func _on_spike_detector_entered(body):
+func _on_spike_detector_entered(_body):
 	pass
 	#die()
 
-func get_clamped_gravity() -> float:
-	return clamp(velocity.y + data.gravity, 0.0, data.terminal_velocity)
+func get_clamped_gravity(delta: float) -> float:
+	var gravity = jump_gravity if velocity.y < 0.0 else fall_gravity
+	
+	if not Input.is_action_pressed("jump") and velocity.y < 0.0:
+		gravity = variable_gravity
+	
+	gravity *= delta
+	var new_velocity = velocity.y + gravity
+	if new_velocity > 0.0:
+		new_velocity = clamp(velocity.y + gravity, 0.0, data.terminal_velocity)
+	
+	return new_velocity
 
 func is_on_floor_raycasts() -> bool:
 	return is_on_floor()# and (floor_raycasts.left or floor_raycasts.right)
