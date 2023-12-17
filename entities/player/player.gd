@@ -112,10 +112,13 @@ func get_clamped_gravity(delta: float) -> float:
 	return new_velocity
 
 func is_on_floor_raycasts() -> bool:
-	return is_on_floor()# and (floor_raycasts.left or floor_raycasts.right)
+	return is_on_floor() and (floor_raycasts.left or floor_raycasts.right)
 
-func get_movement_velocity(dir: float) -> float:
+func get_movement_velocity(dir: float, lerp_amount: float = 1.0) -> float:
+	if dir != 0.0: flip(dir)
 	var target_speed := dir * data.move_speed
+	target_speed = lerp(velocity.x, target_speed, lerp_amount)
+	
 	var accel_rate := data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
 	
 	# conserve momentum

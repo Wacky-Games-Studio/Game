@@ -47,6 +47,7 @@ min_jump_height = 16.0
 jump_time_to_peak = 0.44
 jump_time_to_descent = 0.32
 terminal_velocity = 600.0
+wall_jump_lerp = 0.0
 
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -551,9 +552,10 @@ idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 animation_name = "jump"
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state")]
 script = ExtResource("33_3ofv3")
 idle_state = NodePath("../Idle")
+move_state = NodePath("../Walk")
 animation_name = "fall"
 
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]

@@ -8,6 +8,8 @@ func enter() -> void:
 	parent.velocity.y = parent.jump_velocity
 
 func process_physics(delta: float) -> State:
+	var dir = Input.get_axis("walk_left", "walk_right")
+	parent.velocity.x += parent.get_movement_velocity(dir)
 	parent.velocity.y = parent.get_clamped_gravity(delta)
 	parent.move_and_slide()
 	
