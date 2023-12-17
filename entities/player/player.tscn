@@ -38,14 +38,14 @@
 
 [sub_resource type="Resource" id="Resource_3efa2"]
 script = ExtResource("2_j64qf")
-move_speed = 150.0
+move_speed = 154.5
 ground_acceleration = 0.5
 ground_deceleration = 0.75
 convserve_momentum = true
-max_jump_height = 64.0
+max_jump_height = 48.0
 min_jump_height = 16.0
-jump_time_to_peak = 0.44
-jump_time_to_descent = 0.32
+jump_time_to_peak = 0.38
+jump_time_to_descent = 0.348
 terminal_velocity = 600.0
 wall_jump_lerp = 0.0
 
