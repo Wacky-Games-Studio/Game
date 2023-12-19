@@ -31,6 +31,9 @@ var _current_walk_particles: CPUParticles2D
 var _current_jump_particles: CPUParticles2D
 var _current_land_particles: CPUParticles2D
 
+var nudge_keep_velocity: Vector2
+var was_nudged := false
+
 func _ready() -> void:
 	init()
 
@@ -136,3 +139,31 @@ func should_conserve_momentum(target_speed: float) -> bool:
 	var not_on_ground: bool = not is_on_floor_raycasts()
 	
 	return data.convserve_momentum and velocity_is_greater_then_max and moving_same_dir and is_moving and not_on_ground
+
+func nudge() -> void:
+	was_nudged = false
+	nudge_keep_velocity = velocity
+	
+	var y_diff = 9.5 - (fmod(position.y, 16.0))
+	
+	# wall left
+	if wall_raycasts.left_bottom and not wall_raycasts.left_middle and not wall_raycasts.left and velocity.x < 0:
+		position.y -= y_diff
+		was_nudged = true
+		nudge_keep_velocity.y = 0
+		return
+	
+	
+	# wall right
+	if wall_raycasts.right_bottom and not wall_raycasts.right_middle and not wall_raycasts.right and velocity.x > 0:
+		print(y_diff, " ", position.y)
+		position.y -= y_diff
+		was_nudged = true
+		nudge_keep_velocity.y = 0
+		return
+	
+	# ceiling left
+	
+	# ceiling right
+	
+	pass

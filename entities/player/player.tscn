@@ -44,8 +44,8 @@ ground_deceleration = 0.75
 convserve_momentum = true
 max_jump_height = 48.0
 min_jump_height = 16.0
-jump_time_to_peak = 0.38
-jump_time_to_descent = 0.348
+jump_time_to_peak = 0.37
+jump_time_to_descent = 0.32
 terminal_velocity = 600.0
 wall_jump_lerp = 0.0
 
@@ -456,8 +456,24 @@ script = ExtResource("8_6s67w")
 [node name="right" type="RayCast2D" parent="WallRaycasts"]
 target_position = Vector2(16, 0)
 
+[node name="rightmiddle" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, 6)
+target_position = Vector2(16, 0)
+
+[node name="rightbottom" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, 10)
+target_position = Vector2(16, 0)
+
 [node name="left" type="RayCast2D" parent="WallRaycasts"]
-target_position = Vector2(-15, 0)
+target_position = Vector2(-16, 0)
+
+[node name="leftmiddle" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, 5)
+target_position = Vector2(-14, 0)
+
+[node name="leftbottom" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, 10)
+target_position = Vector2(-14, 0)
 
 [node name="FloorRayCasts" type="Node2D" parent="."]
 script = ExtResource("9_pjgpv")
