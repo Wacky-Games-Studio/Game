@@ -128,7 +128,11 @@ func get_movement_velocity(dir: float, lerp_amount: float = 1.0) -> float:
 	var target_speed := dir * data.move_speed
 	target_speed = lerp(velocity.x, target_speed, lerp_amount)
 	
-	var accel_rate := data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
+	var accel_rate: float
+	if has_jumped:
+		accel_rate = data.ground_acceleration * data.accel_in_air if abs(target_speed) > 0 else data.ground_deceleration * data.deccel_in_air
+	else:
+		accel_rate = data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
 	
 	# conserve momentum
 	if should_conserve_momentum(target_speed):

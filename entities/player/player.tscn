@@ -52,6 +52,8 @@ terminal_velocity = 600.0
 wall_jump_lerp = 0.1
 wall_slide_speed = 0.8
 wall_jump_pushback = 128.0
+accel_in_air = 0.0
+deccel_in_air = 0.65
 
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

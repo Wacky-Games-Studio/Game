@@ -17,4 +17,5 @@ class_name PlayerData
 @export_range(0.0, 1.0) var wall_jump_lerp: float
 @export_range(0.0, 1.0) var wall_slide_speed: float
 @export var wall_jump_pushback: float
-
+@export_range(0.0, 1.0) var accel_in_air: float
+@export_range(0.0, 1.0) var deccel_in_air: float
