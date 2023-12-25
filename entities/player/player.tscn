@@ -49,10 +49,9 @@ min_jump_height = 16.0
 jump_time_to_peak = 0.37
 jump_time_to_descent = 0.32
 terminal_velocity = 600.0
-wall_jump_lerp = 0.9
+wall_jump_lerp = 0.1
 wall_slide_speed = 0.8
-wall_jump_force_x = 128.0
-wall_jump_force_y_multiplier = 0.8
+wall_jump_pushback = 128.0
 
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -629,6 +628,9 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetector"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_q0b3u")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 2.0
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]
 [connection signal="body_entered" from="SpikeDetector" to="." method="_on_spike_detector_entered"]

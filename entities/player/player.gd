@@ -62,6 +62,10 @@ func physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 
 func process(delta: float) -> void:
+	$Line2D.add_point(position)
+	$Line2D.global_position = Vector2.ZERO
+	if $Line2D.points.size() > 200:
+		$Line2D.remove_point(0)
 	state_machine.process_frame(delta)
 
 func spawn_dust(type: ParticlesType = ParticlesType.Walk) -> void:
