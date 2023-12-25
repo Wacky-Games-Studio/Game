@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=53 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -35,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://d132w40bvji3k" path="res://entities/player/audio/death_reverse.wav" id="31_dr1i5"]
 [ext_resource type="Script" path="res://entities/player/states/jump.gd" id="32_p1n3q"]
 [ext_resource type="Script" path="res://entities/player/states/fall.gd" id="33_3ofv3"]
+[ext_resource type="Script" path="res://entities/player/states/wall_slide.gd" id="34_y7w8t"]
 
 [sub_resource type="Resource" id="Resource_3efa2"]
 script = ExtResource("2_j64qf")
@@ -42,12 +43,13 @@ move_speed = 154.5
 ground_acceleration = 0.5
 ground_deceleration = 0.75
 convserve_momentum = true
-max_jump_height = 48.0
+max_jump_height = 56.0
 min_jump_height = 16.0
 jump_time_to_peak = 0.37
 jump_time_to_descent = 0.32
 terminal_velocity = 600.0
 wall_jump_lerp = 0.0
+wall_slide_speed = 0.8
 
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -457,22 +459,30 @@ script = ExtResource("8_6s67w")
 target_position = Vector2(16, 0)
 
 [node name="rightmiddle" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, 6)
-target_position = Vector2(16, 0)
+position = Vector2(0, 3)
+target_position = Vector2(14, 0)
 
 [node name="rightbottom" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, 10)
-target_position = Vector2(16, 0)
+position = Vector2(0, 5)
+target_position = Vector2(9, 0)
+
+[node name="righttop" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, -5)
+target_position = Vector2(14, 0)
 
 [node name="left" type="RayCast2D" parent="WallRaycasts"]
 target_position = Vector2(-16, 0)
 
 [node name="leftmiddle" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, 5)
+position = Vector2(0, 3)
 target_position = Vector2(-14, 0)
 
 [node name="leftbottom" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, 10)
+position = Vector2(0, 5)
+target_position = Vector2(-9, 0)
+
+[node name="lefttop" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, -5)
 target_position = Vector2(-14, 0)
 
 [node name="FloorRayCasts" type="Node2D" parent="."]
@@ -546,7 +556,7 @@ one_shot = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_5fxeu")
-starting_state = NodePath("Idle")
+starting_state = NodePath("Fall")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state", "jump_state", "fall_state")]
 script = ExtResource("4_4ywsu")
@@ -568,11 +578,20 @@ idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 animation_name = "jump"
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state")]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "jump_state", "wall_slide_state")]
 script = ExtResource("33_3ofv3")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Walk")
+jump_state = NodePath("../Jump")
+wall_slide_state = NodePath("../WallSlide")
 animation_name = "fall"
+
+[node name="WallSlide" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "fall_state")]
+script = ExtResource("34_y7w8t")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Walk")
+fall_state = NodePath("../Fall")
+animation_name = "fall_slide"
 
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("29_w0ttd")

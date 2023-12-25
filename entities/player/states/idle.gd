@@ -8,7 +8,7 @@ func process_input(_event: InputEvent) -> State:
 	var dir := Input.get_axis("walk_left", "walk_right")
 	if dir != 0: return walk_state
 	
-	if Input.is_action_just_pressed("jump") and parent.is_on_floor_raycasts(): return jump_state
+	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor_raycasts(): return jump_state
 	
 	return null
 

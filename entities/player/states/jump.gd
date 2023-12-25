@@ -6,6 +6,7 @@ extends State
 func enter() -> void:
 	super()
 	parent.velocity.y = parent.jump_velocity
+	parent.has_jumped = true
 
 func process_physics(delta: float) -> State:
 	var dir = Input.get_axis("walk_left", "walk_right")

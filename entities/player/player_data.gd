@@ -15,3 +15,5 @@ class_name PlayerData
 @export var jump_time_to_descent: float
 @export var terminal_velocity: float = 600
 @export_range(0.0, 1.0) var wall_jump_lerp: float
+@export_range(0.0, 1.0) var wall_slide_speed: float
+

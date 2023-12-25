@@ -5,7 +5,7 @@ extends State
 @export var fall_state: State
 
 func process_input(_event: InputEvent) -> State:
-	if Input.is_action_just_pressed("jump") and parent.is_on_floor_raycasts(): return jump_state
+	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor_raycasts(): return jump_state
 	return null
 
 func process_physics(delta: float) -> State:

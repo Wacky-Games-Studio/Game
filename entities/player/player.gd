@@ -33,8 +33,10 @@ var _current_land_particles: CPUParticles2D
 
 var nudge_keep_velocity: Vector2
 var was_nudged := false
+var has_jumped := true
 
 func _ready() -> void:
+	#Engine.time_scale = .1
 	init()
 
 func init() -> void:
@@ -144,26 +146,34 @@ func nudge() -> void:
 	was_nudged = false
 	nudge_keep_velocity = velocity
 	
-	var y_diff = 9.5 - (fmod(position.y, 16.0))
+	var y_diff = (fmod(position.y, 16.0)) - 5.0
+	var x_diff = (fmod(position.x, 16.0)) - 6.0
+	var dir = Input.get_axis("walk_left", "walk_right")
 	
-	# wall left
-	if wall_raycasts.left_bottom and not wall_raycasts.left_middle and not wall_raycasts.left and velocity.x < 0:
+	# wall left up
+	if wall_raycasts.left_bottom and not wall_raycasts.left_middle and not wall_raycasts.left and not wall_raycasts.left_top and velocity.x < 0:
+		nudge_keep_velocity.y = 0
 		position.y -= y_diff
 		was_nudged = true
-		nudge_keep_velocity.y = 0
 		return
 	
-	
-	# wall right
-	if wall_raycasts.right_bottom and not wall_raycasts.right_middle and not wall_raycasts.right and velocity.x > 0:
-		print(y_diff, " ", position.y)
+	# wall right up
+	if wall_raycasts.right_bottom and not wall_raycasts.right_middle and not wall_raycasts.right and not wall_raycasts.right_top and velocity.x > 0:
+		nudge_keep_velocity.y = 0
 		position.y -= y_diff
 		was_nudged = true
-		nudge_keep_velocity.y = 0
 		return
 	
 	# ceiling left
+	if ceiling_raycasts.left_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.right_outer and \
+	   dir != 1:
+		position.x += x_diff
+		print("b")
+		was_nudged = true
 	
 	# ceiling right
-	
-	pass
+	if ceiling_raycasts.right_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.left_outer and \
+	   dir != -1:
+		position.x -= x_diff
+		print("a")
+		was_nudged = true
