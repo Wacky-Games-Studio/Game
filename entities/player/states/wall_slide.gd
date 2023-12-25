@@ -3,6 +3,7 @@ extends State
 @export var idle_state: State
 @export var move_state: State
 @export var fall_state: State
+@export var wall_jump_state: State
 
 var direction_of_slide: int
 
@@ -13,7 +14,10 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	var dir = Input.get_axis("walk_left", "walk_right")
-
+	
+	if Input.is_action_just_pressed("jump"):
+		return wall_jump_state
+	
 	if dir == 0 or dir != direction_of_slide or (dir == 1 and not parent.wall_raycasts.right) or (dir == -1 and not parent.wall_raycasts.left):
 		return fall_state
 	

@@ -4,6 +4,7 @@ extends State
 @export var move_state: State
 @export var jump_state: State
 @export var wall_slide_state: State
+@export var wall_jump_state: State
 
 @onready var coyote_timer: Timer = %CoyoteTimer
 
@@ -20,6 +21,9 @@ func process_physics(delta: float) -> State:
 	parent.velocity.x += parent.get_movement_velocity(dir)
 	parent.velocity.y = parent.get_clamped_gravity(delta)
 	parent.move_and_slide()
+	
+	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):
+		return wall_jump_state
 	
 	if (dir == 1 and parent.wall_raycasts.right) or (dir == -1 and parent.wall_raycasts.left):
 		return wall_slide_state

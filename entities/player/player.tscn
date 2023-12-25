@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=54 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -36,6 +36,7 @@
 [ext_resource type="Script" path="res://entities/player/states/jump.gd" id="32_p1n3q"]
 [ext_resource type="Script" path="res://entities/player/states/fall.gd" id="33_3ofv3"]
 [ext_resource type="Script" path="res://entities/player/states/wall_slide.gd" id="34_y7w8t"]
+[ext_resource type="Script" path="res://entities/player/states/wall_jump.gd" id="35_50h1d"]
 
 [sub_resource type="Resource" id="Resource_3efa2"]
 script = ExtResource("2_j64qf")
@@ -48,8 +49,10 @@ min_jump_height = 16.0
 jump_time_to_peak = 0.37
 jump_time_to_descent = 0.32
 terminal_velocity = 600.0
-wall_jump_lerp = 0.0
+wall_jump_lerp = 0.9
 wall_slide_speed = 0.8
+wall_jump_force_x = 128.0
+wall_jump_force_y_multiplier = 0.8
 
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -554,6 +557,11 @@ unique_name_in_owner = true
 wait_time = 0.15
 one_shot = true
 
+[node name="WallJumpTime" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_5fxeu")
 starting_state = NodePath("Fall")
@@ -572,26 +580,36 @@ jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
 animation_name = "walk"
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state")]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "wall_jump_state")]
 script = ExtResource("32_p1n3q")
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
+wall_jump_state = NodePath("../WallJump")
 animation_name = "jump"
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "jump_state", "wall_slide_state")]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "jump_state", "wall_slide_state", "wall_jump_state")]
 script = ExtResource("33_3ofv3")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
 wall_slide_state = NodePath("../WallSlide")
+wall_jump_state = NodePath("../WallJump")
 animation_name = "fall"
 
-[node name="WallSlide" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "fall_state")]
+[node name="WallSlide" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "fall_state", "wall_jump_state")]
 script = ExtResource("34_y7w8t")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Walk")
 fall_state = NodePath("../Fall")
+wall_jump_state = NodePath("../WallJump")
 animation_name = "fall_slide"
+
+[node name="WallJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "fall_state")]
+script = ExtResource("35_50h1d")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Walk")
+fall_state = NodePath("../Fall")
+animation_name = "jump"
 
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("29_w0ttd")
