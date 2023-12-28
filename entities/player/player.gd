@@ -126,13 +126,19 @@ func is_on_floor_raycasts() -> bool:
 func get_movement_velocity(dir: float, lerp_amount: float = 1.0) -> float:
 	if dir != 0.0: flip(dir)
 	var target_speed := dir * data.move_speed
+	if lerp_amount < 1: print(target_speed)
 	target_speed = lerp(velocity.x, target_speed, lerp_amount)
 	
+	
 	var accel_rate: float
+	#var accel_rate := data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
 	if has_jumped:
 		accel_rate = data.ground_acceleration * data.accel_in_air if abs(target_speed) > 0 else data.ground_deceleration * data.deccel_in_air
 	else:
 		accel_rate = data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
+	
+	if lerp_amount < 1:
+		print(lerp_amount)
 	
 	# conserve momentum
 	if should_conserve_momentum(target_speed):
@@ -159,7 +165,7 @@ func nudge() -> void:
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
 	# wall left up
-	if wall_raycasts.left_bottom and not wall_raycasts.left_middle and not wall_raycasts.left and not wall_raycasts.left_top and velocity.x < 0:
+	'if wall_raycasts.left_bottom and not wall_raycasts.left_middle and not wall_raycasts.left and not wall_raycasts.left_top and velocity.x < 0:
 		nudge_keep_velocity.y = 0
 		position.y -= y_diff
 		was_nudged = true
@@ -170,7 +176,7 @@ func nudge() -> void:
 		nudge_keep_velocity.y = 0
 		position.y -= y_diff
 		was_nudged = true
-		return
+		return'
 	
 	# ceiling left
 	if ceiling_raycasts.left_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.right_outer and \
