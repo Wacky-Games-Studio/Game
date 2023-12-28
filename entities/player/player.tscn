@@ -493,12 +493,14 @@ target_position = Vector2(-14, 0)
 script = ExtResource("9_pjgpv")
 
 [node name="right" type="RayCast2D" parent="FloorRayCasts"]
-position = Vector2(-5, 0)
+position = Vector2(-8, 0)
 target_position = Vector2(0, 14)
+collision_mask = 5
 
 [node name="left" type="RayCast2D" parent="FloorRayCasts"]
-position = Vector2(2, 0)
+position = Vector2(7.5, 0)
 target_position = Vector2(0, 14)
+collision_mask = 5
 
 [node name="Camera" type="Camera2D" parent="."]
 top_level = true
@@ -560,7 +562,7 @@ one_shot = true
 
 [node name="WallJumpTime" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.25
+wait_time = 0.2
 one_shot = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
@@ -633,6 +635,7 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_q0b3u")
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 width = 2.0
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]
