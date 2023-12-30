@@ -1,7 +1,8 @@
-[gd_scene load_steps=58 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=57 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
+[ext_resource type="Script" path="res://entities/player/player_data.gd" id="2_j64qf"]
 [ext_resource type="PackedScene" uid="uid://cisq2juemmo7r" path="res://entities/player/particles/walk_particles.tscn" id="2_xjtd8"]
 [ext_resource type="PackedScene" uid="uid://btenqhawmrqu6" path="res://entities/player/particles/jump_particles.tscn" id="3_3oi85"]
 [ext_resource type="Script" path="res://entities/player/state_machine.gd" id="3_5fxeu"]
@@ -9,21 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://dl4fc42xk81ic" path="res://entities/player/particles/land_particles.tscn" id="4_d6aov"]
 [ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
 [ext_resource type="Texture2D" uid="uid://c5v8xq2wlk6rr" path="res://entities/player/sprites/feather.png" id="5_uwq16"]
-[ext_resource type="Script" path="res://entities/player/states/jump.gd" id="6_kcifk"]
-[ext_resource type="Script" path="res://entities/player/states/fall.gd" id="7_3thvh"]
-[ext_resource type="Script" path="res://entities/player/ceiling_raycasts.gd" id="7_hpg4t"]
-[ext_resource type="Script" path="res://entities/player/wall_raycasts.gd" id="8_bb1lo"]
-[ext_resource type="Script" path="res://entities/player/audio_controller.gd" id="8_nwito"]
-[ext_resource type="Script" path="res://entities/player/camera_guide.gd" id="9_2jw38"]
+[ext_resource type="Script" path="res://entities/player/ray_casts/ceiling_raycasts.gd" id="7_84p6t"]
+[ext_resource type="Script" path="res://entities/player/ray_casts/wall_raycasts.gd" id="8_6s67w"]
 [ext_resource type="AudioStream" uid="uid://g23x3b6yiktl" path="res://entities/player/audio/walking/Mid Footsteps 001.wav" id="9_cn5sw"]
-[ext_resource type="Script" path="res://entities/player/floor_raycasts.gd" id="9_y28hp"]
+[ext_resource type="Script" path="res://entities/player/ray_casts/floor_raycasts.gd" id="9_pjgpv"]
+[ext_resource type="Script" path="res://entities/player/camera/camera.gd" id="10_2uyqp"]
 [ext_resource type="AudioStream" uid="uid://wtuqln2762ui" path="res://entities/player/audio/walking/Mid Footsteps 002.wav" id="10_18fxg"]
-[ext_resource type="Script" path="res://entities/player/camera.gd" id="10_o48ox"]
 [ext_resource type="AudioStream" uid="uid://ce8bym0xw6uht" path="res://entities/player/audio/walking/Mid Footsteps 003.wav" id="11_7w3xo"]
-[ext_resource type="Script" path="res://entities/player/states/pushing.gd" id="11_cgo8d"]
 [ext_resource type="AudioStream" uid="uid://0vnqp1t4nx6" path="res://entities/player/audio/walking/Mid Footsteps 004.wav" id="12_7ep3l"]
 [ext_resource type="PackedScene" uid="uid://coaqlsjfnnpd7" path="res://entities/floaty_dust/floaty_dust.tscn" id="12_aqobf"]
+[ext_resource type="Script" path="res://entities/player/camera/camera_guide.gd" id="12_ubykn"]
 [ext_resource type="AudioStream" uid="uid://dyd54r648jrgj" path="res://entities/player/audio/walking/Mid Footsteps 005.wav" id="13_2s0tn"]
+[ext_resource type="Script" path="res://entities/player/audio/audio_controller.gd" id="13_f0fpr"]
 [ext_resource type="AudioStream" uid="uid://bk58b1yaercpq" path="res://entities/player/audio/walking/Mid Footsteps 006.wav" id="14_qlh0m"]
 [ext_resource type="AudioStream" uid="uid://dc48b3f85725v" path="res://entities/player/audio/walking/Mid Footsteps 007.wav" id="15_f5pqx"]
 [ext_resource type="AudioStream" uid="uid://5ahuoqaen6i5" path="res://entities/player/audio/walking/Mid Footsteps 008.wav" id="16_8sy7s"]
@@ -35,16 +33,31 @@
 [ext_resource type="AudioStream" uid="uid://be7lro8r8i4l7" path="res://entities/player/audio/jump_land/Dash 009.wav" id="22_u2glm"]
 [ext_resource type="AudioStream" uid="uid://bkxh55skbhc6k" path="res://entities/player/audio/death.wav" id="29_w0ttd"]
 [ext_resource type="AudioStream" uid="uid://d132w40bvji3k" path="res://entities/player/audio/death_reverse.wav" id="31_dr1i5"]
-[ext_resource type="Script" path="res://entities/player/states/respawn.gd" id="31_jwcju"]
-[ext_resource type="Script" path="res://entities/player/states/dead.gd" id="32_t32kq"]
-[ext_resource type="Script" path="res://entities/player/states/wall_slide.gd" id="34_jq1sn"]
-[ext_resource type="Script" path="res://entities/player/states/wall_jump.gd" id="35_lvytc"]
-[ext_resource type="Script" path="res://entities/player/states/spring_jump.gd" id="36_q8ydd"]
-[ext_resource type="Script" path="res://entities/player/states/horizontal_spring_jump.gd" id="39_xdc2l"]
+[ext_resource type="Script" path="res://entities/player/states/jump.gd" id="32_p1n3q"]
+[ext_resource type="Script" path="res://entities/player/states/fall.gd" id="33_3ofv3"]
+[ext_resource type="Script" path="res://entities/player/states/wall_slide.gd" id="34_y7w8t"]
+[ext_resource type="Script" path="res://entities/player/states/wall_jump.gd" id="35_50h1d"]
+[ext_resource type="Script" path="res://entities/player/states/spring_jump.gd" id="36_tbon6"]
+[ext_resource type="Script" path="res://entities/player/states/dead.gd" id="37_4kq2h"]
+[ext_resource type="Script" path="res://entities/player/states/respawn.gd" id="38_cxxw8"]
 
-[sub_resource type="Curve" id="Curve_1327r"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.989011, 1), 2.72244, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Resource" id="Resource_3efa2"]
+script = ExtResource("2_j64qf")
+move_speed = 154.5
+ground_acceleration = 0.5
+ground_deceleration = 0.75
+convserve_momentum = true
+max_jump_height = 56.0
+min_jump_height = 16.0
+jump_time_to_peak = 0.37
+jump_time_to_descent = 0.32
+terminal_velocity = 600.0
+wall_jump_lerp = 0.1
+wall_slide_speed = 0.8
+wall_jump_pushback = 128.0
+accel_in_air = 0.4
+deccel_in_air = 0.65
+spring_jump_multiplier = 1.25
 
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -362,15 +375,7 @@ collision_layer = 2
 collision_mask = 13
 platform_floor_layers = 1
 script = ExtResource("1_c6iwh")
-speed = 150
-dust_acceleration_curve = SubResource("Curve_1327r")
-acceleration = 0.15
-jump_height = 54.0
-jump_time_to_peak = 0.347
-jump_time_to_descent = 0.31
-jump_variable_height = 17.325
-wall_jump_height = 50.0
-wall_jump_time_to_peak = 0.3
+data = SubResource("Resource_3efa2")
 walk_particles = ExtResource("2_xjtd8")
 jump_particels = ExtResource("3_3oi85")
 land_particels = ExtResource("4_d6aov")
@@ -437,7 +442,7 @@ rect = Rect2(-7.5, -7.5, 15, 15)
 
 [node name="CeilingRaycasts" type="Node2D" parent="."]
 position = Vector2(0, -7)
-script = ExtResource("7_hpg4t")
+script = ExtResource("7_84p6t")
 
 [node name="left_outer" type="RayCast2D" parent="CeilingRaycasts"]
 position = Vector2(-7, 4)
@@ -456,29 +461,55 @@ position = Vector2(8, 4)
 target_position = Vector2(0, -10)
 
 [node name="WallRaycasts" type="Node2D" parent="."]
-script = ExtResource("8_bb1lo")
+script = ExtResource("8_6s67w")
 
 [node name="right" type="RayCast2D" parent="WallRaycasts"]
 target_position = Vector2(16, 0)
 
+[node name="rightmiddle" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, 3)
+target_position = Vector2(14, 0)
+
+[node name="rightbottom" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, 5)
+target_position = Vector2(9, 0)
+
+[node name="righttop" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, -5)
+target_position = Vector2(14, 0)
+
 [node name="left" type="RayCast2D" parent="WallRaycasts"]
-target_position = Vector2(-15, 0)
+target_position = Vector2(-16, 0)
+
+[node name="leftmiddle" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, 3)
+target_position = Vector2(-14, 0)
+
+[node name="leftbottom" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, 5)
+target_position = Vector2(-9, 0)
+
+[node name="lefttop" type="RayCast2D" parent="WallRaycasts"]
+position = Vector2(0, -5)
+target_position = Vector2(-14, 0)
 
 [node name="FloorRayCasts" type="Node2D" parent="."]
-script = ExtResource("9_y28hp")
+script = ExtResource("9_pjgpv")
 
 [node name="right" type="RayCast2D" parent="FloorRayCasts"]
-position = Vector2(-5, 0)
+position = Vector2(-8, 0)
 target_position = Vector2(0, 14)
+collision_mask = 5
 
 [node name="left" type="RayCast2D" parent="FloorRayCasts"]
-position = Vector2(2, 0)
+position = Vector2(7.5, 0)
 target_position = Vector2(0, 14)
+collision_mask = 5
 
 [node name="Camera" type="Camera2D" parent="."]
 top_level = true
 position_smoothing_speed = 2.5
-script = ExtResource("10_o48ox")
+script = ExtResource("10_2uyqp")
 move_speed = 0.5
 instant_move = true
 
@@ -503,10 +534,10 @@ grow_vertical = 2
 
 [node name="Guide" type="Node2D" parent="Camera"]
 material = SubResource("CanvasItemMaterial_l8bc1")
-script = ExtResource("9_2jw38")
+script = ExtResource("12_ubykn")
 
 [node name="AudioController" type="Node2D" parent="." node_paths=PackedStringArray("walk_sounds", "jump_land_sounds")]
-script = ExtResource("8_nwito")
+script = ExtResource("13_f0fpr")
 walk_sounds = NodePath("Footsteps")
 jump_land_sounds = NodePath("JumpLand")
 
@@ -533,9 +564,14 @@ unique_name_in_owner = true
 wait_time = 0.15
 one_shot = true
 
+[node name="WallJumpTime" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_5fxeu")
-starting_state = NodePath("Idle")
+starting_state = NodePath("Fall")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state", "jump_state", "fall_state")]
 script = ExtResource("4_4ywsu")
@@ -544,76 +580,58 @@ jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
 animation_name = "idle"
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "push_state")]
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
 script = ExtResource("5_m3545")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
-push_state = NodePath("../Pushing")
 animation_name = "walk"
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state", "wall_slide_state")]
-script = ExtResource("6_kcifk")
-move_state = NodePath("../Walk")
-idle_state = NodePath("../Idle")
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "wall_jump_state")]
+script = ExtResource("32_p1n3q")
 fall_state = NodePath("../Fall")
-wall_slide_state = NodePath("../WallSlide")
+wall_jump_state = NodePath("../WallJump")
 animation_name = "jump"
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "jump_state", "wall_slide_state")]
-script = ExtResource("7_3thvh")
-move_state = NodePath("../Walk")
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "jump_state", "wall_slide_state", "wall_jump_state")]
+script = ExtResource("33_3ofv3")
 idle_state = NodePath("../Idle")
+move_state = NodePath("../Walk")
 jump_state = NodePath("../Jump")
 wall_slide_state = NodePath("../WallSlide")
+wall_jump_state = NodePath("../WallJump")
 animation_name = "fall"
 
-[node name="Pushing" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "walk_state", "jump_state", "fall_state")]
-script = ExtResource("11_cgo8d")
+[node name="WallSlide" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "fall_state", "wall_jump_state")]
+script = ExtResource("34_y7w8t")
 idle_state = NodePath("../Idle")
-walk_state = NodePath("../Walk")
-jump_state = NodePath("../Jump")
-fall_state = NodePath("../Fall")
-animation_name = "walking"
-
-[node name="Respawn" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle")]
-script = ExtResource("31_jwcju")
-idle = NodePath("../Idle")
-animation_name = "respawn"
-
-[node name="Dead" type="Node" parent="StateMachine"]
-script = ExtResource("32_t32kq")
-animation_name = "die"
-
-[node name="WallSlide" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "wall_jump_state")]
-script = ExtResource("34_jq1sn")
-idle_state = NodePath("../Idle")
-jump_state = NodePath("../Jump")
+move_state = NodePath("../Walk")
 fall_state = NodePath("../Fall")
 wall_jump_state = NodePath("../WallJump")
 animation_name = "fall_slide"
 
-[node name="WallJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "wall_slide_state")]
-script = ExtResource("35_lvytc")
+[node name="WallJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "fall_state", "wall_slide_state")]
+script = ExtResource("35_50h1d")
 idle_state = NodePath("../Idle")
+move_state = NodePath("../Walk")
 fall_state = NodePath("../Fall")
 wall_slide_state = NodePath("../WallSlide")
 animation_name = "jump"
 
-[node name="SpringJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state", "wall_slide_state")]
-script = ExtResource("36_q8ydd")
-move_state = NodePath("../Walk")
-idle_state = NodePath("../Idle")
+[node name="SpringJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "wall_jump_state")]
+script = ExtResource("36_tbon6")
 fall_state = NodePath("../Fall")
-wall_slide_state = NodePath("../WallSlide")
-animation_name = "fall"
+wall_jump_state = NodePath("../WallJump")
+animation_name = "jump"
 
-[node name="HorizontalSpringJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "fall_state", "wall_slide_state")]
-script = ExtResource("39_xdc2l")
-move_state = NodePath("../Walk")
-idle_state = NodePath("../Idle")
-fall_state = NodePath("../Fall")
-wall_slide_state = NodePath("../WallSlide")
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("37_4kq2h")
+animation_name = "die"
+
+[node name="Respawn" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle")]
+script = ExtResource("38_cxxw8")
+idle = NodePath("../Idle")
+animation_name = "respawn"
 
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("29_w0ttd")
@@ -633,6 +651,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetector"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_q0b3u")
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+width = 2.0
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]
 [connection signal="body_entered" from="SpikeDetector" to="." method="_on_spike_detector_entered"]

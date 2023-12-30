@@ -1,35 +1,12 @@
 class_name Player
 extends PausableEntity
 
-@export_category("Movement")
-@export_subgroup("Misc")
-@export var speed := 200
-@export var dust_acceleration_curve: Curve
-@export_range(0.0, 1.0) var friction := 0.3
-@export_range(0.0, 1.0) var air_friction := 0.1
-@export_range(0.0 , 1.0) var acceleration := 0.4
-@export_range(0.0 , 1.0) var air_acceleration := 0.1
-@export_subgroup("Jump")
-@export var jump_height: float = 100
-@export var jump_time_to_peak: float = .5
-@export var jump_time_to_descent: float = .4
-@export var jump_variable_height: float = 25
-@export var max_jumps := 1
-@export var terminal_fall_velocity: float = 1000
+@export var data: PlayerData
 
-@export_subgroup("Wall jump")
-@export var wall_jump_height: float = 100
-@export var wall_jump_time_to_peak: float = .5
-@export var wall_jump_time_to_descent: float = .4
-@export var wall_jump_pushback_length: float = 32
-
-@export_category("Misc")
+@export_category("Particles")
 @export var walk_particles: PackedScene
 @export var jump_particels: PackedScene
 @export var land_particels: PackedScene
-@export var push_force: float = 20
-@export var mass: float = 1
-@export var ceiling_raycast_push_offset: float = 5.0
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var state_machine: Node = $StateMachine
@@ -44,28 +21,24 @@ extends PausableEntity
 @onready var wall_raycasts: WallRaycasts = $WallRaycasts
 @onready var floor_raycasts: FloorRaycasts = $FloorRayCasts
 
-@onready var jump_velocity      := (( 2.0 * jump_height) /  jump_time_to_peak)    * -1.0
-@onready var jump_gravity       := ((-2.0 * jump_height) / (jump_time_to_peak    * jump_time_to_peak   )) * -1.0
-@onready var fall_gravity       := ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
-
-@onready var variable_gravity   := (jump_velocity * jump_velocity) / (2 * jump_variable_height)
-
-@onready var wall_jump_velocity := (( 2.0 * wall_jump_height) / wall_jump_time_to_peak)    * -1.0
-@onready var wall_jump_gravity  := ((-2.0 * wall_jump_height) / (wall_jump_time_to_peak    * wall_jump_time_to_peak  )) * -1.0
-@onready var wall_slide_gravity := ((-2.0 * wall_jump_height) / (wall_jump_time_to_descent * wall_jump_time_to_descent)) * -1.0
-@onready var wall_jump_pushback          := (( 2.0 * wall_jump_pushback_length) / wall_jump_time_to_peak)
-@onready var wall_jump_pushback_friction := ((-2.0 * wall_jump_pushback_length) / (wall_jump_time_to_peak * wall_jump_time_to_peak  ))
-
-var jumps_remaining := max_jumps
-var is_spring_jump := false
-var is_horizontal_spring := false
-var _prev_flip_h := false
+# jump / gravity vars
+@onready var jump_velocity: float = ((2.0 * data.max_jump_height) / data.jump_time_to_peak) * -1.0
+@onready var jump_gravity: float = ((-2.0 * data.max_jump_height) / (data.jump_time_to_peak * data.jump_time_to_peak)) * -1.0
+@onready var fall_gravity: float = ((-2.0 * data.max_jump_height) / (data.jump_time_to_descent * data.jump_time_to_descent)) * -1.0
+@onready var variable_gravity: float = (jump_velocity * jump_velocity) / (2 * data.min_jump_height)
 
 var _current_walk_particles: CPUParticles2D
 var _current_jump_particles: CPUParticles2D
 var _current_land_particles: CPUParticles2D
 
+var nudge_keep_velocity: Vector2
+var was_nudged := false
+var has_jumped := true
+var has_spring_jumped := false
+var spring_jump_dir := Vector2.ZERO
+
 func _ready() -> void:
+	#Engine.time_scale = .1
 	init()
 
 func init() -> void:
@@ -74,9 +47,9 @@ func init() -> void:
 	if CheckpointManager.has_collected_any():
 		state_machine.change_state($StateMachine/Respawn)
 	
-	var data = CheckpointManager.get_latest_checkpoint_data()
-	global_position = data.position
-	flip(data.facing_left)
+	var cp_data = CheckpointManager.get_latest_checkpoint_data()
+	global_position = cp_data.position
+	flip_bool(cp_data.facing_left)
 	
 	$Camera.update_position()
 	
@@ -88,37 +61,20 @@ func unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 
 func physics_process(delta: float) -> void:
-	_prev_flip_h = sprite.flip_h
 	state_machine.process_physics(delta)
 
 func process(delta: float) -> void:
+	$Line2D.add_point(position)
+	$Line2D.global_position = Vector2.ZERO
+	if $Line2D.points.size() > 200:
+		$Line2D.remove_point(0)
 	state_machine.process_frame(delta)
-
-func get_gravity() -> float:
-	var return_value: float
-	
-	if (not Input.is_action_pressed("jump") and velocity.y < 0.0) and not is_spring_jump:
-		return_value = variable_gravity
-	else:
-		return_value = jump_gravity if velocity.y < 0.0 else fall_gravity
-	
-	return return_value
-
-func get_wall_gravity() -> float:
-	return wall_jump_gravity if velocity.y < 0.0 else wall_slide_gravity
-
-func get_wall_jump_friction(wall_dir: int) -> float:
-	return wall_jump_pushback_friction if velocity.x > 0.1 * wall_dir else 0.0
 
 func spawn_dust(type: ParticlesType = ParticlesType.Walk) -> void:
 	match type:
 		ParticlesType.Walk:
-			var percentage = abs(velocity.x) / speed
-			var curve_sample = dust_acceleration_curve.sample(percentage)
-			
-			if randf() < curve_sample:
-				_current_walk_particles.emitting = true
-				_current_walk_particles = instantiate_new_particle(walk_particles)
+			_current_walk_particles.emitting = true
+			_current_walk_particles = instantiate_new_particle(walk_particles)
 		
 		ParticlesType.Jump:
 			audio_controller.play_jump_land()
@@ -136,9 +92,12 @@ enum ParticlesType {
 	Land = 2
 }
 
-func flip(should_flip: bool) -> void:
+func flip_bool(should_flip: bool) -> void:
 	sprite.flip_h = should_flip
-	$CollisionPolygon2D.scale = Vector2(-1 if should_flip else 1, 1)
+	#$CollisionPolygon2D.scale = Vector2(-1 if should_flip else 1, 1)
+
+func flip(dir: float) -> void:
+	sprite.flip_h = dir < 0
 
 func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	var particle = particle_to_spawn.instantiate()
@@ -146,27 +105,93 @@ func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	
 	return particle
 
-func die() -> void:
-	if state_machine.current_state == $StateMachine/Dead: 
-		return
-	
-	state_machine.change_state($StateMachine/Dead)
-	
-func spring_jump(horizontal: bool) -> void:
-	is_spring_jump = true
-	if horizontal:
-		state_machine.change_state($StateMachine/HorizontalSpringJump)
-	else:
-		state_machine.change_state($StateMachine/SpringJump)
-		
-func is_on_wall_only_raycast() -> bool:
-	var is_not_on_floor := not is_on_floor() or not (floor_raycasts.left and floor_raycasts.right)
-	return ((wall_raycasts.right or wall_raycasts.left) or is_on_wall_only()) and is_not_on_floor
-
-func is_moving_away_from_wall() -> bool:
-	var dir := Input.get_axis("walk_left", "walk_right")	
-	return (wall_raycasts.left and dir == 1) or \
-		(wall_raycasts.right and dir == -1)
-
-func _on_spike_detector_entered(body):
+func _on_spike_detector_entered(_body):
 	die()
+
+func get_clamped_gravity(delta: float) -> float:
+	var gravity = jump_gravity if velocity.y < 0.0 else fall_gravity
+	
+	if not Input.is_action_pressed("jump") and velocity.y < 0.0 and not has_spring_jumped:
+		gravity = variable_gravity
+	
+	gravity *= delta
+	var new_velocity = velocity.y + gravity
+	if new_velocity > 0.0:
+		new_velocity = clamp(velocity.y + gravity, 0.0, data.terminal_velocity)
+	
+	return new_velocity
+
+func is_on_floor_raycasts() -> bool:
+	return is_on_floor() and (floor_raycasts.left or floor_raycasts.right)
+
+func get_movement_velocity(dir: float, lerp_amount: float = 1.0) -> float:
+	if dir != 0.0: flip(dir)
+	var target_speed := dir * data.move_speed
+	target_speed = lerp(velocity.x, target_speed, lerp_amount)
+	
+	
+	var accel_rate: float
+	#var accel_rate := data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
+	if has_jumped or has_spring_jumped:
+		accel_rate = data.ground_acceleration * data.accel_in_air if abs(target_speed) > 0 else data.ground_deceleration * data.deccel_in_air
+	else:
+		accel_rate = data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
+	
+	# conserve momentum
+	if should_conserve_momentum(target_speed):
+		accel_rate = 0
+	
+	var speed_diff := target_speed - velocity.x
+	var movement := speed_diff * accel_rate
+	return movement
+
+func should_conserve_momentum(target_speed: float) -> bool:
+	var velocity_is_greater_then_max: bool = abs(velocity.x) > abs(target_speed)
+	var moving_same_dir: bool = sign(velocity.x) == sign(target_speed) 
+	var is_moving: bool = abs(target_speed) > 0
+	var not_on_ground: bool = not is_on_floor_raycasts()
+	
+	return data.convserve_momentum and velocity_is_greater_then_max and moving_same_dir and is_moving and not_on_ground
+
+func nudge() -> void:
+	was_nudged = false
+	nudge_keep_velocity = velocity
+	
+	var y_diff = (fmod(position.y, 16.0)) - 5.0
+	var x_diff = (fmod(position.x, 16.0)) - 6.0
+	var dir = Input.get_axis("walk_left", "walk_right")
+	
+	# ceiling left
+	if ceiling_raycasts.left_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.right_outer and \
+	   dir != 1:
+		position.x += x_diff
+		was_nudged = true
+	
+	# ceiling right
+	if ceiling_raycasts.right_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.left_outer and \
+	   dir != -1:
+		position.x -= x_diff
+		was_nudged = true
+
+func spring_jump(dir: int) -> void:
+	has_spring_jumped = true
+	
+	dir = mod_negative(dir, 360)
+	
+	if dir == 90: dir = 65
+	elif dir == 270: dir = 295
+	
+	# correct direction
+	print(dir)
+	dir += 90
+	var rad_dir := deg_to_rad(dir)
+	print(sin(rad_dir))
+	spring_jump_dir = Vector2(cos(rad_dir), sin(rad_dir))
+	state_machine.change_state($StateMachine/SpringJump)
+
+func mod_negative(x: int, n: int) -> int:
+	return (x % n + n) % n
+
+func die() -> void:
+	if state_machine.current_state != $StateMachine/Dead:
+		state_machine.change_state($StateMachine/Dead)

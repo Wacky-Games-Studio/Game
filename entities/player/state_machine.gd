@@ -19,7 +19,6 @@ func change_state(new_state: State) -> void:
 	if current_state:
 		current_state.exit()
 	
-	$"../Camera/Label".text = new_state.name
 	current_state = new_state
 	current_state.enter()
 	

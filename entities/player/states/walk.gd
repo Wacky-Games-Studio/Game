@@ -3,36 +3,21 @@ extends State
 @export var idle_state: State
 @export var jump_state: State
 @export var fall_state: State
-@export var push_state: State
-
-@onready var coyote_timer: Timer = %CoyoteTimer
 
 func process_input(_event: InputEvent) -> State:
-	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor():
-		parent.spawn_dust(Player.ParticlesType.Jump)
-		return jump_state
-		
+	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_floor_raycasts(): return jump_state
 	return null
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y += parent.get_gravity() * delta
-	var dir = Input.get_axis("walk_left", "walk_right")
-	if dir != 0:
-		parent.velocity.x = lerp(parent.velocity.x, dir * parent.speed, parent.acceleration)
-		parent.flip(dir < 0)
-	else:
-		return idle_state
-
+	var dir := Input.get_axis("walk_left", "walk_right")
+	if dir == 0: return idle_state
+	
+	parent.velocity.x += parent.get_movement_velocity(dir)
+	parent.velocity.y = parent.get_clamped_gravity(delta)
 	parent.move_and_slide()
 	
-	if not parent.is_on_floor():
-		coyote_timer.start()
-		return fall_state
-	
-	for i in parent.get_slide_collision_count():
-		var c = parent.get_slide_collision(i)
-		if c.get_collider() is Pushable:
-			return push_state
-
+	if parent.velocity.y > 0.0: return fall_state
 	
 	return null
+
+

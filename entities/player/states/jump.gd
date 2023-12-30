@@ -1,46 +1,27 @@
 extends State
 
-@export var move_state: State
-@export var idle_state: State
 @export var fall_state: State
-@export var wall_slide_state: State
+@export var wall_jump_state: State
 
 func enter() -> void:
 	super()
-	parent.jumps_remaining -= 1
-	
 	parent.velocity.y = parent.jump_velocity
+	parent.has_jumped = true
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y += parent.get_gravity() * delta
-	
-	if parent.velocity.y > 0:
-		return fall_state
-	
-	if parent.ceiling_raycasts.right_outer and not parent.ceiling_raycasts.right_inner and \
-	   not parent.ceiling_raycasts.left_inner and not parent.ceiling_raycasts.left_outer:
-		parent.global_position.x -= parent.ceiling_raycast_push_offset
-	elif parent.ceiling_raycasts.left_outer and not parent.ceiling_raycasts.left_inner and \
-	   not parent.ceiling_raycasts.right_inner and not parent.ceiling_raycasts.right_outer:
-		parent.global_position.x += parent.ceiling_raycast_push_offset
-		
+	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):
+		pass
+		#return wall_jump_state
 	
 	var dir = Input.get_axis("walk_left", "walk_right")
+	parent.velocity.x += parent.get_movement_velocity(dir)
+	parent.velocity.y = parent.get_clamped_gravity(delta)
 	
-	if dir != 0:
-		parent.velocity.x = lerp(parent.velocity.x, dir * parent.speed, parent.acceleration)
-		parent.flip(dir < 0)
-	else:
-		parent.velocity.x = lerp(parent.velocity.x, 0.0, parent.air_friction)
-	
+	parent.nudge()
 	parent.move_and_slide()
 	
-	if parent.is_on_wall_only() and not parent.is_moving_away_from_wall():
-		return wall_slide_state
+	if parent.was_nudged:
+		parent.velocity.x = parent.nudge_keep_velocity.x
 	
-	if parent.is_on_floor():
-		if dir != 0:
-			return move_state
-		return idle_state
-	
+	if parent.velocity.y > 0: return fall_state
 	return null

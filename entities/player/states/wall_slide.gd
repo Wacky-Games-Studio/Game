@@ -1,32 +1,30 @@
 extends State
 
 @export var idle_state: State
-@export var jump_state: State
+@export var move_state: State
 @export var fall_state: State
 @export var wall_jump_state: State
 
-func process_input(_event: InputEvent) -> State:
-	if InputBuffer.is_action_press_buffered("jump") and parent.is_on_wall_only_raycast():
-		parent.spawn_dust(Player.ParticlesType.Jump)
-		parent.flip(not parent.sprite.flip_h)
-		return wall_jump_state
-	
-	return null
+var direction_of_slide: int
+
+func enter() -> void:
+	super()
+	var dir = Input.get_axis("walk_left", "walk_right")
+	direction_of_slide = dir
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y += parent.get_gravity() * delta
-	parent.velocity.y = min(parent.velocity.y, parent.wall_slide_gravity)
+	var dir = Input.get_axis("walk_left", "walk_right")
 	
-	parent.move_and_slide()
+	if Input.is_action_just_pressed("jump"):
+		return wall_jump_state
 	
-	var dir = Input.get_axis("walk_left", "walk_right") * -1
-	if dir != parent.get_wall_normal().x and dir != 0:
+	if dir == 0 or dir != direction_of_slide or (dir == 1 and not parent.wall_raycasts.right) or (dir == -1 and not parent.wall_raycasts.left):
 		return fall_state
 	
-	if parent.is_on_wall_only_raycast():
-		return null
+	parent.velocity.y = parent.get_clamped_gravity(delta) * parent.data.wall_slide_speed
+	parent.move_and_slide()
 	
-	if parent.is_on_floor():
-		return idle_state
-	
-	return fall_state
+	if parent.is_on_floor_raycasts(): 
+		parent.has_jumped = false
+		return idle_state if dir == 0 else move_state
+	return null
