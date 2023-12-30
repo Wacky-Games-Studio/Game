@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=58 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
 [ext_resource type="Texture2D" uid="uid://c5v8xq2wlk6rr" path="res://entities/player/sprites/feather.png" id="5_uwq16"]
 [ext_resource type="Script" path="res://entities/player/ray_casts/ceiling_raycasts.gd" id="7_84p6t"]
+[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/normal/torch_light2.png" id="7_foa0c"]
 [ext_resource type="Script" path="res://entities/player/ray_casts/wall_raycasts.gd" id="8_6s67w"]
 [ext_resource type="AudioStream" uid="uid://g23x3b6yiktl" path="res://entities/player/audio/walking/Mid Footsteps 001.wav" id="9_cn5sw"]
 [ext_resource type="Script" path="res://entities/player/ray_casts/floor_raycasts.gd" id="9_pjgpv"]
@@ -429,6 +430,11 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_q0b3u")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.25
+texture = ExtResource("7_foa0c")
+texture_scale = 0.5
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = 10
