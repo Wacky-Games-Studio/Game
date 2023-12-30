@@ -8,18 +8,16 @@ extends State
 func enter() -> void:
 	super()
 	parent.velocity = parent.spring_jump_dir * (parent.jump_velocity * parent.data.spring_jump_multiplier)
-	#if parent.velocity.x != 0:
-		#parent.velocity.x *= 1.25
-
 	parent.has_spring_jumped = true
 	wall_jump_timer.start()
-	print(parent.velocity)
+
+func process_input(_event: InputEvent) -> State:
+	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):
+		return wall_jump_state
+	
+	return null
 
 func process_physics(delta: float) -> State:
-	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):
-		pass
-		#return wall_jump_state
-	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	parent.velocity.x += parent.get_movement_velocity(dir, parent.data.wall_jump_lerp if not wall_jump_timer.is_stopped() else 1.0)
 	parent.velocity.y = parent.get_clamped_gravity(delta)

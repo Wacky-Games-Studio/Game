@@ -20,3 +20,4 @@ class_name PlayerData
 @export_range(0.0, 1.0) var accel_in_air: float
 @export_range(0.0, 1.0) var deccel_in_air: float
 @export var spring_jump_multiplier: float
+@export var spring_jump_horizontal_direction_offset: float

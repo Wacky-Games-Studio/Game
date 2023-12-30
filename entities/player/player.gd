@@ -178,8 +178,8 @@ func spring_jump(dir: int) -> void:
 	
 	dir = mod_negative(dir, 360)
 	
-	if dir == 90: dir = 65
-	elif dir == 270: dir = 295
+	if dir == 90: dir -= data.spring_jump_horizontal_direction_offset
+	elif dir == 270: dir += data.spring_jump_horizontal_direction_offset
 	
 	# correct direction
 	print(dir)
