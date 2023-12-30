@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=57 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -37,6 +37,9 @@
 [ext_resource type="Script" path="res://entities/player/states/fall.gd" id="33_3ofv3"]
 [ext_resource type="Script" path="res://entities/player/states/wall_slide.gd" id="34_y7w8t"]
 [ext_resource type="Script" path="res://entities/player/states/wall_jump.gd" id="35_50h1d"]
+[ext_resource type="Script" path="res://entities/player/states/spring_jump.gd" id="36_tbon6"]
+[ext_resource type="Script" path="res://entities/player/states/dead.gd" id="37_4kq2h"]
+[ext_resource type="Script" path="res://entities/player/states/respawn.gd" id="38_cxxw8"]
 
 [sub_resource type="Resource" id="Resource_3efa2"]
 script = ExtResource("2_j64qf")
@@ -54,6 +57,7 @@ wall_slide_speed = 0.8
 wall_jump_pushback = 128.0
 accel_in_air = 0.4
 deccel_in_air = 0.65
+spring_jump_multiplier = 1.25
 
 [sub_resource type="Curve" id="Curve_l7ej1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -583,9 +587,8 @@ jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
 animation_name = "walk"
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "wall_jump_state")]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "wall_jump_state")]
 script = ExtResource("32_p1n3q")
-idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 wall_jump_state = NodePath("../WallJump")
 animation_name = "jump"
@@ -614,6 +617,21 @@ move_state = NodePath("../Walk")
 fall_state = NodePath("../Fall")
 wall_slide_state = NodePath("../WallSlide")
 animation_name = "jump"
+
+[node name="SpringJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "wall_jump_state")]
+script = ExtResource("36_tbon6")
+fall_state = NodePath("../Fall")
+wall_jump_state = NodePath("../WallJump")
+animation_name = "jump"
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("37_4kq2h")
+animation_name = "die"
+
+[node name="Respawn" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle")]
+script = ExtResource("38_cxxw8")
+idle = NodePath("../Idle")
+animation_name = "respawn"
 
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("29_w0ttd")

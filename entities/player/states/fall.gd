@@ -30,5 +30,6 @@ func process_physics(delta: float) -> State:
 	
 	if parent.is_on_floor_raycasts(): 
 		parent.has_jumped = false
+		parent.has_spring_jumped = false
 		return idle_state if dir == 0 else move_state
 	return null

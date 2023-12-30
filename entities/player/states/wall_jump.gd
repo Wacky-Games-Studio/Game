@@ -19,8 +19,7 @@ func enter() -> void:
 
 func process_physics(delta: float) -> State:
 	var dir = Input.get_axis("walk_left", "walk_right")
-	
-	
+	 
 	parent.velocity.x += parent.get_movement_velocity(dir, parent.data.wall_jump_lerp if not wall_jump_timer.is_stopped() else 1.0)
 	parent.velocity.y = parent.get_clamped_gravity(delta)
 	parent.move_and_slide()

@@ -34,6 +34,8 @@ var _current_land_particles: CPUParticles2D
 var nudge_keep_velocity: Vector2
 var was_nudged := false
 var has_jumped := true
+var has_spring_jumped := false
+var spring_jump_dir := Vector2.ZERO
 
 func _ready() -> void:
 	#Engine.time_scale = .1
@@ -104,13 +106,12 @@ func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	return particle
 
 func _on_spike_detector_entered(_body):
-	pass
-	#die()
+	die()
 
 func get_clamped_gravity(delta: float) -> float:
 	var gravity = jump_gravity if velocity.y < 0.0 else fall_gravity
 	
-	if not Input.is_action_pressed("jump") and velocity.y < 0.0:
+	if not Input.is_action_pressed("jump") and velocity.y < 0.0 and not has_spring_jumped:
 		gravity = variable_gravity
 	
 	gravity *= delta
@@ -126,19 +127,15 @@ func is_on_floor_raycasts() -> bool:
 func get_movement_velocity(dir: float, lerp_amount: float = 1.0) -> float:
 	if dir != 0.0: flip(dir)
 	var target_speed := dir * data.move_speed
-	if lerp_amount < 1: print(target_speed)
 	target_speed = lerp(velocity.x, target_speed, lerp_amount)
 	
 	
 	var accel_rate: float
 	#var accel_rate := data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
-	if has_jumped:
+	if has_jumped or has_spring_jumped:
 		accel_rate = data.ground_acceleration * data.accel_in_air if abs(target_speed) > 0 else data.ground_deceleration * data.deccel_in_air
 	else:
 		accel_rate = data.ground_acceleration if abs(target_speed) > 0 else data.ground_deceleration
-	
-	if lerp_amount < 1:
-		print(lerp_amount)
 	
 	# conserve momentum
 	if should_conserve_momentum(target_speed):
@@ -164,30 +161,37 @@ func nudge() -> void:
 	var x_diff = (fmod(position.x, 16.0)) - 6.0
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
-	# wall left up
-	'if wall_raycasts.left_bottom and not wall_raycasts.left_middle and not wall_raycasts.left and not wall_raycasts.left_top and velocity.x < 0:
-		nudge_keep_velocity.y = 0
-		position.y -= y_diff
-		was_nudged = true
-		return
-	
-	# wall right up
-	if wall_raycasts.right_bottom and not wall_raycasts.right_middle and not wall_raycasts.right and not wall_raycasts.right_top and velocity.x > 0:
-		nudge_keep_velocity.y = 0
-		position.y -= y_diff
-		was_nudged = true
-		return'
-	
 	# ceiling left
 	if ceiling_raycasts.left_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.right_outer and \
 	   dir != 1:
 		position.x += x_diff
-		print("b")
 		was_nudged = true
 	
 	# ceiling right
 	if ceiling_raycasts.right_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.left_outer and \
 	   dir != -1:
 		position.x -= x_diff
-		print("a")
 		was_nudged = true
+
+func spring_jump(dir: int) -> void:
+	has_spring_jumped = true
+	
+	dir = mod_negative(dir, 360)
+	
+	if dir == 90: dir = 65
+	elif dir == 270: dir = 295
+	
+	# correct direction
+	print(dir)
+	dir += 90
+	var rad_dir := deg_to_rad(dir)
+	print(sin(rad_dir))
+	spring_jump_dir = Vector2(cos(rad_dir), sin(rad_dir))
+	state_machine.change_state($StateMachine/SpringJump)
+
+func mod_negative(x: int, n: int) -> int:
+	return (x % n + n) % n
+
+func die() -> void:
+	if state_machine.current_state != $StateMachine/Dead:
+		state_machine.change_state($StateMachine/Dead)

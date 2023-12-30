@@ -28,4 +28,4 @@ func _on_body_entered(body) -> void:
 		if dir.x != 0:
 			body.velocity.y = side_spring_jump_velocity
 		
-		body.spring_jump(dir.x != 0)
+		body.spring_jump(rotation_degrees)
