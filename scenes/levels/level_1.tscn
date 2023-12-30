@@ -32,7 +32,7 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 3, 196608, 262144, 3, 65536, 262
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_yjotq")]
-position = Vector2(375, 80)
+position = Vector2(375, 81)
 
 [node name="CheckpointCollider" parent="Checkpoints/Checkpoint" index="0"]
 position = Vector2(0, -8)
@@ -45,7 +45,7 @@ position = Vector2(89, 53)
 position = Vector2(89, 44)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_yjotq")]
-position = Vector2(843, 84)
+position = Vector2(843, 85)
 should_face_left_on_spawn = true
 
 [node name="CheckpointCollider" parent="Checkpoints/Checkpoint2" index="0"]
@@ -59,7 +59,7 @@ position = Vector2(-27, -111)
 position = Vector2(-27, -120)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("3_yjotq")]
-position = Vector2(1801, -240)
+position = Vector2(1801, -239)
 
 [node name="CheckpointCollider" parent="Checkpoints/Checkpoint3" index="0"]
 position = Vector2(0, 8)
@@ -72,7 +72,7 @@ position = Vector2(-121, -11)
 position = Vector2(-121, -20)
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("3_yjotq")]
-position = Vector2(1705, 408)
+position = Vector2(1705, 409)
 should_face_left_on_spawn = true
 
 [node name="CheckpointCollider" parent="Checkpoints/Checkpoint4" index="0"]
