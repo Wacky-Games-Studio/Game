@@ -99,6 +99,9 @@ func flip_bool(should_flip: bool) -> void:
 func flip(dir: float) -> void:
 	sprite.flip_h = dir < 0
 
+func flip_opposite() -> void:
+	sprite.flip_h = !sprite.flip_h
+
 func instantiate_new_particle(particle_to_spawn: PackedScene) -> CPUParticles2D:
 	var particle = particle_to_spawn.instantiate()
 	particle_holder.add_child(particle)

@@ -13,7 +13,7 @@ func enter() -> void:
 	coyote_timer.start()
 
 func process_input(_event: InputEvent) -> State:
-	if InputBuffer.is_action_press_buffered("jump") and not coyote_timer.is_stopped() and not parent.has_jumped: return jump_state
+	if InputBuffer.is_action_press_buffered("jump") and not coyote_timer.is_stopped() and not parent.has_jumped and not parent.has_spring_jumped: return jump_state
 	return null
 
 func process_physics(delta: float) -> State:

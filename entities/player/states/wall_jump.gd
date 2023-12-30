@@ -17,6 +17,7 @@ func enter() -> void:
 	wall_direction = 1 if parent.wall_raycasts.right else -1
 	parent.velocity.y = parent.jump_velocity
 	parent.velocity.x = parent.data.wall_jump_pushback * wall_direction * -1
+	parent.flip_opposite()
 
 func process_physics(delta: float) -> State:
 	var dir = Input.get_axis("walk_left", "walk_right")
