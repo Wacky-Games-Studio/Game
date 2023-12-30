@@ -4,6 +4,7 @@ extends State
 @export var move_state: State
 @export var fall_state: State
 @export var wall_slide_state: State
+@export var falling_animation: String
 
 @onready var wall_jump_timer: Timer = %WallJumpTime
 
@@ -23,6 +24,9 @@ func process_physics(delta: float) -> State:
 	parent.velocity.x += parent.get_movement_velocity(dir, parent.data.wall_jump_lerp if not wall_jump_timer.is_stopped() else 1.0)
 	parent.velocity.y = parent.get_clamped_gravity(delta)
 	parent.move_and_slide()
+	
+	if parent.velocity.y > 0 and parent.animator.current_animation != falling_animation:
+		parent.animator.play(falling_animation)
 	
 	if ((dir == 1 and parent.wall_raycasts.right) or (dir == -1 and parent.wall_raycasts.left)) and wall_jump_timer.is_stopped():
 		return wall_slide_state

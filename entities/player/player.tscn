@@ -617,6 +617,7 @@ idle_state = NodePath("../Idle")
 move_state = NodePath("../Walk")
 fall_state = NodePath("../Fall")
 wall_slide_state = NodePath("../WallSlide")
+falling_animation = "fall"
 animation_name = "jump"
 
 [node name="SpringJump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "wall_jump_state")]
