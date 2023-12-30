@@ -143,6 +143,24 @@ texture = ExtResource("4_i8ibm")
 1:2/0 = 0
 6:2/0 = 0
 7:2/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+17:1/0 = 0
+16:1/0 = 0
+15:1/0 = 0
+14:1/0 = 0
+13:1/0 = 0
+12:1/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_qhrmk"]
 sources/0 = SubResource("TileSetAtlasSource_efelf")
