@@ -42,6 +42,7 @@ func _ready() -> void:
 	init()
 
 func init() -> void:
+	SceneManager.player = self
 	state_machine.init(self)
 	
 	if CheckpointManager.has_collected_any():

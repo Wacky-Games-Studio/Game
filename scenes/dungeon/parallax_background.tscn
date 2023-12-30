@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://buap2ocmwtypr"]
+
+[ext_resource type="Script" path="res://scenes/dungeon/parallax_background.gd" id="1_23nrg"]
+[ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_w0vol"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_23nrg")
+back_scaling = 0.01
+
+[node name="Back" type="ParallaxLayer" parent="."]
+
+[node name="TileMap" parent="Back" instance=ExtResource("1_w0vol")]
+
+[node name="Middle" type="ParallaxLayer" parent="."]
+
+[node name="TileMap" parent="Middle" instance=ExtResource("1_w0vol")]
+
+[node name="Front" type="ParallaxLayer" parent="."]
+
+[node name="TileMap" parent="Front" instance=ExtResource("1_w0vol")]
+position = Vector2(0, 1)

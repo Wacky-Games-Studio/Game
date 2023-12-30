@@ -1,6 +1,7 @@
 extends Node
 
 var scene_paused: bool = false
+var player: Player
 
 func restart_level() -> void:
 	FadeTransition.transition()
