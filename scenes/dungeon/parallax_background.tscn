@@ -1,7 +1,151 @@
-[gd_scene load_steps=3 format=3 uid="uid://buap2ocmwtypr"]
+[gd_scene load_steps=11 format=3 uid="uid://buap2ocmwtypr"]
 
 [ext_resource type="Script" path="res://scenes/dungeon/parallax_background.gd" id="1_23nrg"]
-[ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_w0vol"]
+[ext_resource type="Texture2D" uid="uid://f3fyw1s5r1b4" path="res://scenes/dungeon/assets/tileset_back.png" id="2_4d6o3"]
+[ext_resource type="Texture2D" uid="uid://bt3rcpcgq6neu" path="res://scenes/dungeon/assets/tileset_middle.png" id="3_3vuql"]
+[ext_resource type="Texture2D" uid="uid://cq3huphb4o3aq" path="res://scenes/dungeon/assets/tileset_front.png" id="4_i8ibm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yb34g"]
+texture = ExtResource("2_4d6o3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_phkul"]
+sources/0 = SubResource("TileSetAtlasSource_yb34g")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fookb"]
+texture = ExtResource("3_3vuql")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o7fod"]
+sources/0 = SubResource("TileSetAtlasSource_fookb")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efelf"]
+texture = ExtResource("4_i8ibm")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qhrmk"]
+sources/0 = SubResource("TileSetAtlasSource_efelf")
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_23nrg")
@@ -9,13 +153,18 @@ back_scaling = 0.01
 
 [node name="Back" type="ParallaxLayer" parent="."]
 
-[node name="TileMap" parent="Back" instance=ExtResource("1_w0vol")]
+[node name="BackTileMap" type="TileMap" parent="Back"]
+tile_set = SubResource("TileSet_phkul")
+format = 2
 
 [node name="Middle" type="ParallaxLayer" parent="."]
 
-[node name="TileMap" parent="Middle" instance=ExtResource("1_w0vol")]
+[node name="MiddleTileMap" type="TileMap" parent="Middle"]
+tile_set = SubResource("TileSet_o7fod")
+format = 2
 
 [node name="Front" type="ParallaxLayer" parent="."]
 
-[node name="TileMap" parent="Front" instance=ExtResource("1_w0vol")]
-position = Vector2(0, 1)
+[node name="FrontTileMap" type="TileMap" parent="Front"]
+tile_set = SubResource("TileSet_qhrmk")
+format = 2
