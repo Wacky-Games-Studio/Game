@@ -14,7 +14,6 @@ func enter() -> void:
 	super()
 	wall_jump_timer.start()
 	
-	var prev_velocity_x := parent.velocity.x
 	wall_direction = 1 if parent.wall_raycasts.right else -1
 	parent.velocity.y = parent.jump_velocity
 	parent.velocity.x = parent.data.wall_jump_pushback * wall_direction * -1
