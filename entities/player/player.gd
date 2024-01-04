@@ -193,6 +193,11 @@ func spring_jump(dir: int) -> void:
 	spring_jump_dir = Vector2(cos(rad_dir), sin(rad_dir))
 	state_machine.change_state($StateMachine/SpringJump)
 
+func get_wall_normal_rays_x() -> int:
+	if wall_raycasts.left: return -1
+	elif wall_raycasts.right: return 1
+	else: return 0
+
 func mod_negative(x: int, n: int) -> int:
 	return (x % n + n) % n
 
