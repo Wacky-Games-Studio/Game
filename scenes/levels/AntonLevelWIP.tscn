@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b44v03qa8ffql"]
+[gd_scene load_steps=8 format=3 uid="uid://b44v03qa8ffql"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_8mtb5"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="2_nk4a8"]
@@ -7,20 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://evwchr2ib2vo" path="res://entities/checkpoint/checkpoint.tscn" id="3_wgd1p"]
 [ext_resource type="PackedScene" uid="uid://cjkjnj62rv8i6" path="res://entities/button/button.tscn" id="5_06bny"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3pnj"]
-size = Vector2(20, 79)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uofiy"]
 size = Vector2(64.5, 32.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj2sa"]
-size = Vector2(20, 34)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_we6wg"]
-size = Vector2(32, 79)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k8ym"]
-size = Vector2(63, 17)
 
 [node name="Level2" type="Node2D"]
 
@@ -35,10 +23,6 @@ layer_1/tile_data = PackedInt32Array(1179699, 65537, 2, 1114163, 65537, 1, 10486
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_wgd1p")]
 position = Vector2(999, 240)
 
-[node name="CollisionShape2D" parent="Checkpoints/Checkpoint" index="0"]
-position = Vector2(90, 25)
-shape = SubResource("RectangleShape2D_g3pnj")
-
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint" index="1"]
 position = Vector2(89, 53)
 
@@ -47,10 +31,6 @@ position = Vector2(89, 24)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_wgd1p")]
 position = Vector2(1575, 33)
-
-[node name="CollisionShape2D" parent="Checkpoints/Checkpoint2" index="0"]
-position = Vector2(90, 25)
-shape = SubResource("RectangleShape2D_g3pnj")
 
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint2" index="1"]
 position = Vector2(89, 53)
@@ -96,10 +76,6 @@ position = Vector2(647, -1174)
 [node name="Checkpoint" parent="Checkpoints2" instance=ExtResource("3_wgd1p")]
 position = Vector2(375, 80)
 
-[node name="CollisionShape2D" parent="Checkpoints2/Checkpoint" index="0"]
-position = Vector2(0, -8.5)
-shape = SubResource("RectangleShape2D_g3pnj")
-
 [node name="SpawnLoaction" parent="Checkpoints2/Checkpoint" index="1"]
 position = Vector2(89, 53)
 
@@ -110,10 +86,6 @@ position = Vector2(89, 24)
 position = Vector2(843, 84)
 should_face_left_on_spawn = true
 
-[node name="CollisionShape2D" parent="Checkpoints2/Checkpoint2" index="0"]
-position = Vector2(-107, -148)
-shape = SubResource("RectangleShape2D_gj2sa")
-
 [node name="SpawnLoaction" parent="Checkpoints2/Checkpoint2" index="1"]
 position = Vector2(-27, -111)
 
@@ -122,10 +94,6 @@ position = Vector2(-27, -140)
 
 [node name="Checkpoint3" parent="Checkpoints2" instance=ExtResource("3_wgd1p")]
 position = Vector2(1801, -240)
-
-[node name="CollisionShape2D" parent="Checkpoints2/Checkpoint3" index="0"]
-position = Vector2(6, 8.5)
-shape = SubResource("RectangleShape2D_we6wg")
 
 [node name="SpawnLoaction" parent="Checkpoints2/Checkpoint3" index="1"]
 position = Vector2(-121, -11)
@@ -136,10 +104,6 @@ position = Vector2(-121, -40)
 [node name="Checkpoint4" parent="Checkpoints2" instance=ExtResource("3_wgd1p")]
 position = Vector2(1705, 408)
 should_face_left_on_spawn = true
-
-[node name="CollisionShape2D" parent="Checkpoints2/Checkpoint4" index="0"]
-position = Vector2(135.5, -48.5)
-shape = SubResource("RectangleShape2D_0k8ym")
 
 [node name="SpawnLoaction" parent="Checkpoints2/Checkpoint4" index="1"]
 position = Vector2(135, 61)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxl2lfx8i26b1"]
+[gd_scene load_steps=8 format=3 uid="uid://dxl2lfx8i26b1"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_72rtr"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="2_1q20j"]
@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="3_l3wp5"]
 [ext_resource type="PackedScene" uid="uid://c688q3v05cx2m" path="res://entities/door/door.tscn" id="4_lt8hs"]
 [ext_resource type="PackedScene" uid="uid://cjkjnj62rv8i6" path="res://entities/button/button.tscn" id="5_elafr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fol1o"]
-size = Vector2(20, 79)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uofiy"]
 size = Vector2(64.5, 32.5)
@@ -26,10 +23,6 @@ layer_1/tile_data = PackedInt32Array(786449, 131073, 0, 786450, 196609, 0, 85198
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_2c2o7")]
 position = Vector2(951, 47)
 
-[node name="CollisionShape2D" parent="Checkpoints/Checkpoint" index="0"]
-position = Vector2(34, 25)
-shape = SubResource("RectangleShape2D_fol1o")
-
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint" index="1"]
 position = Vector2(89, 53)
 
@@ -38,10 +31,6 @@ position = Vector2(89, 24)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_2c2o7")]
 position = Vector2(615, 48)
-
-[node name="CollisionShape2D" parent="Checkpoints/Checkpoint2" index="0"]
-position = Vector2(64, 25)
-shape = SubResource("RectangleShape2D_fol1o")
 
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint2" index="1"]
 position = Vector2(89, 53)

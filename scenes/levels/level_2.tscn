@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcjouoekusqui"]
+[gd_scene load_steps=11 format=3 uid="uid://dcjouoekusqui"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_cnf5k"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="2_251ar"]
@@ -8,15 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://btyxy5o3yse7h" path="res://entities/door/door_small.tscn" id="6_5l630"]
 [ext_resource type="PackedScene" uid="uid://dpl1833itee3p" path="res://entities/button/multi_button.tscn" id="7_vge5f"]
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="8_plp0p"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou5s6"]
-size = Vector2(16, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht0rc"]
-size = Vector2(240, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tb8s"]
-size = Vector2(16, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx0vy"]
 size = Vector2(48, 15)
@@ -39,20 +30,12 @@ metadata/_edit_lock_ = true
 position = Vector2(752, 104)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" parent="Checkpoints/Checkpoint" index="0"]
-position = Vector2(-88, 8)
-shape = SubResource("RectangleShape2D_ou5s6")
-
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint" index="1"]
 position = Vector2(0, 29)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("3_ed8bv")]
 position = Vector2(1120, 224)
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" parent="Checkpoints/Checkpoint2" index="0"]
-position = Vector2(0, 40)
-shape = SubResource("RectangleShape2D_ht0rc")
 
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint2" index="1"]
 position = Vector2(0, 29)
@@ -62,10 +45,6 @@ position = Vector2(0, -8)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("3_ed8bv")]
 position = Vector2(560, 104)
-
-[node name="CollisionShape2D" parent="Checkpoints/Checkpoint3" index="0"]
-position = Vector2(-168, -7.5)
-shape = SubResource("RectangleShape2D_7tb8s")
 
 [node name="SpawnLoaction" parent="Checkpoints/Checkpoint3" index="1"]
 position = Vector2(0, 29)
