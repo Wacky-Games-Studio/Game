@@ -542,6 +542,7 @@ grow_vertical = 2
 [node name="Guide" type="Node2D" parent="Camera"]
 material = SubResource("CanvasItemMaterial_l8bc1")
 script = ExtResource("12_ubykn")
+screen_size = Vector2(480, 272)
 
 [node name="AudioController" type="Node2D" parent="." node_paths=PackedStringArray("walk_sounds", "jump_land_sounds")]
 script = ExtResource("13_f0fpr")
