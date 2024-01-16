@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://ba8qqlh7qc5p4"]
+
+[ext_resource type="Script" path="res://entities/sawblade_moving/saw_blade_moving_parent.gd" id="1_fhdxq"]
+[ext_resource type="Script" path="res://entities/sawblade_moving/saw_blade_moving.gd" id="1_vwl8i"]
+[ext_resource type="Texture2D" uid="uid://dlufwlbaeu64t" path="res://entities/sawblade/sawblade.png" id="1_y1wxw"]
+[ext_resource type="AudioStream" uid="uid://cnvsxg2h2tx4p" path="res://entities/sawblade/Force Field Loop.wav" id="2_o7uob"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l1fc"]
+radius = 12.0
+
+[sub_resource type="Animation" id="Animation_7hd24"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_u1y52"]
+resource_name = "spin"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7qjj"]
+_data = {
+"RESET": SubResource("Animation_7hd24"),
+"spin": SubResource("Animation_u1y52")
+}
+
+[node name="MovingSawBlade" type="Node2D"]
+script = ExtResource("1_fhdxq")
+
+[node name="Start" type="Marker2D" parent="."]
+
+[node name="End" type="Marker2D" parent="."]
+
+[node name="SawBladeMoving" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_vwl8i")
+
+[node name="Sprite2D" type="Sprite2D" parent="SawBladeMoving"]
+texture = ExtResource("1_y1wxw")
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SawBladeMoving"]
+shape = SubResource("CircleShape2D_0l1fc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SawBladeMoving"]
+libraries = {
+"": SubResource("AnimationLibrary_h7qjj")
+}
+autoplay = "spin"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SawBladeMoving"]
+stream = ExtResource("2_o7uob")
+volume_db = -16.0
+pitch_scale = 0.39
+autoplay = true
+max_distance = 200.0
+
+[connection signal="body_entered" from="SawBladeMoving" to="SawBladeMoving" method="_on_body_entered"]

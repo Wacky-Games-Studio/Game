@@ -1,8 +1,5 @@
 extends Area2D
 
-func _ready() -> void:
-	position += Vector2(8, -8)
-
 func _on_body_entered(body) -> void:
 	if body is Player:
 		body.die()
