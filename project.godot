@@ -32,7 +32,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/LevelEditor/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
 
 [input]
 
