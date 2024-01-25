@@ -178,6 +178,8 @@ func nudge() -> void:
 		was_nudged = true
 
 func spring_jump(dir: int) -> void:
+	if (has_spring_jumped): return
+	
 	has_spring_jumped = true
 	
 	dir = mod_negative(dir, 360)
@@ -186,10 +188,9 @@ func spring_jump(dir: int) -> void:
 	elif dir == 270: dir += data.spring_jump_horizontal_direction_offset
 	
 	# correct direction
-	print(dir)
 	dir += 90
 	var rad_dir := deg_to_rad(dir)
-	print(sin(rad_dir))
+	 
 	spring_jump_dir = Vector2(cos(rad_dir), sin(rad_dir))
 	state_machine.change_state($StateMachine/SpringJump)
 

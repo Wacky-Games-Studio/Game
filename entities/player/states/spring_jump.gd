@@ -9,7 +9,9 @@ func enter() -> void:
 	super()
 	parent.velocity = parent.spring_jump_dir * (parent.jump_velocity * parent.data.spring_jump_multiplier)
 	parent.has_spring_jumped = true
-	wall_jump_timer.start()
+	
+	if parent.spring_jump_dir.x > 0.1 or parent.spring_jump_dir.x < -0.1:
+		wall_jump_timer.start()
 
 func process_input(_event: InputEvent) -> State:
 	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):
@@ -19,7 +21,7 @@ func process_input(_event: InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	var dir = Input.get_axis("walk_left", "walk_right")
-	parent.velocity.x += parent.get_movement_velocity(dir, parent.data.wall_jump_lerp if not wall_jump_timer.is_stopped() else 1.0)
+	parent.velocity.x += parent.get_movement_velocity(dir, parent.data.spring_jump_movement_lerp if not wall_jump_timer.is_stopped() else 1.0)
 	parent.velocity.y = parent.get_clamped_gravity(delta)
 	
 	parent.nudge()
