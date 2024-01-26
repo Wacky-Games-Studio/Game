@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu50hpb5otowv"]
+
+[ext_resource type="PackedScene" uid="uid://c56lxsq3nloor" path="res://entities/sawblade/saw_blade.tscn" id="1_gfl5d"]
+[ext_resource type="Script" path="res://entities/moving_saw_blade/moving_saw_blade.gd" id="1_sarmg"]
+
+[sub_resource type="Animation" id="Animation_ftx4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ntda4"]
+resource_name = "move_back"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cvj4g"]
+resource_name = "move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ye2ik"]
+_data = {
+"RESET": SubResource("Animation_ftx4g"),
+"move": SubResource("Animation_cvj4g"),
+"move_back": SubResource("Animation_ntda4")
+}
+
+[node name="MovingSawBlade" type="Path2D"]
+script = ExtResource("1_sarmg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../SawBlade")
+update_rotation = false
+update_scale = false
+
+[node name="SawBlade" parent="." instance=ExtResource("1_gfl5d")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ye2ik")
+}

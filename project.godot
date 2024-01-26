@@ -8,6 +8,17 @@
 
 config_version=5
 
+[addons]
+
+instance_dock/scenes=[{
+"name": "Objects",
+"scenes": [{
+"scene": "res://entities/moving_saw_blade/moving_saw_blade.tscn"
+}],
+"scroll": 0
+}]
+instance_dock/preview_resolution=Vector2i(64, 64)
+
 [application]
 
 config/name="Platformer Game"
@@ -32,7 +43,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/LevelEditor/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
 
 [input]
 

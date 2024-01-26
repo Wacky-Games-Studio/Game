@@ -1,14 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfcssgwo2kxxg"]
+[gd_scene load_steps=9 format=3 uid="uid://dfcssgwo2kxxg"]
 
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_2kmd2"]
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="2_hh5pa"]
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="3_ljwmp"]
-[ext_resource type="PackedScene" uid="uid://ba8qqlh7qc5p4" path="res://entities/sawblade_moving/saw_blade_moving.tscn" id="4_6c1vi"]
-[ext_resource type="PackedScene" uid="uid://c688q3v05cx2m" path="res://entities/door/door.tscn" id="5_abene"]
-[ext_resource type="PackedScene" uid="uid://cjkjnj62rv8i6" path="res://entities/button/button.tscn" id="6_fxtgr"]
+[ext_resource type="PackedScene" uid="uid://cu50hpb5otowv" path="res://entities/moving_saw_blade/moving_saw_blade.tscn" id="5_uwqxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uofiy"]
 size = Vector2(64, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_rjd20"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_w8l0q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 288, -32, 0, 0, 0, 0, 16, -32, 0, 0, 0, 0, 0, -16, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 288, 0, 0, 0, 0, 0, 304, -16, 0, 0, 0, 0, 288, -32)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_i21fb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 272, 0, 0, 0, 0, 0, 288, -16, 0, 0, 0, 0, 272, -32, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, -16, -16, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
 
 [node name="LevelWip" type="Node2D"]
 
@@ -18,7 +34,7 @@ layer_0/tile_data = PackedInt32Array(0, 655360, 2, 131072, 851968, 3, 65536, 851
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(800, 49)
+position = Vector2(48, 48)
 
 [node name="Win" parent="." instance=ExtResource("2_hh5pa")]
 position = Vector2(1663, 444)
@@ -30,36 +46,22 @@ shape = SubResource("RectangleShape2D_uofiy")
 [node name="Player" parent="." instance=ExtResource("3_ljwmp")]
 position = Vector2(134, 112)
 
-[node name="MovingSawblades" type="Node2D" parent="."]
+[node name="Objects" type="Node2D" parent="."]
 
-[node name="SawBladeMoving" parent="MovingSawblades" instance=ExtResource("4_6c1vi")]
-position = Vector2(128, 240)
-
-[node name="End" parent="MovingSawblades/SawBladeMoving" index="1"]
-position = Vector2(320, 0)
-
-[node name="SawBladeMoving2" parent="MovingSawblades" instance=ExtResource("4_6c1vi")]
-position = Vector2(448, 208)
-
-[node name="End" parent="MovingSawblades/SawBladeMoving2" index="1"]
-position = Vector2(-320, 0)
-
-[node name="MovingSawBlade" parent="MovingSawblades" instance=ExtResource("4_6c1vi")]
+[node name="MovingSawBlade" parent="Objects" instance=ExtResource("5_uwqxs")]
 position = Vector2(624, 464)
-duration = 5.0
+curve = SubResource("Curve2D_rjd20")
 
-[node name="End" parent="MovingSawblades/MovingSawBlade" index="1"]
-position = Vector2(0, 64)
+[node name="MovingSawBlade2" parent="Objects" instance=ExtResource("5_uwqxs")]
+position = Vector2(144, 240)
+curve = SubResource("Curve2D_w8l0q")
+loop_back = false
+seconds_to_complete = 0.2
 
-[node name="Doors" type="Node2D" parent="."]
-
-[node name="Door" parent="Doors" instance=ExtResource("5_abene")]
-position = Vector2(936, 504)
-
-[node name="Button" parent="Doors/Door" instance=ExtResource("6_fxtgr")]
-position = Vector2(-426, 19)
+[node name="MovingSawBlade3" parent="Objects" instance=ExtResource("5_uwqxs")]
+position = Vector2(160, 240)
+curve = SubResource("Curve2D_i21fb")
+loop_back = false
+seconds_to_complete = 0.2
 
 [editable path="Win"]
-[editable path="MovingSawblades/SawBladeMoving"]
-[editable path="MovingSawblades/SawBladeMoving2"]
-[editable path="MovingSawblades/MovingSawBlade"]
