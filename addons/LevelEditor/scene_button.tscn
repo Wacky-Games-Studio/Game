@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqjnpcqrqxhgx"]
+
+[ext_resource type="Texture2D" uid="uid://bhbikkk6tb81k" path="res://addons/LevelEditor/images/highlight.png" id="1_780jh"]
+[ext_resource type="Script" path="res://addons/LevelEditor/scene_button.gd" id="1_xrxhc"]
+[ext_resource type="Texture2D" uid="uid://cdc3oe64gn835" path="res://addons/LevelEditor/images/select.png" id="3_vw2wm"]
+[ext_resource type="Texture2D" uid="uid://bs1edm7ku5vo5" path="res://addons/LevelEditor/images/selected.png" id="4_hmdpv"]
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 0
+script = ExtResource("1_xrxhc")
+
+[node name="Highlight" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_780jh")
+
+[node name="Selected" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hmdpv")
+
+[node name="Select" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vw2wm")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
