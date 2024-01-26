@@ -14,6 +14,8 @@ instance_dock/scenes=[{
 "name": "Objects",
 "scenes": [{
 "scene": "res://entities/moving_saw_blade/moving_saw_blade.tscn"
+}, {
+"scene": "res://entities/falling_platform/falling_platform.tscn"
 }],
 "scroll": 0
 }]

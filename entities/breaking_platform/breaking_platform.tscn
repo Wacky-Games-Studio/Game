@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://kyxe2iukdtf8"]
 
-[ext_resource type="Texture2D" uid="uid://dn2cu4x0nrm30" path="res://entities/falling_platform/falling_platform.png" id="1_4tcvt"]
-[ext_resource type="Script" path="res://entities/falling_platform/falling_platform.gd" id="1_d83sk"]
+[ext_resource type="Script" path="res://entities/breaking_platform/breaking_platform.gd" id="1_3rs63"]
+[ext_resource type="Texture2D" uid="uid://dn2cu4x0nrm30" path="res://entities/breaking_platform/breaking_platform.png" id="2_3vjtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jby3n"]
 size = Vector2(48, 16)
@@ -64,10 +64,34 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8sl2k"]
-resource_name = "fall"
-length = 0.3
+resource_name = "break"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -87,10 +111,10 @@ tracks/1/path = NodePath("BreakParticle:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, true]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -116,21 +140,58 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gs83i"]
 _data = {
 "RESET": SubResource("Animation_auv24"),
-"fall": SubResource("Animation_8sl2k")
+"break": SubResource("Animation_8sl2k")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv0b8"]
 size = Vector2(46, 1)
 
-[node name="FallingPlatform" type="CharacterBody2D"]
+[node name="BreakingPlatform" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_d83sk")
-gravity = 125
+script = ExtResource("1_3rs63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jby3n")
@@ -143,8 +204,9 @@ lifetime = 0.1
 one_shot = true
 explosiveness = 0.66
 emission_shape = 3
-emission_rect_extents = Vector2(20, 1)
+emission_rect_extents = Vector2(20, 10)
 direction = Vector2(0, 1)
+spread = 180.0
 initial_velocity_min = 100.0
 initial_velocity_max = 200.0
 angular_velocity_min = -250.0
@@ -167,7 +229,7 @@ scale_amount_curve = SubResource("Curve_2301d")
 color_initial_ramp = SubResource("Gradient_jpqtw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4tcvt")
+texture = ExtResource("2_3vjtl")
 vframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

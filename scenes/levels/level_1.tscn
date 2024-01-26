@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://x7iyj05ceut1"]
+[gd_scene load_steps=15 format=3 uid="uid://x7iyj05ceut1"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_6g5h0"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="2_dckoi"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="6_p5pha"]
 [ext_resource type="PackedScene" uid="uid://btyxy5o3yse7h" path="res://entities/door/door_small.tscn" id="6_trlis"]
 [ext_resource type="PackedScene" uid="uid://buap2ocmwtypr" path="res://scenes/dungeon/parallax_background.tscn" id="8_h14j8"]
+[ext_resource type="PackedScene" uid="uid://kyxe2iukdtf8" path="res://entities/breaking_platform/breaking_platform.tscn" id="9_3yk3n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gednv"]
 size = Vector2(20, 80)
@@ -128,6 +129,9 @@ door = NodePath("../../Doors/Door3")
 position = Vector2(134, 112)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("8_h14j8")]
+
+[node name="FallingPlatform" parent="." instance=ExtResource("9_3yk3n")]
+position = Vector2(256, 88)
 
 [editable path="Checkpoints/Checkpoint"]
 [editable path="Checkpoints/Checkpoint2"]
