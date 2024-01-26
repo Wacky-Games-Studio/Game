@@ -30,12 +30,18 @@ func _on_preview_done(path: String, preview: Texture2D, thumbnail_preview: Textu
 	
 	var button: SceneButton = scene_button.instantiate()
 	button.init(preview, path)
-	button.connect("scene_clicked", _on_scene_clicked, 1)
+	button.connect("scene_clicked", _on_scene_clicked, 2)
 	
 	buttons.push_back(button)
 	add_child(button)
 
-func _on_scene_clicked(button: SceneButton):
+func _on_scene_clicked(button: SceneButton, value: bool):
+	# value = false
+	if value == false:
+		clicked_button = null
+		return
+	
+	# value = true
 	if clicked_button != null:
 		clicked_button.clicked = false
 	clicked_button = button
@@ -46,6 +52,7 @@ func _on_add_scene_pressed():
 func _on_reload_previews_pressed():
 	for child in get_children():
 		child.queue_free()
+	paths = []
 	
 	for path in paths:
 		_load_preview(path)
@@ -71,3 +78,8 @@ func _on_load_save_dialog_file_selected(path):
 
 func _on_load_previous_pressed():
 	load_previous_dialog.popup_centered_ratio()
+
+func _on_clear_pressed():
+	paths = []
+	for child in get_children():
+		child.queue_free()

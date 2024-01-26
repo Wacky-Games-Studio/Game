@@ -31,28 +31,39 @@ layout_mode = 2
 theme_override_constants/margin_top = 10
 
 [node name="AddScene" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Add scene"
 
-[node name="ReloadPreviews" type="Button" parent="VBoxContainer"]
+[node name="Save" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Reload previews"
+text = "Save Current"
 
 [node name="LoadPrevious" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Load previous"
 
-[node name="Save" type="Button" parent="VBoxContainer"]
+[node name="ReloadPreviews" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Save"
+text = "Reload previews"
+
+[node name="Clear" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Remove all"
 
 [node name="LoadFileDialog" type="FileDialog" parent="."]
 title = "Open a File"
@@ -73,9 +84,10 @@ file_mode = 0
 filters = PackedStringArray("*.json")
 
 [connection signal="pressed" from="VBoxContainer/AddScene" to="VBoxContainer/FlowContainer" method="_on_add_scene_pressed"]
-[connection signal="pressed" from="VBoxContainer/ReloadPreviews" to="VBoxContainer/FlowContainer" method="_on_reload_previews_pressed"]
-[connection signal="pressed" from="VBoxContainer/LoadPrevious" to="VBoxContainer/FlowContainer" method="_on_load_previous_pressed"]
 [connection signal="pressed" from="VBoxContainer/Save" to="VBoxContainer/FlowContainer" method="_on_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadPrevious" to="VBoxContainer/FlowContainer" method="_on_load_previous_pressed"]
+[connection signal="pressed" from="VBoxContainer/ReloadPreviews" to="VBoxContainer/FlowContainer" method="_on_reload_previews_pressed"]
+[connection signal="pressed" from="VBoxContainer/Clear" to="VBoxContainer/FlowContainer" method="_on_clear_pressed"]
 [connection signal="file_selected" from="LoadFileDialog" to="VBoxContainer/FlowContainer" method="_on_file_dialog_file_selected"]
 [connection signal="file_selected" from="SaveFileDialog" to="VBoxContainer/FlowContainer" method="_on_save_file_dialog_file_selected"]
 [connection signal="file_selected" from="LoadSaveDialog" to="VBoxContainer/FlowContainer" method="_on_load_save_dialog_file_selected"]

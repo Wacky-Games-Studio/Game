@@ -3,7 +3,7 @@ class_name SceneButton
 extends TextureButton
 
 @export var clicked = false
-signal scene_clicked(button: SceneButton)
+signal scene_clicked(button: SceneButton, value: bool)
 
 @onready var highlight: TextureRect = $Highlight
 @onready var select: TextureRect = $Select
@@ -22,7 +22,12 @@ func _process(_delta):
 	select.visible = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_hovered()
 
 func _on_pressed():
-	scene_clicked.emit(self)
+	if clicked:
+		clicked = false
+		scene_clicked.emit(self, false)
+		return
+	
+	scene_clicked.emit(self, true)
 	clicked = true
 
 func un_click():
