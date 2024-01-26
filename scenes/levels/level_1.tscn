@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://x7iyj05ceut1"]
+[gd_scene load_steps=20 format=3 uid="uid://x7iyj05ceut1"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_6g5h0"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="2_dckoi"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://btyxy5o3yse7h" path="res://entities/door/door_small.tscn" id="6_trlis"]
 [ext_resource type="PackedScene" uid="uid://buap2ocmwtypr" path="res://scenes/dungeon/parallax_background.tscn" id="8_h14j8"]
 [ext_resource type="PackedScene" uid="uid://kyxe2iukdtf8" path="res://entities/breaking_platform/breaking_platform.tscn" id="9_3yk3n"]
+[ext_resource type="PackedScene" uid="uid://cnniproj0if4l" path="res://entities/camera_trigger/camera_trigger.tscn" id="10_6x0xc"]
+[ext_resource type="PackedScene" uid="uid://cs11molxcwppp" path="res://entities/camera_locker/camera_locker.tscn" id="11_aud6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gednv"]
 size = Vector2(20, 80)
@@ -24,6 +26,15 @@ size = Vector2(20, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uofiy"]
 size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11blx"]
+size = Vector2(20, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jquw"]
+size = Vector2(480, 351)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5io3r"]
+size = Vector2(960, 192)
 
 [node name="Level1" type="Node2D"]
 
@@ -133,9 +144,37 @@ position = Vector2(134, 112)
 [node name="FallingPlatform" parent="." instance=ExtResource("9_3yk3n")]
 position = Vector2(256, 88)
 
+[node name="CameraTrigger" parent="." instance=ExtResource("10_6x0xc")]
+position = Vector2(744, 88)
+
+[node name="CollisionShape2D" parent="CameraTrigger" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_11blx")
+
+[node name="CameraLocker" parent="." instance=ExtResource("11_aud6m")]
+position = Vector2(1024, 120)
+lock_right = true
+lock_down = true
+
+[node name="CollisionShape2D" parent="CameraLocker" index="0"]
+position = Vector2(32, 71.5)
+shape = SubResource("RectangleShape2D_6jquw")
+
+[node name="CameraLocker2" parent="." instance=ExtResource("11_aud6m")]
+position = Vector2(728, -64)
+lock_left = true
+lock_up = true
+
+[node name="CollisionShape2D" parent="CameraLocker2" index="0"]
+position = Vector2(376, -32)
+shape = SubResource("RectangleShape2D_5io3r")
+
 [editable path="Checkpoints/Checkpoint"]
 [editable path="Checkpoints/Checkpoint2"]
 [editable path="Checkpoints/Checkpoint3"]
 [editable path="Checkpoints/Checkpoint4"]
 [editable path="Win"]
 [editable path="ParallaxBackground"]
+[editable path="CameraTrigger"]
+[editable path="CameraLocker"]
+[editable path="CameraLocker2"]

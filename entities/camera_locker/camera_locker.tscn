@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs11molxcwppp"]
+
+[ext_resource type="Script" path="res://entities/camera_locker/camera_locker.gd" id="1_1eysb"]
+[ext_resource type="Script" path="res://entities/editor_only.gd" id="2_jwovv"]
+[ext_resource type="Texture2D" uid="uid://c7v2uh1a4t64p" path="res://entities/camera_locker/lock.png" id="2_v8lr4"]
+
+[node name="CameraLocker" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_1eysb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_v8lr4")
+script = ExtResource("2_jwovv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

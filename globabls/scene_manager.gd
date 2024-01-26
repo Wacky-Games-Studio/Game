@@ -24,3 +24,9 @@ func finnish_level() -> void:
 	get_tree().change_scene_to_file(next_level_path)
 	
 	FadeTransition.remove_transition()
+
+func pause_scene():
+	scene_paused = true
+
+func start_scene():
+	scene_paused = false

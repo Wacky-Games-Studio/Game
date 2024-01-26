@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnniproj0if4l"]
+
+[ext_resource type="Script" path="res://entities/camera_trigger/camera_trigger.gd" id="1_pwknr"]
+[ext_resource type="Script" path="res://entities/editor_only.gd" id="2_6m7oq"]
+[ext_resource type="Texture2D" uid="uid://6541yu5se1vq" path="res://entities/camera_trigger/trigger.png" id="2_x6ky5"]
+
+[node name="CameraTrigger" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_pwknr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_x6ky5")
+script = ExtResource("2_6m7oq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

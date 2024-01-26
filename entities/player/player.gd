@@ -17,9 +17,9 @@ extends PausableEntity
 @onready var reverse_blood_particles: CPUParticles2D = $Particles/ReverseBlood
 @onready var death_audio: AudioStreamPlayer2D = $DeathAudio
 @onready var death_reverse_audio: AudioStreamPlayer2D = $DeathAudio
-@onready var ceiling_raycasts: CeilingRaycasts = $CeilingRaycasts
-@onready var wall_raycasts: WallRaycasts = $WallRaycasts
-@onready var floor_raycasts: FloorRaycasts = $FloorRayCasts
+@onready var ceiling_raycasts: CeilingRaycasts = $Raycasts/CeilingRaycasts
+@onready var wall_raycasts: WallRaycasts = $Raycasts/WallRaycasts
+@onready var floor_raycasts: FloorRaycasts = $Raycasts/FloorRayCasts
 
 # jump / gravity vars
 @onready var jump_velocity: float = ((2.0 * data.max_jump_height) / data.jump_time_to_peak) * -1.0
@@ -65,10 +65,6 @@ func physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 
 func process(delta: float) -> void:
-	$Line2D.add_point(position)
-	$Line2D.global_position = Vector2.ZERO
-	if $Line2D.points.size() > 200:
-		$Line2D.remove_point(0)
 	state_machine.process_frame(delta)
 
 func spawn_dust(type: ParticlesType = ParticlesType.Walk) -> void:
@@ -205,3 +201,9 @@ func mod_negative(x: int, n: int) -> int:
 func die() -> void:
 	if state_machine.current_state != $StateMachine/Dead:
 		state_machine.change_state($StateMachine/Dead)
+
+func toggle_camera(is_static: bool) -> void:
+	$Camera.set_static(is_static)
+
+func restrict_camera(rect: Rect2, movement_flags: int) -> void:
+	$Camera.restrict_camera(rect, movement_flags)

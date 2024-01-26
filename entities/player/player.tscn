@@ -423,10 +423,73 @@ angle_max = 720.0
 scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_l7ej1")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-8, 11, 4, 11, 7, 1, 8, -1, 8, -11, 2, -11, -8, 1)
-disabled = true
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="CeilingRaycasts" type="Node2D" parent="Raycasts"]
+position = Vector2(0, -7)
+script = ExtResource("7_84p6t")
+
+[node name="left_outer" type="RayCast2D" parent="Raycasts/CeilingRaycasts"]
+position = Vector2(-7, 4)
+target_position = Vector2(0, -10)
+
+[node name="left_inner" type="RayCast2D" parent="Raycasts/CeilingRaycasts"]
+position = Vector2(-2, 4)
+target_position = Vector2(0, -10)
+
+[node name="right_inner" type="RayCast2D" parent="Raycasts/CeilingRaycasts"]
+position = Vector2(3, 4)
+target_position = Vector2(0, -10)
+
+[node name="right_outer" type="RayCast2D" parent="Raycasts/CeilingRaycasts"]
+position = Vector2(8, 4)
+target_position = Vector2(0, -10)
+
+[node name="WallRaycasts" type="Node2D" parent="Raycasts"]
+script = ExtResource("8_6s67w")
+
+[node name="right" type="RayCast2D" parent="Raycasts/WallRaycasts"]
+target_position = Vector2(16, 0)
+
+[node name="rightmiddle" type="RayCast2D" parent="Raycasts/WallRaycasts"]
+position = Vector2(0, 3)
+target_position = Vector2(14, 0)
+
+[node name="rightbottom" type="RayCast2D" parent="Raycasts/WallRaycasts"]
+position = Vector2(0, 5)
+target_position = Vector2(9, 0)
+
+[node name="righttop" type="RayCast2D" parent="Raycasts/WallRaycasts"]
+position = Vector2(0, -5)
+target_position = Vector2(14, 0)
+
+[node name="left" type="RayCast2D" parent="Raycasts/WallRaycasts"]
+target_position = Vector2(-16, 0)
+
+[node name="leftmiddle" type="RayCast2D" parent="Raycasts/WallRaycasts"]
+position = Vector2(0, 3)
+target_position = Vector2(-14, 0)
+
+[node name="leftbottom" type="RayCast2D" parent="Raycasts/WallRaycasts"]
+position = Vector2(0, 5)
+target_position = Vector2(-9, 0)
+
+[node name="lefttop" type="RayCast2D" parent="Raycasts/WallRaycasts"]
+position = Vector2(0, -5)
+target_position = Vector2(-14, 0)
+
+[node name="FloorRayCasts" type="Node2D" parent="Raycasts"]
+script = ExtResource("9_pjgpv")
+
+[node name="right" type="RayCast2D" parent="Raycasts/FloorRayCasts"]
+position = Vector2(-8, 0)
+target_position = Vector2(0, 14)
+collision_mask = 5
+
+[node name="left" type="RayCast2D" parent="Raycasts/FloorRayCasts"]
+position = Vector2(7.5, 0)
+target_position = Vector2(0, 14)
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -448,78 +511,15 @@ vframes = 5
 position = Vector2(-1.19209e-07, 0)
 rect = Rect2(-7.5, -7.5, 15, 15)
 
-[node name="CeilingRaycasts" type="Node2D" parent="."]
-position = Vector2(0, -7)
-script = ExtResource("7_84p6t")
-
-[node name="left_outer" type="RayCast2D" parent="CeilingRaycasts"]
-position = Vector2(-7, 4)
-target_position = Vector2(0, -10)
-
-[node name="left_inner" type="RayCast2D" parent="CeilingRaycasts"]
-position = Vector2(-2, 4)
-target_position = Vector2(0, -10)
-
-[node name="right_inner" type="RayCast2D" parent="CeilingRaycasts"]
-position = Vector2(3, 4)
-target_position = Vector2(0, -10)
-
-[node name="right_outer" type="RayCast2D" parent="CeilingRaycasts"]
-position = Vector2(8, 4)
-target_position = Vector2(0, -10)
-
-[node name="WallRaycasts" type="Node2D" parent="."]
-script = ExtResource("8_6s67w")
-
-[node name="right" type="RayCast2D" parent="WallRaycasts"]
-target_position = Vector2(16, 0)
-
-[node name="rightmiddle" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, 3)
-target_position = Vector2(14, 0)
-
-[node name="rightbottom" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, 5)
-target_position = Vector2(9, 0)
-
-[node name="righttop" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, -5)
-target_position = Vector2(14, 0)
-
-[node name="left" type="RayCast2D" parent="WallRaycasts"]
-target_position = Vector2(-16, 0)
-
-[node name="leftmiddle" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, 3)
-target_position = Vector2(-14, 0)
-
-[node name="leftbottom" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, 5)
-target_position = Vector2(-9, 0)
-
-[node name="lefttop" type="RayCast2D" parent="WallRaycasts"]
-position = Vector2(0, -5)
-target_position = Vector2(-14, 0)
-
-[node name="FloorRayCasts" type="Node2D" parent="."]
-script = ExtResource("9_pjgpv")
-
-[node name="right" type="RayCast2D" parent="FloorRayCasts"]
-position = Vector2(-8, 0)
-target_position = Vector2(0, 14)
-collision_mask = 5
-
-[node name="left" type="RayCast2D" parent="FloorRayCasts"]
-position = Vector2(7.5, 0)
-target_position = Vector2(0, 14)
-collision_mask = 5
-
 [node name="Camera" type="Camera2D" parent="."]
 top_level = true
-position_smoothing_speed = 2.5
+position_smoothing_speed = 3.0
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
 script = ExtResource("10_2uyqp")
 move_speed = 0.5
-instant_move = true
 
 [node name="floaty" parent="Camera" instance=ExtResource("12_aqobf")]
 show_behind_parent = true
@@ -661,10 +661,6 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetector"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_q0b3u")
-
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-width = 2.0
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]
 [connection signal="body_entered" from="SpikeDetector" to="." method="_on_spike_detector_entered"]

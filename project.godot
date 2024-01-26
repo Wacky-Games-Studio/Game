@@ -16,6 +16,10 @@ instance_dock/scenes=[{
 "scene": "res://entities/moving_saw_blade/moving_saw_blade.tscn"
 }, {
 "scene": "res://entities/falling_platform/falling_platform.tscn"
+}, {
+"scene": "res://entities/camera_trigger/camera_trigger.tscn"
+}, {
+"scene": "res://entities/camera_locker/camera_locker.tscn"
 }],
 "scroll": 0
 }]
@@ -45,7 +49,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/AssetDrawer/plugin.cfg", "res://addons/BetterTopBar/plugin.cfg", "res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
 
 [input]
 
@@ -76,6 +80,7 @@ jump={
 2d_physics/layer_3="Entities"
 2d_physics/layer_4="Pushable"
 2d_physics/layer_5="Spikes"
+2d_physics/layer_6="Camera"
 
 [physics]
 
