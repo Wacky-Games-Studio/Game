@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhbikkk6tb81k"
-path="res://.godot/imported/highlight.png-d91d1897197cb1f65f6564d6ea126ac4.ctex"
+uid="uid://rsllva5pmojk"
+path="res://.godot/imported/Loading.png-bbdaaa7edda5076b785759631b173c88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/LevelEditor/images/highlight.png"
-dest_files=["res://.godot/imported/highlight.png-d91d1897197cb1f65f6564d6ea126ac4.ctex"]
+source_file="res://addons/InstanceDock/Textures/Loading.png"
+dest_files=["res://.godot/imported/Loading.png-bbdaaa7edda5076b785759631b173c88.ctex"]
 
 [params]
 

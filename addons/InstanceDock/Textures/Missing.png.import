@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdc3oe64gn835"
-path="res://.godot/imported/select.png-24fb14e35168fe57ec5d046f35abf2bd.ctex"
+uid="uid://qhbx85wqyv0v"
+path="res://.godot/imported/Missing.png-73f7ee024944670303562ca1ed55a502.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/LevelEditor/images/select.png"
-dest_files=["res://.godot/imported/select.png-24fb14e35168fe57ec5d046f35abf2bd.ctex"]
+source_file="res://addons/InstanceDock/Textures/Missing.png"
+dest_files=["res://.godot/imported/Missing.png-73f7ee024944670303562ca1ed55a502.ctex"]
 
 [params]
 
