@@ -45,6 +45,7 @@ layer_0/tile_data = PackedInt32Array(0, 262144, 3, 196608, 262144, 3, 65536, 262
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("3_yjotq")]
 position = Vector2(375, 81)
+should_face_left_on_spawn = null
 
 [node name="CheckpointCollider" parent="Checkpoints/Checkpoint" index="0"]
 position = Vector2(0, -8)
@@ -72,6 +73,7 @@ position = Vector2(-27, -120)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("3_yjotq")]
 position = Vector2(1801, -239)
+should_face_left_on_spawn = null
 
 [node name="CheckpointCollider" parent="Checkpoints/Checkpoint3" index="0"]
 position = Vector2(0, 8)
@@ -145,7 +147,8 @@ position = Vector2(134, 112)
 position = Vector2(256, 88)
 
 [node name="CameraTrigger" parent="." instance=ExtResource("10_6x0xc")]
-position = Vector2(744, 88)
+position = Vector2(640, 64)
+enable_static_camera_on_left_side = true
 
 [node name="CollisionShape2D" parent="CameraTrigger" index="0"]
 position = Vector2(0, -16)

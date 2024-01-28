@@ -48,10 +48,11 @@ func init() -> void:
 	if CheckpointManager.has_collected_any():
 		state_machine.change_state($StateMachine/Respawn)
 	
-	var cp_data = CheckpointManager.get_latest_checkpoint_data()
+	var cp_data := CheckpointManager.get_latest_checkpoint_data()
 	global_position = cp_data.position
 	flip_bool(cp_data.facing_left)
 	
+	$Camera.set_static(cp_data.static_camera)
 	$Camera.update_position()
 	
 	_current_walk_particles = instantiate_new_particle(walk_particles)
@@ -202,8 +203,11 @@ func die() -> void:
 	if state_machine.current_state != $StateMachine/Dead:
 		state_machine.change_state($StateMachine/Dead)
 
-func toggle_camera(is_static: bool) -> void:
+func set_static(is_static: bool) -> void:
 	$Camera.set_static(is_static)
 
 func restrict_camera(rect: Rect2, movement_flags: int) -> void:
 	$Camera.restrict_camera(rect, movement_flags)
+
+func get_static_camera() -> bool:
+	return $Camera.is_static()

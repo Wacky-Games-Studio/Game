@@ -60,15 +60,25 @@ func unlock() -> void:
 
 func set_static(value: bool) -> void:
 	_is_static = value
+	
 	var original_pos = global_position
 	
 	drag_horizontal_enabled = _is_static == false
 	drag_vertical_enabled = _is_static == false
 	top_level = _is_static == true
+	
+	global_position = original_pos
+	
 	if _is_static == false:
-		global_position = original_pos
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "position", Vector2(0,0), 2)
+		tween.tween_property(self, "position", Vector2(0,0), 0.5)
+	else:
+		var target_pos = _calculate_new_pos()
+		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+		tween.tween_property(self, "global_position", target_pos, move_speed)
+
+func is_static() -> bool:
+	return _is_static
 
 func restrict_camera(rect: Rect2, movement_flags: int) -> void:
 	var lock_left  = (movement_flags & (1 << 0)) != 0
@@ -77,11 +87,12 @@ func restrict_camera(rect: Rect2, movement_flags: int) -> void:
 	var lock_down  = (movement_flags & (1 << 3)) != 0
 	
 	if rect.size.x == 0:
-		if lock_right: limit_right  =  10000000
-		if lock_left : limit_left   = -10000000
-		if lock_up   : limit_top    = -10000000
-		if lock_down : limit_bottom =  10000000
-		return
+		var tween = get_tree().create_tween().set_parallel(true)
+		if lock_right: tween.tween_property(self, "limit_right", 10000000, 10.0)
+		if lock_left : tween.tween_property(self, "limit_left", -10000000, 10.0)
+		if lock_up   : tween.tween_property(self, "limit_top", -10000000, 10.0)
+		if lock_down : tween.tween_property(self, "limit_bottom",10000000, 10.0)
+		return 
 	
 	if lock_right: limit_right  = rect.position.x + floorf(rect.size.x / 2.0)
 	if lock_left : limit_left   = rect.position.x - floorf(rect.size.x / 2.0)

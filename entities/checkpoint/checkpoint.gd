@@ -28,5 +28,6 @@ func _on_body_entered(body: Node2D) -> void:
 		data.checkpoint = self
 		data.position = spawn_pos
 		data.facing_left = should_face_left_on_spawn
+		data.static_camera = body.get_static_camera()
 		
 		CheckpointManager.collect_checkpoint(data)

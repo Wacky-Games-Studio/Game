@@ -4,6 +4,7 @@ class CheckpointData:
 	var checkpoint: Checkpoint
 	var position: Vector2
 	var facing_left: bool
+	var static_camera: bool = true
 
 var _checkpoints_passed: Array[String]
 var _checkpoint_data: Dictionary

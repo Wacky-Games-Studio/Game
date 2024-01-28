@@ -514,10 +514,10 @@ rect = Rect2(-7.5, -7.5, 15, 15)
 [node name="Camera" type="Camera2D" parent="."]
 top_level = true
 position_smoothing_speed = 3.0
-drag_left_margin = 0.1
-drag_top_margin = 0.1
-drag_right_margin = 0.1
-drag_bottom_margin = 0.1
+drag_left_margin = 0.05
+drag_top_margin = 0.05
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
 script = ExtResource("10_2uyqp")
 move_speed = 0.5
 

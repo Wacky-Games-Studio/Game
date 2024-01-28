@@ -8,6 +8,7 @@
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("1_pwknr")
+enable_static_camera_on_left_side = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -17,3 +18,4 @@ texture = ExtResource("2_x6ky5")
 script = ExtResource("2_6m7oq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
