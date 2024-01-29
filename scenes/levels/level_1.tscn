@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://x7iyj05ceut1"]
+[gd_scene load_steps=21 format=3 uid="uid://x7iyj05ceut1"]
 
 [ext_resource type="PackedScene" uid="uid://bupuxll4x4kal" path="res://entities/player/player.tscn" id="1_6g5h0"]
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="2_dckoi"]
@@ -35,6 +35,9 @@ size = Vector2(480, 351)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5io3r"]
 size = Vector2(960, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evm14"]
+size = Vector2(20, 48)
 
 [node name="Level1" type="Node2D"]
 
@@ -99,7 +102,7 @@ position = Vector2(135, 61)
 position = Vector2(135, 52)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(104, 7)
+position = Vector2(104, 8)
 
 [node name="Win" parent="." instance=ExtResource("6_p5pha")]
 position = Vector2(1663, 444)
@@ -172,6 +175,13 @@ lock_up = true
 position = Vector2(376, -32)
 shape = SubResource("RectangleShape2D_5io3r")
 
+[node name="CameraTrigger2" parent="." instance=ExtResource("10_6x0xc")]
+position = Vector2(1576, -112)
+
+[node name="CollisionShape2D" parent="CameraTrigger2" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_evm14")
+
 [editable path="Checkpoints/Checkpoint"]
 [editable path="Checkpoints/Checkpoint2"]
 [editable path="Checkpoints/Checkpoint3"]
@@ -181,3 +191,4 @@ shape = SubResource("RectangleShape2D_5io3r")
 [editable path="CameraTrigger"]
 [editable path="CameraLocker"]
 [editable path="CameraLocker2"]
+[editable path="CameraTrigger2"]

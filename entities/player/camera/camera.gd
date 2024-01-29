@@ -61,7 +61,7 @@ func unlock() -> void:
 func set_static(value: bool) -> void:
 	_is_static = value
 	
-	var original_pos = global_position
+	var original_pos = get_screen_center_position()
 	
 	drag_horizontal_enabled = _is_static == false
 	drag_vertical_enabled = _is_static == false
