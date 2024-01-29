@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://evwchr2ib2vo"]
+[gd_scene load_steps=9 format=3 uid="uid://evwchr2ib2vo"]
 
 [ext_resource type="Script" path="res://entities/checkpoint/checkpoint.gd" id="1_af7ws"]
 [ext_resource type="Texture2D" uid="uid://burshrsqqvivy" path="res://entities/checkpoint/checkpoint.png" id="2_v2gqa"]
 [ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/normal/torch_light2.png" id="3_55swj"]
 [ext_resource type="AudioStream" uid="uid://h73antg88tc2" path="res://entities/checkpoint/checkpoint_activated.wav" id="4_cko43"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_em15m"]
 
 [sub_resource type="Animation" id="Animation_p0kjt"]
 resource_name = "RESET"
@@ -221,9 +219,9 @@ collision_mask = 2
 script = ExtResource("1_af7ws")
 
 [node name="CheckpointCollider" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_em15m")
 
 [node name="SpawnLoaction" type="Marker2D" parent="."]
+position = Vector2(0, 8)
 gizmo_extents = 11.0
 
 [node name="Eyes" type="Sprite2D" parent="."]
