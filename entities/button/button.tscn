@@ -1,35 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjkjnj62rv8i6"]
+[gd_scene load_steps=2 format=3 uid="uid://cjkjnj62rv8i6"]
 
-[ext_resource type="Texture2D" uid="uid://cgkh3mxoa32sc" path="res://entities/button/button.png" id="1_8cu8g"]
-[ext_resource type="Script" path="res://entities/button/button.gd" id="1_mgslv"]
-[ext_resource type="AudioStream" uid="uid://5fjv56spxgl" path="res://entities/button/key_press.wav" id="3_ijpwk"]
+[ext_resource type="Texture2D" uid="uid://buqw8hqm1b7a0" path="res://entities/button/old.png" id="1_27l85"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4mf"]
-size = Vector2(18, 4)
-
-[node name="Button" type="StaticBody2D"]
-collision_layer = 4
-collision_mask = 14
-script = ExtResource("1_mgslv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-13, 5, -6, -1.5, 6, -1.5, 13, 5)
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_uu4mf")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8cu8g")
-vframes = 2
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ijpwk")
-volume_db = -4.0
-bus = &"Cave"
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_27l85")

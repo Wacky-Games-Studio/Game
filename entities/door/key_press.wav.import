@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5fjv56spxgl"
-path="res://.godot/imported/key_press.wav-fa030cf55fd09de0565996f026b812e6.sample"
+path="res://.godot/imported/key_press.wav-be7872a878182261dea80d90894868cc.sample"
 
 [deps]
 
-source_file="res://entities/button/key_press.wav"
-dest_files=["res://.godot/imported/key_press.wav-fa030cf55fd09de0565996f026b812e6.sample"]
+source_file="res://entities/door/key_press.wav"
+dest_files=["res://.godot/imported/key_press.wav-be7872a878182261dea80d90894868cc.sample"]
 
 [params]
 
