@@ -12,7 +12,7 @@ var anim: String
 func _ready():
 	anim = "move_back" if loop_back else "move"
 	animation.play("move")
-	animation.speed_scale = seconds_to_complete
+	animation.speed_scale = 1 / seconds_to_complete
 	
 	animation.animation_finished.connect(_on_finished)
 
