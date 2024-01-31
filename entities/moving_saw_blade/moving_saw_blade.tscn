@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu50hpb5otowv"]
+[gd_scene load_steps=9 format=3 uid="uid://cu50hpb5otowv"]
 
 [ext_resource type="PackedScene" uid="uid://c56lxsq3nloor" path="res://entities/sawblade/saw_blade.tscn" id="1_gfl5d"]
 [ext_resource type="Script" path="res://entities/moving_saw_blade/moving_saw_blade.gd" id="1_sarmg"]
+[ext_resource type="Texture2D" uid="uid://ut712a73ontv" path="res://entities/moving_saw_blade/rail.png" id="3_6htcf"]
+[ext_resource type="Script" path="res://entities/moving_saw_blade/rail.gd" id="3_vb2t4"]
 
 [sub_resource type="Animation" id="Animation_ftx4g"]
 length = 0.001
@@ -72,3 +74,10 @@ update_scale = false
 libraries = {
 "": SubResource("AnimationLibrary_ye2ik")
 }
+
+[node name="RailLine" type="Line2D" parent="."]
+closed = true
+width = 4.0
+texture = ExtResource("3_6htcf")
+texture_mode = 1
+script = ExtResource("3_vb2t4")
