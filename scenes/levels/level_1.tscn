@@ -127,19 +127,16 @@ rotation = 1.5708
 
 [node name="Buttons" type="Node2D" parent="."]
 
-[node name="Button" parent="Buttons" node_paths=PackedStringArray("door") instance=ExtResource("5_lh6at")]
+[node name="Button" parent="Buttons" instance=ExtResource("5_lh6at")]
 position = Vector2(1040, 315)
-door = NodePath("../../Doors/Door")
 
-[node name="Button2" parent="Buttons" node_paths=PackedStringArray("door") instance=ExtResource("5_lh6at")]
+[node name="Button2" parent="Buttons" instance=ExtResource("5_lh6at")]
 position = Vector2(1813, 557)
 rotation = 1.5708
-door = NodePath("../../Doors/Door2")
 
-[node name="Button3" parent="Buttons" node_paths=PackedStringArray("door") instance=ExtResource("5_lh6at")]
+[node name="Button3" parent="Buttons" instance=ExtResource("5_lh6at")]
 position = Vector2(2496, 725)
 rotation = 3.14159
-door = NodePath("../../Doors/Door3")
 
 [node name="Player" parent="." instance=ExtResource("1_6g5h0")]
 position = Vector2(134, 112)

@@ -22,6 +22,8 @@ instance_dock/scenes=[{
 "scene": "res://entities/camera_locker/camera_locker.tscn"
 }, {
 "scene": "res://entities/sawblade/saw_blade.tscn"
+}, {
+"scene": "res://entities/door/door.tscn"
 }],
 "scroll": 0
 }]
@@ -51,7 +53,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/AssetDrawer/plugin.cfg", "res://addons/BetterTopBar/plugin.cfg", "res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
 
 [input]
 
@@ -92,3 +94,4 @@ jump={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
