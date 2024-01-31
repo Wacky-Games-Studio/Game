@@ -76,6 +76,7 @@ libraries = {
 }
 
 [node name="RailLine" type="Line2D" parent="."]
+z_index = -2
 closed = true
 width = 4.0
 texture = ExtResource("3_6htcf")
