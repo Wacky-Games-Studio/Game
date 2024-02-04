@@ -55,6 +55,15 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/AssetDrawer/plugin.cfg", "res://addons/BetterTopBar/plugin.cfg", "res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://entities/": "red",
+"res://entities/player/": "blue",
+"res://globabls/": "yellow",
+"res://scenes/": "orange"
+}
+
 [input]
 
 walk_left={
