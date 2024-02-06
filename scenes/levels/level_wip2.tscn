@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfcssgwo2kxxg"]
+[gd_scene load_steps=17 format=3 uid="uid://dfcssgwo2kxxg"]
 
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_2kmd2"]
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="2_hh5pa"]
@@ -38,6 +38,9 @@ size = Vector2(20, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88137"]
 size = Vector2(128, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b2h3"]
+size = Vector2(128, 20)
 
 [node name="LevelWip" type="Node2D"]
 
@@ -92,7 +95,6 @@ shape = SubResource("RectangleShape2D_cl300")
 
 [node name="CameraTrigger2" parent="." instance=ExtResource("7_0p14l")]
 position = Vector2(192, 376)
-enable_static_camera_on_left_side = true
 
 [node name="CollisionShape2D" parent="CameraTrigger2" index="0"]
 position = Vector2(0, -16)
@@ -100,6 +102,7 @@ shape = SubResource("RectangleShape2D_5qyi7")
 
 [node name="CameraTrigger3" parent="." instance=ExtResource("7_0p14l")]
 position = Vector2(984, 408)
+static_side = 3
 
 [node name="CollisionShape2D" parent="CameraTrigger3" index="0"]
 position = Vector2(0, -32)
@@ -113,8 +116,19 @@ layer_0/tile_data = PackedInt32Array(-3, 0, 1, -2, 65536, 0, -1, 65536, 0, -6553
 position = Vector2(16, -8)
 shape = SubResource("RectangleShape2D_88137")
 
+[node name="Sprite2D" parent="OneWay" index="1"]
+visible = false
+
+[node name="CameraTrigger" parent="." instance=ExtResource("7_0p14l")]
+position = Vector2(1112, 280)
+
+[node name="CollisionShape2D" parent="CameraTrigger" index="0"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_7b2h3")
+
 [editable path="Win"]
 [editable path="CameraLocker2"]
 [editable path="CameraTrigger2"]
 [editable path="CameraTrigger3"]
 [editable path="OneWay"]
+[editable path="CameraTrigger"]

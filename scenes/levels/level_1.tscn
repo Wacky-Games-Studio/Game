@@ -152,7 +152,6 @@ position = Vector2(256, 88)
 
 [node name="CameraTrigger" parent="." instance=ExtResource("10_6x0xc")]
 position = Vector2(640, 64)
-enable_static_camera_on_left_side = true
 
 [node name="CollisionShape2D" parent="CameraTrigger" index="0"]
 position = Vector2(0, -16)
