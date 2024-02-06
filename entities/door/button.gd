@@ -1,3 +1,4 @@
+@icon("res://icons/button.svg")
 extends StaticBody2D
 
 @export var door: Door

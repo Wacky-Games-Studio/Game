@@ -1,3 +1,4 @@
+@icon("res://icons/trigger.svg")
 extends Area2D
 
 @export var enable_static_camera_on_left_side := true

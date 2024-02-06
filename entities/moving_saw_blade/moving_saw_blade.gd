@@ -1,3 +1,4 @@
+@icon("res://icons/sawblade_moving.svg")
 extends Path2D
 
 @export var loop := true

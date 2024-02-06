@@ -1,3 +1,4 @@
+@icon("res://icons/checkpoint.svg")
 class_name Checkpoint
 extends Area2D
 

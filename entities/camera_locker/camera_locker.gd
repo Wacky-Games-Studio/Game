@@ -1,3 +1,4 @@
+@icon("res://icons/lock.svg")
 extends Area2D
 
 @export var lock_left : bool = false
