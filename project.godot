@@ -24,6 +24,8 @@ instance_dock/scenes=[{
 "scene": "res://entities/sawblade/saw_blade.tscn"
 }, {
 "scene": "res://entities/door/door.tscn"
+}, {
+"scene": "res://entities/platforms/oneway/one_way.tscn"
 }],
 "scroll": 0
 }]
@@ -59,7 +61,9 @@ enabled=PackedStringArray("res://addons/AssetDrawer/plugin.cfg", "res://addons/B
 
 folder_colors={
 "res://entities/": "red",
+"res://entities/platforms/": "green",
 "res://entities/player/": "blue",
+"res://entities/torches/": "gray",
 "res://globabls/": "yellow",
 "res://scenes/": "orange"
 }

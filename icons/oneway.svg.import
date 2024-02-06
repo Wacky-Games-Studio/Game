@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpoisai5owbf3"
-path="res://.godot/imported/torches.png-d2ac3a78c53cb33b913702e5eb380db2.ctex"
+uid="uid://bxqjrsi4r77us"
+path="res://.godot/imported/oneway.svg-c15ffdd755f59e8ffd22f77dbadea063.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/torch/torches.png"
-dest_files=["res://.godot/imported/torches.png-d2ac3a78c53cb33b913702e5eb380db2.ctex"]
+source_file="res://icons/oneway.svg"
+dest_files=["res://.godot/imported/oneway.svg-c15ffdd755f59e8ffd22f77dbadea063.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

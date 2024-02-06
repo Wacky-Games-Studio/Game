@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://87kgc4mrqijt"]
 
-[ext_resource type="Texture2D" uid="uid://dggrqmcjqrbkn" path="res://entities/torch/wall/torch.png" id="1_dvpla"]
-[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/normal/torch_light2.png" id="2_dngwi"]
-[ext_resource type="AudioStream" uid="uid://bbswujxcbpj67" path="res://entities/torch/normal/Fire Loop.wav" id="3_omeal"]
+[ext_resource type="Texture2D" uid="uid://dggrqmcjqrbkn" path="res://entities/torches/wall/torch.png" id="1_dvpla"]
+[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torches/normal/torch_light2.png" id="2_dngwi"]
+[ext_resource type="AudioStream" uid="uid://bbswujxcbpj67" path="res://entities/torches/normal/Fire Loop.wav" id="3_omeal"]
 
 [sub_resource type="Curve" id="Curve_is2ol"]
 _data = [Vector2(0, 0.989474), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.50941, 0.0, 0, 0]

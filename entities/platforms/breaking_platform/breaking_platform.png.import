@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf4n6aacfoskk"
-path="res://.godot/imported/torch_light2.png-57cd958d811bc054ff3019f53a38d697.ctex"
+uid="uid://dn2cu4x0nrm30"
+path="res://.godot/imported/breaking_platform.png-b3ea7dbb9ce85c20137761751e8b41c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/torch/normal/torch_light2.png"
-dest_files=["res://.godot/imported/torch_light2.png-57cd958d811bc054ff3019f53a38d697.ctex"]
+source_file="res://entities/platforms/breaking_platform/breaking_platform.png"
+dest_files=["res://.godot/imported/breaking_platform.png-b3ea7dbb9ce85c20137761751e8b41c9.ctex"]
 
 [params]
 

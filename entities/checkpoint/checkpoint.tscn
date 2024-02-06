@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/checkpoint/checkpoint.gd" id="1_af7ws"]
 [ext_resource type="Texture2D" uid="uid://burshrsqqvivy" path="res://entities/checkpoint/checkpoint.png" id="2_v2gqa"]
-[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/normal/torch_light2.png" id="3_55swj"]
+[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torches/normal/torch_light2.png" id="3_55swj"]
 [ext_resource type="AudioStream" uid="uid://h73antg88tc2" path="res://entities/checkpoint/checkpoint_activated.wav" id="4_cko43"]
 
 [sub_resource type="Animation" id="Animation_p0kjt"]

@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://entities/player/states/walk.gd" id="5_m3545"]
 [ext_resource type="Texture2D" uid="uid://c5v8xq2wlk6rr" path="res://entities/player/sprites/feather.png" id="5_uwq16"]
 [ext_resource type="Script" path="res://entities/player/ray_casts/ceiling_raycasts.gd" id="7_84p6t"]
-[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torch/normal/torch_light2.png" id="7_foa0c"]
+[ext_resource type="Texture2D" uid="uid://cf4n6aacfoskk" path="res://entities/torches/normal/torch_light2.png" id="7_foa0c"]
 [ext_resource type="Script" path="res://entities/player/ray_casts/wall_raycasts.gd" id="8_6s67w"]
 [ext_resource type="AudioStream" uid="uid://g23x3b6yiktl" path="res://entities/player/audio/walking/Mid Footsteps 001.wav" id="9_cn5sw"]
 [ext_resource type="Script" path="res://entities/player/ray_casts/floor_raycasts.gd" id="9_pjgpv"]

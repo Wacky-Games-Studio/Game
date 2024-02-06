@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="6_p5pha"]
 [ext_resource type="PackedScene" uid="uid://btyxy5o3yse7h" path="res://entities/door/door_small.tscn" id="6_trlis"]
 [ext_resource type="PackedScene" uid="uid://buap2ocmwtypr" path="res://scenes/dungeon/parallax_background.tscn" id="8_h14j8"]
-[ext_resource type="PackedScene" uid="uid://kyxe2iukdtf8" path="res://entities/breaking_platform/breaking_platform.tscn" id="9_3yk3n"]
+[ext_resource type="PackedScene" uid="uid://kyxe2iukdtf8" path="res://entities/platforms/breaking_platform/breaking_platform.tscn" id="9_3yk3n"]
 [ext_resource type="PackedScene" uid="uid://cnniproj0if4l" path="res://entities/camera_trigger/camera_trigger.tscn" id="10_6x0xc"]
 [ext_resource type="PackedScene" uid="uid://cs11molxcwppp" path="res://entities/camera_locker/camera_locker.tscn" id="11_aud6m"]
 

@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://bmnx43j37bmkr" path="res://entities/spring/spring_atlas.png" id="4_w31nm"]
 [ext_resource type="PackedScene" uid="uid://8ucq034el8ut" path="res://entities/spikes/spikes.tscn" id="5_deh2o"]
 [ext_resource type="Texture2D" uid="uid://c6o8yorklrrch" path="res://entities/sawblade/sawblade_single.png" id="5_sbung"]
-[ext_resource type="Texture2D" uid="uid://cpoisai5owbf3" path="res://entities/torch/torches.png" id="6_7fikb"]
+[ext_resource type="Texture2D" uid="uid://cpoisai5owbf3" path="res://entities/torches/torches.png" id="6_7fikb"]
 [ext_resource type="PackedScene" uid="uid://dwrlfw07u8pky" path="res://entities/spring/spring.tscn" id="7_pfvjm"]
 [ext_resource type="Texture2D" uid="uid://f3fyw1s5r1b4" path="res://scenes/dungeon/assets/tileset_back.png" id="7_q0epl"]
 [ext_resource type="Texture2D" uid="uid://cq3huphb4o3aq" path="res://scenes/dungeon/assets/tileset_front.png" id="8_5cgik"]
 [ext_resource type="Texture2D" uid="uid://bt3rcpcgq6neu" path="res://scenes/dungeon/assets/tileset_middle.png" id="9_8o46o"]
 [ext_resource type="PackedScene" uid="uid://c56lxsq3nloor" path="res://entities/sawblade/saw_blade.tscn" id="9_alovb"]
-[ext_resource type="PackedScene" uid="uid://bo731lfgdwmy1" path="res://entities/torch/normal/torch.tscn" id="11_2guhi"]
+[ext_resource type="PackedScene" uid="uid://bo731lfgdwmy1" path="res://entities/torches/normal/torch.tscn" id="11_2guhi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjuri"]
 resource_name = "dugeon"

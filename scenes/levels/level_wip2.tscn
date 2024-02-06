@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfcssgwo2kxxg"]
+[gd_scene load_steps=16 format=3 uid="uid://dfcssgwo2kxxg"]
 
 [ext_resource type="PackedScene" uid="uid://hbvsgnlwp0uu" path="res://scenes/dungeon/assets/tile_map.tscn" id="1_2kmd2"]
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="2_hh5pa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c56lxsq3nloor" path="res://entities/sawblade/saw_blade.tscn" id="5_y051u"]
 [ext_resource type="PackedScene" uid="uid://cs11molxcwppp" path="res://entities/camera_locker/camera_locker.tscn" id="6_exh0b"]
 [ext_resource type="PackedScene" uid="uid://cnniproj0if4l" path="res://entities/camera_trigger/camera_trigger.tscn" id="7_0p14l"]
+[ext_resource type="PackedScene" uid="uid://cvkwthfvg6i3t" path="res://entities/platforms/oneway/one_way.tscn" id="8_v826r"]
 
 [sub_resource type="Curve2D" id="Curve2D_nlh08"]
 _data = {
@@ -34,6 +35,9 @@ size = Vector2(20, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi2fb"]
 size = Vector2(20, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88137"]
+size = Vector2(128, 16)
 
 [node name="LevelWip" type="Node2D"]
 
@@ -101,7 +105,16 @@ position = Vector2(984, 408)
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_wi2fb")
 
+[node name="OneWay" parent="." instance=ExtResource("8_v826r")]
+position = Vector2(1104, 288)
+layer_0/tile_data = PackedInt32Array(-3, 0, 1, -2, 65536, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 1)
+
+[node name="CollisionShape2D" parent="OneWay/StaticBody2D" index="0"]
+position = Vector2(16, -8)
+shape = SubResource("RectangleShape2D_88137")
+
 [editable path="Win"]
 [editable path="CameraLocker2"]
 [editable path="CameraTrigger2"]
 [editable path="CameraTrigger3"]
+[editable path="OneWay"]
