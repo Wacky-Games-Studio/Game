@@ -49,9 +49,11 @@ SceneManager="*res://globabls/scene_manager.gd"
 
 window/size/viewport_width=480
 window/size/viewport_height=272
-window/size/window_width_override=1280
-window/size/window_height_override=728
+window/size/window_width_override=1440
+window/size/window_height_override=816
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 

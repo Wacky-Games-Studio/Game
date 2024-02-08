@@ -24,9 +24,9 @@ func _on_body_exited(body):
 		var entered_right = not entered_left
 		
 		# vertical
-		var exited_top = entered_top
+		var exited_top = player_pos.y < pos.y
 		var exited_bottom = player_pos.y < pos.y
-		var entered_bottom = not entered_left
+		var entered_bottom = not entered_top
 		
 		if static_side in [StaticSide.Left, StaticSide.Right]:
 			if entered_left:
@@ -36,7 +36,12 @@ func _on_body_exited(body):
 				if exited_left: body.set_static(static_side == StaticSide.Left)
 				elif exited_right: body.set_static(static_side != StaticSide.Left)
 		elif static_side in [StaticSide.Top, StaticSide.Down]:
-			pass
+			if entered_top:
+				if exited_top: body.set_static(static_side == StaticSide.Top)
+				elif exited_bottom: body.set_static(static_side != StaticSide.Top)
+			elif entered_bottom:
+				if exited_top: body.set_static(static_side == StaticSide.Top)
+				elif exited_bottom: body.set_static(static_side != StaticSide.Top)
 
 enum StaticSide {
 	Top, Down, Left, Right

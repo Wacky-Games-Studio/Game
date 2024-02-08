@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://hbvsgnlwp0uu"]
+[gd_scene load_steps=27 format=3 uid="uid://hbvsgnlwp0uu"]
 
 [ext_resource type="Texture2D" uid="uid://d344bjk6yd2uc" path="res://scenes/dungeon/assets/tileset.png" id="1_n3gxp"]
 [ext_resource type="Texture2D" uid="uid://dc78u7d70dht6" path="res://scenes/dungeon/assets/background.png" id="2_34jmp"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cq3huphb4o3aq" path="res://scenes/dungeon/assets/tileset_front.png" id="8_5cgik"]
 [ext_resource type="Texture2D" uid="uid://bt3rcpcgq6neu" path="res://scenes/dungeon/assets/tileset_middle.png" id="9_8o46o"]
 [ext_resource type="PackedScene" uid="uid://c56lxsq3nloor" path="res://entities/sawblade/saw_blade.tscn" id="9_alovb"]
+[ext_resource type="Texture2D" uid="uid://bud5uc27sfu70" path="res://entities/sawblade_spawner/spawner.png" id="10_xmeav"]
 [ext_resource type="PackedScene" uid="uid://bo731lfgdwmy1" path="res://entities/torches/normal/torch.tscn" id="11_2guhi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjuri"]
@@ -1654,6 +1655,23 @@ texture = ExtResource("9_8o46o")
 22:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 22:2/0/physics_layer_1/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbnrt"]
+texture = ExtResource("10_xmeav")
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -8)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_dmnu3"]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 16
@@ -1680,6 +1698,7 @@ sources/5 = SubResource("TileSetAtlasSource_wvvki")
 sources/6 = SubResource("TileSetAtlasSource_8qbmc")
 sources/7 = SubResource("TileSetAtlasSource_sy8uk")
 sources/8 = SubResource("TileSetAtlasSource_wo0al")
+sources/9 = SubResource("TileSetAtlasSource_mbnrt")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_dmnu3")
