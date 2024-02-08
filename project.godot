@@ -15,7 +15,7 @@ instance_dock/scenes=[{
 "scenes": [{
 "scene": "res://entities/moving_saw_blade/moving_saw_blade.tscn"
 }, {
-"scene": "res://entities/breaking_platform/breaking_platform.tscn"
+"scene": "res://entities/platforms/breaking_platform/breaking_platform.tscn"
 }, {
 "scene": "res://entities/camera_trigger/camera_trigger.tscn"
 }, {
