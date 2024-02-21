@@ -1,11 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c688q3v05cx2m"]
+[gd_scene load_steps=9 format=3 uid="uid://c688q3v05cx2m"]
 
 [ext_resource type="Script" path="res://entities/door/door.gd" id="1_bw6m1"]
 [ext_resource type="Texture2D" uid="uid://c06xfr3jc6k2" path="res://entities/door/door.png" id="1_psxsm"]
 [ext_resource type="AudioStream" uid="uid://b6yppdpycxd05" path="res://entities/door/door_opening.wav" id="3_84848"]
-[ext_resource type="Script" path="res://entities/door/button.gd" id="4_vifce"]
-[ext_resource type="Texture2D" uid="uid://cgkh3mxoa32sc" path="res://entities/door/button.png" id="5_gudat"]
-[ext_resource type="AudioStream" uid="uid://5fjv56spxgl" path="res://entities/door/key_press.wav" id="6_5fquf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47g3s"]
 size = Vector2(16, 48)
@@ -100,54 +97,21 @@ _data = {
 "open": SubResource("Animation_h18ts")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4mf"]
-size = Vector2(18, 4)
-
-[node name="DoorButton" type="Node2D"]
-
-[node name="Door" type="StaticBody2D" parent="."]
+[node name="Door" type="StaticBody2D"]
 script = ExtResource("1_bw6m1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_47g3s")
 
-[node name="Sprite2D" type="Sprite2D" parent="Door"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_psxsm")
 vframes = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3ycgx")
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Door"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_84848")
 bus = &"Cave"
-
-[node name="Button" type="StaticBody2D" parent="." node_paths=PackedStringArray("door")]
-collision_layer = 4
-collision_mask = 14
-script = ExtResource("4_vifce")
-door = NodePath("../Door")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Button"]
-polygon = PackedVector2Array(-13, 5, -6, -1.5, 6, -1.5, 13, 5)
-
-[node name="Area2D" type="Area2D" parent="Button"]
-collision_layer = 4
-collision_mask = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Area2D"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_uu4mf")
-
-[node name="Sprite2D" type="Sprite2D" parent="Button"]
-texture = ExtResource("5_gudat")
-vframes = 2
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button"]
-stream = ExtResource("6_5fquf")
-volume_db = -4.0
-bus = &"Cave"
-
-[connection signal="body_entered" from="Button/Area2D" to="Button" method="_on_area_2d_body_entered"]

@@ -95,6 +95,7 @@ func restrict_camera(rect: Rect2, movement_flags: int) -> void:
 	if limit_tween != null: limit_tween.stop()
 	
 	if rect.size.x == 0:
+		if get_tree() == null: return # DO NOT REMOVE. GAME CRASHES WHEN CLOSING IF IT ISN'T THERE
 		limit_tween = get_tree().create_tween().set_parallel(true)
 		if lock_right: limit_tween.tween_property(self, "limit_right", 10000000, 10.0)
 		if lock_left : limit_tween.tween_property(self, "limit_left", -10000000, 10.0)

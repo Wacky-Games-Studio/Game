@@ -41,7 +41,13 @@ func get_latest_checkpoint() -> Checkpoint:
 
 func get_latest_checkpoint_data() -> CheckpointData:
 	if _checkpoints_passed.size() == 0:
-		var position = get_tree().current_scene.get_node("PlayerSpawn").global_position
+		# HACK a temporary hack :)
+		var groups = get_tree().get_nodes_in_group("PlayerSpawn")
+		var position: Vector2
+		if groups.size() > 0:
+			position = groups[0].global_position
+		else: 
+			position = get_tree().current_scene.get_node("PlayerSpawn").global_position
 		var data = CheckpointData.new()
 		data.position = position
 		data.checkpoint = null
@@ -50,8 +56,15 @@ func get_latest_checkpoint_data() -> CheckpointData:
 	
 	var level := get_tree().current_scene
 	var checkpoints_holder: Node2D = level.get_node("Checkpoints")
-	
-	var current_checkpoint: Area2D = checkpoints_holder.get_node(_checkpoints_passed.back())
+	var current_checkpoint: Area2D
+	if checkpoints_holder != null:
+		current_checkpoint = checkpoints_holder.get_node(_checkpoints_passed.back())
+	else:
+		for checkpoint in get_tree().get_nodes_in_group("Checkpoint"):
+			if checkpoint.name == _checkpoints_passed.back():
+				current_checkpoint = checkpoint
+				break
+		#current_checkpoint = get_tree().get_nodes_in_group("Checkpoint").
 	
 	return _checkpoint_data[current_checkpoint.name]
 

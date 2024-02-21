@@ -1,4 +1,5 @@
 @icon("res://icons/sawblade_moving.svg")
+class_name MovingSawblade
 extends Path2D
 
 @export var loop := true

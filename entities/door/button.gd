@@ -1,4 +1,5 @@
 @icon("res://icons/button.svg")
+class_name DuckButton
 extends StaticBody2D
 
 @export var door: Door
