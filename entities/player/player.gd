@@ -63,6 +63,9 @@ func unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 
 func physics_process(delta: float) -> void:
+	sprite.scale.x = lerp(sprite.scale.x, 1.0, 5 * delta)
+	sprite.scale.y = lerp(sprite.scale.y, 1.0, 5 * delta)
+	
 	state_machine.process_physics(delta)
 
 func process(delta: float) -> void:

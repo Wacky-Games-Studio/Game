@@ -28,7 +28,8 @@ func process_physics(delta: float) -> State:
 	if (dir == 1 and parent.wall_raycasts.right) or (dir == -1 and parent.wall_raycasts.left):
 		return wall_slide_state
 	
-	if parent.is_on_floor_raycasts(): 
+	if parent.is_on_floor_raycasts():
+		parent.sprite.scale = Vector2(1.3, 0.7)
 		parent.has_jumped = false
 		parent.has_spring_jumped = false
 		return idle_state if dir == 0 else move_state

@@ -12,7 +12,7 @@ func process_input(_event: InputEvent) -> State:
 	
 	return null
 
-func process_physics(delta: float) -> State:
+func process_physics(delta: float) -> State:	
 	parent.velocity.x += parent.get_movement_velocity(0.0)
 	parent.velocity.y = parent.get_clamped_gravity(delta)
 	parent.move_and_slide()

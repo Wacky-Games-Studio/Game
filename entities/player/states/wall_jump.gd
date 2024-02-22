@@ -17,6 +17,7 @@ func enter() -> void:
 	wall_direction = 1 if parent.wall_raycasts.right else -1
 	parent.velocity.y = parent.jump_velocity
 	parent.velocity.x = parent.data.wall_jump_pushback * wall_direction * -1
+	parent.sprite.scale = Vector2(0.7, 1.3)
 	
 	if parent.get_wall_normal_rays_x() != (1.0 if parent.sprite.flip_h else -1.0):
 		parent.flip_opposite()
@@ -39,5 +40,6 @@ func process_physics(delta: float) -> State:
 	
 	if parent.is_on_floor_raycasts():
 		parent.has_jumped = false
+		parent.sprite.scale = Vector2(1.3, 0.7)
 		return idle_state if dir == 0 else move_state
 	return null

@@ -502,8 +502,9 @@ texture_scale = 0.5
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = 10
-position = Vector2(0, 0.5)
+position = Vector2(0, 11)
 texture = ExtResource("2_b23r8")
+offset = Vector2(0, -11)
 hframes = 2
 vframes = 5
 

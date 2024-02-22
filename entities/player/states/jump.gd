@@ -7,6 +7,7 @@ func enter() -> void:
 	super()
 	parent.velocity.y = parent.jump_velocity
 	parent.has_jumped = true
+	parent.sprite.scale = Vector2(0.7, 1.3)
 
 func process_input(_event: InputEvent) -> State:
 	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):
@@ -14,7 +15,7 @@ func process_input(_event: InputEvent) -> State:
 	
 	return null
 
-func process_physics(delta: float) -> State:
+func process_physics(delta: float) -> State:	
 	var dir = Input.get_axis("walk_left", "walk_right")
 	parent.velocity.x += parent.get_movement_velocity(dir)
 	parent.velocity.y = parent.get_clamped_gravity(delta)
