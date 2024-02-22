@@ -15,20 +15,21 @@ dest_files=["res://.godot/imported/test.ldtk-e56c76c4251ba96a86fce7ff6e63f900.sc
 [params]
 
 World=""
-separate_world_layers=false
+separate_world_layers=true
 Level=""
 Tileset=""
 force_tileset_reimport=false
 tileset_custom_data=false
 allow_overlapping_tiles=true
 atlas_texture_type=0
+skip_importing_tileset=false
 Entity=""
 use_entity_placeholders=false
 Post Import=""
 tileset_post_import=""
 entities_post_import="res://ldtk_levels/post-importers/entity.gd"
 level_post_import=""
-world_post_import=""
+world_post_import="res://ldtk_levels/post-importers/world.gd"
 Debug=""
 verbose_output=false
 verbose_post_import=false

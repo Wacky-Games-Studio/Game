@@ -85,8 +85,8 @@ static func create_multi_world(
 
 	var multi_world = LDTKWorld.new()
 	multi_world.name = name
-
-	worlds.sort_custom(func(a,b): return a.depth < b.depth)
+	
+	#worlds.sort_custom(func(a,b): return a.depth < b.depth)
 
 	for world in worlds:
 		multi_world.add_child(world)
