@@ -8,10 +8,22 @@ extends Camera2D
 
 var _locked := false
 var _is_static := true
+var _target_distance := 100
+var _camera_speed := 100
 
 func _ready() -> void:
 	set_static(_is_static)
 	update_position()
+
+func _process(delta):
+	if _is_static: return
+	
+	if player.velocity.x > 0:
+		var target = (player.position.x + _target_distance) - get_screen_center_position().x
+		offset.x = min(offset.x + _camera_speed * delta, target)
+	elif player.velocity.x < 0:
+		var target = (player.position.x - _target_distance) - get_screen_center_position().x
+		offset.x = max(offset.x - _camera_speed * delta, target)
 
 func update_position() -> void:	
 	if _is_static:
@@ -63,8 +75,8 @@ func set_static(value: bool) -> void:
 	
 	var original_pos = get_screen_center_position()
 	
-	drag_horizontal_enabled = _is_static == false
-	drag_vertical_enabled = _is_static == false
+	#drag_horizontal_enabled = _is_static == false
+	#drag_vertical_enabled = _is_static == false
 	top_level = _is_static == true
 	
 	global_position = original_pos
