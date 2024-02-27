@@ -10,8 +10,12 @@ extends Camera2D
 var _locked := false
 var _is_static := true
 var _target_distance := 100
-var _camera_speed := 150
+var _camera_speed := 100
 var _camera_lockers: Array[CameraLocker] = []
+var _queued_left: int
+var _queued_top: int
+var _queued_right: int
+var _queued_bottom: int
 
 func _ready() -> void:
 	set_static(_is_static)
@@ -33,7 +37,7 @@ func _process(delta):
 
 	global_position.x = new_offset
 
-func update_position() -> void:	
+func update_position() -> void:
 	if _is_static:
 		global_position = _calculate_new_pos()
 
@@ -98,6 +102,10 @@ func set_static(value: bool) -> void:
 		var tween = get_tree().create_tween()
 		#tween.tween_property(self, "position", Vector2(0,0), 0.5)
 		tween.tween_method(_move_camera, position, Vector2(0,0), 0.5)
+		limit_right  = _queued_right
+		limit_left   = _queued_left
+		limit_top    = _queued_top
+		limit_bottom = _queued_bottom
 	else:
 		var target_pos = _calculate_new_pos()
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
@@ -134,3 +142,9 @@ func restrict_camera(rect: Rect2, movement_flags: int, locker: CameraLocker) -> 
 	if lock_left : limit_left   = int(rect.position.x - floorf(rect.size.x / 2.0))
 	if lock_up   : limit_top    = int(rect.position.y - floorf(rect.size.y / 2.0))
 	if lock_down : limit_bottom = int(rect.position.y + floorf(rect.size.y / 2.0))
+	
+	_queued_right  = limit_right
+	_queued_left   = limit_left
+	_queued_top    = limit_top
+	_queued_bottom = limit_bottom
+	
