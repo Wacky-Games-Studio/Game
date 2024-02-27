@@ -38,7 +38,7 @@ func _on_body_exited(body):
 		
 		# vertical
 		var exited_top = player_pos.y < pos.y
-		var exited_bottom = player_pos.y < pos.y
+		var exited_bottom = not exited_top
 		var entered_bottom = not _entered_top
 		
 		if static_side in [StaticSide.Left, StaticSide.Right]:

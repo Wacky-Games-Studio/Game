@@ -34,7 +34,7 @@ instance_dock/preview_resolution=Vector2i(64, 64)
 [application]
 
 config/name="Platformer Game"
-run/main_scene="res://scenes/levels/level_1.tscn"
+run/main_scene="res://ldtk_levels/ldtk_runner.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 

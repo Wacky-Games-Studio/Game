@@ -38,9 +38,9 @@ func _on_body_entered(body):
 	
 	var rect = collider.shape.get_rect()
 	rect.position = collider.global_position
-	body.restrict_camera(rect, movement_flags)
+	body.restrict_camera(rect, movement_flags, self)
 
 
 func _on_body_exited(body):
 	if body is Player:
-		body.restrict_camera(Rect2(0,0,0,0), movement_flags)
+		body.restrict_camera(Rect2(0,0,0,0), movement_flags, self)

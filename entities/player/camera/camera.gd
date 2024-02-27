@@ -5,11 +5,13 @@ extends Camera2D
 
 @onready var notifier: VisibleOnScreenNotifier2D = $"../OnScreenNotifier"
 @onready var player: CharacterBody2D = $".."
+@onready var screen_size: Vector2 = get_viewport().get_visible_rect().size
 
 var _locked := false
 var _is_static := true
 var _target_distance := 100
-var _camera_speed := 100
+var _camera_speed := 150
+var _camera_lockers: Array[CameraLocker] = []
 
 func _ready() -> void:
 	set_static(_is_static)
@@ -18,12 +20,18 @@ func _ready() -> void:
 func _process(delta):
 	if _is_static: return
 	
+	#var path: Path2D = get_node("/root/Level_1/Path2D")
+	#global_position = path.curve.get_closest_point(player.global_position - path.global_position) + path.global_position
+	
+	var new_offset: float = global_position.x
 	if player.velocity.x > 0:
-		var target = (player.position.x + _target_distance) - get_screen_center_position().x
-		offset.x = min(offset.x + _camera_speed * delta, target)
+		var target = (player.position.x + _target_distance)
+		new_offset = min(new_offset + _camera_speed * delta, target)
 	elif player.velocity.x < 0:
-		var target = (player.position.x - _target_distance) - get_screen_center_position().x
-		offset.x = max(offset.x - _camera_speed * delta, target)
+		var target = (player.position.x - _target_distance)
+		new_offset = max(new_offset - _camera_speed * delta, target)
+
+	global_position.x = new_offset
 
 func update_position() -> void:	
 	if _is_static:
@@ -46,6 +54,11 @@ func _calculate_new_pos() -> Vector2:
 func _on_screen_notifier_screen_exited() -> void:
 	if _is_static == false:
 		return
+	
+	limit_right  =  10000000
+	limit_left   = -10000000
+	limit_top    = -10000000
+	limit_bottom =  10000000
 	
 	var target_pos = _calculate_new_pos()
 	
@@ -98,24 +111,26 @@ func is_static() -> bool:
 
 var limit_tween: Tween
 
-func restrict_camera(rect: Rect2, movement_flags: int) -> void:
+func restrict_camera(rect: Rect2, movement_flags: int, locker: CameraLocker) -> void:
 	var lock_left  = (movement_flags & (1 << 0)) != 0
 	var lock_right = (movement_flags & (1 << 1)) != 0
 	var lock_up    = (movement_flags & (1 << 2)) != 0
 	var lock_down  = (movement_flags & (1 << 3)) != 0
 	
-	if limit_tween != null: limit_tween.stop()
-	
 	if rect.size.x == 0:
+		_camera_lockers.erase(locker)
+		if _camera_lockers.size() > 0: return
+		
 		if get_tree() == null: return # DO NOT REMOVE. GAME CRASHES WHEN CLOSING IF IT ISN'T THERE
-		limit_tween = get_tree().create_tween().set_parallel(true)
-		if lock_right: limit_tween.tween_property(self, "limit_right", 10000000, 10.0)
-		if lock_left : limit_tween.tween_property(self, "limit_left", -10000000, 10.0)
-		if lock_up   : limit_tween.tween_property(self, "limit_top", -10000000, 10.0)
-		if lock_down : limit_tween.tween_property(self, "limit_bottom",10000000, 10.0)
+		if lock_right: limit_right  =  10000000
+		if lock_left : limit_left   = -10000000
+		if lock_up   : limit_top    = -10000000
+		if lock_down : limit_bottom =  10000000
 		return 
 	
-	if lock_right: limit_right  = rect.position.x + floorf(rect.size.x / 2.0)
-	if lock_left : limit_left   = rect.position.x - floorf(rect.size.x / 2.0)
-	if lock_up   : limit_top    = rect.position.y - floorf(rect.size.y / 2.0)
-	if lock_down : limit_bottom = rect.position.y + floorf(rect.size.y / 2.0)
+	_camera_lockers.push_back(locker)
+	
+	if lock_right: limit_right  = int(rect.position.x + floorf(rect.size.x / 2.0))
+	if lock_left : limit_left   = int(rect.position.x - floorf(rect.size.x / 2.0))
+	if lock_up   : limit_top    = int(rect.position.y - floorf(rect.size.y / 2.0))
+	if lock_down : limit_bottom = int(rect.position.y + floorf(rect.size.y / 2.0))

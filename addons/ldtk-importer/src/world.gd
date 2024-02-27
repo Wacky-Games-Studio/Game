@@ -3,6 +3,8 @@
 const Util = preload("util/util.gd")
 const PostImport = preload("post-import.gd")
 
+static var current_levels: Array[LDTKLevel]
+
 static func create_world(name: String, levels: Array) -> LDTKWorld:
 
 	var world = LDTKWorld.new()
@@ -15,6 +17,8 @@ static func create_world(name: String, levels: Array) -> LDTKWorld:
 	var y2 = world.rect.end.y
 
 	var worldDepths := {}
+
+	current_levels = levels
 
 	for level in levels:
 		if Util.options.separate_world_layers:

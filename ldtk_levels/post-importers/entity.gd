@@ -9,6 +9,7 @@ const CHECKPOINT = preload("res://entities/checkpoint/checkpoint.tscn")
 const SAW_BLADE = preload("res://entities/sawblade/saw_blade.tscn")
 const SPRING = preload("res://entities/spring/spring.tscn")
 const WIN = preload("res://entities/win/win.tscn")
+const World = preload("res://addons/ldtk-importer/src/world.gd")
 
 var identifier_function := {
 	"PlayerSpawn": _handle_player_spawn,
@@ -23,10 +24,12 @@ var identifier_function := {
 
 var definition: Dictionary
 var entities: Array
+var current_layer: LDTKEntityLayer
 
 func post_import(entity_layer: LDTKEntityLayer) -> LDTKEntityLayer:
 	definition = entity_layer.definition
 	entities = entity_layer.entities
+	current_layer = entity_layer
 	for entity in entities:
 		if identifier_function.has(entity.identifier):
 			entity.position += Vector2i(entity_layer.position)
@@ -35,8 +38,13 @@ func post_import(entity_layer: LDTKEntityLayer) -> LDTKEntityLayer:
 	return entity_layer
 
 func _find_entity_by_id(iid: String):
-	for entity in entities:
-		if entity.iid == iid: return entity
+	for level in World.current_levels:
+		for layer in level.get_children():
+			if not layer is LDTKEntityLayer: continue
+			for entity in layer.entities:
+				if entity.iid == iid:
+					entity.position = current_layer.to_local(layer.to_global(entity.position))
+					return entity
 	return null
 
 func _handle_player_spawn(entity, entity_layer: LDTKEntityLayer) -> void:
@@ -78,7 +86,8 @@ func _handle_button(entity, entity_layer: LDTKEntityLayer) -> void:
 	var button: DuckButton = BUTTON.instantiate()
 	
 	door.position = btn_door.position
-	button.position = entity.position - Vector2i(0, 5)
+	button.position = entity.position
+	button.rotation_degrees = entity.fields.Rotation
 	
 	button.door = door
 	

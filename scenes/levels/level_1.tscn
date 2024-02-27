@@ -117,10 +117,6 @@ shape = SubResource("RectangleShape2D_uofiy")
 position = Vector2(888, 56)
 rotation = 1.5708
 
-[node name="Button" parent="Doors/Door" index="1"]
-position = Vector2(258.999, -152.001)
-rotation = -1.5708
-
 [node name="Door2" parent="Doors" instance=ExtResource("6_trlis")]
 position = Vector2(1840, 680)
 rotation = 1.5708

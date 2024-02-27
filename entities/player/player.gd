@@ -209,8 +209,8 @@ func die() -> void:
 func set_static(is_static: bool) -> void:
 	$Camera.set_static(is_static)
 
-func restrict_camera(rect: Rect2, movement_flags: int) -> void:
-	$Camera.restrict_camera(rect, movement_flags)
+func restrict_camera(rect: Rect2, movement_flags: int, locker: CameraLocker) -> void:
+	$Camera.restrict_camera(rect, movement_flags, locker)
 
 func get_static_camera() -> bool:
 	return $Camera.is_static()

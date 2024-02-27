@@ -1,44 +1,44 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmwfts7a3we0y"]
+[gd_scene load_steps=20 format=3 uid="uid://ueeckoi7c6o8"]
 
-[ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-world.gd" id="1_g6aqp"]
-[ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-world-layer.gd" id="2_dcg1f"]
-[ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-level.gd" id="3_cos6l"]
-[ext_resource type="TileSet" uid="uid://bj3ckm61dkk15" path="res://ldtk_levels/tilesets/tileset16x16.res" id="4_x1l77"]
-[ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-entity-layer.gd" id="5_7pe4o"]
-[ext_resource type="PackedScene" uid="uid://c688q3v05cx2m" path="res://entities/door/door.tscn" id="6_kjhir"]
-[ext_resource type="Script" path="res://entities/door/door.gd" id="7_je7it"]
-[ext_resource type="PackedScene" uid="uid://0h5h43w8fi5c" path="res://entities/door/button.tscn" id="8_l8lto"]
-[ext_resource type="Script" path="res://entities/door/button.gd" id="9_7e3fy"]
-[ext_resource type="PackedScene" uid="uid://evwchr2ib2vo" path="res://entities/checkpoint/checkpoint.tscn" id="10_xuk0s"]
-[ext_resource type="Script" path="res://entities/checkpoint/checkpoint.gd" id="11_yy183"]
-[ext_resource type="PackedScene" uid="uid://cnniproj0if4l" path="res://entities/camera_trigger/camera_trigger.tscn" id="12_6facm"]
-[ext_resource type="Script" path="res://entities/camera_trigger/camera_trigger.gd" id="13_uekeg"]
-[ext_resource type="PackedScene" uid="uid://cs11molxcwppp" path="res://entities/camera_locker/camera_locker.tscn" id="14_j41nt"]
-[ext_resource type="Script" path="res://entities/camera_locker/camera_locker.gd" id="15_8j2tv"]
-[ext_resource type="PackedScene" uid="uid://cu50hpb5otowv" path="res://entities/moving_saw_blade/moving_saw_blade.tscn" id="16_rko8c"]
-[ext_resource type="Script" path="res://entities/moving_saw_blade/moving_saw_blade.gd" id="17_20wbn"]
+[ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-world.gd" id="1_sypgw"]
+[ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-world-layer.gd" id="2_lkcvd"]
+[ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-level.gd" id="3_278k5"]
+[ext_resource type="TileSet" uid="uid://bj3ckm61dkk15" path="res://ldtk_levels/tilesets/tileset16x16.res" id="4_togjc"]
+[ext_resource type="Script" path="res://addons/ldtk-importer/src/components/ldtk-entity-layer.gd" id="5_7qxp8"]
+[ext_resource type="PackedScene" uid="uid://c688q3v05cx2m" path="res://entities/door/door.tscn" id="6_ot11n"]
+[ext_resource type="Script" path="res://entities/door/door.gd" id="7_rqvvo"]
+[ext_resource type="PackedScene" uid="uid://0h5h43w8fi5c" path="res://entities/door/button.tscn" id="8_vp2po"]
+[ext_resource type="Script" path="res://entities/door/button.gd" id="9_nv81l"]
+[ext_resource type="PackedScene" uid="uid://evwchr2ib2vo" path="res://entities/checkpoint/checkpoint.tscn" id="10_o5bmf"]
+[ext_resource type="Script" path="res://entities/checkpoint/checkpoint.gd" id="11_d0x44"]
+[ext_resource type="PackedScene" uid="uid://cnniproj0if4l" path="res://entities/camera_trigger/camera_trigger.tscn" id="12_iw8uv"]
+[ext_resource type="Script" path="res://entities/camera_trigger/camera_trigger.gd" id="13_8jtvn"]
+[ext_resource type="PackedScene" uid="uid://cs11molxcwppp" path="res://entities/camera_locker/camera_locker.tscn" id="14_qifi1"]
+[ext_resource type="Script" path="res://entities/camera_locker/camera_locker.gd" id="15_1qnuj"]
+[ext_resource type="PackedScene" uid="uid://cu50hpb5otowv" path="res://entities/moving_saw_blade/moving_saw_blade.tscn" id="16_ig20e"]
+[ext_resource type="Script" path="res://entities/moving_saw_blade/moving_saw_blade.gd" id="17_c1vog"]
 
-[sub_resource type="Curve2D" id="Curve2D_2lvyr"]
+[sub_resource type="Curve2D" id="Curve2D_dq85r"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 52, 52, 0, 0, 0, 0, 52, 220, 0, 0, 0, 0, 452, 220, 0, 0, 0, 0, 452, 52, 0, 0, 0, 0, 52, 52)
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_4gai4"]
+[sub_resource type="Curve2D" id="Curve2D_m26sc"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 52, 220, 0, 0, 0, 0, 428, 220, 0, 0, 0, 0, 428, 156, 0, 0, 0, 0, 52, 156, 0, 0, 0, 0, 52, 220)
 }
 point_count = 5
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_g6aqp")
+script = ExtResource("1_sypgw")
 rect = Rect2i(0, 0, 960, 544)
 
 [node name="WorldLayer_0" type="Node2D" parent="."]
-script = ExtResource("2_dcg1f")
+script = ExtResource("2_lkcvd")
 
 [node name="Level_0" type="Node2D" parent="WorldLayer_0"]
-script = ExtResource("3_cos6l")
+script = ExtResource("3_278k5")
 size = Vector2i(480, 272)
 neighbours = [{
 "dir": "e",
@@ -48,7 +48,7 @@ bg_color = Color(0.411765, 0.415686, 0.47451, 1)
 
 [node name="Dungeon" type="TileMap" parent="WorldLayer_0/Level_0"]
 texture_filter = 1
-tile_set = ExtResource("4_x1l77")
+tile_set = ExtResource("4_togjc")
 format = 2
 layer_0/name = "Dungeon-values"
 layer_0/enabled = false
@@ -57,7 +57,7 @@ layer_1/name = "Dungeon-tiles"
 layer_1/tile_data = PackedInt32Array(0, 262146, 3, 1, 262146, 3, 2, 262146, 3, 3, 262146, 3, 4, 262146, 3, 5, 262146, 3, 6, 262146, 3, 7, 262146, 3, 8, 262146, 3, 9, 262146, 3, 10, 262146, 3, 11, 262146, 3, 12, 262146, 3, 13, 262146, 3, 14, 262146, 3, 15, 262146, 3, 16, 262146, 3, 17, 262146, 3, 18, 262146, 3, 19, 262146, 3, 20, 262146, 3, 21, 262146, 3, 22, 262146, 3, 23, 262146, 3, 24, 262146, 3, 25, 262146, 3, 26, 262146, 3, 27, 262146, 3, 28, 262146, 3, 29, 262146, 3, 65536, 262146, 3, 131072, 262146, 3, 196608, 262146, 3, 262144, 262146, 3, 327680, 262146, 3, 393216, 262146, 3, 458752, 262146, 3, 524288, 262146, 3, 589824, 262146, 3, 655360, 262146, 3, 720896, 262146, 3, 786432, 262146, 3, 851968, 262146, 3, 917504, 262146, 3, 983040, 262146, 3, 1048576, 262146, 3, 1048577, 262146, 3, 1048578, 262146, 3, 1048579, 262146, 3, 1048580, 262146, 3, 1048581, 262146, 3, 1048582, 262146, 3, 1048583, 262146, 3, 1048584, 262146, 3, 1048585, 262146, 3, 1048586, 262146, 3, 1048587, 262146, 3, 1048588, 262146, 3, 1048589, 262146, 3, 1048590, 262146, 3, 1048591, 262146, 3, 1048592, 262146, 3, 1048593, 262146, 3, 1048594, 262146, 3, 1048595, 262146, 3, 1048596, 262146, 3, 1048597, 262146, 3, 1048598, 262146, 3, 1048599, 262146, 3, 1048600, 262146, 3, 1048601, 262146, 3, 1048602, 262146, 3, 1048603, 262146, 3, 1048604, 262146, 3, 1048605, 262146, 3, 65537, 458754, 2, 983041, 458754, 3, 65538, 262146, 4, 65539, 262146, 4, 65540, 262146, 4, 65541, 262146, 4, 65542, 262146, 4, 65543, 262146, 4, 65544, 262146, 4, 65545, 262146, 4, 65546, 262146, 4, 65547, 262146, 4, 65548, 262146, 4, 65549, 262146, 4, 65550, 262146, 4, 65551, 262146, 4, 65552, 262146, 4, 65553, 262146, 4, 65554, 262146, 4, 65555, 262146, 4, 65556, 262146, 4, 65557, 262146, 4, 65558, 262146, 4, 65559, 262146, 4, 65560, 262146, 4, 65561, 262146, 4, 65562, 262146, 4, 65563, 262146, 4, 65564, 262146, 4, 65565, 262146, 4, 131073, 327682, 3, 196609, 327682, 3, 262145, 327682, 3, 327681, 327682, 3, 393217, 327682, 3, 458753, 327682, 3, 524289, 327682, 3, 589825, 327682, 3, 655361, 327682, 3, 720897, 327682, 3, 786433, 327682, 3, 851969, 327682, 3, 917505, 327682, 3, 983042, 262146, 2, 983043, 262146, 2, 983044, 262146, 2, 983045, 262146, 2, 983046, 262146, 2, 983047, 262146, 2, 983048, 262146, 2, 983049, 262146, 2, 983050, 262146, 2, 983051, 262146, 2, 983052, 262146, 2, 983053, 262146, 2, 983054, 262146, 2, 983055, 262146, 2, 983056, 262146, 2, 983057, 262146, 2, 983058, 262146, 2, 983059, 262146, 2, 983060, 262146, 2, 983061, 262146, 2, 983062, 262146, 2, 983063, 262146, 2, 983064, 262146, 2, 983065, 262146, 2, 983066, 262146, 2, 983067, 262146, 2, 983068, 262146, 2, 983069, 262146, 2, 720898, 1376258, 1, 786434, 1376258, 2, 131082, 1114114, 0, 131083, 1114114, 0, 131084, 1114114, 0, 131085, 1114114, 0, 131081, 1179650, 2, 131086, 1245186, 2)
 
 [node name="EntitiesLargeGrid" type="Node2D" parent="WorldLayer_0/Level_0"]
-script = ExtResource("5_7pe4o")
+script = ExtResource("5_7qxp8")
 definition = {
 "gridSize": 16.0,
 "identifier": "EntitiesLargeGrid",
@@ -91,6 +91,10 @@ entities = [{
 102: {
 "identifier": "Door",
 "type": "EntityRef"
+},
+166: {
+"identifier": "Rotation",
+"type": "Int"
 }
 },
 "hollow": false,
@@ -99,7 +103,8 @@ entities = [{
 "tags": ["Interactable"]
 },
 "fields": {
-"Door": "b41218a0-b0a0-11ee-9638-8d75d8460938"
+"Door": "b41218a0-b0a0-11ee-9638-8d75d8460938",
+"Rotation": 0
 },
 "identifier": "Button",
 "iid": "b2b2fdd0-b0a0-11ee-9638-1f8f84fffb3f",
@@ -120,7 +125,7 @@ entities = [{
 "identifier": "Door",
 "iid": "b41218a0-b0a0-11ee-9638-8d75d8460938",
 "pivot": Vector2(0.5, 0.5),
-"position": Vector2i(408, 216),
+"position": Vector2(408, 216),
 "size": Vector2i(48, 48),
 "smart_color": Color(0.721569, 0.435294, 0.313726, 1)
 }, {
@@ -136,7 +141,7 @@ entities = [{
 "identifier": "Door",
 "iid": "593a3260-b0a0-11ee-9638-8f9c699c42ae",
 "pivot": Vector2(0.5, 0.5),
-"position": Vector2i(264, 216),
+"position": Vector2(264, 216),
 "size": Vector2i(48, 48),
 "smart_color": Color(0.721569, 0.435294, 0.313726, 1)
 }, {
@@ -146,6 +151,10 @@ entities = [{
 102: {
 "identifier": "Door",
 "type": "EntityRef"
+},
+166: {
+"identifier": "Rotation",
+"type": "Int"
 }
 },
 "hollow": false,
@@ -154,7 +163,8 @@ entities = [{
 "tags": ["Interactable"]
 },
 "fields": {
-"Door": "593a3260-b0a0-11ee-9638-8f9c699c42ae"
+"Door": "593a3260-b0a0-11ee-9638-8f9c699c42ae",
+"Rotation": 0
 },
 "identifier": "Button",
 "iid": "5ae04140-b0a0-11ee-9638-81622589db97",
@@ -264,58 +274,58 @@ entities = [{
 "identifier": "CheckpointTrigger",
 "iid": "4dd29ea0-b0a0-11ee-b119-15edb1becaa7",
 "pivot": Vector2(0, 0),
-"position": Vector2i(208, 64),
+"position": Vector2(208, 64),
 "size": Vector2i(16, 80),
 "smart_color": Color(0.388235, 0.780392, 0.301961, 1)
 }]
 
 [node name="NodePathResolver" type="Node2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid"]
 
-[node name="@Marker2D@21876" type="Marker2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" groups=["PlayerSpawn"]]
+[node name="@Marker2D@94583" type="Marker2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" groups=["PlayerSpawn"]]
 position = Vector2(56, 144)
 
-[node name="Door" type="StaticBody2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" instance=ExtResource("6_kjhir")]
+[node name="Door" type="StaticBody2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" instance=ExtResource("6_ot11n")]
 position = Vector2(408, 216)
-script = ExtResource("7_je7it")
+script = ExtResource("7_rqvvo")
 
-[node name="Button" type="StaticBody2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" node_paths=PackedStringArray("door") instance=ExtResource("8_l8lto")]
-position = Vector2(344, 235)
+[node name="Button" type="StaticBody2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" node_paths=PackedStringArray("door") instance=ExtResource("8_vp2po")]
+position = Vector2(344, 240)
 collision_layer = 4
 collision_mask = 14
-script = ExtResource("9_7e3fy")
+script = ExtResource("9_nv81l")
 door = NodePath("../Door")
 
-[node name="@StaticBody2D@21877" type="StaticBody2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" instance=ExtResource("6_kjhir")]
+[node name="@StaticBody2D@94584" type="StaticBody2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" instance=ExtResource("6_ot11n")]
 position = Vector2(264, 216)
-script = ExtResource("7_je7it")
+script = ExtResource("7_rqvvo")
 
-[node name="@StaticBody2D@21878" type="StaticBody2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" node_paths=PackedStringArray("door") instance=ExtResource("8_l8lto")]
-position = Vector2(184, 235)
+[node name="@StaticBody2D@94585" type="StaticBody2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" node_paths=PackedStringArray("door") instance=ExtResource("8_vp2po")]
+position = Vector2(184, 240)
 collision_layer = 4
 collision_mask = 14
-script = ExtResource("9_7e3fy")
-door = NodePath("../@StaticBody2D@21877")
+script = ExtResource("9_nv81l")
+door = NodePath("../@StaticBody2D@94584")
 
-[node name="Checkpoint" type="Area2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" groups=["Checkpoint"] instance=ExtResource("10_xuk0s")]
+[node name="Checkpoint" type="Area2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" groups=["Checkpoint"] instance=ExtResource("10_o5bmf")]
 position = Vector2(312, 221)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("11_yy183")
+script = ExtResource("11_d0x44")
 collision_size = Vector2(16, 80)
 collider_position = Vector2(216, 104)
 
-[node name="CameraTrigger" type="Area2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" instance=ExtResource("12_6facm")]
+[node name="CameraTrigger" type="Area2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" instance=ExtResource("12_iw8uv")]
 position = Vector2(128, 160)
 collision_layer = 32
 collision_mask = 2
-script = ExtResource("13_uekeg")
+script = ExtResource("13_8jtvn")
 collision_size = Vector2(16, 80)
 collider_position = Vector2(8, 40)
 
-[node name="CameraLocker" type="Area2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" instance=ExtResource("14_j41nt")]
+[node name="CameraLocker" type="Area2D" parent="WorldLayer_0/Level_0/EntitiesLargeGrid" instance=ExtResource("14_qifi1")]
 collision_layer = 32
 collision_mask = 2
-script = ExtResource("15_8j2tv")
+script = ExtResource("15_1qnuj")
 lock_left = true
 lock_right = true
 lock_up = true
@@ -324,7 +334,7 @@ collision_size = Vector2(528, 272)
 collider_position = Vector2(264, 136)
 
 [node name="EntitiesPreciseGrid" type="Node2D" parent="WorldLayer_0/Level_0"]
-script = ExtResource("5_7pe4o")
+script = ExtResource("5_7qxp8")
 definition = {
 "gridSize": 8.0,
 "identifier": "EntitiesPreciseGrid",
@@ -382,15 +392,15 @@ entities = [{
 
 [node name="NodePathResolver" type="Node2D" parent="WorldLayer_0/Level_0/EntitiesPreciseGrid"]
 
-[node name="MovingSawBlade" type="Path2D" parent="WorldLayer_0/Level_0/EntitiesPreciseGrid" instance=ExtResource("16_rko8c")]
-curve = SubResource("Curve2D_2lvyr")
-script = ExtResource("17_20wbn")
+[node name="MovingSawBlade" type="Path2D" parent="WorldLayer_0/Level_0/EntitiesPreciseGrid" instance=ExtResource("16_ig20e")]
+curve = SubResource("Curve2D_dq85r")
+script = ExtResource("17_c1vog")
 loop_back = false
 seconds_to_complete = 10.0
 
 [node name="Level_1" type="Node2D" parent="WorldLayer_0"]
 position = Vector2(480, 0)
-script = ExtResource("3_cos6l")
+script = ExtResource("3_278k5")
 size = Vector2i(480, 272)
 neighbours = [{
 "dir": "w",
@@ -403,7 +413,7 @@ bg_color = Color(0.411765, 0.415686, 0.47451, 1)
 
 [node name="Dungeon" type="TileMap" parent="WorldLayer_0/Level_1"]
 texture_filter = 1
-tile_set = ExtResource("4_x1l77")
+tile_set = ExtResource("4_togjc")
 format = 2
 layer_0/name = "Dungeon-values"
 layer_0/enabled = false
@@ -412,7 +422,7 @@ layer_1/name = "Dungeon-tiles"
 layer_1/tile_data = PackedInt32Array(0, 262146, 3, 1, 262146, 3, 2, 262146, 3, 3, 262146, 3, 4, 262146, 3, 5, 262146, 3, 6, 262146, 3, 7, 262146, 3, 8, 262146, 3, 9, 262146, 3, 10, 262146, 3, 11, 262146, 3, 12, 262146, 3, 13, 262146, 3, 14, 262146, 3, 15, 262146, 3, 16, 262146, 3, 17, 262146, 3, 18, 262146, 3, 19, 262146, 3, 20, 262146, 3, 21, 262146, 3, 22, 262146, 3, 23, 262146, 3, 24, 262146, 3, 25, 262146, 3, 26, 262146, 3, 27, 262146, 3, 28, 262146, 3, 29, 262146, 3, 65565, 262146, 3, 131101, 262146, 3, 196637, 262146, 3, 262173, 262146, 3, 327709, 262146, 3, 393245, 262146, 3, 458781, 262146, 3, 524317, 262146, 3, 589853, 262146, 3, 655389, 262146, 3, 720925, 262146, 3, 786461, 262146, 3, 851997, 262146, 3, 917533, 262146, 3, 983069, 262146, 3, 1048576, 262146, 3, 1048577, 262146, 3, 1048578, 262146, 3, 1048579, 262146, 3, 1048580, 262146, 3, 1048581, 262146, 3, 1048582, 262146, 3, 1048583, 262146, 3, 1048584, 262146, 3, 1048585, 262146, 3, 1048586, 262146, 3, 1048594, 262146, 3, 1048595, 262146, 3, 1048596, 262146, 3, 1048597, 262146, 3, 1048598, 262146, 3, 1048599, 262146, 3, 1048600, 262146, 3, 1048601, 262146, 3, 1048602, 262146, 3, 1048603, 262146, 3, 1048604, 262146, 3, 1048605, 262146, 3, 65564, 524290, 2, 983068, 524290, 3, 131100, 196610, 3, 196636, 196610, 3, 262172, 196610, 3, 327708, 196610, 3, 393244, 196610, 3, 458780, 196610, 3, 524316, 196610, 3, 589852, 196610, 3, 655388, 196610, 3, 720924, 196610, 3, 786460, 196610, 3, 851996, 196610, 3, 917532, 196610, 3, 1048593, 196610, 3, 65536, 262146, 4, 65537, 262146, 4, 65538, 262146, 4, 65539, 262146, 4, 65540, 262146, 4, 65541, 262146, 4, 65542, 262146, 4, 65543, 262146, 4, 65544, 262146, 4, 65545, 262146, 4, 65546, 262146, 4, 65547, 262146, 4, 65548, 262146, 4, 65549, 262146, 4, 65550, 262146, 4, 65551, 262146, 4, 65552, 262146, 4, 65553, 262146, 4, 65554, 262146, 4, 65555, 262146, 4, 65556, 262146, 4, 65557, 262146, 4, 65558, 262146, 4, 65559, 262146, 4, 65560, 262146, 4, 65561, 262146, 4, 65562, 262146, 4, 65563, 262146, 4, 1048587, 327682, 3, 983040, 262146, 2, 983041, 262146, 2, 983042, 262146, 2, 983043, 262146, 2, 983044, 262146, 2, 983045, 262146, 2, 983046, 262146, 2, 983047, 262146, 2, 983048, 262146, 2, 983049, 262146, 2, 983050, 262146, 2, 983058, 262146, 2, 983059, 262146, 2, 983060, 262146, 2, 983061, 262146, 2, 983062, 262146, 2, 983063, 262146, 2, 983064, 262146, 2, 983065, 262146, 2, 983066, 262146, 2, 983067, 262146, 2, 983051, 327682, 2, 983057, 196610, 2)
 
 [node name="EntitiesLargeGrid" type="Node2D" parent="WorldLayer_0/Level_1"]
-script = ExtResource("5_7pe4o")
+script = ExtResource("5_7qxp8")
 definition = {
 "gridSize": 16.0,
 "identifier": "EntitiesLargeGrid",
@@ -450,17 +460,17 @@ entities = [{
 
 [node name="NodePathResolver" type="Node2D" parent="WorldLayer_0/Level_1/EntitiesLargeGrid"]
 
-[node name="CameraTrigger" type="Area2D" parent="WorldLayer_0/Level_1/EntitiesLargeGrid" instance=ExtResource("12_6facm")]
+[node name="CameraTrigger" type="Area2D" parent="WorldLayer_0/Level_1/EntitiesLargeGrid" instance=ExtResource("12_iw8uv")]
 position = Vector2(48, 32)
 collision_layer = 32
 collision_mask = 2
-script = ExtResource("13_uekeg")
+script = ExtResource("13_8jtvn")
 static_side = 3
 collision_size = Vector2(16, 208)
 collider_position = Vector2(8, 104)
 
 [node name="EntitiesPreciseGrid" type="Node2D" parent="WorldLayer_0/Level_1"]
-script = ExtResource("5_7pe4o")
+script = ExtResource("5_7qxp8")
 definition = {
 "gridSize": 8.0,
 "identifier": "EntitiesPreciseGrid",
@@ -476,7 +486,7 @@ definition = {
 
 [node name="Level_2" type="Node2D" parent="WorldLayer_0"]
 position = Vector2(480, 272)
-script = ExtResource("3_cos6l")
+script = ExtResource("3_278k5")
 size = Vector2i(480, 272)
 neighbours = [{
 "dir": "n",
@@ -486,7 +496,7 @@ bg_color = Color(0.411765, 0.415686, 0.47451, 1)
 
 [node name="Dungeon" type="TileMap" parent="WorldLayer_0/Level_2"]
 texture_filter = 1
-tile_set = ExtResource("4_x1l77")
+tile_set = ExtResource("4_togjc")
 format = 2
 layer_0/name = "Dungeon-values"
 layer_0/enabled = false
@@ -495,7 +505,7 @@ layer_1/name = "Dungeon-tiles"
 layer_1/tile_data = PackedInt32Array(0, 262146, 3, 1, 262146, 3, 2, 262146, 3, 3, 262146, 3, 4, 262146, 3, 5, 262146, 3, 6, 262146, 3, 7, 262146, 3, 8, 262146, 3, 9, 262146, 3, 10, 262146, 3, 18, 262146, 3, 19, 262146, 3, 20, 262146, 3, 21, 262146, 3, 22, 262146, 3, 23, 262146, 3, 24, 262146, 3, 25, 262146, 3, 26, 262146, 3, 27, 262146, 3, 28, 262146, 3, 29, 262146, 3, 65536, 262146, 3, 65565, 262146, 3, 131072, 262146, 3, 131101, 262146, 3, 196608, 262146, 3, 196637, 262146, 3, 262144, 262146, 3, 262173, 262146, 3, 327680, 262146, 3, 327709, 262146, 3, 393216, 262146, 3, 393245, 262146, 3, 458752, 262146, 3, 458781, 262146, 3, 524288, 262146, 3, 524317, 262146, 3, 589824, 262146, 3, 589853, 262146, 3, 655360, 262146, 3, 655389, 262146, 3, 720896, 262146, 3, 720925, 262146, 3, 786432, 262146, 3, 786461, 262146, 3, 851968, 262146, 3, 851997, 262146, 3, 917504, 262146, 3, 917533, 262146, 3, 983040, 262146, 3, 983069, 262146, 3, 1048576, 262146, 3, 1048577, 262146, 3, 1048578, 262146, 3, 1048579, 262146, 3, 1048580, 262146, 3, 1048581, 262146, 3, 1048582, 262146, 3, 1048583, 262146, 3, 1048584, 262146, 3, 1048585, 262146, 3, 1048586, 262146, 3, 1048587, 262146, 3, 1048588, 262146, 3, 1048589, 262146, 3, 1048590, 262146, 3, 1048591, 262146, 3, 1048592, 262146, 3, 1048593, 262146, 3, 1048594, 262146, 3, 1048595, 262146, 3, 1048596, 262146, 3, 1048597, 262146, 3, 1048598, 262146, 3, 1048599, 262146, 3, 1048600, 262146, 3, 1048601, 262146, 3, 1048602, 262146, 3, 1048603, 262146, 3, 1048604, 262146, 3, 1048605, 262146, 3, 65564, 524290, 2, 65537, 458754, 2, 983041, 458754, 3, 983068, 524290, 3, 17, 196610, 3, 131100, 196610, 3, 196636, 196610, 3, 262172, 196610, 3, 327708, 196610, 3, 393244, 196610, 3, 458780, 196610, 3, 524316, 196610, 3, 589852, 196610, 3, 655388, 196610, 3, 720924, 196610, 3, 786460, 196610, 3, 851996, 196610, 3, 917532, 196610, 3, 65538, 262146, 4, 65539, 262146, 4, 65540, 262146, 4, 65541, 262146, 4, 65542, 262146, 4, 65543, 262146, 4, 65544, 262146, 4, 65545, 262146, 4, 65546, 262146, 4, 65554, 262146, 4, 65555, 262146, 4, 65556, 262146, 4, 65557, 262146, 4, 65558, 262146, 4, 65559, 262146, 4, 65560, 262146, 4, 65561, 262146, 4, 65562, 262146, 4, 65563, 262146, 4, 11, 327682, 3, 131073, 327682, 3, 196609, 327682, 3, 262145, 327682, 3, 327681, 327682, 3, 393217, 327682, 3, 458753, 327682, 3, 524289, 327682, 3, 589825, 327682, 3, 655361, 327682, 3, 720897, 327682, 3, 786433, 327682, 3, 851969, 327682, 3, 917505, 327682, 3, 983042, 262146, 2, 983043, 262146, 2, 983044, 262146, 2, 983045, 262146, 2, 983046, 262146, 2, 983047, 262146, 2, 983048, 262146, 2, 983049, 262146, 2, 983050, 262146, 2, 983051, 262146, 2, 983052, 262146, 2, 983053, 262146, 2, 983054, 262146, 2, 983055, 262146, 2, 983056, 262146, 2, 983057, 262146, 2, 983058, 262146, 2, 983059, 262146, 2, 983060, 262146, 2, 983061, 262146, 2, 983062, 262146, 2, 983063, 262146, 2, 983064, 262146, 2, 983065, 262146, 2, 983066, 262146, 2, 983067, 262146, 2, 65553, 196610, 4, 65547, 327682, 4)
 
 [node name="EntitiesLargeGrid" type="Node2D" parent="WorldLayer_0/Level_2"]
-script = ExtResource("5_7pe4o")
+script = ExtResource("5_7qxp8")
 definition = {
 "gridSize": 16.0,
 "identifier": "EntitiesLargeGrid",
@@ -547,23 +557,23 @@ entities = [{
 "identifier": "CheckpointTrigger",
 "iid": "1cd2bcc0-b0a0-11ee-8b1b-735a4b17dee1",
 "pivot": Vector2(0, 0),
-"position": Vector2i(192, 0),
+"position": Vector2(192, 0),
 "size": Vector2i(80, 32),
 "smart_color": Color(0.388235, 0.780392, 0.301961, 1)
 }]
 
 [node name="NodePathResolver" type="Node2D" parent="WorldLayer_0/Level_2/EntitiesLargeGrid"]
 
-[node name="Checkpoint" type="Area2D" parent="WorldLayer_0/Level_2/EntitiesLargeGrid" groups=["Checkpoint"] instance=ExtResource("10_xuk0s")]
+[node name="Checkpoint" type="Area2D" parent="WorldLayer_0/Level_2/EntitiesLargeGrid" groups=["Checkpoint"] instance=ExtResource("10_o5bmf")]
 position = Vector2(232, 221)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("11_yy183")
+script = ExtResource("11_d0x44")
 collision_size = Vector2(80, 32)
 collider_position = Vector2(712, 288)
 
 [node name="EntitiesPreciseGrid" type="Node2D" parent="WorldLayer_0/Level_2"]
-script = ExtResource("5_7pe4o")
+script = ExtResource("5_7qxp8")
 definition = {
 "gridSize": 8.0,
 "identifier": "EntitiesPreciseGrid",
@@ -621,7 +631,7 @@ entities = [{
 
 [node name="NodePathResolver" type="Node2D" parent="WorldLayer_0/Level_2/EntitiesPreciseGrid"]
 
-[node name="MovingSawBlade" type="Path2D" parent="WorldLayer_0/Level_2/EntitiesPreciseGrid" instance=ExtResource("16_rko8c")]
-curve = SubResource("Curve2D_4gai4")
-script = ExtResource("17_20wbn")
+[node name="MovingSawBlade" type="Path2D" parent="WorldLayer_0/Level_2/EntitiesPreciseGrid" instance=ExtResource("16_ig20e")]
+curve = SubResource("Curve2D_m26sc")
+script = ExtResource("17_c1vog")
 loop_back = false

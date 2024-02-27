@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgmpi7mntqnjr"]
+
+[ext_resource type="Script" path="res://ldtk_levels/ldtk_runner.gd" id="1_bh5ff"]
+
+[node name="LdtkRunner" type="Node2D"]
+script = ExtResource("1_bh5ff")
