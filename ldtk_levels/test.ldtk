@@ -39,7 +39,7 @@
 	"levelNamePattern": "Level_%idx",
 	"tutorialDesc": null,
 	"customCommands": [],
-	"flags": ["MultiWorlds"],
+	"flags": [ "IgnoreBackupSuggest", "MultiWorlds" ],
 	"defs": { "layers": [
 		{
 			"__type": "Entities",
@@ -4199,6 +4199,22 @@
 										"params": [ true ]
 									}] }
 								]
+							},
+							{
+								"__identifier": "PlayerSpawn",
+								"__grid": [6,1],
+								"__pivot": [0.5,1],
+								"__tags": ["Player"],
+								"__tile": { "tilesetUid": 87, "x": 0, "y": 0, "w": 26, "h": 26 },
+								"__smartColor": "#FFFFFF",
+								"__worldX": 104,
+								"__worldY": 32,
+								"iid": "b9ab7570-b0a0-11ee-95eb-2b3bb553877d",
+								"width": 26,
+								"height": 26,
+								"defUid": 86,
+								"px": [104,32],
+								"fieldInstances": []
 							}
 						]
 					},
@@ -6129,24 +6145,7 @@
 						"seed": 349623,
 						"overrideTilesetUid": null,
 						"gridTiles": [],
-						"entityInstances": [
-							{
-								"__identifier": "PlayerSpawn",
-								"__grid": [26,7],
-								"__pivot": [0.5,1],
-								"__tags": ["Player"],
-								"__tile": { "tilesetUid": 87, "x": 0, "y": 0, "w": 26, "h": 26 },
-								"__smartColor": "#FFFFFF",
-								"__worldX": 2344,
-								"__worldY": 128,
-								"iid": "20695520-b0a0-11ee-a30f-e5b4b2cb6f1a",
-								"width": 26,
-								"height": 26,
-								"defUid": 86,
-								"px": [424,128],
-								"fieldInstances": []
-							}
-						]
+						"entityInstances": []
 					},
 					{
 						"__identifier": "Dungeon",
