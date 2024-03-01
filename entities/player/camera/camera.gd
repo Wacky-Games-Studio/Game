@@ -37,7 +37,7 @@ func _process(delta):
 
 	global_position.x = new_offset
 
-func update_position() -> void:
+func update_position() -> void:	
 	if _is_static:
 		global_position = _calculate_new_pos()
 
@@ -121,7 +121,7 @@ var limit_tween: Tween
 
 func restrict_camera(rect: Rect2, movement_flags: int, locker: CameraLocker) -> void:
 	var lock_left  = (movement_flags & (1 << 0)) != 0
-	var lock_right = (movement_flags & (1 << 1)) != 0
+	var lock_right = (movement_flags & (1 << 1)) != 0 
 	var lock_up    = (movement_flags & (1 << 2)) != 0
 	var lock_down  = (movement_flags & (1 << 3)) != 0
 	
@@ -142,7 +142,7 @@ func restrict_camera(rect: Rect2, movement_flags: int, locker: CameraLocker) -> 
 	if lock_left : limit_left   = int(rect.position.x - floorf(rect.size.x / 2.0))
 	if lock_up   : limit_top    = int(rect.position.y - floorf(rect.size.y / 2.0))
 	if lock_down : limit_bottom = int(rect.position.y + floorf(rect.size.y / 2.0))
-	
+
 	_queued_right  = limit_right
 	_queued_left   = limit_left
 	_queued_top    = limit_top

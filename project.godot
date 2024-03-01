@@ -67,6 +67,7 @@ folder_colors={
 "res://entities/player/": "blue",
 "res://entities/torches/": "gray",
 "res://globabls/": "yellow",
+"res://ldtk_levels/": "pink",
 "res://scenes/": "orange"
 }
 
