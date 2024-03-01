@@ -4,6 +4,10 @@ extends StaticBody2D
 
 @export var door: Door
 
+func _ready():
+	if rotation == 270: position += Vector2(8, 0)
+	if rotation == 90: position -= Vector2(8, 0)
+
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	$Sprite2D.frame = 1
 	$AudioStreamPlayer2D.play()
