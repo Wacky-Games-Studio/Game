@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dedn6aidfw8ov"]
+[gd_scene load_steps=3 format=3 uid="uid://bmqo85r2cykyb"]
 
-[ext_resource type="Texture2D" uid="uid://b7tpq8qmk4xr0" path="res://entities/platforms/oneway/one_way.png" id="1_sw4d7"]
+[ext_resource type="Texture2D" uid="uid://b7tpq8qmk4xr0" path="res://entities/platforms/oneway/one_way.png" id="1_85nk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwugg"]
 size = Vector2(16, 16)
@@ -8,11 +8,12 @@ size = Vector2(16, 16)
 [node name="OneWay" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_sw4d7")
+texture = ExtResource("1_85nk2")
 hframes = 4
 vframes = 4
-frame = 5
+frame = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_fwugg")
 one_way_collision = true

@@ -5,13 +5,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwugg"]
 size = Vector2(16, 16)
 
-[node name="OneWayUp" type="StaticBody2D"]
+[node name="OneWay" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qbpk1")
 hframes = 4
 vframes = 4
-frame = 5
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fwugg")

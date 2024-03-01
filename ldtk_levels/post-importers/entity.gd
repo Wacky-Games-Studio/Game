@@ -80,6 +80,10 @@ func _handle_sawblade(entity, entity_layer: LDTKEntityLayer) -> void:
 
 func _handle_button(entity, entity_layer: LDTKEntityLayer) -> void:
 	var door_iid = entity.fields.Door
+	if door_iid == null: 
+		printerr("Door iid is null. You have likely not assigned a button to a door. Check LDtk")
+		return
+
 	var btn_door = _find_entity_by_id(door_iid)
 	
 	var door: Door = DOOR.instantiate() if btn_door.identifier != "HorizontalDoor" else HORIZONTAL_DOOR.instantiate()
