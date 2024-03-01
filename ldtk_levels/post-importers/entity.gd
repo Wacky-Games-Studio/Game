@@ -2,6 +2,7 @@
 
 const MOVINGSAWBLADE := preload("res://entities/moving_saw_blade/moving_saw_blade.tscn")
 const DOOR := preload("res://entities/door/door.tscn")
+const HORIZONTAL_DOOR = preload("res://entities/door/horizontal_door.tscn")
 const BUTTON = preload("res://entities/door/button.tscn")
 const CAMERA_TRIGGER = preload("res://entities/camera_trigger/camera_trigger.tscn")
 const CAMERA_LOCKER = preload("res://entities/camera_locker/camera_locker.tscn")
@@ -21,7 +22,6 @@ var identifier_function := {
 	"Spring": _handle_spring,
 	"WinTrigger": _handle_win_trigger, 
 }
-
 var definition: Dictionary
 var entities: Array
 var current_layer: LDTKEntityLayer
@@ -82,7 +82,7 @@ func _handle_button(entity, entity_layer: LDTKEntityLayer) -> void:
 	var door_iid = entity.fields.Door
 	var btn_door = _find_entity_by_id(door_iid)
 	
-	var door: Door = DOOR.instantiate()
+	var door: Door = DOOR.instantiate() if btn_door.identifier != "HorizontalDoor" else HORIZONTAL_DOOR.instantiate()
 	var button: DuckButton = BUTTON.instantiate()
 	
 	door.position = btn_door.position

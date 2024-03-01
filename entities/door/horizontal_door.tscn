@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c688q3v05cx2m"]
+[gd_scene load_steps=9 format=3 uid="uid://71o25jat66w5"]
 
-[ext_resource type="Script" path="res://entities/door/door.gd" id="1_bw6m1"]
-[ext_resource type="Texture2D" uid="uid://odgq62icg5xk" path="res://entities/door/vertical_door.png" id="2_1m06k"]
-[ext_resource type="AudioStream" uid="uid://b6yppdpycxd05" path="res://entities/door/door_opening.wav" id="3_84848"]
+[ext_resource type="Script" path="res://entities/door/door.gd" id="1_6sgi6"]
+[ext_resource type="Texture2D" uid="uid://dc3ks8ir2u7ou" path="res://entities/door/horizontal_door.png" id="2_be6bb"]
+[ext_resource type="AudioStream" uid="uid://b6yppdpycxd05" path="res://entities/door/door_opening.wav" id="3_0n71y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47g3s"]
-size = Vector2(16, 48)
+size = Vector2(32, 16)
 
 [sub_resource type="Animation" id="Animation_3uum1"]
 length = 0.001
@@ -98,14 +98,15 @@ _data = {
 }
 
 [node name="Door" type="StaticBody2D"]
-script = ExtResource("1_bw6m1")
+script = ExtResource("1_6sgi6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_47g3s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_1m06k")
-hframes = 4
+texture = ExtResource("2_be6bb")
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -113,5 +114,5 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_84848")
+stream = ExtResource("3_0n71y")
 bus = &"Cave"
