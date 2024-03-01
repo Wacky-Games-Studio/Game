@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://mmj4tmw8v3ab"]
+
+[ext_resource type="Texture2D" uid="uid://b7tpq8qmk4xr0" path="res://entities/platforms/oneway/one_way.png" id="1_xys5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwugg"]
+size = Vector2(16, 16)
+
+[node name="OneWayUp" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xys5y")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fwugg")
+one_way_collision = true

@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ch6qr7wk7w1gs" path="res://entities/win/win.tscn" id="6_p5pha"]
 [ext_resource type="PackedScene" uid="uid://btyxy5o3yse7h" path="res://entities/door/door_small.tscn" id="6_trlis"]
 [ext_resource type="PackedScene" uid="uid://buap2ocmwtypr" path="res://scenes/dungeon/parallax_background.tscn" id="8_h14j8"]
-[ext_resource type="PackedScene" uid="uid://kyxe2iukdtf8" path="res://entities/platforms/breaking_platform/breaking_platform.tscn" id="9_3yk3n"]
 [ext_resource type="PackedScene" uid="uid://cnniproj0if4l" path="res://entities/camera_trigger/camera_trigger.tscn" id="10_6x0xc"]
+[ext_resource type="PackedScene" uid="uid://cvkwthfvg6i3t" path="res://entities/platforms/oneway/one_way.tscn" id="11_7mk3s"]
 [ext_resource type="PackedScene" uid="uid://cs11molxcwppp" path="res://entities/camera_locker/camera_locker.tscn" id="11_aud6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gednv"]
@@ -143,9 +143,6 @@ position = Vector2(134, 112)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("8_h14j8")]
 
-[node name="FallingPlatform" parent="." instance=ExtResource("9_3yk3n")]
-position = Vector2(256, 88)
-
 [node name="CameraTrigger" parent="." instance=ExtResource("10_6x0xc")]
 position = Vector2(640, 64)
 
@@ -177,6 +174,10 @@ position = Vector2(1576, -112)
 [node name="CollisionShape2D" parent="CameraTrigger2" index="0"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_evm14")
+
+[node name="OneWay" parent="." instance=ExtResource("11_7mk3s")]
+rotation = 1.5708
+layer_0/tile_data = PackedInt32Array(-1048573, 65536, 0, -1048572, 65536, 0, -1048571, 65536, 0)
 
 [editable path="Checkpoints/Checkpoint"]
 [editable path="Checkpoints/Checkpoint2"]
