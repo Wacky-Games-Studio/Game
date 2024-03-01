@@ -135,6 +135,7 @@ func _handle_checkpoint(entity, entity_layer: LDTKEntityLayer) -> void:
 	checkpoint.collider_position = entity_layer.global_position + Vector2(checkpoint_colldier.position) + Vector2(checkpoint_colldier.size / Vector2i(2, 2))
 	checkpoint.position = entity.position + Vector2i(0, -11)
 	checkpoint.should_face_left_on_spawn = entity.fields.ShouldFaceLeft
+	checkpoint.name = entity.iid
 	
 	entity_layer.add_child(checkpoint)
 
