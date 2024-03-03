@@ -525,6 +525,7 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 script = ExtResource("10_2uyqp")
 move_speed = 0.5
+camera_speed = 5.0
 
 [node name="floaty" parent="Camera" instance=ExtResource("12_aqobf")]
 show_behind_parent = true
