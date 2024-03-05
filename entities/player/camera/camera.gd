@@ -170,10 +170,10 @@ func set_static(value: bool) -> void:
 		# elif player.velocity.x < 0: _start_lerp(-target_distance, DynamicState.MovingLeft)
 
 	else:
-		lock_right: limit_right  =  10000000
-		lock_left : limit_left   = -10000000
-		lock_up   : limit_top    = -10000000
-		lock_down : limit_bottom =  10000000
+		limit_right  =  10000000
+		limit_left   = -10000000
+		limit_top    = -10000000
+		limit_bottom =  10000000
 		var target_pos = _calculate_new_pos()
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
 		tween.tween_property(self, "global_position", target_pos, move_speed)
