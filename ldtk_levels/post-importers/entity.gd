@@ -81,7 +81,7 @@ func _handle_sawblade(entity, entity_layer: LDTKEntityLayer) -> void:
 func _handle_button(entity, entity_layer: LDTKEntityLayer) -> void:
 	var door_iid = entity.fields.Door
 	if door_iid == null: 
-		printerr("Door iid is null. You have likely not assigned a button to a door. Check LDtk")
+		printerr("Door iid is null. You have likely not assigned a button to a door. Check LDtk (btn iid: ", entity.iid, ", pos: ", entity.position, ")")
 		return
 
 	var btn_door = _find_entity_by_id(door_iid)
@@ -132,8 +132,6 @@ func _handle_camera_locker(entity, entity_layer: LDTKEntityLayer) -> void:
 func _handle_checkpoint(entity, entity_layer: LDTKEntityLayer) -> void:
 	var checkpoint: Checkpoint = CHECKPOINT.instantiate()
 	var checkpoint_colldier = _find_entity_by_id(entity.fields.CheckpointTrigger)
-	
-	print("entities ", entity_layer.global_position)
 	
 	checkpoint.collision_size = Vector2(checkpoint_colldier.size)
 	checkpoint.collider_position = entity_layer.global_position + Vector2(checkpoint_colldier.position) + Vector2(checkpoint_colldier.size / Vector2i(2, 2))

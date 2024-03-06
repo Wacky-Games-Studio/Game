@@ -3,14 +3,14 @@
 importer="ldtk.import"
 type="PackedScene"
 uid="uid://cso54wgaeecym"
-path="res://.godot/imported/test.ldtk-e56c76c4251ba96a86fce7ff6e63f900.scn"
+path="res://.godot/imported/GameWorld.ldtk-a30c96b7e3f0976993fb958a61475621.scn"
 
 [deps]
 
 files=["res://ldtk_levels/tilesets/tileset16x16.res", "res://ldtk_levels/tilesets/tileset26x26.res", "res://ldtk_levels/tilesets/tileset32x32.res", "res://ldtk_levels/tilesets/tileset48x48.res", "res://ldtk_levels/tilesets/tileset22x22.res", "res://ldtk_levels/tilesets/tileset64x64.res"]
 
-source_file="res://ldtk_levels/test.ldtk"
-dest_files=["res://.godot/imported/test.ldtk-e56c76c4251ba96a86fce7ff6e63f900.scn", "res://ldtk_levels/tilesets/tileset16x16.res", "res://ldtk_levels/tilesets/tileset26x26.res", "res://ldtk_levels/tilesets/tileset32x32.res", "res://ldtk_levels/tilesets/tileset48x48.res", "res://ldtk_levels/tilesets/tileset22x22.res", "res://ldtk_levels/tilesets/tileset64x64.res"]
+source_file="res://ldtk_levels/GameWorld.ldtk"
+dest_files=["res://.godot/imported/GameWorld.ldtk-a30c96b7e3f0976993fb958a61475621.scn", "res://ldtk_levels/tilesets/tileset16x16.res", "res://ldtk_levels/tilesets/tileset26x26.res", "res://ldtk_levels/tilesets/tileset32x32.res", "res://ldtk_levels/tilesets/tileset48x48.res", "res://ldtk_levels/tilesets/tileset22x22.res", "res://ldtk_levels/tilesets/tileset64x64.res"]
 
 [params]
 
@@ -22,7 +22,6 @@ force_tileset_reimport=false
 tileset_custom_data=false
 allow_overlapping_tiles=true
 atlas_texture_type=0
-skip_importing_tileset=false
 Entity=""
 use_entity_placeholders=false
 Post Import=""

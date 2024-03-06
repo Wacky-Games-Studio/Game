@@ -73,10 +73,6 @@ func _get_import_options(path, index):
 			"property_hint": PROPERTY_HINT_ENUM,
 			"hint_string": "CompressedTexture2D,CanvasTexture",
 		},
-		{
-			"name": "skip_importing_tileset",
-			"default_value": false,
-		},
 		# --- Entities --- #
 		{"name": "Entity", "default_value":"", "usage": PROPERTY_USAGE_GROUP},
 		{
@@ -169,7 +165,7 @@ func _import(
 		for world_instance in world_instances:
 			var world_instance_name = world_instance.identifier
 
-			var levels := Level.build_levels(world_instance, definitions, base_dir)
+			var levels := Level.build_levels(world_instance, definitions, base_dir, world_data)
 			Util.log_time("\nBuilt Levels: " + world_instance_name)
 
 			var world_node := World.create_world(world_instance_name, levels)
@@ -185,7 +181,7 @@ func _import(
 
 		world = World.create_multi_world(world_name, world_nodes)
 	else:
-		var levels := Level.build_levels(world_data, definitions, base_dir)
+		var levels := Level.build_levels(world_data, definitions, base_dir, world_data)
 		Util.log_time("Built Levels")
 
 		world = World.create_world(world_name, levels)

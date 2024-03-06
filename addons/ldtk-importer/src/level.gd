@@ -11,7 +11,8 @@ static var base_directory: String
 static func build_levels(
 		world_data: Dictionary,
 		definitions: Dictionary,
-		base_dir: String
+		base_dir: String,
+		universe_data: Dictionary
 ) -> Array[LDTKLevel]:
 
 	base_directory = base_dir
@@ -39,8 +40,8 @@ static func build_levels(
 			printerr("World Layout not supported: ", world_data.worldLayout)
 
 	var external_levels = false
-	if world_data.has('externalLevels'):
-		external_levels = world_data.externalLevels
+	if universe_data.has('externalLevels'):
+		external_levels = universe_data.get("externalLevels")
 
 	# Create levels
 	for level_index in range(world_data.levels.size()):

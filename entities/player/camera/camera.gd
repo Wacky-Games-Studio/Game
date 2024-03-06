@@ -128,9 +128,9 @@ func _on_screen_notifier_screen_exited() -> void:
 	var target_pos = _calculate_new_pos()
 	
 	# HACK: what???
-	if target_pos == global_position:
-		var viewport_size := get_viewport_rect().size
-		player.global_position.y -= viewport_size.y
+	#if target_pos == global_position:
+	#	var viewport_size := get_viewport_rect().size
+	#	player.global_position.y -= viewport_size.y
 	
 	if instant_move:
 		global_position = target_pos
@@ -205,13 +205,21 @@ func restrict_camera(rect: Rect2, movement_flags: int, locker: CameraLocker) -> 
 	
 	_camera_lockers.push_back(locker)
 	
-	if lock_right: limit_right  = int(rect.position.x + floorf(rect.size.x / 2.0))
-	if lock_left : limit_left   = int(rect.position.x - floorf(rect.size.x / 2.0))
-	if lock_up   : limit_top    = int(rect.position.y - floorf(rect.size.y / 2.0))
-	if lock_down : limit_bottom = int(rect.position.y + floorf(rect.size.y / 2.0))
-
-	_queued_right  = limit_right
-	_queued_left   = limit_left
-	_queued_top    = limit_top
-	_queued_bottom = limit_bottom
+	_queued_right  =  10000000
+	_queued_left   = -10000000
+	_queued_top    = -10000000
+	_queued_bottom =  10000000
+	
+	if lock_right: _queued_right  = int(rect.position.x + floorf(rect.size.x / 2.0))
+	if lock_left : _queued_left   = int(rect.position.x - floorf(rect.size.x / 2.0))
+	if lock_up   : _queued_top    = int(rect.position.y - floorf(rect.size.y / 2.0))
+	if lock_down : _queued_bottom = int(rect.position.y + floorf(rect.size.y / 2.0))
+	
+	print(_queued_top, " ", _queued_bottom)
+	
+	#if _is_static == false:
+		#if lock_right: limit_right  = _queued_right
+		#if lock_left : limit_left   = _queued_left
+		#if lock_up   : limit_top    = _queued_top
+		#if lock_down : limit_bottom = _queued_bottom
 	

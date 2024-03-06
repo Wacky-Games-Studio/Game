@@ -118,8 +118,6 @@ func replace_tiles(tilemap: TileMap, atlas: int, layer: int, world: LDTKWorld) -
 		
 		tilemap.add_child(oneway)
 		oneway.owner = world
-
-		print(tilemap.get_children())
 		
 		tilemap.set_cell(layer, pos)
 
