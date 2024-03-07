@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhji4jxg33y1r"]
+
+[ext_resource type="Theme" uid="uid://poxaxq7c8cwk" path="res://theme.tres" id="1_hrtvg"]
+[ext_resource type="Script" path="res://entities/player/ui/BouncyButton.gd" id="1_n46p7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unc3f"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xb0r0"]
+line_spacing = -10.0
+font_size = 30
+outline_size = 10
+outline_color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hrtvg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_unc3f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "DUCK
+DUNGEON"
+label_settings = SubResource("LabelSettings_xb0r0")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Play"
+script = ExtResource("1_n46p7")
+scale_size = 1.1
+transition_type = 9
+should_grab_focus = true
+
+[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Settings"
+script = ExtResource("1_n46p7")
+scale_size = 1.1
+transition_type = 9
+should_grab_focus = true
+
+[node name="CreditsButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Credits"
+script = ExtResource("1_n46p7")
+scale_size = 1.1
+transition_type = 9
+should_grab_focus = true
+
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Quit
+"
+script = ExtResource("1_n46p7")
+scale_size = 1.1
+transition_type = 9
+should_grab_focus = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200

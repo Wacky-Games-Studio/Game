@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bupuxll4x4kal"]
+[gd_scene load_steps=59 format=3 uid="uid://bupuxll4x4kal"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_c6iwh"]
 [ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_b23r8"]
@@ -41,6 +41,7 @@
 [ext_resource type="Script" path="res://entities/player/states/spring_jump.gd" id="36_tbon6"]
 [ext_resource type="Script" path="res://entities/player/states/dead.gd" id="37_4kq2h"]
 [ext_resource type="Script" path="res://entities/player/states/respawn.gd" id="38_cxxw8"]
+[ext_resource type="PackedScene" uid="uid://b1po6o5daam0w" path="res://entities/player/ui/ui.tscn" id="42_v1is8"]
 
 [sub_resource type="Resource" id="Resource_3efa2"]
 script = ExtResource("2_j64qf")
@@ -672,6 +673,8 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeDetector"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_q0b3u")
+
+[node name="UI" parent="." instance=ExtResource("42_v1is8")]
 
 [connection signal="screen_exited" from="OnScreenNotifier" to="Camera" method="_on_screen_notifier_screen_exited"]
 [connection signal="body_entered" from="SpikeDetector" to="." method="_on_spike_detector_entered"]

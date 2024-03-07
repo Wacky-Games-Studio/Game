@@ -1,5 +1,8 @@
 extends Node
 
+signal ScenePaused()
+signal SceneStarted()
+
 var scene_paused: bool = false
 var player: Player
 
@@ -26,7 +29,9 @@ func finnish_level() -> void:
 	FadeTransition.remove_transition()
 
 func pause_scene():
+	emit_signal("ScenePaused")
 	scene_paused = true
 
 func start_scene():
+	emit_signal("SceneStarted")
 	scene_paused = false

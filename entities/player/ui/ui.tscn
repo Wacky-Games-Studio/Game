@@ -1,0 +1,166 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1po6o5daam0w"]
+
+[ext_resource type="Script" path="res://entities/player/ui/BouncyButton.gd" id="1_ponbp"]
+[ext_resource type="Script" path="res://entities/player/ui/ui.gd" id="1_y0vt8"]
+[ext_resource type="Script" path="res://entities/player/ui/PauseMenu.gd" id="2_lanfb"]
+[ext_resource type="Theme" uid="uid://poxaxq7c8cwk" path="res://theme.tres" id="2_vt4sg"]
+[ext_resource type="Script" path="res://entities/player/ui/QuitPanel.gd" id="3_rkiyn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpict"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 0.427451)
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_y0vt8")
+
+[node name="RootUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_vt4sg")
+
+[node name="PauseMenu" type="Control" parent="RootUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_lanfb")
+
+[node name="Panel" type="Panel" parent="RootUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fpict")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootUI/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 168.0
+offset_bottom = 117.0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RootUI/PauseMenu/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootUI/PauseMenu/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "PAUSED"
+
+[node name="MarginContainer" type="MarginContainer" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="Panel" type="Panel" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResumeButton" type="Button" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Resume
+"
+script = ExtResource("1_ponbp")
+scale_size = 1.1
+transition_type = 9
+should_grab_focus = true
+
+[node name="SettingsButton" type="Button" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("1_ponbp")
+scale_size = 1.1
+
+[node name="QuitButton" type="Button" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("1_ponbp")
+scale_size = 1.1
+
+[node name="QuitPanel" type="Panel" parent="RootUI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 80.0
+offset_right = -136.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fpict")
+script = ExtResource("3_rkiyn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootUI/QuitPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="RootUI/QuitPanel/VBoxContainer"]
+layout_mode = 2
+text = "Are you sure?"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="RootUI/QuitPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootUI/QuitPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="YesButton" type="Button" parent="RootUI/QuitPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Yes"
+script = ExtResource("1_ponbp")
+scale_size = 1.1
+transition_type = 9
+
+[node name="MarginContainer" type="MarginContainer" parent="RootUI/QuitPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="NoButton" type="Button" parent="RootUI/QuitPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "No
+"
+script = ExtResource("1_ponbp")
+scale_size = 1.1
+transition_type = 9
+
+[connection signal="pressed" from="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="quit_modal_exited" from="RootUI/QuitPanel" to="." method="_on_quit_panel_quit_modal_exited"]
+[connection signal="pressed" from="RootUI/QuitPanel/VBoxContainer/HBoxContainer/YesButton" to="RootUI/QuitPanel" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="RootUI/QuitPanel/VBoxContainer/HBoxContainer/NoButton" to="RootUI/QuitPanel" method="_on_ok_button_pressed"]
