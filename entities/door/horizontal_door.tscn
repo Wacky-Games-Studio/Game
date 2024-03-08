@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b6yppdpycxd05" path="res://entities/door/door_opening.wav" id="3_0n71y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47g3s"]
-size = Vector2(32, 16)
+size = Vector2(48, 16)
 
 [sub_resource type="Animation" id="Animation_3uum1"]
 length = 0.001
@@ -101,7 +101,6 @@ _data = {
 script = ExtResource("1_6sgi6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_47g3s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
