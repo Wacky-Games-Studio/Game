@@ -1,0 +1,273 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceo71uulv030k"]
+
+[ext_resource type="Texture2D" uid="uid://potd83gtaowu" path="res://scenes/cutscene/cutscene.png" id="1_rlrtd"]
+[ext_resource type="Texture2D" uid="uid://s75esjh6otu6" path="res://scenes/cutscene/think_bubble.png" id="2_83ffw"]
+[ext_resource type="Texture2D" uid="uid://b2sledxfn5utv" path="res://entities/player/sprites/duck_spritesheet.png" id="2_fcev0"]
+[ext_resource type="Texture2D" uid="uid://vkrts3sykjky" path="res://scenes/cutscene/smoke.png" id="3_tqhx0"]
+
+[sub_resource type="Gradient" id="Gradient_na8sp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_sd56r"]
+resource_name = "cutscene"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4, 8.1),
+"transitions": PackedFloat32Array(1, 6.49801),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(0.25, 0.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.5, 8.1),
+"transitions": PackedFloat32Array(1, 9.18957),
+"update": 0,
+"values": [Vector2(961, 653), Vector2(961, 544)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ThinkBubble:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ThinkBubble:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6, 8.1),
+"transitions": PackedFloat32Array(1, 2.92817),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ThinkBubble/SkyNormal/PlayerSmall:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 2, 3, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ThinkBubble/SkyNormal/PlayerSmall:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.2, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(193, 197), Vector2(293, 197)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SkyFucked/PlayerBig:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(8, 8.5, 9, 9.5, 10, 10.5, 11, 11.4, 11.6, 11.8, 12, 12.2, 12.4, 12.6, 12.8, 13, 13.2, 13.4, 13.6, 13.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 2, 3, 2, 3, 2, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SkyFucked/PlayerBig:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(11.4, 13.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(202.5, 197), Vector2(469, 197)]
+}
+
+[sub_resource type="Animation" id="Animation_d8tk0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(961, 653)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ThinkBubble:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ThinkBubble:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ThinkBubble/SkyNormal/PlayerSmall:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ThinkBubble/SkyNormal/PlayerSmall:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(193, 197)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SkyFucked/PlayerBig:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SkyFucked/PlayerBig:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(202.5, 197)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0effw"]
+_data = {
+"RESET": SubResource("Animation_d8tk0"),
+"cutscene": SubResource("Animation_sd56r")
+}
+
+[node name="IntroCutScene" type="Node2D"]
+
+[node name="SkyFucked" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_rlrtd")
+centered = false
+hframes = 2
+frame = 1
+
+[node name="PlayerBig" type="Sprite2D" parent="SkyFucked"]
+position = Vector2(202.5, 197)
+texture = ExtResource("2_fcev0")
+hframes = 2
+vframes = 5
+frame = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="SkyFucked"]
+position = Vector2(438, 83)
+scale = Vector2(0.25, 0.25)
+amount = 20
+lifetime = 2.0
+texture = ExtResource("3_tqhx0")
+emission_shape = 3
+emission_rect_extents = Vector2(40, 1)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, -490)
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+color_ramp = SubResource("Gradient_na8sp")
+
+[node name="ThinkBubble" type="Sprite2D" parent="."]
+position = Vector2(942, 667)
+scale = Vector2(2, 2)
+texture = ExtResource("2_83ffw")
+
+[node name="SkyNormal" type="Sprite2D" parent="ThinkBubble"]
+position = Vector2(-20.5, -24)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_rlrtd")
+centered = false
+hframes = 2
+
+[node name="PlayerSmall" type="Sprite2D" parent="ThinkBubble/SkyNormal"]
+position = Vector2(193, 197)
+texture = ExtResource("2_fcev0")
+hframes = 2
+vframes = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(961, 653)
+zoom = Vector2(4, 4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0effw")
+}
+autoplay = "cutscene"

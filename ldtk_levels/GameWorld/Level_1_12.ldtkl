@@ -76,54 +76,7 @@
 			"seed": 9493401,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
-			"entityInstances": [
-				{
-					"__identifier": "CameraLocker",
-					"__grid": [0,0],
-					"__pivot": [0,0],
-					"__tags": ["Trigger"],
-					"__tile": { "tilesetUid": 104, "x": 16, "y": 0, "w": 16, "h": 16 },
-					"__smartColor": "#E4A672",
-					"__worldX": 3840,
-					"__worldY": 272,
-					"iid": "4d309490-b0a0-11ee-a30f-23ac0b694c14",
-					"width": 480,
-					"height": 272,
-					"defUid": 108,
-					"px": [0,0],
-					"fieldInstances": [
-						{ "__identifier": "LockLeft", "__type": "Bool", "__value": false, "__tile": null, "defUid": 110, "realEditorValues": [null] },
-						{ "__identifier": "LockRight", "__type": "Bool", "__value": true, "__tile": null, "defUid": 111, "realEditorValues": [{
-							"id": "V_Bool",
-							"params": [ true ]
-						}] },
-						{ "__identifier": "LockUp", "__type": "Bool", "__value": true, "__tile": null, "defUid": 112, "realEditorValues": [{
-							"id": "V_Bool",
-							"params": [ true ]
-						}] },
-						{ "__identifier": "LockDown", "__type": "Bool", "__value": true, "__tile": null, "defUid": 113, "realEditorValues": [{
-							"id": "V_Bool",
-							"params": [ true ]
-						}] }
-					]
-				},
-				{
-					"__identifier": "PlayerSpawn",
-					"__grid": [18,5],
-					"__pivot": [0.5,1],
-					"__tags": ["Player"],
-					"__tile": { "tilesetUid": 87, "x": 0, "y": 0, "w": 26, "h": 26 },
-					"__smartColor": "#FFFFFF",
-					"__worldX": 4136,
-					"__worldY": 368,
-					"iid": "ccaa0040-d7b0-11ee-aa46-cf8663db4cba",
-					"width": 26,
-					"height": 26,
-					"defUid": 86,
-					"px": [296,96],
-					"fieldInstances": []
-				}
-			]
+			"entityInstances": []
 		},
 		{
 			"__identifier": "Dungeon",
@@ -703,9 +656,7 @@
 				{ "px": [176,192], "src": [432,32], "f": 0, "t": 113, "d": [505,371], "a": 1 },
 				{ "px": [192,192], "src": [432,32], "f": 0, "t": 113, "d": [505,372], "a": 1 },
 				{ "px": [208,192], "src": [432,32], "f": 0, "t": 113, "d": [505,373], "a": 1 },
-				{ "px": [224,192], "src": [432,32], "f": 0, "t": 113, "d": [505,374], "a": 1 },
 				{ "px": [240,192], "src": [432,32], "f": 0, "t": 113, "d": [505,375], "a": 1 },
-				{ "px": [256,192], "src": [432,32], "f": 0, "t": 113, "d": [505,376], "a": 1 },
 				{ "px": [272,192], "src": [432,32], "f": 0, "t": 113, "d": [505,377], "a": 1 },
 				{ "px": [288,192], "src": [432,32], "f": 0, "t": 113, "d": [505,378], "a": 1 },
 				{ "px": [304,192], "src": [432,32], "f": 0, "t": 113, "d": [505,379], "a": 1 },
@@ -772,7 +723,9 @@
 				{ "px": [368,224], "src": [416,16], "f": 0, "t": 69, "d": [513,443], "a": 1 },
 				{ "px": [144,80], "src": [416,0], "f": 0, "t": 26, "d": [514,159], "a": 1 },
 				{ "px": [176,128], "src": [416,0], "f": 0, "t": 26, "d": [514,251], "a": 1 },
-				{ "px": [192,144], "src": [416,0], "f": 0, "t": 26, "d": [514,282], "a": 1 }
+				{ "px": [192,144], "src": [416,0], "f": 0, "t": 26, "d": [514,282], "a": 1 },
+				{ "px": [224,192], "src": [416,32], "f": 0, "t": 112, "d": [515,374], "a": 1 },
+				{ "px": [256,192], "src": [416,32], "f": 0, "t": 112, "d": [515,376], "a": 1 }
 			],
 			"seed": 782178,
 			"overrideTilesetUid": null,

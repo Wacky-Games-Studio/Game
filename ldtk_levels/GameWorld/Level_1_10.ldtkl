@@ -76,7 +76,24 @@
 			"seed": 9972401,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
-			"entityInstances": []
+			"entityInstances": [
+				{
+					"__identifier": "PlayerSpawn",
+					"__grid": [19,10],
+					"__pivot": [0.5,1],
+					"__tags": ["Player"],
+					"__tile": { "tilesetUid": 87, "x": 0, "y": 0, "w": 26, "h": 26 },
+					"__smartColor": "#FFFFFF",
+					"__worldX": 3672,
+					"__worldY": 176,
+					"iid": "ccaa0040-d7b0-11ee-aa46-cf8663db4cba",
+					"width": 26,
+					"height": 26,
+					"defUid": 86,
+					"px": [312,176],
+					"fieldInstances": []
+				}
+			]
 		},
 		{
 			"__identifier": "Dungeon",

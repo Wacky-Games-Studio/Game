@@ -6,8 +6,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	unhandled_input(event)
 
 func _process(delta: float) -> void:
-	if SceneManager.scene_paused: 
-		print("scene paused")
+	if SceneManager.scene_paused:
 		return
 	process(delta)
 
