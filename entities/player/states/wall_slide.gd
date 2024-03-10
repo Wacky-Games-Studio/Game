@@ -5,7 +5,7 @@ extends State
 @export var fall_state: State
 @export var wall_jump_state: State
 
-var direction_of_slide: int
+var direction_of_slide: float
 
 func enter() -> void:
 	super()

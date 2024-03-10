@@ -6,7 +6,6 @@ var _return_var: State = null
 
 func enter() -> void:
 	super()
-	
 	await parent.animator.animation_finished
 	_return_var = idle
 

@@ -89,6 +89,7 @@ func _handle_button(entity, entity_layer: LDTKEntityLayer) -> void:
 	var door: Door = DOOR.instantiate() if btn_door.identifier != "HorizontalDoor" else HORIZONTAL_DOOR.instantiate()
 	var button: DuckButton = BUTTON.instantiate()
 	
+	door.name = door_iid
 	door.position = btn_door.position
 	button.position = entity.position
 	button.rotation_degrees = entity.fields.Rotation

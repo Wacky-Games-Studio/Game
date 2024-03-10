@@ -20,6 +20,8 @@ extends PausableEntity
 @onready var ceiling_raycasts: CeilingRaycasts = $Raycasts/CeilingRaycasts
 @onready var wall_raycasts: WallRaycasts = $Raycasts/WallRaycasts
 @onready var floor_raycasts: FloorRaycasts = $Raycasts/FloorRayCasts
+@onready var canvas_modulate: CanvasModulate = $CanvasModulate
+@onready var light: PointLight2D = $PointLight2D
 
 # jump / gravity vars
 @onready var jump_velocity: float = ((2.0 * data.max_jump_height) / data.jump_time_to_peak) * -1.0
@@ -36,6 +38,7 @@ var was_nudged := false
 var has_jumped := true
 var has_spring_jumped := false
 var spring_jump_dir := Vector2.ZERO
+var walljump_enabled := true
 
 func _ready() -> void:
 	#Engine.time_scale = .1
@@ -126,7 +129,7 @@ func get_clamped_gravity(delta: float) -> float:
 	return new_velocity
 
 func is_on_floor_raycasts() -> bool:
-	return is_on_floor() and (floor_raycasts.left or floor_raycasts.right)
+	return is_on_floor() and (floor_raycasts.left or floor_raycasts.center or floor_raycasts.right)
 
 func get_movement_velocity(dir: float, lerp_amount: float = 1.0) -> float:
 	if dir != 0.0: flip(dir)
@@ -161,21 +164,28 @@ func nudge() -> void:
 	was_nudged = false
 	nudge_keep_velocity = velocity
 	
-	var y_diff = (fmod(position.y, 16.0)) - 5.0
 	var x_diff = (fmod(position.x, 16.0)) - 6.0
 	var dir = Input.get_axis("walk_left", "walk_right")
 	
 	# ceiling left
 	if ceiling_raycasts.left_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.right_outer and \
 	   dir != 1:
-		position.x += x_diff
-		was_nudged = true
+		var ray: RayCast2D = ceiling_raycasts.get_node("left_outer")
+		var node: Node2D = ray.get_collider()
+
+		if node != null and node.is_in_group("Oneway") == false:
+			position.x += x_diff
+			was_nudged = true
 	
 	# ceiling right
 	if ceiling_raycasts.right_outer and not ceiling_raycasts.left_inner and not ceiling_raycasts.right_inner and not ceiling_raycasts.left_outer and \
 	   dir != -1:
-		position.x -= x_diff
-		was_nudged = true
+		var ray: RayCast2D = ceiling_raycasts.get_node("right_outer")
+		var node: Node2D = ray.get_collider()
+
+		if node != null and node.is_in_group("Oneway") == false:
+			position.x -= x_diff
+			was_nudged = true
 
 func spring_jump(dir: int) -> void:
 	if (has_spring_jumped): return
@@ -199,6 +209,34 @@ func get_wall_normal_rays_x() -> int:
 	elif wall_raycasts.right: return 1
 	else: return 0
 
+func is_on_wall_custom() -> bool:
+	var result := false
+
+	if wall_raycasts.left:
+		var ray: RayCast2D = wall_raycasts.get_node("left")
+		var node: Node2D = ray.get_collider()
+		if node != null and node.is_in_group("Oneway"):
+			if int(node.rotation_degrees) == 90:
+				result = true
+			else:
+				print(node.rotation_degrees)
+				result = false
+		else:
+			result = true
+
+	if wall_raycasts.right:
+		var ray: RayCast2D = wall_raycasts.get_node("right")
+		var node: Node2D = ray.get_collider()
+		if node != null and node.is_in_group("Oneway"):
+			if int(node.rotation_degrees) == 270:
+				result = true
+			else:
+				result = false
+		else:
+			result = true
+
+	return result
+
 func mod_negative(x: int, n: int) -> int:
 	return (x % n + n) % n
 
@@ -214,3 +252,10 @@ func restrict_camera(rect: Rect2, movement_flags: int, locker: CameraLocker) -> 
 
 func get_static_camera() -> bool:
 	return $Camera.is_static()
+
+func disable_canvas_modulate():
+	canvas_modulate.visible = false
+	light.enabled = false
+
+func disable_walljump():
+	walljump_enabled = false

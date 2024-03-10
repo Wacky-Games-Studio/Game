@@ -22,10 +22,10 @@ func process_physics(delta: float) -> State:
 	parent.velocity.y = parent.get_clamped_gravity(delta)
 	parent.move_and_slide()
 	
-	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):
+	if parent.walljump_enabled and parent.is_on_wall_custom() and Input.is_action_just_pressed("jump"):
 		return wall_jump_state
 	
-	if (dir == 1 and parent.wall_raycasts.right) or (dir == -1 and parent.wall_raycasts.left):
+	if parent.walljump_enabled and ((dir == 1 and parent.wall_raycasts.right) or (dir == -1 and parent.wall_raycasts.left)):
 		return wall_slide_state
 	
 	if parent.is_on_floor_raycasts():

@@ -20,7 +20,6 @@ func _ready():
 func _process(_delta):
 	if pivot_offset == Vector2.ZERO:
 		pivot_offset = size / 2
-		print(size)
 
 func mouse_entered():
 	grab_focus()

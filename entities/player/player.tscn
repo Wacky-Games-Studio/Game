@@ -374,7 +374,7 @@ _data = {
 "walk": SubResource("Animation_nny72")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 13
 platform_floor_layers = 1
@@ -484,6 +484,10 @@ script = ExtResource("9_pjgpv")
 
 [node name="right" type="RayCast2D" parent="Raycasts/FloorRayCasts"]
 position = Vector2(-8, 0)
+target_position = Vector2(0, 14)
+collision_mask = 5
+
+[node name="center" type="RayCast2D" parent="Raycasts/FloorRayCasts"]
 target_position = Vector2(0, 14)
 collision_mask = 5
 

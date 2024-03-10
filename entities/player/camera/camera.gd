@@ -73,8 +73,17 @@ func _update_lerp_position(delta: float) -> void:
 func _update_global_position() -> void:
 	if _current_state == DynamicState.MovingRight and player.velocity.x > 0 and player.global_position.x > global_position.x - target_distance:
 		global_position.x = player.global_position.x + target_distance
+		
 	elif _current_state == DynamicState.MovingLeft and player.velocity.x < 0 and player.global_position.x < global_position.x + target_distance:
 		global_position.x = player.global_position.x - target_distance
+	
+	elif player.global_position.x > global_position.x + target_distance and player.global_position.x < get_screen_center_position().x:
+		_current_state = DynamicState.MovingRight
+
+	elif player.global_position.x < global_position.x - target_distance and player.global_position.x > get_screen_center_position().x:
+		_current_state = DynamicState.MovingLeft
+	
+	
 	
 func _process(_delta):
 	queue_redraw()
@@ -217,9 +226,9 @@ func restrict_camera(rect: Rect2, movement_flags: int, locker: CameraLocker) -> 
 	
 	print(_queued_top, " ", _queued_bottom)
 	
-	#if _is_static == false:
-		#if lock_right: limit_right  = _queued_right
-		#if lock_left : limit_left   = _queued_left
-		#if lock_up   : limit_top    = _queued_top
-		#if lock_down : limit_bottom = _queued_bottom
+	if _is_static == false:
+		if lock_right: limit_right  = _queued_right
+		if lock_left : limit_left   = _queued_left
+		if lock_up   : limit_top    = _queued_top
+		if lock_down : limit_bottom = _queued_bottom
 	

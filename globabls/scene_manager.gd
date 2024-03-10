@@ -28,6 +28,29 @@ func finnish_level() -> void:
 	
 	FadeTransition.remove_transition()
 
+func change_level(level: String) -> void:
+	FadeTransition.transition()
+	await FadeTransition.transitioned
+	
+	CheckpointManager.reset()
+	
+	var next_level_path = "res://ldtk_levels/worlds/Level_" + level + ".tscn"
+	get_tree().change_scene_to_file(next_level_path)
+	
+	FadeTransition.remove_transition()
+
+func change_level_specific(level: String, transition_in: bool, transition_out: bool) -> void:
+	if transition_in:
+		FadeTransition.transition()
+		await FadeTransition.transitioned
+	
+	CheckpointManager.reset()
+	
+	get_tree().change_scene_to_file(level)
+	
+	if transition_out:
+		FadeTransition.remove_transition()
+
 func pause_scene():
 	emit_signal("ScenePaused")
 	scene_paused = true

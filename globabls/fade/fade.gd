@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal transitioned
+signal transitioned_out
 
 @export var transitions_in: Array[Texture2D]
 @export var transitions_out: Array[Texture2D]
@@ -31,4 +32,5 @@ func remove_transition() -> void:
 	$AnimationPlayer.play("fade_to_normal")
 	
 	await get_tree().create_timer($AnimationPlayer.current_animation_length).timeout
+	transitioned_out.emit()
 	SceneManager.scene_paused = false

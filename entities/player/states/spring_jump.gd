@@ -14,7 +14,7 @@ func enter() -> void:
 		wall_jump_timer.start()
 
 func process_input(_event: InputEvent) -> State:
-	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):
+	if parent.walljump_enabled and parent.is_on_wall_custom() and Input.is_action_just_pressed("jump"):
 		return wall_jump_state
 	
 	return null
