@@ -139,7 +139,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [56,56],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Spring",
@@ -155,7 +155,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [56,72],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Spring",
@@ -171,7 +171,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [40,72],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Spring",
@@ -187,7 +187,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [40,56],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Spring",
@@ -203,7 +203,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [40,40],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Spring",
@@ -219,7 +219,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [72,40],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Spring",
@@ -235,7 +235,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [56,40],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Spring",
@@ -251,7 +251,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [72,72],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Spring",
@@ -267,7 +267,7 @@
 					"height": 22,
 					"defUid": 152,
 					"px": [72,56],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				}
 			]
 		},
@@ -308,6 +308,47 @@
 			],
 			"autoLayerTiles": [],
 			"seed": 2122935,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": []
+		},
+		{
+			"__identifier": "Factory",
+			"__type": "IntGrid",
+			"__cWid": 30,
+			"__cHei": 17,
+			"__gridSize": 16,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": 550,
+			"__tilesetRelPath": "../scenes/factory/facotry.png",
+			"iid": "6b1644f0-d7b0-11ee-b89b-7b7c05802dc9",
+			"levelId": 223,
+			"layerDefUid": 551,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"autoLayerTiles": [],
+			"seed": 8077336,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
 			"entityInstances": []
