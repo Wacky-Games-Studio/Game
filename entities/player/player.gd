@@ -41,7 +41,7 @@ var spring_jump_dir := Vector2.ZERO
 var walljump_enabled := true
 
 func _ready() -> void:
-	#Engine.time_scale = .1
+	# Engine.time_scale = .1
 	init()
 
 func init() -> void:
@@ -209,33 +209,35 @@ func get_wall_normal_rays_x() -> int:
 	elif wall_raycasts.right: return 1
 	else: return 0
 
-func is_on_wall_custom() -> bool:
-	var result := false
-
+func is_on_wall_left() -> bool:
 	if wall_raycasts.left:
 		var ray: RayCast2D = wall_raycasts.get_node("left")
 		var node: Node2D = ray.get_collider()
 		if node != null and node.is_in_group("Oneway"):
-			if int(node.rotation_degrees) == 90:
-				result = true
-			else:
-				print(node.rotation_degrees)
-				result = false
+			var dir = Input.get_axis("walk_left", "walk_right")
+			if int(node.rotation_degrees) == 90 and dir == -1:
+				return true
 		else:
-			result = true
+			return true
+	return false
 
+func is_on_wall_right() -> bool:
 	if wall_raycasts.right:
 		var ray: RayCast2D = wall_raycasts.get_node("right")
 		var node: Node2D = ray.get_collider()
 		if node != null and node.is_in_group("Oneway"):
-			if int(node.rotation_degrees) == 270:
-				result = true
-			else:
-				result = false
+			var dir = Input.get_axis("walk_left", "walk_right")
+			if int(node.rotation_degrees) == 270 and dir == 1:
+				return true
 		else:
-			result = true
+			return true
+	return false
 
-	return result
+func is_on_wall_custom() -> bool:
+	var left_result := is_on_wall_left()
+	var right_result := is_on_wall_right()
+
+	return left_result or right_result
 
 func mod_negative(x: int, n: int) -> int:
 	return (x % n + n) % n

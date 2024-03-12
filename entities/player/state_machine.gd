@@ -16,6 +16,7 @@ func init(parent: Player) -> void:
 
 # Change to the new state by first calling any exit logic on the current state.
 func change_state(new_state: State) -> void:
+	print(new_state.name)
 	if current_state:
 		current_state.exit()
 	

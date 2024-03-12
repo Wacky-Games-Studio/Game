@@ -7759,7 +7759,7 @@
 				"externalRelPath": "GameWorld/Level_Sebbe_3.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
-				"__neighbours": [ { "levelIid": "f2aaab80-d7b0-11ee-b671-230e2e6c042b", "dir": "n" }, { "levelIid": "e7bc3fd0-d7b0-11ee-b671-358340cbd883", "dir": "e" } ]
+				"__neighbours": [ { "levelIid": "f2aaab80-d7b0-11ee-b671-230e2e6c042b", "dir": "n" }, { "levelIid": "e7bc3fd0-d7b0-11ee-b671-358340cbd883", "dir": "e" }, { "levelIid": "d00313e0-d7b0-11ee-a940-b968496bc8a1", "dir": "s" } ]
 			}
 		] },
 		{ "iid": "3726cff0-d7b0-11ee-b222-cf2e55a0270b", "identifier": "Level_Anton2", "defaultLevelWidth": 480, "defaultLevelHeight": 272, "worldGridWidth": 480, "worldGridHeight": 272, "worldLayout": "GridVania", "levels": [
@@ -7768,7 +7768,7 @@
 				"iid": "3726f700-d7b0-11ee-b222-a59002cf190b",
 				"uid": 597,
 				"worldX": 0,
-				"worldY": 544,
+				"worldY": 0,
 				"worldDepth": 0,
 				"pxWid": 480,
 				"pxHei": 272,
@@ -7791,7 +7791,7 @@
 				"iid": "52dd6d70-d7b0-11ee-b222-b750ac3b2dfe",
 				"uid": 598,
 				"worldX": 480,
-				"worldY": 544,
+				"worldY": 0,
 				"worldDepth": 0,
 				"pxWid": 480,
 				"pxHei": 272,

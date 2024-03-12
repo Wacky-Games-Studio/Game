@@ -32,7 +32,7 @@ func process_physics(delta: float) -> State:
 	if parent.velocity.y > 0 and parent.animator.current_animation != falling_animation:
 		parent.animator.play(falling_animation)
 	
-	if ((dir == 1 and parent.wall_raycasts.right) or (dir == -1 and parent.wall_raycasts.left)) and wall_jump_timer.is_stopped():
+	if ((dir == 1 and parent.is_on_wall_right()) or (dir == -1 and parent.is_on_wall_left())) and wall_jump_timer.is_stopped():
 		return wall_slide_state
 	
 	if (parent.wall_raycasts.left or parent.wall_raycasts.right) and Input.is_action_just_pressed("jump"):

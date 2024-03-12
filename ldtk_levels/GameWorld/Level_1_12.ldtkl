@@ -76,7 +76,57 @@
 			"seed": 9493401,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
-			"entityInstances": []
+			"entityInstances": [
+				{
+					"__identifier": "CameraLocker",
+					"__grid": [0,0],
+					"__pivot": [0,0],
+					"__tags": ["Trigger"],
+					"__tile": { "tilesetUid": 104, "x": 16, "y": 0, "w": 16, "h": 16 },
+					"__smartColor": "#E4A672",
+					"__worldX": 3840,
+					"__worldY": 272,
+					"iid": "edce60f0-d7b0-11ee-b5e0-57d5bbc6d926",
+					"width": 480,
+					"height": 272,
+					"defUid": 108,
+					"px": [0,0],
+					"fieldInstances": [
+						{ "__identifier": "LockLeft", "__type": "Bool", "__value": false, "__tile": null, "defUid": 110, "realEditorValues": [null] },
+						{ "__identifier": "LockRight", "__type": "Bool", "__value": true, "__tile": null, "defUid": 111, "realEditorValues": [{
+							"id": "V_Bool",
+							"params": [ true ]
+						}] },
+						{ "__identifier": "LockUp", "__type": "Bool", "__value": true, "__tile": null, "defUid": 112, "realEditorValues": [{
+							"id": "V_Bool",
+							"params": [ true ]
+						}] },
+						{ "__identifier": "LockDown", "__type": "Bool", "__value": true, "__tile": null, "defUid": 113, "realEditorValues": [{
+							"id": "V_Bool",
+							"params": [ true ]
+						}] }
+					]
+				},
+				{
+					"__identifier": "CameraTrigger",
+					"__grid": [14,1],
+					"__pivot": [0,0],
+					"__tags": ["Trigger"],
+					"__tile": { "tilesetUid": 104, "x": 0, "y": 0, "w": 16, "h": 16 },
+					"__smartColor": "#EAD4AA",
+					"__worldX": 4064,
+					"__worldY": 288,
+					"iid": "f2d9bae0-d7b0-11ee-b5e0-e92c44e6c15c",
+					"width": 16,
+					"height": 192,
+					"defUid": 103,
+					"px": [224,16],
+					"fieldInstances": [{ "__identifier": "StaticSide", "__type": "LocalEnum.Side", "__value": "Right", "__tile": null, "defUid": 118, "realEditorValues": [{
+						"id": "V_String",
+						"params": ["Right"]
+					}] }]
+				}
+			]
 		},
 		{
 			"__identifier": "Dungeon",

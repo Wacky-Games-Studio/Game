@@ -25,7 +25,7 @@ func process_physics(delta: float) -> State:
 	if parent.walljump_enabled and parent.is_on_wall_custom() and Input.is_action_just_pressed("jump"):
 		return wall_jump_state
 	
-	if parent.walljump_enabled and ((dir == 1 and parent.wall_raycasts.right) or (dir == -1 and parent.wall_raycasts.left)):
+	if parent.walljump_enabled and ((dir == 1 and parent.is_on_wall_right()) or (dir == -1 and parent.is_on_wall_left())):
 		return wall_slide_state
 	
 	if parent.is_on_floor_raycasts():

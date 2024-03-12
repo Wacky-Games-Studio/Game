@@ -78,25 +78,6 @@
 			"gridTiles": [],
 			"entityInstances": [
 				{
-					"__identifier": "CameraTrigger",
-					"__grid": [1,2],
-					"__pivot": [0,0],
-					"__tags": ["Trigger"],
-					"__tile": { "tilesetUid": 104, "x": 0, "y": 0, "w": 16, "h": 16 },
-					"__smartColor": "#EAD4AA",
-					"__worldX": 976,
-					"__worldY": 32,
-					"iid": "592ba230-b0a0-11ee-a30f-99be2a77fdbb",
-					"width": 16,
-					"height": 160,
-					"defUid": 103,
-					"px": [16,32],
-					"fieldInstances": [{ "__identifier": "StaticSide", "__type": "LocalEnum.Side", "__value": "Right", "__tile": null, "defUid": 118, "realEditorValues": [{
-						"id": "V_String",
-						"params": ["Right"]
-					}] }]
-				},
-				{
 					"__identifier": "Door",
 					"__grid": [25,10],
 					"__pivot": [0.5,0.5],
@@ -111,33 +92,6 @@
 					"defUid": 98,
 					"px": [408,168],
 					"fieldInstances": []
-				},
-				{
-					"__identifier": "CameraLocker",
-					"__grid": [0,0],
-					"__pivot": [0,0],
-					"__tags": ["Trigger"],
-					"__tile": { "tilesetUid": 104, "x": 16, "y": 0, "w": 16, "h": 16 },
-					"__smartColor": "#E4A672",
-					"__worldX": 960,
-					"__worldY": 0,
-					"iid": "9d27add0-b0a0-11ee-801b-ebc85ecf272a",
-					"width": 32,
-					"height": 272,
-					"defUid": 108,
-					"px": [0,0],
-					"fieldInstances": [
-						{ "__identifier": "LockLeft", "__type": "Bool", "__value": false, "__tile": null, "defUid": 110, "realEditorValues": [] },
-						{ "__identifier": "LockRight", "__type": "Bool", "__value": false, "__tile": null, "defUid": 111, "realEditorValues": [] },
-						{ "__identifier": "LockUp", "__type": "Bool", "__value": true, "__tile": null, "defUid": 112, "realEditorValues": [{
-							"id": "V_Bool",
-							"params": [ true ]
-						}] },
-						{ "__identifier": "LockDown", "__type": "Bool", "__value": true, "__tile": null, "defUid": 113, "realEditorValues": [{
-							"id": "V_Bool",
-							"params": [ true ]
-						}] }
-					]
 				}
 			]
 		},
