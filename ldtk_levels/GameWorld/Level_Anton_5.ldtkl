@@ -12,7 +12,7 @@
 	"iid": "50d83d30-b0a0-11ee-abf8-eb11441706bf",
 	"uid": 222,
 	"worldX": 960,
-	"worldY": 272,
+	"worldY": 1088,
 	"worldDepth": 0,
 	"pxWid": 480,
 	"pxHei": 272,
@@ -85,7 +85,7 @@
 					"__tile": { "tilesetUid": 119, "x": 0, "y": 0, "w": 64, "h": 64 },
 					"__smartColor": "#E4A672",
 					"__worldX": 1384,
-					"__worldY": 504,
+					"__worldY": 1320,
 					"iid": "35350e00-b0a0-11ee-abf8-3935fe300c45",
 					"width": 64,
 					"height": 64,
@@ -112,7 +112,7 @@
 					"__tile": { "tilesetUid": 104, "x": 32, "y": 0, "w": 16, "h": 16 },
 					"__smartColor": "#63C74D",
 					"__worldX": 1424,
-					"__worldY": 464,
+					"__worldY": 1280,
 					"iid": "3742b850-b0a0-11ee-abf8-c5faa60b194f",
 					"width": 16,
 					"height": 48,
@@ -128,7 +128,7 @@
 					"__tile": { "tilesetUid": 100, "x": 0, "y": 0, "w": 22, "h": 22 },
 					"__smartColor": "#FF0044",
 					"__worldX": 1320,
-					"__worldY": 304,
+					"__worldY": 1120,
 					"iid": "5c0ffed0-b0a0-11ee-abf8-07f60db8c03a",
 					"width": 22,
 					"height": 22,
@@ -155,7 +155,7 @@
 					"__tile": { "tilesetUid": 315, "x": 0, "y": 0, "w": 48, "h": 48 },
 					"__smartColor": "#B86F50",
 					"__worldX": 1032,
-					"__worldY": 488,
+					"__worldY": 1304,
 					"iid": "3db521b0-d7b0-11ee-bd68-d90c0c6d92a4",
 					"width": 48,
 					"height": 48,
@@ -578,5 +578,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelIid": "54c54b50-b0a0-11ee-abf8-ef4817d339f2", "dir": "n" }, { "levelIid": "b3bf1b40-b0a0-11ee-abf8-19aa6a8b6444", "dir": "e" }, { "levelIid": "937d0f90-b0a0-11ee-abf8-f1df5870232c", "dir": "s" } ]
+	"__neighbours": [{ "levelIid": "937d0f90-b0a0-11ee-abf8-f1df5870232c", "dir": "s" }]
 }
