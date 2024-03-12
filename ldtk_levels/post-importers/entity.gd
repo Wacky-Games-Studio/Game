@@ -145,6 +145,7 @@ func _handle_checkpoint(entity, entity_layer: LDTKEntityLayer) -> void:
 func _handle_spring(entity, entity_layer: LDTKEntityLayer) -> void:
 	var spring := SPRING.instantiate()
 	spring.position = entity.position
+	spring.rotation_degrees = entity.fields.Rotation
 	entity_layer.add_child(spring)
 
 func _handle_win_trigger(entity, entity_layer: LDTKEntityLayer) -> void:
