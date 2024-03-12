@@ -59,6 +59,7 @@ _data = {
 }
 
 [node name="MovingSawBlade" type="Path2D"]
+z_index = 1
 script = ExtResource("1_sarmg")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
