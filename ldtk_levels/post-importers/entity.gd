@@ -62,7 +62,9 @@ func _handle_sawblade(entity, entity_layer: LDTKEntityLayer) -> void:
 		sawblade.loop_back = entity.fields.LoopBack
 		sawblade.seconds_to_complete = entity.fields.SecondsToComplete
 		sawblade.draw_rail = entity.fields.DrawRail
-		
+		print(entity.fields.RailColor)
+		sawblade.rail_color_moduate = entity.fields.RailColor
+
 		sawblade.curve.add_point(entity.position)
 		
 		for pos: Vector2i in entity.fields.Path:
@@ -80,8 +82,8 @@ func _handle_sawblade(entity, entity_layer: LDTKEntityLayer) -> void:
 
 func _handle_button(entity, entity_layer: LDTKEntityLayer) -> void:
 	var door_iid = entity.fields.Door
-	if door_iid == null: 
-		printerr("Door iid is null. You have likely not assigned a button to a door. Check LDtk (btn iid: ", entity.iid, ", pos: ", entity.position, ")")
+	if door_iid == null:
+		printerr("Door iid is null. You have likely not assigned a button to a door. Check LDtk (btn iid: ", entity.iid, ", pos: ", entity.position, ", room: ", entity_layer.get_parent().name, ")")
 		return
 
 	var btn_door = _find_entity_by_id(door_iid)
@@ -131,6 +133,10 @@ func _handle_camera_locker(entity, entity_layer: LDTKEntityLayer) -> void:
 	entity_layer.add_child(locker)
 
 func _handle_checkpoint(entity, entity_layer: LDTKEntityLayer) -> void:
+	if entity.fields.CheckpointTrigger == null:
+		printerr("Checkpoint collider iid is null. You have likely not assigned a collider to a checkpoint. Check LDtk (cp iid: ", entity.iid, ", pos: ", entity.position, ", room: ", entity_layer.get_parent().name, ")")
+		return
+	
 	var checkpoint: Checkpoint = CHECKPOINT.instantiate()
 	var checkpoint_colldier = _find_entity_by_id(entity.fields.CheckpointTrigger)
 	

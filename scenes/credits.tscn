@@ -49,22 +49,22 @@ offset_top = 56.0
 offset_right = 140.0
 offset_bottom = 124.0
 
+[node name="Label4" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Sebbe - CEO, Level designer"
+
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Filip - Programmer"
+text = "Filip - Programmer, Level designer"
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Noah - Art"
+text = "Noah - Artist, Level designer"
 
 [node name="Label3" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Anton - Level designer"
-
-[node name="Label4" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Sebbe - Level designer"
+text = "Anton -  \"Marketing\", Level designer"

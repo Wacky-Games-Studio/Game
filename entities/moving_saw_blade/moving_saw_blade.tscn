@@ -59,7 +59,7 @@ _data = {
 }
 
 [node name="MovingSawBlade" type="Path2D"]
-z_index = 1
+z_index = 2
 script = ExtResource("1_sarmg")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
@@ -69,17 +69,18 @@ remote_path = NodePath("../../SawBlade")
 update_rotation = false
 update_scale = false
 
+[node name="RailLine" type="Line2D" parent="."]
+z_as_relative = false
+closed = true
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+texture = ExtResource("3_6htcf")
+texture_mode = 1
+script = ExtResource("3_vb2t4")
+
 [node name="SawBlade" parent="." instance=ExtResource("1_gfl5d")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ye2ik")
 }
-
-[node name="RailLine" type="Line2D" parent="."]
-z_index = -2
-closed = true
-width = 4.0
-texture = ExtResource("3_6htcf")
-texture_mode = 1
-script = ExtResource("3_vb2t4")

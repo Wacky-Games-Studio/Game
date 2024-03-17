@@ -207,33 +207,6 @@
 					]
 				},
 				{
-					"__identifier": "Button",
-					"__grid": [26,15],
-					"__pivot": [0.5,1],
-					"__tags": ["Interactable"],
-					"__tile": { "tilesetUid": 100, "x": 0, "y": 0, "w": 22, "h": 22 },
-					"__smartColor": "#FF0044",
-					"__worldX": 904,
-					"__worldY": 528,
-					"iid": "35bd6e30-d7b0-11ee-a940-9b6a77bb2ba3",
-					"width": 22,
-					"height": 22,
-					"defUid": 101,
-					"px": [424,256],
-					"fieldInstances": [
-						{ "__identifier": "Door", "__type": "EntityRef", "__value": {
-							"entityIid": "1fd9b5d0-d7b0-11ee-a940-c90b2436a4ac",
-							"layerIid": "1afaca72-d7b0-11ee-a940-efaf7d48a26d",
-							"levelIid": "0e1e1160-d7b0-11ee-b89b-a3ed9c79d9a1",
-							"worldIid": "d7e0b8f0-d7b0-11ee-b89b-2910e9ccb4c8"
-						}, "__tile": null, "defUid": 102, "realEditorValues": [{
-							"id": "V_String",
-							"params": ["1fd9b5d0-d7b0-11ee-a940-c90b2436a4ac"]
-						}] },
-						{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 166, "realEditorValues": [] }
-					]
-				},
-				{
 					"__identifier": "Checkpoint",
 					"__grid": [20,15],
 					"__pivot": [0.5,0.5],
@@ -249,7 +222,15 @@
 					"px": [328,248],
 					"fieldInstances": [
 						{ "__identifier": "ShouldFaceLeft", "__type": "Bool", "__value": false, "__tile": null, "defUid": 123, "realEditorValues": [] },
-						{ "__identifier": "CheckpointTrigger", "__type": "EntityRef", "__value": null, "__tile": null, "defUid": 122, "realEditorValues": [] }
+						{ "__identifier": "CheckpointTrigger", "__type": "EntityRef", "__value": {
+							"entityIid": "ee49d880-d7b0-11ee-a940-fb8c2d1f61b7",
+							"layerIid": "e7bc66e1-d7b0-11ee-b671-fd681c902ce4",
+							"levelIid": "e7bc3fd0-d7b0-11ee-b671-358340cbd883",
+							"worldIid": "f2aa8470-d7b0-11ee-b671-093343258ba7"
+						}, "__tile": null, "defUid": 122, "realEditorValues": [{
+							"id": "V_String",
+							"params": ["ee49d880-d7b0-11ee-a940-fb8c2d1f61b7"]
+						}] }
 					]
 				},
 				{
@@ -269,6 +250,56 @@
 					"fieldInstances": []
 				}
 			]
+		},
+		{
+			"__identifier": "Cleanup",
+			"__type": "Tiles",
+			"__cWid": 30,
+			"__cHei": 17,
+			"__gridSize": 16,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": 2,
+			"__tilesetRelPath": "sprites/tileset.png",
+			"iid": "e7bc66e3-d7b0-11ee-b671-bb3c8f2a6071",
+			"levelId": 521,
+			"layerDefUid": 517,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [],
+			"autoLayerTiles": [],
+			"seed": 1354529,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": []
+		},
+		{
+			"__identifier": "CleanupFactory",
+			"__type": "Tiles",
+			"__cWid": 30,
+			"__cHei": 17,
+			"__gridSize": 16,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": 550,
+			"__tilesetRelPath": "../scenes/factory/factory.png",
+			"iid": "194b0040-d7b0-11ee-9778-ad2889fb010b",
+			"levelId": 521,
+			"layerDefUid": 756,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [],
+			"autoLayerTiles": [],
+			"seed": 2414005,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": []
 		},
 		{
 			"__identifier": "Dungeon",
@@ -600,10 +631,10 @@
 			"__pxTotalOffsetX": 0,
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 550,
-			"__tilesetRelPath": "../scenes/factory/facotry.png",
-			"iid": "6b190410-d7b0-11ee-b89b-f9a0fc9db282",
+			"__tilesetRelPath": "../scenes/factory/factory.png",
+			"iid": "c4137810-d7b0-11ee-9778-6d755551b95f",
 			"levelId": 521,
-			"layerDefUid": 551,
+			"layerDefUid": 616,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
 			"visible": true,
@@ -626,13 +657,13 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			],
 			"autoLayerTiles": [],
-			"seed": 8885220,
+			"seed": 925166,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
 			"entityInstances": []
 		},
 		{
-			"__identifier": "Cleanup",
+			"__identifier": "CleanupBackground",
 			"__type": "Tiles",
 			"__cWid": 30,
 			"__cHei": 17,
@@ -642,16 +673,41 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 2,
 			"__tilesetRelPath": "sprites/tileset.png",
-			"iid": "e7bc66e3-d7b0-11ee-b671-bb3c8f2a6071",
+			"iid": "e0d25240-d7b0-11ee-9778-d1254725ddca",
 			"levelId": 521,
-			"layerDefUid": 517,
+			"layerDefUid": 763,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
 			"visible": true,
 			"optionalRules": [],
 			"intGridCsv": [],
 			"autoLayerTiles": [],
-			"seed": 1354529,
+			"seed": 1644863,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": []
+		},
+		{
+			"__identifier": "CleanupFactoryBackground",
+			"__type": "Tiles",
+			"__cWid": 30,
+			"__cHei": 17,
+			"__gridSize": 16,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": 550,
+			"__tilesetRelPath": "../scenes/factory/factory.png",
+			"iid": "dab62490-d7b0-11ee-9778-53fbef42ed85",
+			"levelId": 521,
+			"layerDefUid": 762,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [],
+			"autoLayerTiles": [],
+			"seed": 9046914,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
 			"entityInstances": []
@@ -961,7 +1017,48 @@
 			"overrideTilesetUid": null,
 			"gridTiles": [],
 			"entityInstances": []
+		},
+		{
+			"__identifier": "BackgroundFactory",
+			"__type": "IntGrid",
+			"__cWid": 30,
+			"__cHei": 17,
+			"__gridSize": 16,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": 550,
+			"__tilesetRelPath": "../scenes/factory/factory.png",
+			"iid": "e223bd00-d7b0-11ee-9778-3f7ebe9d25d5",
+			"levelId": 521,
+			"layerDefUid": 737,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"autoLayerTiles": [],
+			"seed": 1711288,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelIid": "57899390-d7b0-11ee-b671-dd184092af05", "dir": "n" }, { "levelIid": "71581020-d7b0-11ee-b671-5b24f861116a", "dir": "w" }, { "levelIid": "1afaca70-d7b0-11ee-a940-dfe1d01b3ade", "dir": "s" } ]
+	"__neighbours": [ { "levelIid": "57899390-d7b0-11ee-b671-dd184092af05", "dir": "n" }, { "levelIid": "71581020-d7b0-11ee-b671-5b24f861116a", "dir": "w" } ]
 }

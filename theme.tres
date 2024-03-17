@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://poxaxq7c8cwk"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://poxaxq7c8cwk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prl2n"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[ext_resource type="Texture2D" uid="uid://dpiqtjpmbkduq" path="res://scenes/ui/Main_Menu_Selected.png" id="1_dhy3b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s8hjd"]
+texture = ExtResource("1_dhy3b")
 
 [resource]
-Button/styles/focus = SubResource("StyleBoxFlat_prl2n")
+Button/styles/focus = SubResource("StyleBoxTexture_s8hjd")

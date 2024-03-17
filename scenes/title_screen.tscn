@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhji4jxg33y1r"]
+[gd_scene load_steps=15 format=3 uid="uid://dhji4jxg33y1r"]
 
 [ext_resource type="Theme" uid="uid://poxaxq7c8cwk" path="res://theme.tres" id="1_hrtvg"]
 [ext_resource type="Script" path="res://entities/player/ui/BouncyButton.gd" id="1_n46p7"]
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="2_2tkam"]
+[ext_resource type="Texture2D" uid="uid://dvpbf0wdrxhc0" path="res://scenes/ui/menu.png" id="3_7uxl4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unc3f"]
 bg_color = Color(0, 0, 0, 1)
@@ -12,6 +13,40 @@ line_spacing = -10.0
 font_size = 30
 outline_size = 10
 outline_color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ar1fp"]
+texture = ExtResource("3_7uxl4")
+texture_margin_top = 7.9727
+region_rect = Rect2(0, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxouj"]
+texture = ExtResource("3_7uxl4")
+region_rect = Rect2(0, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2xua"]
+texture = ExtResource("3_7uxl4")
+region_rect = Rect2(192, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_24f8p"]
+texture = ExtResource("3_7uxl4")
+region_rect = Rect2(192, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48kny"]
+texture = ExtResource("3_7uxl4")
+region_rect = Rect2(288, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uad35"]
+texture = ExtResource("3_7uxl4")
+texture_margin_left = 32.0
+region_rect = Rect2(288, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qvpn"]
+texture = ExtResource("3_7uxl4")
+region_rect = Rect2(384, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v0wjm"]
+texture = ExtResource("3_7uxl4")
+region_rect = Rect2(384, 32, 96, 32)
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -59,37 +94,44 @@ layout_mode = 2
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-text = "Play"
+theme_override_styles/normal = SubResource("StyleBoxTexture_ar1fp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bxouj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bxouj")
 script = ExtResource("1_n46p7")
 scale_size = 1.1
 transition_type = 9
 should_grab_focus = true
 
 [node name="SettingsButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-text = "Settings"
+theme_override_styles/normal = SubResource("StyleBoxTexture_l2xua")
+theme_override_styles/hover = SubResource("StyleBoxTexture_24f8p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_24f8p")
 script = ExtResource("1_n46p7")
 scale_size = 1.1
 transition_type = 9
 should_grab_focus = true
 
 [node name="CreditsButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-text = "Credits"
+theme_override_styles/normal = SubResource("StyleBoxTexture_48kny")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uad35")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uad35")
 script = ExtResource("1_n46p7")
 scale_size = 1.1
 transition_type = 9
 should_grab_focus = true
 
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-text = "Quit
-"
+theme_override_styles/normal = SubResource("StyleBoxTexture_6qvpn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v0wjm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v0wjm")
 script = ExtResource("1_n46p7")
 scale_size = 1.1
 transition_type = 9

@@ -6,6 +6,7 @@ extends Path2D
 @export var loop_back := true
 @export var seconds_to_complete := 1.0
 @export var draw_rail := true
+@export var rail_color_moduate := Color.WHITE
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
@@ -21,6 +22,7 @@ func _ready():
 	
 	$RailLine.visible = draw_rail
 	$RailLine.closed = loop_back == false
+	$RailLine.default_color = rail_color_moduate
 
 func _on_finished(_name: String):
 	animation.play(anim)

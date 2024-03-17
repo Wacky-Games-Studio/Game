@@ -187,12 +187,12 @@ func nudge() -> void:
 			position.x -= x_diff
 			was_nudged = true
 
-func spring_jump(dir: int) -> void:
-	if (has_spring_jumped): return
+func spring_jump(dir: float) -> void:
+	#if (has_spring_jumped): return
 	
 	has_spring_jumped = true
 	
-	dir = mod_negative(dir, 360)
+	dir = mod_negative(int(dir), 360)
 	
 	if dir == 90: dir -= data.spring_jump_horizontal_direction_offset
 	elif dir == 270: dir += data.spring_jump_horizontal_direction_offset
@@ -210,34 +210,58 @@ func get_wall_normal_rays_x() -> int:
 	else: return 0
 
 func is_on_wall_left() -> bool:
-	if wall_raycasts.left:
-		var ray: RayCast2D = wall_raycasts.get_node("left")
-		var node: Node2D = ray.get_collider()
-		if node != null and node.is_in_group("Oneway"):
-			var dir = Input.get_axis("walk_left", "walk_right")
-			if int(node.rotation_degrees) == 90 and dir == -1:
-				return true
-		else:
-			return true
-	return false
+	return _check_wall_collision(true) or is_on_wall()
 
 func is_on_wall_right() -> bool:
-	if wall_raycasts.right:
-		var ray: RayCast2D = wall_raycasts.get_node("right")
-		var node: Node2D = ray.get_collider()
-		if node != null and node.is_in_group("Oneway"):
-			var dir = Input.get_axis("walk_left", "walk_right")
-			if int(node.rotation_degrees) == 270 and dir == 1:
+	return _check_wall_collision(false) or is_on_wall()
+
+func is_on_wall_left_and_moving_left() -> bool:
+	var dir = Input.get_axis("walk_left", "walk_right")
+	return is_on_wall_right() and dir == -1
+
+func is_on_wall_right_and_moving_right() -> bool:
+	var dir = Input.get_axis("walk_left", "walk_right")
+	return is_on_wall_right() and dir == 1
+
+func _check_wall_collision(check_left: bool = true) -> bool:
+	var space_state := get_world_2d().direct_space_state
+	if space_state == null: return false
+
+	var query := PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(-16 if check_left else 16, 0), 0b1, [self])
+	var result := space_state.intersect_ray(query)
+
+	if not result:
+		return is_on_wall()
+	
+	if result.collider is TileMap:
+		return true
+	
+	for i in result.collider.get_shape_owners():
+		if result.collider.is_shape_owner_one_way_collision_enabled(i):
+			var one_way_rotation := int(result.collider.rotation_degrees)
+
+			if one_way_rotation == 90 and check_left:
 				return true
-		else:
-			return true
+			elif one_way_rotation == 270 and not check_left:
+				return true
+			elif one_way_rotation == 0 or one_way_rotation == 180:
+				return true
+
+			return false
+	
 	return false
 
 func is_on_wall_custom() -> bool:
-	var left_result := is_on_wall_left()
-	var right_result := is_on_wall_right()
+	var left_result := _check_wall_collision(true)
+	var right_result := _check_wall_collision(false)
 
-	return left_result or right_result
+	return left_result or right_result or is_on_wall()
+
+func is_on_wall_custom_moving() -> bool:
+	var left_result := is_on_wall_left_and_moving_left()
+	var right_result := is_on_wall_right_and_moving_right()
+
+	return left_result or right_result or is_on_wall()
 
 func mod_negative(x: int, n: int) -> int:
 	return (x % n + n) % n

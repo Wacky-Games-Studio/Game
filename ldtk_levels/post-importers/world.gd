@@ -2,7 +2,8 @@
 
 func post_import(world: LDTKWorld) -> LDTKWorld:
 	# Behaviour goes here
-	handle_one_ways(world)
+	handle_one_ways(world, "Dungeon", 2)
+	handle_one_ways(world, "Factory", 550)
 	
 	var save = PackedScene.new()
 	save.pack(world)
@@ -58,17 +59,22 @@ const ONE_WAY_RIGHT_MIDDLE = preload("res://entities/platforms/oneway/Right/one_
 const ONE_WAY_RIGHT_RIGHT  = preload("res://entities/platforms/oneway/Right/one_way_right_right.tscn")
 const ONE_WAY_RIGHT        = preload("res://entities/platforms/oneway/Right/one_way_right.tscn")
 
-func handle_one_ways(world: LDTKWorld):
-	var dungeon_nodes: Array[Node] = find_children_with_name(world, "Dungeon")
+const DUNGEON_ONE_WAY      = preload("res://entities/platforms/oneway/one_way.png")
+const FACTORY_ONE_WAY      = preload("res://entities/platforms/oneway/one_way_factory.png")
+
+
+func handle_one_ways(world: LDTKWorld, tilset: String, tile_atlas: int):
+	var dungeon_nodes: Array[Node] = find_children_with_name(world, tilset)
+
 	var dungeon_tile_maps: Array[TileMap] = []
 	
 	for node in dungeon_nodes:
 		dungeon_tile_maps.append(node as TileMap)
 	
 	for dungeon in dungeon_tile_maps:
-		replace_tiles(dungeon, 2, 1, world)
+		replace_tiles(dungeon, tile_atlas, 1, world, tileset)
 
-func replace_tiles(tilemap: TileMap, atlas: int, layer: int, world: LDTKWorld) -> void:
+func replace_tiles(tilemap: TileMap, atlas: int, layer: int, world: LDTKWorld, tileset: String) -> void:
 	var positions = tilemap.get_used_cells(layer)
 	for pos in positions:
 		var tile := tilemap.get_cell_tile_data(layer, pos)
@@ -115,6 +121,7 @@ func replace_tiles(tilemap: TileMap, atlas: int, layer: int, world: LDTKWorld) -
 		if oneway == null: continue
 
 		oneway.position = tilemap.map_to_local(pos)
+		oneway.get_node("Sprite2D").texture = FACTORY_ONE_WAY if tileset == "Factory" else DUNGEON_ONE_WAY
 		
 		tilemap.add_child(oneway)
 		oneway.owner = world
