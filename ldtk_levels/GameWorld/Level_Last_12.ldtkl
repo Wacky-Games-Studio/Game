@@ -94,22 +94,6 @@
 					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 596, "realEditorValues": [] }]
 				},
 				{
-					"__identifier": "PlayerSpawn",
-					"__grid": [8,10],
-					"__pivot": [0.5,1],
-					"__tags": ["Player"],
-					"__tile": { "tilesetUid": 87, "x": 0, "y": 0, "w": 26, "h": 26 },
-					"__smartColor": "#FFFFFF",
-					"__worldX": 136,
-					"__worldY": 1264,
-					"iid": "a3937ca0-d7b0-11ee-9720-ffed90d095cd",
-					"width": 26,
-					"height": 26,
-					"defUid": 86,
-					"px": [136,176],
-					"fieldInstances": []
-				},
-				{
 					"__identifier": "Spring",
 					"__grid": [27,9],
 					"__pivot": [0.5,0.5],
