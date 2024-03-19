@@ -32,9 +32,12 @@ def save_current_num():
         file.write(str(int(content[0])))
 
 def read_prev_num(index):
-    with open("id_" + str(index) + ".notouchy", "r") as file:
-        content = file.read()
-    
+    try:
+        with open("id_" + str(index) + ".notouchy", "r") as file:
+            content = file.read()
+    except:
+        return index
+
     if content == "":
         return index
     

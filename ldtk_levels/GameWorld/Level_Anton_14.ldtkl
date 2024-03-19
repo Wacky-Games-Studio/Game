@@ -12,7 +12,7 @@
 	"iid": "63e31c6c-e5f7-11ee-acfc-086ac5202a50",
 	"uid": 604,
 	"worldX": 0,
-	"worldY": 544,
+	"worldY": 0,
 	"worldDepth": 0,
 	"pxWid": 480,
 	"pxHei": 272,
@@ -926,5 +926,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": []
+	"__neighbours": [ { "levelIid": "63e22228-e5f7-11ee-8f64-086ac5202a50", "dir": "o" }, { "levelIid": "63e22229-e5f7-11ee-845c-086ac5202a50", "dir": "e" } ]
 }
