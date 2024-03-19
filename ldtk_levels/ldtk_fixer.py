@@ -39,3 +39,5 @@ levels = os.listdir(LEVEL_PATH)
 
 for level in levels:
     replace_guid_in_file(LEVEL_PATH + level)
+
+input("Press enter to exit...")
