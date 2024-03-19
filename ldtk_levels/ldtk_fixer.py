@@ -1,43 +1,67 @@
-#!/bin/python
+#!/bin/python3
 import re
-import uuid
-import os
+import math
 
-GUID_REGEX = r"[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}"
-GAME_WORLD_PATH = "GameWorld.ldtk"
-LEVEL_PATH = "./GameWorld/"
+print("What do you want to do?")
+print("1. Work as Anton")
+print("2. Work as Filip")
+print("3. Work as Sebbe")
+print("4. Commit")
 
-guid_look_up_table = {}
+try:
+    choice = int(input("> "))
+except:
+    print("Write an integer!")
+    exit(1)
 
-def get_guid(guid):
-    if not guid in guid_look_up_table:
-        new_guid = uuid.uuid1()
-        guid_look_up_table[guid] = new_guid
-        return new_guid
-    
-    return guid_look_up_table[guid]
+ANTON_NUM = 2000
+FILIP_NUM = 3000
+SEBBE_NUM = 4000
+COMMIT_NUM = 5000
+num = 0
 
+def save_current_num():
+    with open("GameWorld.ldtk", "r") as GameWorld:
+        content = GameWorld.read()
+    REGEX = r"\"nextUid\":\s*(\d+)"
+    content = re.findall(REGEX, content)
+    current_num = math.floor(int(content[0]) / 1000)
+    print(f"Current number is: {current_num}")
 
-def replace_guid_in_file(file_path):
-    print("replacing =>", file_path)
-    content = ""
+    with open(str("id_" + str(current_num) + "000.notouchy"), "w") as file:
+        file.write(str(int(content[0])))
 
-    with open(file_path, 'r') as file:
+def read_prev_num(index):
+    with open("id_" + str(index) + ".notouchy", "r") as file:
         content = file.read()
+    
+    if content == "":
+        return index
+    
+    return int(content)
 
-    guids = re.findall(GUID_REGEX, content)
 
-    for guid in guids:
-        new_guid = get_guid(guid)
-        content = content.replace(guid, str(new_guid))
+if choice == 1:
+    num = read_prev_num(ANTON_NUM)
+elif choice == 2:
+    num = read_prev_num(FILIP_NUM)
+elif choice == 3:
+    num = read_prev_num(SEBBE_NUM)
+elif choice == 4:
+    num = COMMIT_NUM
+    save_current_num()
+else:
+    print("Not a valid number!")
+    exit(1)
 
-    with open(file_path, 'w') as file:
-        file.write(content)
+with open("GameWorld.ldtk", "r") as GameWorld:
+    content = GameWorld.read()
 
-replace_guid_in_file(GAME_WORLD_PATH)
-levels = os.listdir(LEVEL_PATH)
+REGEX = r"\"nextUid\":\s*(\d+)"
+content = re.sub(REGEX, f"\"nextUid\": {num}", content)
 
-for level in levels:
-    replace_guid_in_file(LEVEL_PATH + level)
+with open("GameWorld.ldtk", "w") as GameWorld:
+    GameWorld.write(content)
+    print("wrote to file... closing it")
 
 input("Press enter to exit...")
