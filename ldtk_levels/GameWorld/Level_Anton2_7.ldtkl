@@ -121,19 +121,19 @@
 					"fieldInstances": []
 				},
 				{
-					"__identifier": "PlayerSpawn",
-					"__grid": [3,11],
-					"__pivot": [0.5,1],
-					"__tags": ["Player"],
-					"__tile": { "tilesetUid": 87, "x": 0, "y": 0, "w": 26, "h": 26 },
-					"__smartColor": "#FFFFFF",
-					"__worldX": 2936,
-					"__worldY": 464,
-					"iid": "5e837480-d7b0-11ee-a998-f50c77b4f110",
-					"width": 26,
-					"height": 26,
-					"defUid": 86,
-					"px": [56,192],
+					"__identifier": "HorizontalDoor",
+					"__grid": [13,13],
+					"__pivot": [0.5,0.5],
+					"__tags": ["Door"],
+					"__tile": { "tilesetUid": 315, "x": 0, "y": 0, "w": 48, "h": 48 },
+					"__smartColor": "#B86F50",
+					"__worldX": 3096,
+					"__worldY": 488,
+					"iid": "7b8cef90-d7b0-11ee-8bd3-87dc1ee828f1",
+					"width": 48,
+					"height": 48,
+					"defUid": 316,
+					"px": [216,216],
 					"fieldInstances": []
 				}
 			]
@@ -612,11 +612,7 @@
 			"autoLayerTiles": [],
 			"seed": 801201,
 			"overrideTilesetUid": null,
-			"gridTiles": [
-				{ "px": [192,256], "src": [640,32], "f": 0, "t": 126, "d": [492], "a": 1 },
-				{ "px": [208,256], "src": [640,0], "f": 0, "t": 40, "d": [493], "a": 1 },
-				{ "px": [224,256], "src": [656,32], "f": 0, "t": 127, "d": [494], "a": 1 }
-			],
+			"gridTiles": [{ "px": [208,256], "src": [432,16], "f": 0, "t": 70, "d": [493], "a": 1 }],
 			"entityInstances": []
 		},
 		{

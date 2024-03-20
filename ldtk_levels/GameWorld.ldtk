@@ -11,7 +11,7 @@
 	"iid": "31e9af20-b0a0-11ee-9638-8b7240af35fa",
 	"jsonVersion": "1.4.1",
 	"appBuildId": 471015,
-	"nextUid": 789,
+	"nextUid": 790,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": null,
@@ -10458,7 +10458,7 @@
 				"externalRelPath": "GameWorld/Level_Anton2_0.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
-				"__neighbours": [{ "levelIid": "52dd6d70-d7b0-11ee-b222-b750ac3b2dfe", "dir": "e" }]
+				"__neighbours": [ { "levelIid": "52dd6d70-d7b0-11ee-b222-b750ac3b2dfe", "dir": "e" }, { "levelIid": "cf2f71e0-d7b0-11ee-8bd3-1d586ce5c815", "dir": "n" } ]
 			},
 			{
 				"identifier": "Level_Anton2_1",
@@ -10735,6 +10735,29 @@
 				"fieldInstances": [],
 				"layerInstances": null,
 				"__neighbours": [ { "levelIid": "3db9fc10-d7b0-11ee-9289-d5ad4862b9b5", "dir": "n" }, { "levelIid": "c404f280-d7b0-11ee-9289-631c3eb61122", "dir": "e" } ]
+			},
+			{
+				"identifier": "Level_Anton2_13",
+				"iid": "cf2f71e0-d7b0-11ee-8bd3-1d586ce5c815",
+				"uid": 789,
+				"worldX": 0,
+				"worldY": -272,
+				"worldDepth": 0,
+				"pxWid": 480,
+				"pxHei": 272,
+				"__bgColor": "#696A79",
+				"bgColor": null,
+				"useAutoIdentifier": true,
+				"bgRelPath": null,
+				"bgPos": null,
+				"bgPivotX": 0.5,
+				"bgPivotY": 0.5,
+				"__smartColor": "#ADADB5",
+				"__bgPos": null,
+				"externalRelPath": "GameWorld/Level_Anton2_13.ldtkl",
+				"fieldInstances": [],
+				"layerInstances": null,
+				"__neighbours": [{ "levelIid": "3726f700-d7b0-11ee-b222-a59002cf190b", "dir": "s" }]
 			}
 		] },
 		{ "iid": "fd184a60-d7b0-11ee-9778-e5b0ef5e658a", "identifier": "Level_Last", "defaultLevelWidth": 480, "defaultLevelHeight": 272, "worldGridWidth": 480, "worldGridHeight": 272, "worldLayout": "GridVania", "levels": [
