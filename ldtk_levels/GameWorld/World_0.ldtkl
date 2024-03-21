@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"identifier": "World_0",
-	"iid": "31e9d631-b0a0-11ee-9638-f386308089dc",
+	"iid": "d844e1e2-e777-11ee-b6d1-086ac5202a50",
 	"uid": 0,
 	"worldX": 0,
 	"worldY": 0,
@@ -39,7 +39,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": null,
 			"__tilesetRelPath": null,
-			"iid": "d6573f50-b0a0-11ee-a0c7-6d3fad521708",
+			"iid": "da27e380-e777-11ee-bf9a-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 153,
 			"pxOffsetX": 0,
@@ -61,7 +61,7 @@
 					"__smartColor": "#C0CBDC",
 					"__worldX": 52,
 					"__worldY": 52,
-					"iid": "e98ba110-b0a0-11ee-a0c7-b510b610f362",
+					"iid": "da27e381-e777-11ee-9ae9-086ac5202a50",
 					"width": 32,
 					"height": 32,
 					"defUid": 89,
@@ -100,7 +100,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": null,
 			"__tilesetRelPath": null,
-			"iid": "5af5d7d0-b0a0-11ee-9638-0de8aa2ceafa",
+			"iid": "da27e382-e777-11ee-a63e-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 88,
 			"pxOffsetX": 0,
@@ -122,7 +122,7 @@
 					"__smartColor": "#FFFFFF",
 					"__worldX": 56,
 					"__worldY": 144,
-					"iid": "f15f1df0-b0a0-11ee-9638-ab2832d59b2a",
+					"iid": "da27e383-e777-11ee-809e-086ac5202a50",
 					"width": 26,
 					"height": 26,
 					"defUid": 86,
@@ -138,20 +138,20 @@
 					"__smartColor": "#FF0044",
 					"__worldX": 344,
 					"__worldY": 240,
-					"iid": "b2b2fdd0-b0a0-11ee-9638-1f8f84fffb3f",
+					"iid": "da27e384-e777-11ee-bb6d-086ac5202a50",
 					"width": 22,
 					"height": 22,
 					"defUid": 101,
 					"px": [344,240],
 					"fieldInstances": [
 						{ "__identifier": "Door", "__type": "EntityRef", "__value": {
-							"entityIid": "b41218a0-b0a0-11ee-9638-8d75d8460938",
-							"layerIid": "5af5d7d0-b0a0-11ee-9638-0de8aa2ceafa",
-							"levelIid": "31e9d631-b0a0-11ee-9638-f386308089dc",
-							"worldIid": "31e9d630-b0a0-11ee-9638-a78a387dc9a2"
+							"entityIid": "da27e385-e777-11ee-8079-086ac5202a50",
+							"layerIid": "da27e382-e777-11ee-a63e-086ac5202a50",
+							"levelIid": "d844e1e2-e777-11ee-b6d1-086ac5202a50",
+							"worldIid": "d844e1e1-e777-11ee-bcfa-086ac5202a50"
 						}, "__tile": null, "defUid": 102, "realEditorValues": [{
 							"id": "V_String",
-							"params": ["b41218a0-b0a0-11ee-9638-8d75d8460938"]
+							"params": ["da27e385-e777-11ee-8079-086ac5202a50"]
 						}] },
 						{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 166, "realEditorValues": [] }
 					]
@@ -165,7 +165,7 @@
 					"__smartColor": "#B86F50",
 					"__worldX": 408,
 					"__worldY": 216,
-					"iid": "b41218a0-b0a0-11ee-9638-8d75d8460938",
+					"iid": "da27e385-e777-11ee-8079-086ac5202a50",
 					"width": 48,
 					"height": 48,
 					"defUid": 98,
@@ -181,7 +181,7 @@
 					"__smartColor": "#B86F50",
 					"__worldX": 264,
 					"__worldY": 216,
-					"iid": "593a3260-b0a0-11ee-9638-8f9c699c42ae",
+					"iid": "da27e386-e777-11ee-ac16-086ac5202a50",
 					"width": 48,
 					"height": 48,
 					"defUid": 98,
@@ -197,20 +197,20 @@
 					"__smartColor": "#FF0044",
 					"__worldX": 184,
 					"__worldY": 240,
-					"iid": "5ae04140-b0a0-11ee-9638-81622589db97",
+					"iid": "da27e387-e777-11ee-bf27-086ac5202a50",
 					"width": 22,
 					"height": 22,
 					"defUid": 101,
 					"px": [184,240],
 					"fieldInstances": [
 						{ "__identifier": "Door", "__type": "EntityRef", "__value": {
-							"entityIid": "593a3260-b0a0-11ee-9638-8f9c699c42ae",
-							"layerIid": "5af5d7d0-b0a0-11ee-9638-0de8aa2ceafa",
-							"levelIid": "31e9d631-b0a0-11ee-9638-f386308089dc",
-							"worldIid": "31e9d630-b0a0-11ee-9638-a78a387dc9a2"
+							"entityIid": "da27e386-e777-11ee-ac16-086ac5202a50",
+							"layerIid": "da27e382-e777-11ee-a63e-086ac5202a50",
+							"levelIid": "d844e1e2-e777-11ee-b6d1-086ac5202a50",
+							"worldIid": "d844e1e1-e777-11ee-bcfa-086ac5202a50"
 						}, "__tile": null, "defUid": 102, "realEditorValues": [{
 							"id": "V_String",
-							"params": ["593a3260-b0a0-11ee-9638-8f9c699c42ae"]
+							"params": ["da27e386-e777-11ee-ac16-086ac5202a50"]
 						}] },
 						{ "__identifier": "Rotation", "__type": "Int", "__value": 0, "__tile": null, "defUid": 166, "realEditorValues": [] }
 					]
@@ -224,7 +224,7 @@
 					"__smartColor": "#E4A672",
 					"__worldX": 312,
 					"__worldY": 232,
-					"iid": "4aac0a40-b0a0-11ee-b119-2da36f18613d",
+					"iid": "da27e388-e777-11ee-8cda-086ac5202a50",
 					"width": 64,
 					"height": 64,
 					"defUid": 120,
@@ -232,13 +232,13 @@
 					"fieldInstances": [
 						{ "__identifier": "ShouldFaceLeft", "__type": "Bool", "__value": false, "__tile": null, "defUid": 123, "realEditorValues": [] },
 						{ "__identifier": "CheckpointTrigger", "__type": "EntityRef", "__value": {
-							"entityIid": "4dd29ea0-b0a0-11ee-b119-15edb1becaa7",
-							"layerIid": "5af5d7d0-b0a0-11ee-9638-0de8aa2ceafa",
-							"levelIid": "31e9d631-b0a0-11ee-9638-f386308089dc",
-							"worldIid": "31e9d630-b0a0-11ee-9638-a78a387dc9a2"
+							"entityIid": "da27e389-e777-11ee-9806-086ac5202a50",
+							"layerIid": "da27e382-e777-11ee-a63e-086ac5202a50",
+							"levelIid": "d844e1e2-e777-11ee-b6d1-086ac5202a50",
+							"worldIid": "d844e1e1-e777-11ee-bcfa-086ac5202a50"
 						}, "__tile": null, "defUid": 122, "realEditorValues": [{
 							"id": "V_String",
-							"params": ["4dd29ea0-b0a0-11ee-b119-15edb1becaa7"]
+							"params": ["da27e389-e777-11ee-9806-086ac5202a50"]
 						}] }
 					]
 				},
@@ -251,7 +251,7 @@
 					"__smartColor": "#EAD4AA",
 					"__worldX": 128,
 					"__worldY": 160,
-					"iid": "c46e5220-b0a0-11ee-9638-5f876cb977b6",
+					"iid": "da27e38a-e777-11ee-ae62-086ac5202a50",
 					"width": 16,
 					"height": 80,
 					"defUid": 103,
@@ -267,7 +267,7 @@
 					"__smartColor": "#E4A672",
 					"__worldX": 0,
 					"__worldY": 0,
-					"iid": "5a239940-b0a0-11ee-9638-f3bee324fa89",
+					"iid": "da27e38b-e777-11ee-9e53-086ac5202a50",
 					"width": 528,
 					"height": 272,
 					"defUid": 108,
@@ -300,7 +300,7 @@
 					"__smartColor": "#63C74D",
 					"__worldX": 208,
 					"__worldY": 64,
-					"iid": "4dd29ea0-b0a0-11ee-b119-15edb1becaa7",
+					"iid": "da27e389-e777-11ee-9806-086ac5202a50",
 					"width": 16,
 					"height": 80,
 					"defUid": 121,
@@ -320,7 +320,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 2,
 			"__tilesetRelPath": "sprites/tileset.png",
-			"iid": "d20c6290-d7b0-11ee-8290-49e87eb5e7aa",
+			"iid": "da280aa8-e777-11ee-b4f9-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 517,
 			"pxOffsetX": 0,
@@ -345,7 +345,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 550,
 			"__tilesetRelPath": "../scenes/factory/factory.png",
-			"iid": "1933cec0-d7b0-11ee-9778-db22951d1a51",
+			"iid": "da280aa9-e777-11ee-8ad9-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 756,
 			"pxOffsetX": 0,
@@ -370,7 +370,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 2,
 			"__tilesetRelPath": "sprites/tileset.png",
-			"iid": "3bc073d0-b0a0-11ee-9638-235e44ab88c3",
+			"iid": "da280aaa-e777-11ee-a35d-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 1,
 			"pxOffsetX": 0,
@@ -566,7 +566,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 550,
 			"__tilesetRelPath": "../scenes/factory/factory.png",
-			"iid": "c4032460-d7b0-11ee-9778-7fa95a746a1b",
+			"iid": "da280aab-e777-11ee-adc0-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 616,
 			"pxOffsetX": 0,
@@ -607,7 +607,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 2,
 			"__tilesetRelPath": "sprites/tileset.png",
-			"iid": "e0b1f900-d7b0-11ee-9778-375e3d50f53c",
+			"iid": "da280aac-e777-11ee-9577-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 763,
 			"pxOffsetX": 0,
@@ -632,7 +632,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 550,
 			"__tilesetRelPath": "../scenes/factory/factory.png",
-			"iid": "da9a3820-d7b0-11ee-9778-e7ce513d9923",
+			"iid": "da280aad-e777-11ee-bd19-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 762,
 			"pxOffsetX": 0,
@@ -657,7 +657,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 2,
 			"__tilesetRelPath": "sprites/tileset.png",
-			"iid": "3547f050-d7b0-11ee-8290-41bacda660a5",
+			"iid": "da280aae-e777-11ee-9193-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 497,
 			"pxOffsetX": 0,
@@ -698,7 +698,7 @@
 			"__pxTotalOffsetY": 0,
 			"__tilesetDefUid": 550,
 			"__tilesetRelPath": "../scenes/factory/factory.png",
-			"iid": "e20eae60-d7b0-11ee-9778-09f26d863455",
+			"iid": "da280aaf-e777-11ee-a909-086ac5202a50",
 			"levelId": 0,
 			"layerDefUid": 737,
 			"pxOffsetX": 0,
@@ -729,5 +729,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [{ "levelIid": "ba75c4a0-b0a0-11ee-8b1b-a5fd8cdc3bb6", "dir": "e" }]
+	"__neighbours": [{ "levelIid": "d84508ba-e777-11ee-a202-086ac5202a50", "dir": "e" }]
 }
