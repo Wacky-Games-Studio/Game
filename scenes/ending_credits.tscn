@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://1iyefmobltij"]
+
+[ext_resource type="Texture2D" uid="uid://dn78v8cb4trv1" path="res://scenes/cutscene/ending_backdrop.png" id="1_g178p"]
+[ext_resource type="Script" path="res://scenes/ending_credits.gd" id="1_v2gi1"]
+[ext_resource type="Texture2D" uid="uid://b6g6oyqpmyvdw" path="res://scenes/ui/logo.png" id="2_2gxcy"]
+[ext_resource type="FontFile" uid="uid://e6c7e2o6jqbk" path="res://PixelBlocky.ttf" id="4_1kbu8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn5ci"]
+bg_color = Color(0, 0, 0, 0.384314)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtyf5"]
+texture = ExtResource("2_2gxcy")
+
+[node name="Ending credits" type="Node2D"]
+script = ExtResource("1_v2gi1")
+speed = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g178p")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(0, 384.86)
+transform = Transform2D(1, 0, 0, 1, 0, 384.86)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vn5ci")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -136.0
+offset_right = 150.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label6" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(300, 132)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_vtyf5")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_1kbu8")
+theme_override_font_sizes/font_size = 20
+text = "CREDITS:"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_1kbu8")
+theme_override_font_sizes/font_size = 20
+text = "Filip - Programmer, Level designer"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_1kbu8")
+theme_override_font_sizes/font_size = 20
+text = "Noah - Artist"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_1kbu8")
+theme_override_font_sizes/font_size = 20
+text = "Sebastian - Level designer"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_1kbu8")
+theme_override_font_sizes/font_size = 20
+text = "Anton -  Level designer"

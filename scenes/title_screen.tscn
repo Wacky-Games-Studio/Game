@@ -1,12 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhji4jxg33y1r"]
+[gd_scene load_steps=21 format=3 uid="uid://dhji4jxg33y1r"]
 
 [ext_resource type="Theme" uid="uid://poxaxq7c8cwk" path="res://theme.tres" id="1_hrtvg"]
 [ext_resource type="Script" path="res://entities/player/ui/BouncyButton.gd" id="1_n46p7"]
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="2_2tkam"]
+[ext_resource type="Texture2D" uid="uid://c81yoqd0lbsbo" path="res://scenes/cutscene/backdrop.png" id="3_4h0r1"]
 [ext_resource type="Texture2D" uid="uid://dvpbf0wdrxhc0" path="res://scenes/ui/menu.png" id="3_7uxl4"]
+[ext_resource type="Texture2D" uid="uid://b6g6oyqpmyvdw" path="res://scenes/ui/logo.png" id="4_oinsh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unc3f"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2bkt5"]
+texture = ExtResource("3_4h0r1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_20wjl"]
+texture = ExtResource("4_oinsh")
 
 [sub_resource type="LabelSettings" id="LabelSettings_xb0r0"]
 line_spacing = -10.0
@@ -22,6 +27,20 @@ region_rect = Rect2(0, 0, 96, 32)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxouj"]
 texture = ExtResource("3_7uxl4")
 region_rect = Rect2(0, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ana2"]
+texture = ExtResource("3_7uxl4")
+texture_margin_top = 7.9727
+region_rect = Rect2(96, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d30tp"]
+texture = ExtResource("3_7uxl4")
+texture_margin_top = 24.0
+region_rect = Rect2(96, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ij2ap"]
+texture = ExtResource("3_7uxl4")
+region_rect = Rect2(96, 32, 96, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2xua"]
 texture = ExtResource("3_7uxl4")
@@ -65,7 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_unc3f")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2bkt5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -75,10 +94,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "DUCK
-DUNGEON"
+theme_override_constants/margin_top = 16
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 173
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 66)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_20wjl")
 label_settings = SubResource("LabelSettings_xb0r0")
 horizontal_alignment = 1
 
@@ -99,6 +129,18 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_ar1fp")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bxouj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bxouj")
+script = ExtResource("1_n46p7")
+scale_size = 1.1
+transition_type = 9
+should_grab_focus = true
+
+[node name="ContinueButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_0ana2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d30tp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ij2ap")
 script = ExtResource("1_n46p7")
 scale_size = 1.1
 transition_type = 9
@@ -142,6 +184,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 200
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

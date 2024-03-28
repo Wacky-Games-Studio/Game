@@ -39,6 +39,7 @@ var has_jumped := true
 var has_spring_jumped := false
 var spring_jump_dir := Vector2.ZERO
 var walljump_enabled := true
+var fake_dead := false
 
 func _ready() -> void:
 	# Engine.time_scale = .1
@@ -268,6 +269,11 @@ func mod_negative(x: int, n: int) -> int:
 
 func die() -> void:
 	if state_machine.current_state != $StateMachine/Dead:
+		state_machine.change_state($StateMachine/Dead)
+	
+func fake_die() -> void:
+	if state_machine.current_state != $StateMachine/Dead:
+		fake_dead = true
 		state_machine.change_state($StateMachine/Dead)
 
 func set_static(is_static: bool) -> void:

@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4r7h8hfcxyen"]
+
+[ext_resource type="Script" path="res://scenes/splash.gd" id="1_jqiwp"]
+[ext_resource type="Texture2D" uid="uid://cvjvr6ytf3cex" path="res://spash.png" id="1_polj6"]
+[ext_resource type="Texture2D" uid="uid://cy1oswvltvlwn" path="res://blank_splash.png" id="3_pbg7e"]
+
+[sub_resource type="Animation" id="Animation_c6ehh"]
+resource_name = "splash"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlankSplash:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dgviy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlankSplash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_05fc2"]
+_data = {
+"RESET": SubResource("Animation_dgviy"),
+"splash": SubResource("Animation_c6ehh")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Splash" type="Node2D" parent="."]
+script = ExtResource("1_jqiwp")
+
+[node name="Spash" type="Sprite2D" parent="Splash"]
+scale = Vector2(0.125, 0.125926)
+texture = ExtResource("1_polj6")
+centered = false
+
+[node name="BlankSplash" type="Sprite2D" parent="Splash"]
+texture = ExtResource("3_pbg7e")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Splash"]
+libraries = {
+"": SubResource("AnimationLibrary_05fc2")
+}
+autoplay = "splash"

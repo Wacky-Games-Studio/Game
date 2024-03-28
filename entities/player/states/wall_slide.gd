@@ -18,7 +18,7 @@ func process_physics(delta: float) -> State:
 	if Input.is_action_just_pressed("jump"):
 		return wall_jump_state
 	
-	if dir == 0 or dir != direction_of_slide or (dir == 1 and not parent.wall_raycasts.right) or (dir == -1 and not parent.wall_raycasts.left):
+	if dir == 0 or dir != direction_of_slide or (dir == 1 and not parent.is_on_wall_right()) or (dir == -1 and not parent.is_on_wall_left()):
 		return fall_state
 	
 	parent.velocity.y = parent.get_clamped_gravity(delta) * parent.data.wall_slide_speed

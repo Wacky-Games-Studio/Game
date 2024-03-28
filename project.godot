@@ -36,6 +36,8 @@ instance_dock/preview_resolution=Vector2i(64, 64)
 config/name="Platformer Game"
 run/main_scene="res://ldtk_levels/ldtk_runner.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/image="res://blank_splash.png"
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -44,6 +46,9 @@ InputBuffer="*res://globabls/input_buffer.gd"
 CheckpointManager="*res://globabls/checkpoint_manager.gd"
 FadeTransition="*res://globabls/fade/fade_transition.tscn"
 SceneManager="*res://globabls/scene_manager.gd"
+sp="*res://addons/awesome_splash/utils_splash.gd"
+gd="*res://addons/godot-action/utils_gd_action.tscn"
+Splash="*res://scenes/splash.tscn"
 
 [display]
 
