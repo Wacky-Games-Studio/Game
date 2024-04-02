@@ -534,7 +534,7 @@ camera_speed = 5.0
 
 [node name="floaty" parent="Camera" instance=ExtResource("12_aqobf")]
 show_behind_parent = true
-z_index = -1
+z_index = 1
 position = Vector2(154, 80)
 
 [node name="Label" type="Label" parent="Camera"]

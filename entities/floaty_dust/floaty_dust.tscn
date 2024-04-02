@@ -9,7 +9,7 @@ offsets = PackedFloat32Array(0, 0.98, 1)
 colors = PackedColorArray(0.92549, 0.870588, 0.690196, 1, 0.8, 0.67451, 0.435294, 1, 0.6, 0.360784, 0.176471, 1)
 
 [node name="floaty" type="CPUParticles2D"]
-amount = 512
+amount = 256
 lifetime = 3.0
 preprocess = 1.0
 fixed_fps = 30

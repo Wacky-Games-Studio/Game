@@ -46,9 +46,8 @@ InputBuffer="*res://globabls/input_buffer.gd"
 CheckpointManager="*res://globabls/checkpoint_manager.gd"
 FadeTransition="*res://globabls/fade/fade_transition.tscn"
 SceneManager="*res://globabls/scene_manager.gd"
-sp="*res://addons/awesome_splash/utils_splash.gd"
-gd="*res://addons/godot-action/utils_gd_action.tscn"
 Splash="*res://scenes/splash.tscn"
+Music="*res://globabls/music.tscn"
 
 [display]
 
