@@ -922,5 +922,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelIid": "63e31c6e-e5f7-11ee-abc7-086ac5202a50", "dir": "w" }, { "levelIid": "63e3437d-e5f7-11ee-b9bf-086ac5202a50", "dir": "s" } ]
+	"__neighbours": [ { "levelIid": "63e31c6e-e5f7-11ee-abc7-086ac5202a50", "dir": "w" }, { "levelIid": "63e3437d-e5f7-11ee-b9bf-086ac5202a50", "dir": "s" }, { "levelIid": "85bf1400-d7b0-11ee-84ca-0d9527cd7e29", "dir": "e" } ]
 }
