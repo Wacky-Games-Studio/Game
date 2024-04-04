@@ -2,6 +2,7 @@ extends Control
 
 @onready var play_button: Button = $Panel/VBoxContainer/HBoxContainer/VBoxContainer/PlayButton
 @onready var continue_button: Button = $Panel/VBoxContainer/HBoxContainer/VBoxContainer/ContinueButton
+@onready var settings_button: Button = $Panel/VBoxContainer/HBoxContainer/VBoxContainer/SettingsButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,12 +15,14 @@ func _ready():
 		play_button.visible = true
 		play_button.grab_focus()
 
+	Settings.get_children()[0].connect("just_hidden", settings_hidden)
+
 func _on_play_button_pressed():
 	SceneManager.change_level_specific("res://scenes/intro.tscn", false, true)
 
 func _on_settings_button_pressed():
-	pass # Replace with function body.
-
+	Settings.show()
+	
 func _on_credits_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
@@ -48,3 +51,5 @@ func _on_continue_button_pressed():
 		play_button.visible = true
 		play_button.grab_focus()
 
+func settings_hidden():
+	settings_button.grab_focus()

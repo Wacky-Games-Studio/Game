@@ -1,13 +1,60 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1po6o5daam0w"]
+[gd_scene load_steps=18 format=3 uid="uid://b1po6o5daam0w"]
 
 [ext_resource type="Script" path="res://entities/player/ui/BouncyButton.gd" id="1_ponbp"]
 [ext_resource type="Script" path="res://entities/player/ui/ui.gd" id="1_y0vt8"]
 [ext_resource type="Script" path="res://entities/player/ui/PauseMenu.gd" id="2_lanfb"]
 [ext_resource type="Theme" uid="uid://poxaxq7c8cwk" path="res://theme.tres" id="2_vt4sg"]
 [ext_resource type="Script" path="res://entities/player/ui/QuitPanel.gd" id="3_rkiyn"]
+[ext_resource type="Texture2D" uid="uid://dvpbf0wdrxhc0" path="res://scenes/ui/menu.png" id="4_g3ps0"]
+[ext_resource type="FontFile" uid="uid://e6c7e2o6jqbk" path="res://PixelBlocky.ttf" id="4_ki4b1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpict"]
 bg_color = Color(0.196078, 0.196078, 0.196078, 0.427451)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ft0uo"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(96, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2x1y"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(96, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgsv3"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(96, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28p4n"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(192, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1bje"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(192, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqs3u"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(192, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtd2i"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(384, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvrgk"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(384, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y3vjt"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(384, 32, 96, 32)
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -62,6 +109,7 @@ theme_override_constants/margin_top = 10
 
 [node name="Label" type="Label" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ki4b1")
 theme_override_font_sizes/font_size = 40
 text = "PAUSED"
 
@@ -78,23 +126,31 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ResumeButton" type="Button" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-text = "Resume
-"
+theme_override_styles/normal = SubResource("StyleBoxTexture_ft0uo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w2x1y")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vgsv3")
 script = ExtResource("1_ponbp")
 scale_size = 1.1
 transition_type = 9
 should_grab_focus = true
 
 [node name="SettingsButton" type="Button" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-text = "Settings"
+theme_override_styles/normal = SubResource("StyleBoxTexture_28p4n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t1bje")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nqs3u")
 script = ExtResource("1_ponbp")
 scale_size = 1.1
 
 [node name="QuitButton" type="Button" parent="RootUI/PauseMenu/Panel/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-text = "Quit"
+theme_override_styles/normal = SubResource("StyleBoxTexture_gtd2i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gvrgk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y3vjt")
 script = ExtResource("1_ponbp")
 scale_size = 1.1
 

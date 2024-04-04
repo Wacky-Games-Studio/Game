@@ -11,7 +11,7 @@
 	"iid": "63de0f45-e5f7-11ee-9b6f-086ac5202a50",
 	"jsonVersion": "1.4.1",
 	"appBuildId": 471015,
-	"nextUid": 5006,
+	"nextUid": 5010,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": null,
@@ -10086,7 +10086,7 @@
 				"externalRelPath": "GameWorld/Level_Anton_3.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
-				"__neighbours": [ { "levelIid": "63e2222a-e5f7-11ee-b38c-086ac5202a50", "dir": "w" }, { "levelIid": "63e247fa-e5f7-11ee-abfe-086ac5202a50", "dir": "s" }, { "levelIid": "63e247fb-e5f7-11ee-bb8a-086ac5202a50", "dir": "e" } ]
+				"__neighbours": [ { "levelIid": "63e2222a-e5f7-11ee-b38c-086ac5202a50", "dir": "w" }, { "levelIid": "63e247fa-e5f7-11ee-abfe-086ac5202a50", "dir": "s" } ]
 			},
 			{
 				"identifier": "Level_Anton_4",
@@ -10178,79 +10178,10 @@
 				"externalRelPath": "GameWorld/Level_Anton_7.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
-				"__neighbours": [ { "levelIid": "63e247fa-e5f7-11ee-abfe-086ac5202a50", "dir": "w" }, { "levelIid": "63e247fb-e5f7-11ee-bb8a-086ac5202a50", "dir": "n" }, { "levelIid": "63e29747-e5f7-11ee-8ccb-086ac5202a50", "dir": "s" } ]
+				"__neighbours": [ { "levelIid": "63e247fa-e5f7-11ee-abfe-086ac5202a50", "dir": "w" }, { "levelIid": "63e29747-e5f7-11ee-8ccb-086ac5202a50", "dir": "s" } ]
 			},
 			{
 				"identifier": "Level_Anton_8",
-				"iid": "63e247fb-e5f7-11ee-bb8a-086ac5202a50",
-				"uid": 226,
-				"worldX": 1920,
-				"worldY": 0,
-				"worldDepth": 0,
-				"pxWid": 480,
-				"pxHei": 272,
-				"__bgColor": "#696A79",
-				"bgColor": null,
-				"useAutoIdentifier": true,
-				"bgRelPath": null,
-				"bgPos": null,
-				"bgPivotX": 0.5,
-				"bgPivotY": 0.5,
-				"__smartColor": "#ADADB5",
-				"__bgPos": null,
-				"externalRelPath": "GameWorld/Level_Anton_8.ldtkl",
-				"fieldInstances": [],
-				"layerInstances": null,
-				"__neighbours": [ { "levelIid": "63e247f9-e5f7-11ee-8acc-086ac5202a50", "dir": "w" }, { "levelIid": "63e27025-e5f7-11ee-81f4-086ac5202a50", "dir": "s" }, { "levelIid": "63e2c3f9-e5f7-11ee-abde-086ac5202a50", "dir": "e" } ]
-			},
-			{
-				"identifier": "Level_Anton_9",
-				"iid": "63e2c3f9-e5f7-11ee-abde-086ac5202a50",
-				"uid": 227,
-				"worldX": 2400,
-				"worldY": 0,
-				"worldDepth": 0,
-				"pxWid": 480,
-				"pxHei": 272,
-				"__bgColor": "#696A79",
-				"bgColor": null,
-				"useAutoIdentifier": true,
-				"bgRelPath": null,
-				"bgPos": null,
-				"bgPivotX": 0.5,
-				"bgPivotY": 0.5,
-				"__smartColor": "#ADADB5",
-				"__bgPos": null,
-				"externalRelPath": "GameWorld/Level_Anton_9.ldtkl",
-				"fieldInstances": [],
-				"layerInstances": null,
-				"__neighbours": [ { "levelIid": "63e247fb-e5f7-11ee-bb8a-086ac5202a50", "dir": "w" }, { "levelIid": "63e2c3fa-e5f7-11ee-ae41-086ac5202a50", "dir": "e" } ]
-			},
-			{
-				"identifier": "Level_Anton_10",
-				"iid": "63e2c3fa-e5f7-11ee-ae41-086ac5202a50",
-				"uid": 228,
-				"worldX": 2880,
-				"worldY": 0,
-				"worldDepth": 0,
-				"pxWid": 480,
-				"pxHei": 272,
-				"__bgColor": "#696A79",
-				"bgColor": null,
-				"useAutoIdentifier": true,
-				"bgRelPath": null,
-				"bgPos": null,
-				"bgPivotX": 0.5,
-				"bgPivotY": 0.5,
-				"__smartColor": "#ADADB5",
-				"__bgPos": null,
-				"externalRelPath": "GameWorld/Level_Anton_10.ldtkl",
-				"fieldInstances": [],
-				"layerInstances": null,
-				"__neighbours": [{ "levelIid": "63e2c3f9-e5f7-11ee-abde-086ac5202a50", "dir": "w" }]
-			},
-			{
-				"identifier": "Level_Anton_11",
 				"iid": "63e27028-e5f7-11ee-bb82-086ac5202a50",
 				"uid": 229,
 				"worldX": 960,
@@ -10267,13 +10198,13 @@
 				"bgPivotY": 0.5,
 				"__smartColor": "#ADADB5",
 				"__bgPos": null,
-				"externalRelPath": "GameWorld/Level_Anton_11.ldtkl",
+				"externalRelPath": "GameWorld/Level_Anton_8.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
 				"__neighbours": [{ "levelIid": "63e27027-e5f7-11ee-87ce-086ac5202a50", "dir": "n" }]
 			},
 			{
-				"identifier": "Level_Anton_12",
+				"identifier": "Level_Anton_9",
 				"iid": "63e29747-e5f7-11ee-8ccb-086ac5202a50",
 				"uid": 230,
 				"worldX": 1920,
@@ -10290,13 +10221,13 @@
 				"bgPivotY": 0.5,
 				"__smartColor": "#ADADB5",
 				"__bgPos": null,
-				"externalRelPath": "GameWorld/Level_Anton_12.ldtkl",
+				"externalRelPath": "GameWorld/Level_Anton_9.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
 				"__neighbours": [ { "levelIid": "63e27025-e5f7-11ee-81f4-086ac5202a50", "dir": "n" }, { "levelIid": "63e27026-e5f7-11ee-9b47-086ac5202a50", "dir": "w" } ]
 			},
 			{
-				"identifier": "Level_Anton_13",
+				"identifier": "Level_Anton_10",
 				"iid": "63e27026-e5f7-11ee-9b47-086ac5202a50",
 				"uid": 231,
 				"worldX": 1440,
@@ -10313,13 +10244,13 @@
 				"bgPivotY": 0.5,
 				"__smartColor": "#ADADB5",
 				"__bgPos": null,
-				"externalRelPath": "GameWorld/Level_Anton_13.ldtkl",
+				"externalRelPath": "GameWorld/Level_Anton_10.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
 				"__neighbours": [ { "levelIid": "63e247fa-e5f7-11ee-abfe-086ac5202a50", "dir": "n" }, { "levelIid": "63e27029-e5f7-11ee-90c4-086ac5202a50", "dir": "w" }, { "levelIid": "63e29747-e5f7-11ee-8ccb-086ac5202a50", "dir": "e" } ]
 			},
 			{
-				"identifier": "Level_Anton_14",
+				"identifier": "Level_Anton_11",
 				"iid": "63e31c6c-e5f7-11ee-acfc-086ac5202a50",
 				"uid": 604,
 				"worldX": 0,
@@ -10410,7 +10341,7 @@
 				"externalRelPath": "GameWorld/Level_Sebbe_2.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
-				"__neighbours": [ { "levelIid": "63e31c6f-e5f7-11ee-8ac3-086ac5202a50", "dir": "n" }, { "levelIid": "63e31c70-e5f7-11ee-b474-086ac5202a50", "dir": "w" }, { "levelIid": "cf4e2bf0-d7b0-11ee-a1bb-3fb8369126df", "dir": "e" } ]
+				"__neighbours": [ { "levelIid": "63e31c6f-e5f7-11ee-8ac3-086ac5202a50", "dir": "n" }, { "levelIid": "63e31c70-e5f7-11ee-b474-086ac5202a50", "dir": "w" }, { "levelIid": "cf4e2bf0-d7b0-11ee-a1bb-3fb8369126df", "dir": "e" }, { "levelIid": "3a00e090-d7b0-11ee-949e-ade129af2333", "dir": "s" } ]
 			},
 			{
 				"identifier": "Level_Sebbe_3",
@@ -10433,7 +10364,7 @@
 				"externalRelPath": "GameWorld/Level_Sebbe_3.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
-				"__neighbours": [ { "levelIid": "63e31c6e-e5f7-11ee-abc7-086ac5202a50", "dir": "n" }, { "levelIid": "63e3437d-e5f7-11ee-b9bf-086ac5202a50", "dir": "e" } ]
+				"__neighbours": [ { "levelIid": "63e31c6e-e5f7-11ee-abc7-086ac5202a50", "dir": "n" }, { "levelIid": "63e3437d-e5f7-11ee-b9bf-086ac5202a50", "dir": "e" }, { "levelIid": "0d243d00-d7b0-11ee-949e-f1fc2290660d", "dir": "s" } ]
 			},
 			{
 				"identifier": "Level_Sebbe_4",
@@ -10548,7 +10479,7 @@
 				"externalRelPath": "GameWorld/Level_Sebbe_8.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
-				"__neighbours": [ { "levelIid": "7626a4e0-d7b0-11ee-a1bb-a700c2eb3936", "dir": "e" }, { "levelIid": "cf4e2bf0-d7b0-11ee-a1bb-3fb8369126df", "dir": "n" } ]
+				"__neighbours": [ { "levelIid": "7626a4e0-d7b0-11ee-a1bb-a700c2eb3936", "dir": "e" }, { "levelIid": "cf4e2bf0-d7b0-11ee-a1bb-3fb8369126df", "dir": "n" }, { "levelIid": "3a00e090-d7b0-11ee-949e-ade129af2333", "dir": "w" } ]
 			},
 			{
 				"identifier": "Level_Sebbe_9",
@@ -10572,6 +10503,52 @@
 				"fieldInstances": [],
 				"layerInstances": null,
 				"__neighbours": [ { "levelIid": "63e3437d-e5f7-11ee-b9bf-086ac5202a50", "dir": "w" }, { "levelIid": "f1dc2a70-d7b0-11ee-a1bb-516a73bbb24f", "dir": "n" }, { "levelIid": "daab0650-d7b0-11ee-a1bb-5b05d359c63c", "dir": "e" }, { "levelIid": "40f45e60-d7b0-11ee-a1bb-d1fe708f67fe", "dir": "s" } ]
+			},
+			{
+				"identifier": "Level_Sebbe_10",
+				"iid": "3a00e090-d7b0-11ee-949e-ade129af2333",
+				"uid": 5006,
+				"worldX": 480,
+				"worldY": 544,
+				"worldDepth": 0,
+				"pxWid": 480,
+				"pxHei": 272,
+				"__bgColor": "#696A79",
+				"bgColor": null,
+				"useAutoIdentifier": true,
+				"bgRelPath": null,
+				"bgPos": null,
+				"bgPivotX": 0.5,
+				"bgPivotY": 0.5,
+				"__smartColor": "#ADADB5",
+				"__bgPos": null,
+				"externalRelPath": "GameWorld/Level_Sebbe_10.ldtkl",
+				"fieldInstances": [],
+				"layerInstances": null,
+				"__neighbours": [ { "levelIid": "63e3437d-e5f7-11ee-b9bf-086ac5202a50", "dir": "n" }, { "levelIid": "40f45e60-d7b0-11ee-a1bb-d1fe708f67fe", "dir": "e" }, { "levelIid": "0d243d00-d7b0-11ee-949e-f1fc2290660d", "dir": "w" } ]
+			},
+			{
+				"identifier": "Level_Sebbe_11",
+				"iid": "0d243d00-d7b0-11ee-949e-f1fc2290660d",
+				"uid": 5007,
+				"worldX": 0,
+				"worldY": 544,
+				"worldDepth": 0,
+				"pxWid": 480,
+				"pxHei": 272,
+				"__bgColor": "#696A79",
+				"bgColor": null,
+				"useAutoIdentifier": true,
+				"bgRelPath": null,
+				"bgPos": null,
+				"bgPivotX": 0.5,
+				"bgPivotY": 0.5,
+				"__smartColor": "#ADADB5",
+				"__bgPos": null,
+				"externalRelPath": "GameWorld/Level_Sebbe_11.ldtkl",
+				"fieldInstances": [],
+				"layerInstances": null,
+				"__neighbours": [ { "levelIid": "63e31c70-e5f7-11ee-b474-086ac5202a50", "dir": "n" }, { "levelIid": "3a00e090-d7b0-11ee-949e-ade129af2333", "dir": "e" } ]
 			}
 		] },
 		{ "iid": "63e36a8c-e5f7-11ee-bdbe-086ac5202a50", "identifier": "Level_Anton2", "defaultLevelWidth": 480, "defaultLevelHeight": 272, "worldGridWidth": 480, "worldGridHeight": 272, "worldLayout": "GridVania", "levels": [
@@ -10596,7 +10573,7 @@
 				"externalRelPath": "GameWorld/Level_Anton2_0.ldtkl",
 				"fieldInstances": [],
 				"layerInstances": null,
-				"__neighbours": [{ "levelIid": "63e3919c-e5f7-11ee-8b01-086ac5202a50", "dir": "e" }]
+				"__neighbours": [ { "levelIid": "63e3919c-e5f7-11ee-8b01-086ac5202a50", "dir": "e" }, { "levelIid": "a1a51840-d7b0-11ee-9eb7-51cefbdc9e62", "dir": "n" } ]
 			},
 			{
 				"identifier": "Level_Anton2_1",
@@ -10873,6 +10850,29 @@
 				"fieldInstances": [],
 				"layerInstances": null,
 				"__neighbours": [ { "levelIid": "63e3919e-e5f7-11ee-aae3-086ac5202a50", "dir": "n" }, { "levelIid": "63e3dfbf-e5f7-11ee-bb62-086ac5202a50", "dir": "e" } ]
+			},
+			{
+				"identifier": "Level_Anton2_13",
+				"iid": "a1a51840-d7b0-11ee-9eb7-51cefbdc9e62",
+				"uid": 5009,
+				"worldX": 0,
+				"worldY": -272,
+				"worldDepth": 0,
+				"pxWid": 480,
+				"pxHei": 272,
+				"__bgColor": "#696A79",
+				"bgColor": null,
+				"useAutoIdentifier": true,
+				"bgRelPath": null,
+				"bgPos": null,
+				"bgPivotX": 0.5,
+				"bgPivotY": 0.5,
+				"__smartColor": "#ADADB5",
+				"__bgPos": null,
+				"externalRelPath": "GameWorld/Level_Anton2_13.ldtkl",
+				"fieldInstances": [],
+				"layerInstances": null,
+				"__neighbours": [{ "levelIid": "63e36a8d-e5f7-11ee-abef-086ac5202a50", "dir": "s" }]
 			}
 		] },
 		{ "iid": "63e4a30b-e5f7-11ee-a68f-086ac5202a50", "identifier": "Level_Last", "defaultLevelWidth": 480, "defaultLevelHeight": 272, "worldGridWidth": 480, "worldGridHeight": 272, "worldLayout": "GridVania", "levels": [

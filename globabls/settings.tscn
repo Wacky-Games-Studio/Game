@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://de42k5owbgstd"]
+
+[ext_resource type="Script" path="res://globabls/settings.gd" id="1_8lvpx"]
+[ext_resource type="Texture2D" uid="uid://c81yoqd0lbsbo" path="res://scenes/cutscene/backdrop.png" id="1_r68g6"]
+[ext_resource type="FontFile" uid="uid://e6c7e2o6jqbk" path="res://PixelBlocky.ttf" id="2_p3lc2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbk55"]
+texture = ExtResource("1_r68g6")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+visible = false
+
+[node name="Settings" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8lvpx")
+volume_offset_db = -37.0
+inital_volume_offset_db = -20.0
+
+[node name="Panel" type="Panel" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rbk55")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="Panel" type="Panel" parent="Settings/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(352, 172)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 105.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("2_p3lc2")
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 37.0
+offset_right = 123.0
+offset_bottom = 79.0
+
+[node name="FullscreenMenu" type="OptionButton" parent="Settings/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p3lc2")
+item_count = 2
+selected = 1
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p3lc2")
+text = "Volume: "
+
+[node name="VolSlider" type="HSlider" parent="Settings/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ResetProgress" type="Button" parent="Settings/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p3lc2")
+text = "RESET PROGRESS"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Settings/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 64
+
+[node name="BackButton" type="Button" parent="Settings"]
+layout_mode = 1
+offset_left = 379.0
+offset_top = 176.0
+offset_right = 412.0
+offset_bottom = 198.0
+theme_override_fonts/font = ExtResource("2_p3lc2")
+text = "Back"
+
+[connection signal="visibility_changed" from="." to="Settings" method="_on_canvas_layer_visibility_changed"]
+[connection signal="item_selected" from="Settings/HBoxContainer/VBoxContainer/Panel/VBoxContainer/FullscreenMenu" to="Settings" method="_on_fullscren_item_selected"]
+[connection signal="value_changed" from="Settings/HBoxContainer/VBoxContainer/Panel/VBoxContainer/HBoxContainer/VolSlider" to="Settings" method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="Settings/HBoxContainer/VBoxContainer/Panel/VBoxContainer/ResetProgress" to="Settings" method="_on_reset_progress_pressed"]
+[connection signal="pressed" from="Settings/BackButton" to="Settings" method="_on_back_button_pressed"]

@@ -76,7 +76,51 @@
 			"seed": 1408675,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
-			"entityInstances": []
+			"entityInstances": [
+				{
+					"__identifier": "Checkpoint",
+					"__grid": [19,11],
+					"__pivot": [0.5,0.5],
+					"__tags": ["Interactable"],
+					"__tile": { "tilesetUid": 119, "x": 0, "y": 0, "w": 64, "h": 64 },
+					"__smartColor": "#E4A672",
+					"__worldX": 2232,
+					"__worldY": 184,
+					"iid": "e1a0fd00-d7b0-11ee-9eb7-83f10e03b808",
+					"width": 64,
+					"height": 64,
+					"defUid": 120,
+					"px": [312,184],
+					"fieldInstances": [
+						{ "__identifier": "ShouldFaceLeft", "__type": "Bool", "__value": false, "__tile": null, "defUid": 123, "realEditorValues": [] },
+						{ "__identifier": "CheckpointTrigger", "__type": "EntityRef", "__value": {
+							"entityIid": "e45ce8b0-d7b0-11ee-9eb7-593b64cdcab5",
+							"layerIid": "6415c1f2-e5f7-11ee-9951-086ac5202a50",
+							"levelIid": "63e3b8ac-e5f7-11ee-b73e-086ac5202a50",
+							"worldIid": "63e36a8c-e5f7-11ee-bdbe-086ac5202a50"
+						}, "__tile": null, "defUid": 122, "realEditorValues": [{
+							"id": "V_String",
+							"params": ["e45ce8b0-d7b0-11ee-9eb7-593b64cdcab5"]
+						}] }
+					]
+				},
+				{
+					"__identifier": "CheckpointTrigger",
+					"__grid": [10,5],
+					"__pivot": [0,0],
+					"__tags": ["Trigger"],
+					"__tile": { "tilesetUid": 104, "x": 32, "y": 0, "w": 16, "h": 16 },
+					"__smartColor": "#63C74D",
+					"__worldX": 2080,
+					"__worldY": 80,
+					"iid": "e45ce8b0-d7b0-11ee-9eb7-593b64cdcab5",
+					"width": 48,
+					"height": 112,
+					"defUid": 121,
+					"px": [160,80],
+					"fieldInstances": []
+				}
+			]
 		},
 		{
 			"__identifier": "Cleanup",

@@ -48,6 +48,7 @@ FadeTransition="*res://globabls/fade/fade_transition.tscn"
 SceneManager="*res://globabls/scene_manager.gd"
 Splash="*res://scenes/splash.tscn"
 Music="*res://globabls/music.tscn"
+Settings="*res://globabls/settings.tscn"
 
 [display]
 

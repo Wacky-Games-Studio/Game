@@ -76,24 +76,7 @@
 			"seed": 5681616,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
-			"entityInstances": [
-				{
-					"__identifier": "WinTrigger",
-					"__grid": [12,13],
-					"__pivot": [0,0],
-					"__tags": ["Trigger"],
-					"__tile": { "tilesetUid": 104, "x": 48, "y": 0, "w": 16, "h": 16 },
-					"__smartColor": "#FEE761",
-					"__worldX": 3072,
-					"__worldY": 752,
-					"iid": "64113e90-e5f7-11ee-a41f-086ac5202a50",
-					"width": 48,
-					"height": 64,
-					"defUid": 154,
-					"px": [192,208],
-					"fieldInstances": []
-				}
-			]
+			"entityInstances": []
 		},
 		{
 			"__identifier": "Cleanup",
