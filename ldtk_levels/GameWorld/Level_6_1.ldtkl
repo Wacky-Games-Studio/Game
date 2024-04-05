@@ -127,7 +127,7 @@
 						}] },
 						{ "__identifier": "SecondsToComplete", "__type": "Float", "__value": 2, "__tile": null, "defUid": 95, "realEditorValues": [{ "id": "V_Float", "params": [2] }] },
 						{ "__identifier": "DrawRail", "__type": "Bool", "__value": true, "__tile": null, "defUid": 96, "realEditorValues": [] },
-						{ "__identifier": "RailColor", "__type": "Color", "__value": "#000000", "__tile": null, "defUid": 770, "realEditorValues": [] }
+						{ "__identifier": "RailColor", "__type": "Color", "__value": "#FFFFFF", "__tile": null, "defUid": 770, "realEditorValues": [{ "id": "V_Int", "params": [16777215] }] }
 					]
 				}
 			]

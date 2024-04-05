@@ -119,7 +119,7 @@
 						{ "__identifier": "LoopBack", "__type": "Bool", "__value": false, "__tile": null, "defUid": 93, "realEditorValues": [] },
 						{ "__identifier": "SecondsToComplete", "__type": "Float", "__value": 5, "__tile": null, "defUid": 95, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
 						{ "__identifier": "DrawRail", "__type": "Bool", "__value": true, "__tile": null, "defUid": 96, "realEditorValues": [] },
-						{ "__identifier": "RailColor", "__type": "Color", "__value": "#000000", "__tile": null, "defUid": 770, "realEditorValues": [] }
+						{ "__identifier": "RailColor", "__type": "Color", "__value": "#FFFFFF", "__tile": null, "defUid": 770, "realEditorValues": [{ "id": "V_Int", "params": [16777215] }] }
 					]
 				},
 				{
@@ -192,7 +192,7 @@
 							"id": "V_Bool",
 							"params": [ false ]
 						}] },
-						{ "__identifier": "RailColor", "__type": "Color", "__value": "#000000", "__tile": null, "defUid": 770, "realEditorValues": [] }
+						{ "__identifier": "RailColor", "__type": "Color", "__value": "#FFFFFF", "__tile": null, "defUid": 770, "realEditorValues": [{ "id": "V_Int", "params": [16777215] }] }
 					]
 				},
 				{
@@ -265,7 +265,7 @@
 							"id": "V_Bool",
 							"params": [ false ]
 						}] },
-						{ "__identifier": "RailColor", "__type": "Color", "__value": "#000000", "__tile": null, "defUid": 770, "realEditorValues": [] }
+						{ "__identifier": "RailColor", "__type": "Color", "__value": "#FFFFFF", "__tile": null, "defUid": 770, "realEditorValues": [{ "id": "V_Int", "params": [16777215] }] }
 					]
 				},
 				{
@@ -335,7 +335,7 @@
 						{ "__identifier": "LoopBack", "__type": "Bool", "__value": false, "__tile": null, "defUid": 93, "realEditorValues": [] },
 						{ "__identifier": "SecondsToComplete", "__type": "Float", "__value": 5, "__tile": null, "defUid": 95, "realEditorValues": [{ "id": "V_Float", "params": [5] }] },
 						{ "__identifier": "DrawRail", "__type": "Bool", "__value": true, "__tile": null, "defUid": 96, "realEditorValues": [] },
-						{ "__identifier": "RailColor", "__type": "Color", "__value": "#000000", "__tile": null, "defUid": 770, "realEditorValues": [] }
+						{ "__identifier": "RailColor", "__type": "Color", "__value": "#FFFFFF", "__tile": null, "defUid": 770, "realEditorValues": [{ "id": "V_Int", "params": [16777215] }] }
 					]
 				}
 			]
