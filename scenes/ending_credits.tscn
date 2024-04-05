@@ -24,11 +24,11 @@ speed = 20
 texture = ExtResource("1_g178p")
 centered = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-offset = Vector2(0, 384.86)
-transform = Transform2D(1, 0, 0, 1, 0, 384.86)
+[node name="ScrollingCanvas" type="CanvasLayer" parent="."]
+offset = Vector2(0, 350)
+transform = Transform2D(1, 0, 0, 1, 0, 350)
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="ScrollingCanvas"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +38,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollingCanvas/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,12 +47,12 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="Panel" type="Panel" parent="ScrollingCanvas/Control/HBoxContainer"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vn5ci")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollingCanvas/Control/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,41 +67,41 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label6" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+[node name="Label6" type="Label" parent="ScrollingCanvas/Control/HBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(300, 132)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_vtyf5")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollingCanvas/Control/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="Label5" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+[node name="Label5" type="Label" parent="ScrollingCanvas/Control/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_1kbu8")
 theme_override_font_sizes/font_size = 20
 text = "CREDITS:"
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="ScrollingCanvas/Control/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_1kbu8")
 theme_override_font_sizes/font_size = 20
 text = "Filip - Programmer, Level designer"
 
-[node name="Label2" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+[node name="Label2" type="Label" parent="ScrollingCanvas/Control/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_1kbu8")
 theme_override_font_sizes/font_size = 20
 text = "Noah - Artist"
 
-[node name="Label4" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+[node name="Label4" type="Label" parent="ScrollingCanvas/Control/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_1kbu8")
 theme_override_font_sizes/font_size = 20
 text = "Sebastian - Level designer"
 
-[node name="Label3" type="Label" parent="CanvasLayer/Control/HBoxContainer/Panel/VBoxContainer"]
+[node name="Label3" type="Label" parent="ScrollingCanvas/Control/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_1kbu8")
 theme_override_font_sizes/font_size = 20
