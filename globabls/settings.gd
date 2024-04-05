@@ -10,15 +10,26 @@ signal just_hidden()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if FileAccess.file_exists("user://settings") == false:
+		vol_slider.value = AudioServer.get_bus_volume_db(bus) + volume_min
+		print("no exist")
+		return
+
 	var settings_file = FileAccess.open("user://settings", FileAccess.READ)
 	var parsed = JSON.parse_string(settings_file.get_as_text())
 
-	if parsed == null or parsed["fullscreen"] == null or parsed["volume"] == null:
+	print("YES")
+	print(FileAccess.file_exists("user://settings"))
+	print(settings_file.get_as_text())
+	if parsed == null or parsed.get("fulscreen") == null or parsed.get("volume") == null:
 		vol_slider.value = AudioServer.get_bus_volume_db(bus) + volume_min
+		DirAccess.remove_absolute("user://settings")
 		return
 	
-	var fullscreen_index := int(parsed["fullscreen"])
-	var volume := float(parsed["volume"])
+	print("HUH")
+
+	var fullscreen_index := int(parsed.get("fullscreen"))
+	var volume := float(parsed.get("volume"))
 
 	DisplayServer.window_set_mode(fullscreen_index)
 

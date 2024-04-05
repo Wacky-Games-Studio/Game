@@ -20,8 +20,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8lvpx")
-audio_bus_name = null
-volume_min = null
 
 [node name="Panel" type="Panel" parent="Settings"]
 layout_mode = 1
