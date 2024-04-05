@@ -17,7 +17,7 @@ func settings_hidden():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if quit_modal.visible: return
+	if quit_modal.visible or Settings.visible: return
 
 	if Input.is_action_just_pressed("pause"):
 		if not visible: pause()

@@ -159,5 +159,6 @@ func _handle_win_trigger(entity, entity_layer: LDTKEntityLayer) -> void:
 	win.collision_size = Vector2(entity.size)
 	win.collider_position = Vector2(entity.size / Vector2i(2, 2))
 	win.position = entity.position
+	win.add_to_group("win", true)
 	
 	entity_layer.add_child(win)

@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=9 format=3 uid="uid://bo5a2gknl6adw"]
+[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://bo5a2gknl6adw"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cti74"]
 resource_name = "Reverb"
@@ -32,6 +32,9 @@ band_db/10000_hz = -32.0
 resource_name = "Delay"
 dry = 0.99
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_1me5a"]
+resource_name = "Reverb"
+
 [resource]
 bus/0/volume_db = -17.0211
 bus/1/name = &"Cave"
@@ -64,7 +67,15 @@ bus/2/effect/2/effect = SubResource("AudioEffectDelay_sh57f")
 bus/2/effect/2/enabled = true
 bus/3/name = &"Music"
 bus/3/solo = false
-bus/3/mute = false
+bus/3/mute = true
 bus/3/bypass_fx = false
 bus/3/volume_db = -2.3125
 bus/3/send = &"Cave"
+bus/4/name = &"Explosion"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -0.130497
+bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_1me5a")
+bus/4/effect/0/enabled = true

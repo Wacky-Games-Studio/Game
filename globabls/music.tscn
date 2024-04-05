@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://co3jrjlclhchh"]
+[gd_scene load_steps=10 format=3 uid="uid://co3jrjlclhchh"]
 
+[ext_resource type="Script" path="res://globabls/music.gd" id="1_lmfxf"]
 [ext_resource type="Script" path="res://ovani_plugin/OvaniPlayer.gd" id="1_rbn85"]
 [ext_resource type="AudioStream" uid="uid://cjidmaxmee0gy" path="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Intensity 1.wav" id="2_rcgm6"]
 [ext_resource type="AudioStream" uid="uid://cj376k64xmmay" path="res://scenes/dungeon/audio/casual_exploration/Ambient Vol2 Casual Exploration Intensity 2.wav" id="3_3qlsn"]
@@ -20,6 +21,8 @@ AudioBus = "Music"
 SongMode = 0
 
 [node name="Music" type="Node"]
+script = ExtResource("1_lmfxf")
+intensity = null
 
 [node name="OvaniPlayer" type="Node" parent="."]
 script = ExtResource("1_rbn85")

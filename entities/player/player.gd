@@ -40,6 +40,9 @@ var has_spring_jumped := false
 var spring_jump_dir := Vector2.ZERO
 var walljump_enabled := true
 var fake_dead := false
+var win_position: Vector2
+var start_position: Vector2
+var use_intensity_music: bool
 
 func _ready() -> void:
 	# Engine.time_scale = .1
@@ -63,6 +66,18 @@ func init() -> void:
 	_current_jump_particles = instantiate_new_particle(jump_particels)
 	_current_land_particles = instantiate_new_particle(land_particels)
 
+	var win_collider = get_tree().get_first_node_in_group("win")
+	var player_spawn = get_tree().get_first_node_in_group("PlayerSpawn")
+
+	if win_collider == null || player_spawn == null:
+		use_intensity_music = false
+		return
+
+	use_intensity_music = true
+	
+	win_position = win_collider.global_position
+	start_position = player_spawn.global_position
+
 func unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 
@@ -71,6 +86,9 @@ func physics_process(delta: float) -> void:
 	sprite.scale.y = lerp(sprite.scale.y, 1.0, 5 * delta)
 	
 	state_machine.process_physics(delta)
+
+	# var current_progress = (global_position - start_position) / (win_position - start_position)
+	# Music.intensity = clampf(current_progress.length(), 0.0, 1.0)
 
 func process(delta: float) -> void:
 	state_machine.process_frame(delta)

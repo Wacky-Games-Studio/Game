@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpif82ph8ys7e"]
+[gd_scene load_steps=11 format=3 uid="uid://dpif82ph8ys7e"]
 
 [ext_resource type="Script" path="res://scenes/ending.gd" id="1_xw0vo"]
 [ext_resource type="TileSet" uid="uid://cte85m5yj2d1e" path="res://ldtk_levels/tilesets/tileset16x16.res" id="2_36rwj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0h5h43w8fi5c" path="res://entities/door/button.tscn" id="4_48vwp"]
 [ext_resource type="PackedScene" uid="uid://c688q3v05cx2m" path="res://entities/door/door.tscn" id="5_1kdli"]
 [ext_resource type="PackedScene" uid="uid://ddjjh1cilf221" path="res://scenes/actual_explosion.tscn" id="6_leeoo"]
+[ext_resource type="PackedScene" uid="uid://cssb2hhyuo66g" path="res://scenes/actual_big_explosion.tscn" id="7_o85es"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u38s8"]
 size = Vector2(10, 272)
@@ -146,11 +147,25 @@ tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(1.6),
+"times": PackedFloat32Array(1.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"change_to_credits"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AnimationPlayer/Sprite2D9")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
 }]
 }
 
@@ -213,6 +228,10 @@ position = Vector2(354, 204)
 
 [node name="Sprite2D8" parent="AnimationPlayer" instance=ExtResource("6_leeoo")]
 position = Vector2(193, 52)
+
+[node name="Sprite2D9" parent="AnimationPlayer" instance=ExtResource("7_o85es")]
+position = Vector2(218, 122)
+scale = Vector2(16, 16)
 
 [connection signal="body_entered" from="Button/Area2D" to="." method="_on_button_pressed"]
 
