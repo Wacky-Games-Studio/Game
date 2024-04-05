@@ -104,6 +104,7 @@ script = ExtResource("1_bw6m1")
 shape = SubResource("RectangleShape2D_47g3s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("2_1m06k")
 hframes = 4
 

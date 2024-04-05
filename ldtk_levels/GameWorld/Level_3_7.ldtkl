@@ -93,13 +93,13 @@
 					"px": [72,64],
 					"fieldInstances": [
 						{ "__identifier": "Door", "__type": "EntityRef", "__value": {
-							"entityIid": "642ac88b-e5f7-11ee-b8de-086ac5202a50",
+							"entityIid": "c94a5650-d7b0-11ee-a483-17dc0ca44f88",
 							"layerIid": "642ac88a-e5f7-11ee-a18c-086ac5202a50",
 							"levelIid": "63e29747-e5f7-11ee-8ccb-086ac5202a50",
 							"worldIid": "63e1f83b-e5f7-11ee-92ff-086ac5202a50"
 						}, "__tile": null, "defUid": 102, "realEditorValues": [{
 							"id": "V_String",
-							"params": ["642ac88b-e5f7-11ee-b8de-086ac5202a50"]
+							"params": ["c94a5650-d7b0-11ee-a483-17dc0ca44f88"]
 						}] },
 						{ "__identifier": "Rotation", "__type": "Int", "__value": 90, "__tile": null, "defUid": 166, "realEditorValues": [{ "id": "V_Int", "params": [90] }] }
 					]

@@ -3,6 +3,5 @@
 [ext_resource type="Script" path="res://ldtk_levels/ldtk_runner.gd" id="1_bh5ff"]
 
 [node name="LdtkRunner" type="Node2D"]
-position = Vector2(-3, 0)
 script = ExtResource("1_bh5ff")
-level = "4"
+level = "6"
