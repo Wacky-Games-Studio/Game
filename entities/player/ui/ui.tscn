@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1po6o5daam0w"]
+[gd_scene load_steps=24 format=3 uid="uid://b1po6o5daam0w"]
 
 [ext_resource type="Script" path="res://entities/player/ui/BouncyButton.gd" id="1_ponbp"]
 [ext_resource type="Script" path="res://entities/player/ui/ui.gd" id="1_y0vt8"]
@@ -55,6 +55,36 @@ region_rect = Rect2(384, 32, 96, 32)
 texture = ExtResource("4_g3ps0")
 texture_margin_top = 7.9727
 region_rect = Rect2(384, 32, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cwtv"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(480, 0, 48, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7e2f7"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(480, 32, 48, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nri07"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(480, 32, 48, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ucrt"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(528, 0, 48, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3783x"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(528, 32, 48, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsthh"]
+texture = ExtResource("4_g3ps0")
+texture_margin_top = 7.9727
+region_rect = Rect2(528, 32, 48, 32)
 
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
@@ -198,8 +228,11 @@ layout_mode = 2
 alignment = 1
 
 [node name="YesButton" type="Button" parent="RootUI/QuitPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 32)
 layout_mode = 2
-text = "Yes"
+theme_override_styles/normal = SubResource("StyleBoxTexture_7cwtv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7e2f7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nri07")
 script = ExtResource("1_ponbp")
 scale_size = 1.1
 transition_type = 9
@@ -209,9 +242,11 @@ layout_mode = 2
 theme_override_constants/margin_left = 10
 
 [node name="NoButton" type="Button" parent="RootUI/QuitPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 32)
 layout_mode = 2
-text = "No
-"
+theme_override_styles/normal = SubResource("StyleBoxTexture_0ucrt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3783x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dsthh")
 script = ExtResource("1_ponbp")
 scale_size = 1.1
 transition_type = 9
