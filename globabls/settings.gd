@@ -10,23 +10,17 @@ signal just_hidden()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if FileAccess.file_exists("user://settings") == false:
+	if FileAccess.file_exists("user://settings.dat") == false:
 		vol_slider.value = AudioServer.get_bus_volume_db(bus) + volume_min
-		print("no exist")
 		return
 
-	var settings_file = FileAccess.open("user://settings", FileAccess.READ)
+	var settings_file = FileAccess.open("user://settings.dat", FileAccess.READ)
 	var parsed = JSON.parse_string(settings_file.get_as_text())
 
-	print("YES")
-	print(FileAccess.file_exists("user://settings"))
-	print(settings_file.get_as_text())
-	if parsed == null or parsed.get("fulscreen") == null or parsed.get("volume") == null:
+	if parsed == null or parsed.get("fullscreen") == null or parsed.get("volume") == null:
 		vol_slider.value = AudioServer.get_bus_volume_db(bus) + volume_min
-		DirAccess.remove_absolute("user://settings")
+		DirAccess.remove_absolute("user://settings.dat")
 		return
-	
-	print("HUH")
 
 	var fullscreen_index := int(parsed.get("fullscreen"))
 	var volume := float(parsed.get("volume"))
@@ -35,6 +29,7 @@ func _ready():
 
 	AudioServer.set_bus_volume_db(bus, volume)
 	vol_slider.value = AudioServer.get_bus_volume_db(bus) - volume_min
+	full_screen.selected = 0 if fullscreen_index == DisplayServer.WINDOW_MODE_FULLSCREEN else 1
 	
 
 func _on_fullscren_item_selected(index:int):
@@ -52,7 +47,10 @@ func _on_reset_progress_pressed():
 	DirAccess.remove_absolute("user://savegame.save")
 
 func _on_back_button_pressed():
-	var settings_file = FileAccess.open("user://settings", FileAccess.WRITE)
+	var settings_file = FileAccess.open("user://settings.dat", FileAccess.WRITE)
+	if settings_file == null:
+		print("Couldnt open file!")
+
 	print(AudioServer.get_bus_volume_db(bus))
 	var save = {
 		volume = AudioServer.get_bus_volume_db(bus),

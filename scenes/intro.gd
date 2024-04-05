@@ -11,6 +11,12 @@ extends Node2D
 func _ready():
 	player.disable_walljump()
 	player.disable_canvas_modulate()
+	var duckIndex = AudioServer.get_bus_index("Duck")
+	AudioServer.set_bus_bypass_effects(duckIndex, true)
+
+func _exit_tree():
+	var duckIndex = AudioServer.get_bus_index("Duck")
+	AudioServer.set_bus_bypass_effects(duckIndex, false)
 
 func _process(_delta):
 	if player.position.x > screen_size: return

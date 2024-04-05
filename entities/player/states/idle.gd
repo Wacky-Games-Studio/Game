@@ -4,6 +4,10 @@ extends State
 @export var jump_state: State
 @export var fall_state: State
 
+func enter() -> void:
+	super()
+	parent.has_jumped = false
+
 func process_input(_event: InputEvent) -> State:
 	var dir := Input.get_axis("walk_left", "walk_right")
 	if dir != 0: return walk_state

@@ -51,7 +51,24 @@
 			"seed": 1497120,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
-			"entityInstances": []
+			"entityInstances": [
+				{
+					"__identifier": "WinTrigger",
+					"__grid": [26,32],
+					"__pivot": [0,0],
+					"__tags": ["Trigger"],
+					"__tile": { "tilesetUid": 104, "x": 48, "y": 0, "w": 16, "h": 16 },
+					"__smartColor": "#FEE761",
+					"__worldX": 1168,
+					"__worldY": 800,
+					"iid": "95ce99a0-d7b0-11ee-95ce-e5f4fe81bb29",
+					"width": 48,
+					"height": 16,
+					"defUid": 154,
+					"px": [208,256],
+					"fieldInstances": []
+				}
+			]
 		},
 		{
 			"__identifier": "EntitiesLargeGrid",
@@ -124,6 +141,49 @@
 					"defUid": 152,
 					"px": [392,136],
 					"fieldInstances": [{ "__identifier": "Rotation", "__type": "Int", "__value": 90, "__tile": null, "defUid": 596, "realEditorValues": [{ "id": "V_Int", "params": [90] }] }]
+				},
+				{
+					"__identifier": "Checkpoint",
+					"__grid": [11,9],
+					"__pivot": [0.5,0.5],
+					"__tags": ["Interactable"],
+					"__tile": { "tilesetUid": 119, "x": 0, "y": 0, "w": 64, "h": 64 },
+					"__smartColor": "#E4A672",
+					"__worldX": 1144,
+					"__worldY": 696,
+					"iid": "94447d60-d7b0-11ee-a483-f3c690a02a66",
+					"width": 64,
+					"height": 64,
+					"defUid": 120,
+					"px": [184,152],
+					"fieldInstances": [
+						{ "__identifier": "ShouldFaceLeft", "__type": "Bool", "__value": false, "__tile": null, "defUid": 123, "realEditorValues": [] },
+						{ "__identifier": "CheckpointTrigger", "__type": "EntityRef", "__value": {
+							"entityIid": "960d7d90-d7b0-11ee-a483-ed18bb34358d",
+							"layerIid": "40f45e62-d7b0-11ee-a1bb-07462ccbd352",
+							"levelIid": "40f45e60-d7b0-11ee-a1bb-d1fe708f67fe",
+							"worldIid": "63e31c6d-e5f7-11ee-90d9-086ac5202a50"
+						}, "__tile": null, "defUid": 122, "realEditorValues": [{
+							"id": "V_String",
+							"params": ["960d7d90-d7b0-11ee-a483-ed18bb34358d"]
+						}] }
+					]
+				},
+				{
+					"__identifier": "CheckpointTrigger",
+					"__grid": [5,7],
+					"__pivot": [0,0],
+					"__tags": ["Trigger"],
+					"__tile": { "tilesetUid": 104, "x": 32, "y": 0, "w": 16, "h": 16 },
+					"__smartColor": "#63C74D",
+					"__worldX": 1040,
+					"__worldY": 656,
+					"iid": "960d7d90-d7b0-11ee-a483-ed18bb34358d",
+					"width": 32,
+					"height": 48,
+					"defUid": 121,
+					"px": [80,112],
+					"fieldInstances": []
 				}
 			]
 		},

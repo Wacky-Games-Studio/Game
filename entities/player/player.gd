@@ -61,6 +61,12 @@ func init() -> void:
 	
 	$Camera.set_static(cp_data.static_camera)
 	$Camera.update_position()
+
+	var coyote: Timer = %CoyoteTimer
+	var wall_jump_timer = %WallJumpTime
+	coyote.stop()
+	wall_jump_timer.stop()
+
 	
 	_current_walk_particles = instantiate_new_particle(walk_particles)
 	_current_jump_particles = instantiate_new_particle(jump_particels)
@@ -288,6 +294,10 @@ func mod_negative(x: int, n: int) -> int:
 func die() -> void:
 	if state_machine.current_state != $StateMachine/Dead:
 		state_machine.change_state($StateMachine/Dead)
+		var coyote: Timer = %CoyoteTimer
+		var wall_jump_timer = %WallJumpTime
+		coyote.stop()
+		wall_jump_timer.stop()
 	
 func fake_die() -> void:
 	if state_machine.current_state != $StateMachine/Dead:

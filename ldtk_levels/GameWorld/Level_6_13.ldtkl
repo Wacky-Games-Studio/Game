@@ -76,24 +76,7 @@
 			"seed": 249512,
 			"overrideTilesetUid": null,
 			"gridTiles": [],
-			"entityInstances": [
-				{
-					"__identifier": "PlayerSpawn",
-					"__grid": [1,4],
-					"__pivot": [0.5,1],
-					"__tags": ["Player"],
-					"__tile": { "tilesetUid": 87, "x": 0, "y": 0, "w": 26, "h": 26 },
-					"__smartColor": "#FFFFFF",
-					"__worldX": 504,
-					"__worldY": 1168,
-					"iid": "cba5dd10-d7b0-11ee-a483-6bd85bbe40b9",
-					"width": 26,
-					"height": 26,
-					"defUid": 86,
-					"px": [24,80],
-					"fieldInstances": []
-				}
-			]
+			"entityInstances": []
 		},
 		{
 			"__identifier": "Cleanup",
