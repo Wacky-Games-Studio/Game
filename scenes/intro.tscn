@@ -96,6 +96,13 @@ shape = SubResource("RectangleShape2D_oorv5")
 position = Vector2(-1, 136)
 shape = SubResource("RectangleShape2D_okphr")
 
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(961, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-1, 136)
+shape = SubResource("RectangleShape2D_okphr")
+
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
