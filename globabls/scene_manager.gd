@@ -6,8 +6,6 @@ signal SceneStarted()
 var scene_paused: bool = false
 var player: Player
 
-const AMOUNT_OF_LEVELS := 4 # IDK
-
 func restart_level() -> void:
 	FadeTransition.transition()
 	await FadeTransition.transitioned
@@ -31,7 +29,6 @@ func finnish_level() -> void:
 	else:
 		get_tree().change_scene_to_file(next_level_path)
 	
-	if next_level_number < AMOUNT_OF_LEVELS:
 		var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 		save_file.store_string(str(next_level_number))
 		save_file.close()
