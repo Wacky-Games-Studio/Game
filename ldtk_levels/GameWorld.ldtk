@@ -8981,15 +8981,15 @@
 			}
 		},
 		{
-			"__cWid": 1,
+			"__cWid": 2,
 			"__cHei": 1,
 			"identifier": "Duck",
 			"uid": 87,
 			"relPath": "../entities/player/sprites/duck.png",
 			"embedAtlas": null,
 			"pxWid": 26,
-			"pxHei": 26,
-			"tileGridSize": 26,
+			"pxHei": 22,
+			"tileGridSize": 22,
 			"spacing": 0,
 			"padding": 0,
 			"tags": ["Entities"],
@@ -8997,7 +8997,7 @@
 			"enumTags": [],
 			"customData": [],
 			"savedSelections": [],
-			"cachedPixelData": { "opaqueTiles": "0", "averageColors": "6baa" }
+			"cachedPixelData": { "opaqueTiles": "01", "averageColors": "9baa0000" }
 		},
 		{
 			"__cWid": 1,
