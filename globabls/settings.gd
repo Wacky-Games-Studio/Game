@@ -10,7 +10,7 @@ signal just_hidden()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if FileAccess.file_exists("user://settings.dat") == false:
+	if ResourceLoader.exists("user://settings.dat") == false:
 		vol_slider.value = AudioServer.get_bus_volume_db(bus) + volume_min
 		return
 

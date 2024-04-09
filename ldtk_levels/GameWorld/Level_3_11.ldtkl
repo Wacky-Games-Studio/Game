@@ -12,7 +12,7 @@
 	"iid": "63e31c6c-e5f7-11ee-acfc-086ac5202a50",
 	"uid": 604,
 	"worldX": 0,
-	"worldY": 0,
+	"worldY": 544,
 	"worldDepth": 0,
 	"pxWid": 480,
 	"pxHei": 272,
@@ -105,6 +105,22 @@
 						{ "__identifier": "DrawRail", "__type": "Bool", "__value": true, "__tile": null, "defUid": 96, "realEditorValues": [] },
 						{ "__identifier": "RailColor", "__type": "Color", "__value": "#FFFFFF", "__tile": null, "defUid": 770, "realEditorValues": [{ "id": "V_Int", "params": [16777215] }] }
 					]
+				},
+				{
+					"__identifier": "PlayerSpawn",
+					"__grid": [3,1],
+					"__pivot": [0.5,1],
+					"__tags": ["Player"],
+					"__tile": { "tilesetUid": 87, "x": 0, "y": 0, "w": 26, "h": 26 },
+					"__smartColor": "#FFFFFF",
+					"__worldX": 56,
+					"__worldY": 32,
+					"iid": "cba5dd10-d7b0-11ee-a483-6bd85bbe40b9",
+					"width": 26,
+					"height": 26,
+					"defUid": 86,
+					"px": [56,32],
+					"fieldInstances": []
 				}
 			]
 		},
@@ -910,5 +926,5 @@
 			"entityInstances": []
 		}
 	],
-	"__neighbours": [ { "levelIid": "63e22228-e5f7-11ee-8f64-086ac5202a50", "dir": "o" }, { "levelIid": "63e22229-e5f7-11ee-845c-086ac5202a50", "dir": "e" } ]
+	"__neighbours": []
 }

@@ -24,7 +24,7 @@ func finnish_level() -> void:
 	var next_level_number = current_scene_file.to_int() + 1
 	
 	var next_level_path = "res://ldtk_levels/worlds/Level_" + str(next_level_number) + ".tscn"
-	if not FileAccess.file_exists(next_level_path):
+	if not ResourceLoader.exists(next_level_path):
 		get_tree().change_scene_to_file("res://scenes/ending.tscn")
 	else:
 		get_tree().change_scene_to_file(next_level_path)
@@ -43,7 +43,7 @@ func change_level(level: String) -> void:
 	CheckpointManager.reset()
 	
 	var next_level_path = "res://ldtk_levels/worlds/Level_" + level + ".tscn"
-	if FileAccess.file_exists(next_level_path):
+	if ResourceLoader.exists(next_level_path):
 		get_tree().change_scene_to_file(next_level_path)
 	
 	FadeTransition.remove_transition()
@@ -62,7 +62,7 @@ func change_level_specific(level: String, transition_in: bool, transition_out: b
 
 func change_level_with_status(level) -> bool:
 	var next_level_path = "res://ldtk_levels/worlds/Level_" + level + ".tscn"
-	if not FileAccess.file_exists(next_level_path):
+	if not ResourceLoader.exists(next_level_path):
 		return false
 	
 	FadeTransition.transition()

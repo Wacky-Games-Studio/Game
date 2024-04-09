@@ -38,7 +38,8 @@ run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/image="res://blank_splash.png"
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://desktop_icon.svg"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
